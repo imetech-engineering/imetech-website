@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="style.css" />
-</head>
+</head> 
 <body>
   <!-- Bovenste blauwe balk -->
   <header class="topbar">
@@ -62,11 +62,28 @@
     <div class="container bottombar-content">
       <p>KvK: 97538612 | © Ivo Mengerink – IMeTech Engineering</p>
       <p>
-        <a href="/algemenevoorwaarden" class="footer-link">Algemene voorwaarden</a> | 
-        <a href="/disclaimer" class="footer-link">Disclaimer</a> | 
-        <a href="/cookiebeleid" class="footer-link">Cookiebeleid</a>
+        <a href="voorwaarden.html" class="footer-link">Algemene voorwaarden</a> | 
+        <a href="disclaimer.html" class="footer-link">Disclaimer</a>
       </p>
     </div>
   </footer>
+
+<div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;background:#222;color:#fff;padding:15px;text-align:center;display:none;z-index:1000;">
+  Deze website gebruikt cookies voor een optimale ervaring. 
+  <button id="acceptCookies" style="margin-left:10px;padding:5px 10px;">Akkoord</button>
+</div>
+
+<script>
+  // Check of cookie al is geaccepteerd
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieConsent').style.display = 'block';
+  }
+  document.getElementById('acceptCookies').onclick = function() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookieConsent').style.display = 'none';
+  }
+</script>
+
+  
 </body>
 </html>
