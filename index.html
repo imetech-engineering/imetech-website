@@ -2,29 +2,43 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IMeTech – Embedded & Mechatronica</title>
+  
+  <!-- Montserrat Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <!-- Aptos font is niet standaard web-safe, gebruik hiervoor eventueel een vergelijkbare font zoals 'Arial' of 'Inter' als fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="IMeTech logo" class="logo" />
-    <h1>IMeTech</h1>
-    <p>Technische expertise in embedded en mechatronica</p>
+  <!-- Bovenste blauwe balk -->
+  <header class="topbar">
+    <div class="container topbar-content">
+      <img src="Logo blauw 1000x500.png" alt="IMeTech logo" class="logo" />
+      <div class="contact-info">
+        <p>IMeTech Engineering</p>
+        <p>Hoge Veld 63</p>
+        <p>7122ZM, Aalten</p>
+        <p>+31 6 12385439</p>
+        <p><a href="mailto:info@imetech.nl">info@imetech.nl</a></p>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Welkom bij IMeTech</h2>
+  <main class="main-content container">
+    <section class="welcome-section">
+      <h1>Welkom bij IMeTech</h1>
       <p>IMeTech biedt hoogwaardige technische oplossingen op het snijvlak van software, elektronica en mechanica.</p>
     </section>
 
-    <section>
+    <section class="about-section">
       <h2>Over IMeTech</h2>
       <p>Met een brede achtergrond in embedded software, elektronicaontwerp en mechanische engineering ondersteun ik bedrijven met technische knowhow en uitvoering. Kwaliteit, precisie en klantgerichtheid staan voorop.</p>
     </section>
 
-    <section>
+    <section class="expertise-section">
       <h2>Mijn expertise</h2>
       <ul>
         <li>Automatisering & besturing – PLC, controllers, regeltechniek</li>
@@ -36,16 +50,23 @@
       </ul>
     </section>
 
-    <section>
+    <section class="contact-section">
       <h2>Contact</h2>
-      <p>Mail: <a href="mailto:info@imetech.nl">info@imetech.nl</a><br/>
-      Tel: [jouw telefoonnummer]</p>
+      <p>Mail: <a href="mailto:info@imetech.nl">info@imetech.nl</a><br />
+         Tel: +31 6 12385439</p>
     </section>
-
-    <footer>
-      <p>KvK: [jouw KvK-nummer] | © Ivo Mengerink – IMeTech</p>
-      <p><a href="voorwaarden.html">Algemene voorwaarden</a> | <a href="disclaimer.html">Disclaimer</a></p>
-    </footer>
   </main>
+
+  <!-- Onderste blauwe balk -->
+  <footer class="bottombar">
+    <div class="container bottombar-content">
+      <p>KvK: 97538612 | © Ivo Mengerink – IMeTech Engineering</p>
+      <p>
+        <a href="/algemenevoorwaarden" class="footer-link">Algemene voorwaarden</a> | 
+        <a href="/disclaimer" class="footer-link">Disclaimer</a> | 
+        <a href="/cookiebeleid" class="footer-link">Cookiebeleid</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
