@@ -98,8 +98,10 @@ ul li {
 
 .bottombar-content {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
 }
 
 .bottombar p {
