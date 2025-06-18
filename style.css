@@ -96,6 +96,12 @@ ul li {
   width: 100%;
 }
 
+.bottombar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .bottombar p {
   color: white;
   margin: 0;
