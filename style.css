@@ -28,6 +28,11 @@ body {
   align-items: center;
 }
 
+.topbar p {
+  color: white;
+  margin: 0;
+}
+
 .logo {
   height: 200px;
   width: auto;
@@ -89,6 +94,11 @@ ul li {
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+.bottombar p {
+  color: white;
+  margin: 0;
 }
 
 .bottombar-content p {
