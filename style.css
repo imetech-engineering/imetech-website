@@ -60,6 +60,7 @@ body {
   }
   .logo {
     width: 100%;
+    height: auto;
     margin-bottom: 10px;
   }
   .contact-info p {
@@ -87,7 +88,7 @@ p {
   font-size: 20px;
   font-style: italic;
   color: #00509e;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 ul {
