@@ -197,40 +197,10 @@ ul li {
   display: block;
 }
 
-.cta-box {
-  background-color: #00509e;
-  padding: 30px 20px;
-  border-radius: 12px;
-  margin: 50px auto;
-  max-width: 700px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.cta-box h3 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #00509e;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #002c58;
-  color: white;
-}
-
 .button {
   display: inline-block;
   padding: 0.4em 1em;
-  background-color: #3399ff;
+  background-color: #00509e;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
