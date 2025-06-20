@@ -17,7 +17,6 @@ html {
   padding: 0 20px;
 }
 
-/* Bovenste blauwe balk */
 .topbar {
   background-color: #002c58;
   color: white;
@@ -72,7 +71,6 @@ html {
   }
 }
 
-/* Hoofdinhoud */
 h1, h2 {
   text-align: center;
   color: #002c58;
@@ -127,7 +125,6 @@ ul li {
   padding: 10px;
 }
 
-/* Footer (onderste blauwe balk) */
 .bottombar {
   background-color: #002c58;
   color: white;
@@ -167,12 +164,6 @@ ul li {
   text-decoration: underline;
 }
 
-/* Sectie: Projecten en CTA */
-.projects-section {
-  text-align: center;
-  margin-top: 50px;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -201,7 +192,6 @@ ul li {
   display: block;
 }
 
-/* CTA blok */
 .cta-box {
   background-color: #00509e;
   color: white;
@@ -233,7 +223,24 @@ ul li {
   color: white;
 }
 
-/* Fade-in animatie */
+.button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: #00509e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background-color: #002c58;
+  transform: translateY(-2px);
+}
+
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
