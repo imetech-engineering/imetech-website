@@ -107,10 +107,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.button a:hover {
-  text-decoration: none;
-}
-
 .slogan {
   text-align: center;
   font-size: 20px;
@@ -230,6 +226,11 @@ ul li {
 .button:hover {
   background-color: #002c58;
   transform: translateY(-1px);
+  text-decoration: none;
+}
+
+a.button:hover {
+  text-decoration: none;
 }
 
 .center-button {
