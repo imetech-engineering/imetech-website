@@ -168,7 +168,7 @@ ul li {
 }
 
 .gallery {
-  column-count: 3;
+  column-count: 1;
   column-gap: 20px;
   max-width: 1020px;
   margin: 30px auto;
@@ -198,13 +198,13 @@ ul li {
   display: block;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .gallery {
     column-count: 2;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
   .gallery {
     column-count: 3;
   }
