@@ -198,6 +198,18 @@ ul li {
   display: block;
 }
 
+@media (min-width: 600px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
 .button {
   display: inline-block;
   padding: 0.4em 1em;
