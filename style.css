@@ -55,6 +55,10 @@ html {
   text-decoration: underline;
 }
 
+.contact-ctl {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .topbar-content {
     flex-direction: column;
@@ -97,6 +101,10 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .slogan {
