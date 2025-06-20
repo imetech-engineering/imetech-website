@@ -59,7 +59,7 @@ body {
     text-align: center;
   }
   .logo {
-    height: 100px;
+    width: 100%;
     margin-bottom: 10px;
   }
   .contact-info p {
