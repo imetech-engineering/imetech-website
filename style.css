@@ -7,6 +7,10 @@ body {
   line-height: 1.6;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -76,7 +80,16 @@ h1, h2 {
   margin-top: 45px;
 }
 
+h1 {
+  font-size: clamp(26px, 5vw, 42px);
+}
+
+h2 {
+  font-size: clamp(22px, 4vw, 32px);
+}
+
 p {
+  font-size: clamp(16px, 2.5vw, 18px);
   max-width: 650px;
   margin: 0 auto 30px auto;
   font-size: 18px;
@@ -96,11 +109,22 @@ ul {
   margin: 0 auto 40px auto;
   padding-left: 20px;
   color: #333;
-  font-size: 18px;
 }
 
 ul li {
   margin-bottom: 10px;
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.about-section:hover,
+.expertise-section:hover,
+.projects-section:hover,
+.whoami-section:hover,
+.contact-section:hover {
+  background-color: #f5faff;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 /* Footer (onderste blauwe balk) */
