@@ -107,6 +107,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.button a:hover {
+  text-decoration: none;
+}
+
 .slogan {
   text-align: center;
   font-size: 20px;
