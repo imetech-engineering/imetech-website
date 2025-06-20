@@ -225,21 +225,26 @@ ul li {
 
 .button {
   display: inline-block;
-  padding: 0.75em 1.5em;
-  background-color: #00509e;
+  padding: 0.4em 1em;
+  background-color: #3399ff; /* lichtere blauw */
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-weight: normal; /* geen vetgedrukte tekst */
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0.5em auto;
 }
 
 .button:hover {
-  background-color: #002c58;
-  transform: translateY(-2px);
+  background-color: #0066bb; /* hoverkleur behouden */
+  transform: translateY(-1px);
 }
 
+.center-buttons {
+  text-align: center;
+}
 
 @keyframes fadeInUp {
   from {
