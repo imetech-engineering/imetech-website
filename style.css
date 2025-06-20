@@ -127,16 +127,6 @@ ul li {
   font-size: clamp(16px, 2.5vw, 18px);
 }
 
-.about-section:hover,
-.expertise-section:hover,
-.projects-section:hover,
-.whoami-section:hover,
-.contact-section:hover {
-  background-color: #f5faff;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-}
-
 .bottombar {
   background-color: #002c58;
   color: white;
