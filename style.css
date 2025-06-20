@@ -127,7 +127,6 @@ ul li {
   background-color: #f5faff;
   transition: all 0.3s ease;
   border-radius: 8px;
-  padding: 10px;
 }
 
 .bottombar {
@@ -140,6 +139,7 @@ ul li {
   position: relative;
   bottom: 0;
   width: 100%;
+  margin-top: 40px;
 }
 
 .bottombar-content {
@@ -199,7 +199,6 @@ ul li {
 
 .cta-box {
   background-color: #00509e;
-  color: white;
   padding: 30px 20px;
   border-radius: 12px;
   margin: 50px auto;
@@ -214,8 +213,8 @@ ul li {
 
 .cta-button {
   display: inline-block;
-  background-color: white;
-  color: #00509e;
+  background-color: #00509e;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   padding: 12px 24px;
@@ -231,11 +230,11 @@ ul li {
 .button {
   display: inline-block;
   padding: 0.4em 1em;
-  background-color: #3399ff; /* lichtere blauw */
+  background-color: #3399ff;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: normal; /* geen vetgedrukte tekst */
+  font-weight: normal;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -243,7 +242,7 @@ ul li {
 }
 
 .button:hover {
-  background-color: #0066bb; /* hoverkleur behouden */
+  background-color: #002c58;
   transform: translateY(-1px);
 }
 
