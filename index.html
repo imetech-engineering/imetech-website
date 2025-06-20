@@ -8,14 +8,6 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head> 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-  });
-</script>
 <body>
   <header class="topbar">
     <div class="container topbar-content">
@@ -90,13 +82,6 @@
       <a href="mailto:info@imetech.nl" class="cta-button">Neem contact op</a>
     </section>
   </main>
-
-  <script>
-    const items = document.querySelectorAll('.gallery-item');
-    items.forEach((item, index) => {
-      item.style.animationDelay = `${index * 0.15}s`;
-    });
-  </script>
   
   <footer class="bottombar">
     <div class="container bottombar-content">
@@ -107,5 +92,21 @@
       </p>
     </div>
   </footer>  
+
+  <script>
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.15}s`;
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  </script>
 </body>
 </html>
