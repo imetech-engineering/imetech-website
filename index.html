@@ -6,7 +6,16 @@
   <title>IMeTech Engineering</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head> 
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+  });
+</script>
 <body>
   <header class="topbar">
     <div class="container topbar-content">
@@ -28,13 +37,13 @@
       <p>Ik ben Ivo Mengerink, de drijvende kracht achter IMeTech. Vanuit mijn passie voor techniek help ik bedrijven en individuen bij het ontwikkelen van slimme, duurzame en praktische oplossingen. Of het nu gaat om een nieuw productidee, het verbeteren van een bestaand systeem of het realiseren van een prototype, ik denk graag mee en zorg voor de uitvoering.</p>
     </section>
     
-    <section class="about-section">
+    <section class="about-section" data-aos="fade-up">
       <h2>Over IMeTech</h2>
       <p>IMeTech staat voor hoogwaardige technische ondersteuning op het gebied van softwareontwikkeling, elektronica, mechanica en data-analyse. Met mijn achtergrond als engineer en mijn ervaring in diverse sectoren bied ik zowel advies als uitvoering, van eerste schets tot werkend product.</p>
       <p>Wat mij kenmerkt is een nuchtere aanpak, duidelijke communicatie en een scherp oog voor detail. Ik werk graag samen met bedrijven en individuen die net als ik geloven in slimme techniek die werkt.</p>
     </section>
     
-    <section class="expertise-section">
+    <section class="expertise-section" data-aos="fade-up">
       <h2>Waar ik goed in ben</h2>
       <p>Ik combineer kennis uit meerdere vakgebieden om tot praktische oplossingen te komen. Mijn werk valt grofweg onder vijf pijlers:</p>
       <ul>
@@ -46,7 +55,7 @@
       </ul>
     </section>
 
-    <section class="projects-section">
+    <section class="projects-section" data-aos="fade-up">
       <h2>Projectvoorbeelden</h2>
       <p>Bekijk enkele voorbeelden van wat ik maak, van mechanisch ontwerp tot elektronische schakelingen.</p>
       <div class="gallery">
@@ -54,27 +63,28 @@
           <img src="fertigationFront.png" alt="CAD render 1">
         </div>
         <div class="gallery-item">
-          <img src="fertigationBack.png" alt="CAD render 1">
+          <img src="fertigationBack.png" alt="CAD render 2">
         </div>
         <div class="gallery-item">
-          <img src="2x2Steering01.jpg" alt="CAD render 1">
+          <img src="2x2Steering01.jpg" alt="CAD render 3">
         </div>
         <div class="gallery-item">
-          <img src="PCBDesign.png" alt="CAD render 1">
+          <img src="PCBDesign.png" alt="PCB render 1">
         </div>
       </div>
     </section>
     
-    <section class="whoami-section">
+    <section class="whoami-section" data-aos="fade-up">
       <h2>Wie ben ik?</h2>
       <p>Ik ben een engineer in hart en nieren. Nieuwsgierig, zelfstandig en praktisch ingesteld. In mijn vrije tijd sleutel ik graag aan motoren, ontwerp ik mijn eigen elektronica en blijf ik op de hoogte van de nieuwste technieken. Mijn klanten waarderen mijn brede technische blik, mijn vermogen om snel te schakelen en het feit dat ik ook echt zelf kan bouwen en testen.</p>
       <p>Geen dure woorden, maar gewoon: samen iets moois maken wat werkt.</p>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" data-aos="fade-up">
       <h2>Contact</h2>
       <p>Mail: <a href="mailto:info@imetech.nl">info@imetech.nl</a><br />
          Tel: +31 6 12385439</p>
+      <a href="mailto:info@imetech.nl" class="cta-button">Neem contact op</a>
     </section>
   </main>
 
