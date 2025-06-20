@@ -68,11 +68,6 @@ body {
 }
 
 /* Hoofdinhoud */
-.main-content {
-  padding: 40px 0 80px 0;
-  font-family: 'Inter', Arial, sans-serif;
-}
-
 h1, h2 {
   text-align: center;
   color: #002c58;
