@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 </head> 
 <body>
-  <!-- Bovenste blauwe balk -->
   <header class="topbar">
     <div class="container topbar-content">
       <img src="Logo blauw 1000x500.png" alt="IMeTech logo" class="logo" />
@@ -46,8 +45,27 @@
         <li><strong>Productontwikkeling:</strong> Van idee tot werkend prototype of kleine serie. Ik help met conceptontwikkeling, maakbaarheid en realisatie.</li>
       </ul>
     </section>
+
+    <section class="projects-section">
+      <h2>Projectvoorbeelden</h2>
+      <p>Bekijk enkele voorbeelden van wat ik maak, van mechanisch ontwerp tot elektronische schakelingen.</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="fertigationFront.png" alt="CAD render 1">
+        </div>
+        <div class="gallery-item">
+          <img src="fertigationBack.png" alt="CAD render 1">
+        </div>
+        <div class="gallery-item">
+          <img src="2x2Steering01.jpg" alt="CAD render 1">
+        </div>
+        <div class="gallery-item">
+          <img src="PCBDesign.png" alt="CAD render 1">
+        </div>
+      </div>
+    </section>
     
-    <section class="extra-section">
+    <section class="whoami-section">
       <h2>Wie ben ik?</h2>
       <p>Ik ben een engineer in hart en nieren. Nieuwsgierig, zelfstandig en praktisch ingesteld. In mijn vrije tijd sleutel ik graag aan motoren, ontwerp ik mijn eigen elektronica en blijf ik op de hoogte van de nieuwste technieken. Mijn klanten waarderen mijn brede technische blik, mijn vermogen om snel te schakelen en het feit dat ik ook echt zelf kan bouwen en testen.</p>
       <p>Geen dure woorden, maar gewoon: samen iets moois maken wat werkt.</p>
@@ -60,7 +78,13 @@
     </section>
   </main>
 
-  <!-- Onderste blauwe balk -->
+  <script>
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.15}s`;
+    });
+  </script>
+  
   <footer class="bottombar">
     <div class="container bottombar-content">
       <p>KvK: 97538612 | © Ivo Mengerink – IMeTech Engineering</p>
