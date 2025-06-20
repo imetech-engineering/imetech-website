@@ -178,21 +178,23 @@ ul li {
 }
 
 .gallery {
-  column-count: 3;
+  text-align: center;
+  column-count: 1;
   column-gap: 20px;
+  width: 100%;
   max-width: 1020px;
   margin: 30px auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 600px) {
   .gallery {
     column-count: 2;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 900px) {
   .gallery {
-    column-count: 1;
+    column-count: 3;
   }
 }
 
