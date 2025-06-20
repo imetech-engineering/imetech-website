@@ -168,10 +168,35 @@ ul li {
 }
 
 .gallery {
-  column-count: 1;
-  column-gap: 20px;
+  display: flex;
+  gap: 20px;
   max-width: 1020px;
   margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+.gallery-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    flex-direction: row;
+  }
+
+  .gallery-column {
+    flex: 1 1 48%;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-column {
+    flex: 1 1 100%;
+  }
 }
 
 .gallery-item {
