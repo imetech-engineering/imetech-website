@@ -63,7 +63,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .whoami-content img {
@@ -92,6 +92,14 @@ html {
   }
   .contact-info p {
     text-align: center;
+  }
+  .whoami-content {
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+  }
+  .whoami-content img {
+    margin: 0 auto;
   }
 }
 
