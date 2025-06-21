@@ -96,7 +96,6 @@ html {
   .whoami-content {
     flex-direction:column;
     align-items: center;
-    text-align: center;
   }
   .whoami-content img {
     margin: 0 auto;
@@ -196,27 +195,21 @@ ul li {
 
 .gallery {
   display: flex;
-  gap: 20px;
-  max-width: 1020px;
-  margin: 30px auto;
   flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 30px auto;
 }
 
 .gallery-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 0;
+  flex: 1 1 48%;
+  min-width: 48%;
 }
 
-@media (max-width: 600px) {
-  .gallery {
-    flex-direction: row;
-  }
-
+@media (min-width: 800px) {
   .gallery-column {
-    flex: 1 1 48%;
+    flex: 1 1 31%;
+    min-width: 31%;
   }
 }
 
