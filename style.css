@@ -204,13 +204,13 @@ ul li {
 
 .gallery-column {
   flex: 1 1 48%;
-  min-width: 48%;
+  min-width: 0;
 }
 
 @media (min-width: 800px) {
   .gallery-column {
     flex: 1 1 31%;
-    min-width: 31%;
+    min-width: 0;
   }
 }
 
