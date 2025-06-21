@@ -203,14 +203,14 @@ ul li {
 }
 
 .gallery-item {
-  flex: 1 1 calc(50% - 20px); /* 2 kolommen */
-  min-width: 300px;
+  flex: 1 1 calc(50% - 20px);
+  min-width: 150px;
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .gallery-item {
-    flex: 1 1 calc(33.33% - 20px); /* 3 kolommen */
+    flex: 1 1 calc(33.33% - 20px);
   }
 }
 
