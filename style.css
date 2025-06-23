@@ -395,29 +395,29 @@ ul li {
   width: 100%;
   max-width: 1000px;
   margin: 30px auto;
-  height: 40vh;
+  aspect-ratio: 3 / 1;
   position: relative;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  height: 100%;
+  will-change: transform;
 }
 
 .carousel-item {
-  flex: 0 0 50%;
-  height: 100%;
+  flex: 0 0 auto;
+  width: 50%;
   padding: 0 10px;
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel-item img {
-  height: 100%;
   width: 100%;
-  object-fit: contain;
+  height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .carousel-item:hover {
@@ -427,7 +427,7 @@ ul li {
 
 @media (min-width: 768px) {
   .carousel-item {
-    flex: 0 0 33.3333%;
+    width: 33.3333%;
   }
 }
 
