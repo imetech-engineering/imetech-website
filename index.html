@@ -127,18 +127,16 @@
       track.appendChild(clone);
     }
   
-    const totalItems = originalCount + visibleCount;
-    track.style.width = `${(100 / visibleCount) * totalItems}%`;
-  
     function slide() {
       index++;
+      const itemWidth = track.querySelector('.carousel-item').offsetWidth + 20; // 20px padding
       track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${(100 / totalItems) * index}%)`;
+      track.style.transform = `translateX(-${itemWidth * index}px)`;
   
       if (index >= originalCount) {
         setTimeout(() => {
           track.style.transition = 'none';
-          track.style.transform = `translateX(0%)`;
+          track.style.transform = 'translateX(0)';
           index = 0;
         }, 500);
       }
