@@ -391,7 +391,7 @@ ul li {
 .carousel-container {
   width: 100%;
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 20px auto;
   overflow: hidden;
   position: relative;
 }
@@ -419,15 +419,14 @@ ul li {
 
 .carousel-item:hover img {
   transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
   .carousel-item {
-    flex: 0 0 50%; /* 2 naast elkaar op mobiel */
+    flex: 0 0 50%;
   }
 }
-
 
 .button {
   display: inline-block;
@@ -438,7 +437,7 @@ ul li {
   border-radius: 6px;
   font-weight: normal;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: 0.5em auto;
 }
@@ -446,7 +445,6 @@ ul li {
 .button:hover {
   background-color: #002c58;
   transform: scale(1.03);
-  text-decoration: none;
 }
 
 a.button:hover {
