@@ -206,6 +206,7 @@ ul li {
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  height: 100%;
 }
 
 .carousel-item {
@@ -213,6 +214,7 @@ ul li {
   height: 100%;
   padding: 0 10px;
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel-item img {
@@ -220,6 +222,11 @@ ul li {
   width: 100%;
   object-fit: contain;
   display: block;
+}
+
+.carousel-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 @media (min-width: 768px) {
