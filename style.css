@@ -1,4 +1,3 @@
-/* Algemene instellingen */
 body {
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
@@ -194,7 +193,6 @@ ul li {
   text-decoration: underline;
 }
 
-/* Algemene instellingen */
 body {
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
@@ -391,10 +389,11 @@ ul li {
 }
 
 .carousel-container {
-  overflow: hidden;
   width: 100%;
-  max-width: 1060px;
-  margin: 20px auto;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .carousel-track {
@@ -403,29 +402,32 @@ ul li {
 }
 
 .carousel-item {
-  flex: 0 0 auto;
-  width: 50%;
+  box-sizing: border-box;
   padding: 10px;
+  flex: 0 0 33.3333%;
   aspect-ratio: 1 / 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel-item img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.carousel-item:hover {
+.carousel-item:hover img {
   transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .carousel-item {
-    width: 33.3333%;
+    flex: 0 0 50%; /* 2 naast elkaar op mobiel */
   }
 }
+
 
 .button {
   display: inline-block;
@@ -444,45 +446,6 @@ ul li {
 .button:hover {
   background-color: #002c58;
   transform: scale(1.03);
-  text-decoration: none;
-}
-
-a.button:hover {
-  text-decoration: none;
-}
-
-.center-button {
-  text-align: center;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.button {
-  display: inline-block;
-  padding: 0.4em 1em;
-  background-color: #00509e;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: normal;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: 0.5em auto;
-}
-
-.button:hover {
-  background-color: #002c58;
-  transform: translateY(-1px);
   text-decoration: none;
 }
 
