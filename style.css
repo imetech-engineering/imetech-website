@@ -194,6 +194,202 @@ ul li {
   text-decoration: underline;
 }
 
+/* Algemene instellingen */
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #002c58;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topbar {
+  background-color: #002c58;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar p {
+  color: white;
+  margin: 0;
+}
+
+.logo {
+  height: 200px;
+  width: auto;
+}
+
+.contact-info p {
+  margin: 2px 0;
+  text-align: right;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-ctl {
+  text-align: center;
+}
+
+.whoami-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.whoami-content img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.whoami-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .topbar-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .contact-info p {
+    text-align: center;
+  }
+  .whoami-content {
+    flex-direction:column;
+    align-items: center;
+  }
+  .whoami-content img {
+    margin: 0 auto;
+  }
+}
+
+h1, h2 {
+  text-align: center;
+  color: #002c58;
+  margin-bottom: 10px;
+  margin-top: 45px;
+}
+
+h1 {
+  font-size: clamp(26px, 5vw, 42px);
+}
+
+h2 {
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+p {
+  font-size: clamp(16px, 2.5vw, 18px);
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+  color: #333;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+  color: #00509e;
+  margin-bottom: 15px;
+}
+
+ul {
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  padding-left: 20px;
+  color: #333;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.bottombar {
+  background-color: #002c58;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding: 15px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.bottombar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.bottombar p {
+  color: white;
+  margin: 0;
+}
+
+.bottombar-content p {
+  margin: 5px 0;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
 .carousel-container {
   overflow: hidden;
   width: 100%;
@@ -232,6 +428,45 @@ ul li {
 @media (min-width: 768px) {
   .carousel-item {
     flex: 0 0 33.3333%;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background-color: #00509e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: normal;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0.5em auto;
+}
+
+.button:hover {
+  background-color: #002c58;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+a.button:hover {
+  text-decoration: none;
+}
+
+.center-button {
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
