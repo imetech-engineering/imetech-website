@@ -403,7 +403,7 @@ ul li {
 
 .carousel-item {
   box-sizing: border-box;
-  padding: 8px;
+  padding: 10px;
   flex: 0 0 33.3333%;
   aspect-ratio: 1 / 1;
 }
@@ -419,7 +419,7 @@ ul li {
 
 .carousel-item:hover img {
   transform: scale(1.03);
-  box-shadow: 0 0px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -435,7 +435,7 @@ ul li {
   color: #fff;
   border-radius: 6px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
   margin: 0.5em auto;
 }
