@@ -117,8 +117,8 @@
 
   <script>
     const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const totalOriginal = items.length;
+    const items = Array.from(document.querySelectorAll('.carousel-item'));
+    const originalCount = items.length;
     let visibleCount = window.innerWidth >= 768 ? 3 : 2;
     let index = 0;
   
@@ -127,30 +127,29 @@
       track.appendChild(clone);
     }
   
-    function updateSlide() {
+    const totalItems = originalCount + visibleCount;
+    track.style.width = `${(100 / visibleCount) * totalItems}%`;
+  
+    function slide() {
       index++;
       track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${(100 / visibleCount) * index}%)`;
+      track.style.transform = `translateX(-${(100 / totalItems) * index}%)`;
   
-      // Reset bij einde voor loop-effect
-      if (index >= totalOriginal) {
+      if (index >= originalCount) {
         setTimeout(() => {
           track.style.transition = 'none';
           track.style.transform = `translateX(0%)`;
           index = 0;
-        }, 500); 
+        }, 500);
       }
     }
   
-    setInterval(updateSlide, 3000);
+    setInterval(slide, 3000);
   
     window.addEventListener('resize', () => {
       const newVisible = window.innerWidth >= 768 ? 3 : 2;
-      if (newVisible !== visibleCount) {
-        location.reload();
-      }
+      if (newVisible !== visibleCount) location.reload();
     });
   </script>
-
 </body>
 </html>
