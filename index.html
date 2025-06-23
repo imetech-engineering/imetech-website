@@ -114,5 +114,43 @@
       once: true,
     });
   </script>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalOriginal = items.length;
+    let visibleCount = window.innerWidth >= 768 ? 3 : 2;
+    let index = 0;
+  
+    for (let i = 0; i < visibleCount; i++) {
+      const clone = items[i].cloneNode(true);
+      track.appendChild(clone);
+    }
+  
+    function updateSlide() {
+      index++;
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${(100 / visibleCount) * index}%)`;
+  
+      // Reset bij einde voor loop-effect
+      if (index >= totalOriginal) {
+        setTimeout(() => {
+          track.style.transition = 'none';
+          track.style.transform = `translateX(0%)`;
+          index = 0;
+        }, 500); 
+      }
+    }
+  
+    setInterval(updateSlide, 3000);
+  
+    window.addEventListener('resize', () => {
+      const newVisible = window.innerWidth >= 768 ? 3 : 2;
+      if (newVisible !== visibleCount) {
+        location.reload();
+      }
+    });
+  </script>
+
 </body>
 </html>
