@@ -118,35 +118,31 @@
   <script>
     const track = document.querySelector('.carousel-track');
     const items = Array.from(document.querySelectorAll('.carousel-item'));
-    const originalCount = items.length;
-    const visible = window.innerWidth >= 768 ? 3 : 2;
-    let index = 0;
+    const itemWidth = items[0].offsetWidth + 20;
+    const cloneCount = items.length;
   
-    for (let i = 0; i < visible; i++) {
-      const clone = items[i].cloneNode(true);
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
       track.appendChild(clone);
-    }
+    });
+  
+    let position = 0;
   
     function slide() {
-      index++;
-      const itemWidth = items[0].offsetWidth + 20;
+      position++;
       track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${itemWidth * index}px)`;
+      track.style.transform = `translateX(-${position * itemWidth}px)`;
   
-      if (index >= originalCount) {
+      if (position >= cloneCount) {
         setTimeout(() => {
           track.style.transition = 'none';
-          track.style.transform = 'translateX(0)';
-          index = 0;
+          position = 0;
+          track.style.transform = `translateX(0)`;
         }, 500);
       }
     }
   
-    setInterval(slide, 5000);
-  
-    window.addEventListener('resize', () => {
-      location.reload();n
-    });
+    setInterval(slide, 3000);
   </script>
 </body>
 </html>
