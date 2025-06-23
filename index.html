@@ -116,38 +116,40 @@
   </script>
 
   <script>
-    const track = document.querySelector('.carousel-track');
-    const items = Array.from(document.querySelectorAll('.carousel-item'));
-    const itemWidth = items[0].offsetWidth + 20;
-    const cloneCount = items.length;
-    
-    items.forEach(item => {
-      const clone = item.cloneNode(true);
-      track.appendChild(clone);
-    });
-    
-    let position = 0;
-    
-    function slide() {
-      position++;
-      track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${position * itemWidth}px)`;
-    
-      if (position >= cloneCount) {
-        setTimeout(() => {
-          track.style.transition = 'none';
-          position = 0;
-          track.style.transform = `translateX(0)`;
-          requestAnimationFrame(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const items = Array.from(document.querySelectorAll('.carousel-item'));
+      const itemWidth = items[0].offsetWidth + 20;
+      const cloneCount = items.length;
+  
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+  
+      let position = 0;
+  
+      function slide() {
+        position++;
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(-${position * itemWidth}px)`;
+  
+        if (position >= cloneCount) {
+          setTimeout(() => {
+            track.style.transition = 'none';
+            position = 0;
+            track.style.transform = `translateX(0)`;
             requestAnimationFrame(() => {
-              track.style.transition = 'transform 0.5s ease-in-out';
+              requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+              });
             });
-          });
-        }, 500);
+          }, 500);
+        }
       }
-    }
-    
-    setInterval(slide, 3000);
+  
+      setInterval(slide, 3000);
+    });
   </script>
 </body>
 </html>
