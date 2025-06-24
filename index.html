@@ -119,7 +119,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       const track = document.querySelector('.carousel-track');
       const items = Array.from(document.querySelectorAll('.carousel-item'));
-      const itemWidth = items[0].offsetWidth;
       const cloneCount = items.length;
   
       items.forEach(item => {
@@ -128,6 +127,7 @@
       });
   
       let position = 0;
+      let itemWidth = items[0].offsetWidth;
   
       function slide() {
         position++;
@@ -149,6 +149,12 @@
       }
   
       setInterval(slide, 3000);
+  
+      window.addEventListener('resize', () => {
+        itemWidth = items[0].offsetWidth;
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${position * itemWidth}px)`;
+      });
     });
   </script>
 </body>
