@@ -71,7 +71,6 @@ html {
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 .whoami-text {
