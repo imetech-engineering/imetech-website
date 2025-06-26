@@ -10,19 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
-section {
+.container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.container {
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.container:hover{
-  background-color: #f8fbfe;
 }
 
 .topbar {
