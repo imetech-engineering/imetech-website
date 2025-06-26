@@ -16,12 +16,12 @@ section {
   padding: 0 20px;
 }
 
-.section {
+.container {
   width: 100%;
   transition: background-color 0.3s ease;
 }
 
-.section:hover{
+.container:hover{
   background-color: #f8fbfe;
 }
 
