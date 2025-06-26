@@ -26,6 +26,8 @@ section {
   margin-right: -50vw;
   transition: background-color 0.5s ease;
   padding: 5px 0;
+  display: flex;
+  align-items: center;
 }
 
 section:hover {
@@ -182,7 +184,6 @@ ul li {
   position: relative;
   bottom: 0;
   width: 100%;
-  margin-top: 40px;
 }
 
 .bottombar-content {
