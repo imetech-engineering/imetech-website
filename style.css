@@ -87,6 +87,7 @@ section:hover {
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  padding: 1px;
 }
 
 .whoami-text {
