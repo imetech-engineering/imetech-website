@@ -16,6 +16,15 @@ html {
   padding: 0 20px;
 }
 
+section {
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+section:hover{
+  background-color: #eaf3fb;
+}
+
 .topbar {
   background-color: #002c58;
   color: white;
