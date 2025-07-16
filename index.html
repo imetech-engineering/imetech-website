@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="IMeTech biedt technische ondersteuning in softwareontwikkeling, elektronica, mechanica en data-analyse. Van idee tot werkend product, met een nuchtere aanpak en oog voor detail.">
+  <meta name="keywords" content="technische oplossingen, PCB design, engineering, product development, SolidWorks, prototypes, software ontwikkeling, Aalten, Gelderland, IMeTech">
+  <meta name="author" content="Ivo Mengerink">
+  <meta property="og:title" content="IMeTech Engineering - Technische Oplossingen Aalten">
+  <meta property="og:description" content="Van idee tot werkend product. Technische expertise in software, elektronica, mechanica en data science.">
+  <meta property="og:image" content="https://imetech.nl/images/Logo blauw 1000x500.png">
+  <meta property="og:url" content="https://imetech.nl">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>IMeTech Engineering - Technische Oplossingen Aalten | Ivo Mengerink</title>
+  <link rel="icon" href="images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=8" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IMeTech Engineering",
+    "url": "https://imetech.nl",
+    "logo": "https://imetech.nl/images/Logo blauw 1000x500.png",
+    "description": "Technische oplossingen in software, elektronica, mechanica en data science. Van idee tot werkend product.",
+    "founder": {
+      "@type": "Person",
+      "name": "Ivo Mengerink",
+      "jobTitle": "Engineering",
+      "alumniOf": "HAN University of Applied Sciences",
+      "hasCredential": "Certified SolidWorks Professional (CSWP)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hoge Veld 63",
+      "addressLocality": "Aalten",
+      "postalCode": "7122ZM",
+      "addressCountry": "NL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+31612385439",
+      "email": "info@imetech.nl",
+      "contactType": "customer service",
+      "areaServed": "NL",
+      "availableLanguage": "Dutch"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/ivo-mengerink-30789b200/"
+    ],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.8996",
+        "longitude": "6.5670"
+      },
+      "geoRadius": "50000"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ivo Mengerink",
+    "jobTitle": "Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "IMeTech Engineering"
+    },
+    "alumniOf": "HAN University of Applied Sciences",
+    "hasCredential": "Certified SolidWorks Professional (CSWP)",
+    "url": "https://imetech.nl",
+    "sameAs": [
+      "https://www.linkedin.com/in/ivo-mengerink-30789b200/"
+    ],
+    "knowsAbout": [
+      "Software Development",
+      "Electronics Engineering", 
+      "Mechanical Engineering",
+      "Data Science",
+      "Product Development",
+      "SolidWorks CAD Design"
+    ]
+  }
+  </script>
+</head> 
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-content">
+      <div class="brand">
+        <img src="images/Logo blauw 1000x500.webp" alt="IMeTech Engineering" class="logo" />
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; flex: 1;">
+        <div class="brand-text" style="align-items: flex-end; text-align: right;">
+          <span class="brand-name">IMeTech Engineering</span>
+          <span class="brand-tagline">Ivo Mengerink</span>
+        </div>
+        <div class="header-contact">
+          <a href="tel:+31612385439" class="contact-link">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+31 6 12 38 54 39</span>
+          </a>
+          <a href="#contact" class="contact-link primary">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Start een project</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-intro">
+              <span class="greeting">Hallo, ik ben</span>
+              <h1 class="hero-name">Ivo Mengerink</h1>
+              <p class="hero-title">Engineer & Oprichter van IMeTech</p>
+            </div>
+            
+            <div class="hero-mission">
+              <h2 class="mission-statement">Eenvoudig als het kan, doordacht als het moet.</h2>
+              <p class="mission-description">
+                Vanuit mijn passie voor techniek help ik bedrijven en individuen bij het ontwikkelen van slimme, duurzame en praktische oplossingen. Of het nu gaat om een nieuw productidee, het verbeteren van een bestaand systeem of het realiseren van een prototype - ik denk graag mee en zorg voor de uitvoering.
+              </p>
+            </div>
+            
+            <div class="hero-cta">
+              <a href="#contact" class="btn btn-primary btn-large cta-pulse">
+                <span>Bespreek je project</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="#werk" class="btn btn-secondary btn-large">
+                <span>Bekijk mijn werk</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="hero-trust">
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                  </svg>
+                </div>
+                <span>Eenvoudig als het kan</span>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </div>
+                <span>Doordacht als het moet</span>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <span>Direct contact & persoonlijk</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-visual">
+            <!-- Clean Engineering Console -->
+            <div class="engineering-console">
+              <div class="console-header">
+                <div class="console-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" style="color: var(--success);"><rect x="2" y="4" width="16" height="12" rx="2"/><rect x="4" y="6" width="12" height="8" rx="1" fill="#239dd8"/></svg>
+                  IMeTech Engineering Console
+                </div>
+              </div>
+              
+              <div class="console-content">
+                <div class="console-stats">
+                  <div class="stat-item">
+                    <div class="stat-label">Completed Projects</div>
+                    <div class="stat-value" data-target="15">0</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-label">Specializations</div>
+                    <div class="stat-value" data-target="5">0</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-label">Technologies</div>
+                    <div class="stat-value" data-target="15">0+</div>
+                  </div>
+                </div>
+                
+                <div class="console-terminal">
+                  <div class="terminal-line">
+                    <span class="terminal-prompt">imetech@console:~$</span>
+                    <span class="terminal-command" id="typing-command"></span>
+                    <span class="terminal-cursor">_</span>
+                  </div>
+                  <div class="terminal-output">
+                    <div class="output-line success">✓ Dubbele Labvoeding - COMPLETED</div>
+                    <div class="output-line success">✓ Letterklok - DELIVERED</div>
+                    <div class="output-line success">✓ 2x2 Stuurrrobot - OPERATIONAL</div>
+                    <div class="output-line success">✓ USB-C Li-Ion Oplaad PCB - SHIPPED</div>
+                    <div class="output-line info">ℹ Available for new projects</div>
+                  </div>
+                </div>
+                
+                <div class="console-profile">
+                  <div class="profile-img">
+                    <img src="images/WieBenIk.webp" alt="Ivo Mengerink" />
+                  </div>
+                  <div class="profile-info">
+                    <h4>Ivo Mengerink</h4>
+                    <p>IMeTech Engineering</p>
+                    <div class="status-online">
+                      <div class="status-dot"></div>
+                      <span>Beschikbaar voor projecten</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Section - Wie ben ik? -->
+    <section class="personal section" id="personal">
+      <div class="container">
+        <div class="personal-content">
+          <div class="personal-text">
+            <h2>Wie ben ik?</h2>
+            <div class="personal-narrative">
+              <p>
+                Ik ben Ivo Mengerink, engineer en oprichter van IMeTech Engineering. Mijn passie is techniek begrijpelijk, praktisch en doeltreffend maken voor elk bedrijf. Met een brede technische achtergrond en een nuchtere aanpak help ik organisaties vooruit met slimme oplossingen die werken.
+              </p>
+              <p>
+                Of het nu gaat om productontwikkeling, optimalisatie of het oplossen van complexe vraagstukken: ik denk mee, bouw mee en lever resultaat. Altijd helder, persoonlijk en met oog voor jouw doel.
+              </p>
+            </div>
+            <div class="highlight-badge" style="margin-top:1.5rem; border: 1.5px solid var(--primary-dark); background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; font-size:1.15rem; font-weight:600;">
+              Techniek begrijpelijk, praktisch en doeltreffend maken voor elk bedrijf.
+            </div>
+          </div>
+          <div class="personal-visual">
+            <div class="profile-showcase">
+              <div class="profile-frame">
+                <img src="images/WieBenIk.webp" alt="Ivo Mengerink" class="profile-image" />
+                <div class="profile-overlay"></div>
+              </div>
+              <!-- Floating Tech Icons -->
+              <div class="floating-elements">
+                <div class="floating-icon" data-tech="software">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div class="floating-icon" data-tech="electronics">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                  </svg>
+                </div>
+                <div class="floating-icon" data-tech="mechanical">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24m-4.24 12.68l4.24 4.24M20.97 7.5l-6.02 3.48m-5.9 3.42l-6.02 3.48M20.97 16.5l-6.02-3.48m-5.9-3.42L3.03 7.5M1 12h6m6 0h6"></path>
+                  </svg>
+                </div>
+                <div class="floating-icon" data-tech="data">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+              </div>
+              <!-- Animated Rings -->
+              <div class="tech-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+              </div>
+              <div class="profile-badge">
+                <span class="badge-text">Ivo Mengerink</span>
+                <span class="badge-role">Engineer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About/Story Section -->
+    <section class="story section" id="about">
+      <div class="container">
+        <div class="story-content">
+          <div class="story-text">
+            <h2>Mijn verhaal</h2>
+            <div class="story-narrative">
+              <p>
+                Elke engineer heeft zijn eigen pad. Mijn reis kenmerkt zich door nieuwsgierigheid, een brede technische interesse en de drive om ideeën om te zetten in werkende oplossingen. De tijdlijn hieronder laat zien hoe mijn passie voor techniek zich stap voor stap heeft ontwikkeld.
+              </p>
+            </div>
+          </div>
+          <section class="journey-section" style="padding: 0; background: none;">
+            <div class="journey-timeline">
+              <div class="timeline-track"></div>
+              <div class="journey-milestone" data-year="2017">
+                  <div class="milestone-marker">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-year">2017</div>
+                  </div>
+                  <div class="milestone-content">
+                    <h3>Start bij ESTEDE</h3>
+                    <p>Ontdekte mijn passie voor techniek en productontwikkeling. Leerde direct klantcontact, implementatie en het begeleiden van projecten.</p>
+                    <div class="milestone-tags">
+                      <span class="tag">ESTEDE</span>
+                      <span class="tag">Technisch medewerker</span>
+                      <span class="tag">Productontwikkeling</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="journey-milestone" data-year="2022">
+                  <div class="milestone-marker">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-year">2022</div>
+                  </div>
+                  <div class="milestone-content">
+                    <h3>CSWP Certificering</h3>
+                    <p>Mijlpaal die mijn expertise in geavanceerd 3D CAD-ontwerp bevestigde.</p>
+                    <div class="milestone-tags">
+                      <span class="tag">CSWP</span>
+                      <span class="tag">SolidWorks</span>
+                      <span class="tag">CAD</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="journey-milestone" data-year="2023">
+                  <div class="milestone-marker">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-year">2023</div>
+                  </div>
+                  <div class="milestone-content">
+                    <h3>BSc Mechatronica, MSc Engineering Systems & R2R</h3>
+                    <p>Afgestudeerd als Mechatronica engineer. Startte bij R2R Engineering en begon aan mijn MSc Engineering Systems. Verdiepte mijn kennis in slimme systemen en innovatie.</p>
+                    <div class="milestone-tags">
+                      <span class="tag">Mechatronica</span>
+                      <span class="tag">R2R</span>
+                      <span class="tag">MSc Engineering Systems</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="journey-milestone" data-year="2025">
+                  <div class="milestone-marker">
+                    <div class="milestone-dot active"></div>
+                    <div class="milestone-year">2025</div>
+                  </div>
+                  <div class="milestone-content">
+                    <h3>Oprichting IMeTech Engineering</h3>
+                    <p>Startte mijn eigen bedrijf om bedrijven te helpen met praktische, duurzame en innovatieve technische oplossingen.</p>
+                    <div class="milestone-tags">
+                      <span class="tag">IMeTech</span>
+                      <span class="tag">Productontwikkeling</span>
+                      <span class="tag">Consultancy</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise section" id="expertise">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Waar ik goed in ben</h2>
+          <p>Ik combineer kennis uit meerdere vakgebieden om tot praktische oplossingen te komen. Mijn werk valt grofweg onder vijf pijlers:</p>
+        </div>
+        
+        <!-- Interactive Expertise Dashboard -->
+        <div class="expertise-dashboard">
+          <div class="dashboard-grid">
+            
+            <!-- Software Development Panel -->
+            <div class="expertise-panel" data-expertise="software">
+              <div class="panel-background">
+                <div class="code-lines">
+                  <div class="code-line"></div>
+                  <div class="code-line"></div>
+                  <div class="code-line"></div>
+                  <div class="code-line"></div>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="panel-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h3>Softwareontwikkeling</h3>
+                <p>Van besturingssoftware in C++ of Python tot industriële PLC-programmering, betrouwbaar en schaalbaar opgezet.</p>
+                <div class="tech-showcase">
+                  <span class="tech-item">C++</span>
+                  <span class="tech-item">Python</span>
+                  <span class="tech-item">PLC</span>
+                </div>
+                <div class="panel-overlay">
+                  <div class="overlay-content">
+                    <h4>Expertise Details</h4>
+                    <ul class="expertise-list">
+                      <li>Besturingssoftware ontwikkeling</li>
+                      <li>Industriële PLC-programmering</li>
+                      <li>Betrouwbare & schaalbare systemen</li>
+                      <li>Real-time applicaties</li>
+                    </ul>
+                    <a href="#contact" class="panel-cta">
+                      <span>Start software project</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Electronics Panel -->
+            <div class="expertise-panel" data-expertise="electronics">
+              <div class="panel-background">
+                <div class="circuit-pattern">
+                  <div class="circuit-dot"></div>
+                  <div class="circuit-dot"></div>
+                  <div class="circuit-dot"></div>
+                  <div class="circuit-line"></div>
+                  <div class="circuit-line"></div>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="panel-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                  </svg>
+                </div>
+                <h3>Elektronica</h3>
+                <p>Ontwerp van elektronische schakelingen en printplaten (PCBs), inclusief productieklare ontwerpen.</p>
+                <div class="tech-showcase">
+                  <span class="tech-item">PCB Design</span>
+                  <span class="tech-item">Embedded</span>
+                  <span class="tech-item">IoT</span>
+                </div>
+                <div class="panel-overlay">
+                  <div class="overlay-content">
+                    <h4>Expertise Details</h4>
+                    <ul class="expertise-list">
+                      <li>Elektronische schakelingen</li>
+                      <li>Printplaat (PCB) ontwerp</li>
+                      <li>Productieklare ontwerpen</li>
+                      <li>Embedded systemen</li>
+                    </ul>
+                    <a href="#contact" class="panel-cta">
+                      <span>Start elektronica project</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Mechanical Panel -->
+            <div class="expertise-panel" data-expertise="mechanical">
+              <div class="panel-background">
+                <div class="gear-animation">
+                  <div class="gear gear-1"></div>
+                  <div class="gear gear-2"></div>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="panel-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </div>
+                <h3>Mechanica</h3>
+                <p>3D-ontwerp in CAD voor behuizingen, testopstellingen of mechanische onderdelen. Inclusief voorbereiding voor 3D-print of CNC.</p>
+                <div class="tech-showcase">
+                  <span class="tech-item">CAD</span>
+                  <span class="tech-item">3D Print</span>
+                  <span class="tech-item">CNC</span>
+                </div>
+                <div class="panel-overlay">
+                  <div class="overlay-content">
+                    <h4>Expertise Details</h4>
+                    <ul class="expertise-list">
+                      <li>3D-ontwerp in CAD</li>
+                      <li>Behuizingen & testopstellingen</li>
+                      <li>3D-print voorbereiding</li>
+                      <li>CNC productie-ready</li>
+                    </ul>
+                    <a href="#contact" class="panel-cta">
+                      <span>Start mechanisch project</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Data Science Panel -->
+            <div class="expertise-panel" data-expertise="datascience">
+              <div class="panel-background">
+                <div class="data-visualization">
+                  <div class="data-bar"></div>
+                  <div class="data-bar"></div>
+                  <div class="data-bar"></div>
+                  <div class="data-points">
+                    <div class="data-point"></div>
+                    <div class="data-point"></div>
+                    <div class="data-point"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="panel-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <h3>Data Science</h3>
+                <p>Slimme algoritmes, machine learning en dataverwerking voor bijvoorbeeld voorspellend onderhoud of optimalisatie van processen.</p>
+                <div class="tech-showcase">
+                  <span class="tech-item">ML</span>
+                  <span class="tech-item">Analytics</span>
+                  <span class="tech-item">AI</span>
+                </div>
+                <div class="panel-overlay">
+                  <div class="overlay-content">
+                    <h4>Expertise Details</h4>
+                    <ul class="expertise-list">
+                      <li>Machine learning algoritmes</li>
+                      <li>Voorspellend onderhoud</li>
+                      <li>Proces optimalisatie</li>
+                      <li>Dataverwerking & analyse</li>
+                    </ul>
+                    <a href="#contact" class="panel-cta">
+                      <span>Start data science project</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Development Panel -->
+            <div class="expertise-panel" data-expertise="product">
+              <div class="panel-background">
+                <div class="innovation-flow">
+                  <div class="flow-step"></div>
+                  <div class="flow-step"></div>
+                  <div class="flow-step"></div>
+                  <div class="flow-connector"></div>
+                </div>
+              </div>
+              <div class="panel-content">
+                <div class="panel-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </div>
+                <h3>Productontwikkeling</h3>
+                <p>Van idee tot werkend prototype of kleine serie. Ik help met conceptontwikkeling, maakbaarheid en realisatie.</p>
+                <div class="tech-showcase">
+                  <span class="tech-item">Prototyping</span>
+                  <span class="tech-item">Innovatie</span>
+                  <span class="tech-item">R&D</span>
+                </div>
+                <div class="panel-overlay">
+                  <div class="overlay-content">
+                    <h4>Expertise Details</h4>
+                    <ul class="expertise-list">
+                      <li>Conceptontwikkeling</li>
+                      <li>Maakbaarheidsanalyse</li>
+                      <li>Prototype realisatie</li>
+                      <li>Kleine serie productie</li>
+                    </ul>
+                    <a href="#contact" class="panel-cta">
+                      <span>Start product ontwikkeling</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work/Projects Section -->
+    <section class="work section" id="werk">
+      <div class="container">
+        <div class="work-intro">
+          <h2>Mijn werk in actie</h2>
+          <p>Een greep uit mijn projecten: van slimme elektronica tot functioneel productontwerp. Elk project ontstaan vanuit een idee en uitgewerkt tot een werkende oplossing.</p>
+        </div>
+        
+        <div class="project-carousel">
+          <button class="carousel-btn left" aria-label="Vorige projecten">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-track">
+            <!-- Alle project-cards hierbinnen plaatsen, inhoud blijft gelijk -->
+            <!-- BEGIN PROJECT CARDS -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/PowerSupply02.webp" alt="Dubbele Labvoeding" />
+              </div>
+              <div class="project-content">
+                <h3>Dubbele Labvoeding</h3>
+                <p>Labvoeding met twee regelbare uitgangen, digitale meters en robuuste, esthetische behuizing.</p>
+                <div class="project-tech">Voeding • Prototyping • Design</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/2x2Steering02.webp" alt="2x2 Stuurrrobot" />
+              </div>
+              <div class="project-content">
+                <h3>2x2 Stuurrrobot</h3>
+                <p>Mobiele robot met twee onafhankelijk aangedreven en gestuurde wielen. Kan standaard rijden, crab-sturen en elke willekeurige wielhoek aannemen. Volledig eigen mechanisch en elektronisch ontwerp, inclusief app-bediening.</p>
+                <div class="project-tech">Robotica • Embedded • Bluetooth</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/Li-IonPCB01.webp" alt="USB-C Li-Ion Oplaad PCB" />
+              </div>
+              <div class="project-content">
+                <h3>USB-C Li-Ion Oplaad PCB</h3>
+                <p>Efficiënte printplaat voor het laden en voeden van apparaten met een Li-Ion accu, USB-C ingang en 9V uitgang.</p>
+                <div class="project-tech">Batterij • USB-C • PCB</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/SeldBalancingCube01.webp" alt="Zelfbalancerende Kubus" />
+              </div>
+              <div class="project-content">
+                <h3>Zelfbalancerende Kubus</h3>
+                <p>Dynamische kubus die balanceert op een rand of hoek met vliegwielen en geavanceerde regeltechniek. Volledig eigen mechanica en firmware.</p>
+                <div class="project-tech">Robotica • Regeltechniek • Embedded</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/LaptopStand02.webp" alt="Automatische Laptopstand" />
+              </div>
+              <div class="project-content">
+                <h3>Automatische Laptopstand</h3>
+                <p>Intelligente laptopstand die hoogte en hoek automatisch aanpast op basis van gezichtsherkenning en draadloze communicatie.</p>
+                <div class="project-tech">Computer Vision • Motorisch • Slimme apparaten</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/SpaceMouse03.webp" alt="6-DoF Spacemouse voor CAD" />
+              </div>
+              <div class="project-content">
+                <h3>6-DoF Spacemouse voor CAD</h3>
+                <p>Zelfgebouwde Stewart-platform controller voor 3D-navigatie in CAD, met microcontroller-gebaseerde USB HID en PCB.</p>
+                <div class="project-tech">CAD • HID • Stewart Platform</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/SolderingIronPCB.webp" alt="Multifunctioneel Soldeerstation" />
+              </div>
+              <div class="project-content">
+                <h3>Multifunctioneel Soldeerstation</h3>
+                <p>Soldeerstation met soldeerbout en hetelucht, nauwkeurige temperatuur- en luchtregeling, en eigen gebruikersinterface.</p>
+                <div class="project-tech">Solderen • Embedded • UI</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/Letterklok01.webp" alt="Letterklok" />
+              </div>
+              <div class="project-content">
+                <h3>Letterklok</h3>
+                <p>Woordklok met lasergesneden lettergrid, CNC-gefreesde behuizing en lichtgestuurde dimfunctie. Volledig eigen ontwerp.</p>
+                <div class="project-tech">Woordklok • CNC • Embedded</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/FumeExtractor01.webp" alt="Fume Extractor voor solderen" />
+              </div>
+              <div class="project-content">
+                <h3>Fume Extractor voor solderen</h3>
+                <p>Compacte, draagbare afzuiger voor soldeerdampen. 3D-geprint, op accu en ideaal voor hobby-elektronica.</p>
+                <div class="project-tech">3D-printen • Hobby Elektronica</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/LevitatingPlant01.webp" alt="Magnetisch Levitatie Plantenpot" />
+              </div>
+              <div class="project-content">
+                <h3>Magnetisch Levitatie Plantenpot</h3>
+                <p>Plantenpot zwevend in de lucht door actieve elektromagnetische regeling. Eigen printplaat, firmware en modern design.</p>
+                <div class="project-tech">Magnetische Levitatie • PCB • Regeltechniek</div>
+              </div>
+            </div>
+            <!-- EINDE PROJECT CARDS -->
+          </div>
+          <button class="carousel-btn right" aria-label="Volgende projecten">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        
+        <div class="work-cta">
+          <h3>Benieuwd naar meer details?</h3>
+          <p>Ik vertel graag over de technische uitdagingen en oplossingen achter elk project.</p>
+          <a href="#contact" class="btn btn-primary btn-large">Laten we praten</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-intro">
+            <h2>Laten we samenwerken</h2>
+            <p>Heb je een technisch vraagstuk, een idee dat uitgewerkt moet worden, of ben je gewoon benieuwd wat ik voor je kan betekenen? Ik werk meestal op afstand en sluit flexibel aan bij jouw proces.</p>
+          </div>
+          
+          <!-- Interactive Communication Hub -->
+          <div class="communication-hub">
+            <div class="hub-header">
+              <div class="hub-status">
+                <div class="status-indicator online"></div>
+                <span>Live Contact Hub</span>
+              </div>
+              <div class="hub-time" id="current-time"></div>
+            </div>
+            
+            <div class="hub-content">
+              <div class="contact-channels">
+                <div class="channel-item email-channel" data-channel="email">
+                  <div class="channel-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="channel-details">
+                    <h4>Email</h4>
+                    <span>info@imetech.nl</span>
+                  </div>
+                  <div class="channel-action">
+                    <a href="mailto:info@imetech.nl?subject=Project%20Bespreking" class="contact-btn">Verstuur email</a>
+                  </div>
+                </div>
+                
+                <div class="channel-item phone-channel" data-channel="phone">
+                  <div class="channel-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="channel-details">
+                    <h4>Telefoon</h4>
+                    <span>+31 6 12 38 54 39</span>
+                  </div>
+                  <div class="channel-action">
+                    <a href="tel:+31612385439" class="contact-btn">Bel direct</a>
+                  </div>
+                </div>
+                
+                <div class="channel-item meeting-channel" data-channel="meeting">
+                  <div class="channel-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div class="channel-details">
+                    <h4>Online Meeting</h4>
+                    <span>Video/Audio call</span>
+                    <div class="channel-status">Gratis kennismaking</div>
+                  </div>
+                  <div class="channel-action">
+                    <a href="mailto:info@imetech.nl?subject=Meeting%20Aanvraag" class="contact-btn">Plan meeting</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Hub-info locatie teruggeplaatst, gecentreerd -->
+              <div class="hub-info" style="text-align: center; margin-top: 2rem;">
+                <div class="info-item" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <div class="info-icon" style="margin-bottom: 0.5rem;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Aalten, Nederland</strong><br>
+                    <span style="font-size: 0.95rem; opacity: 0.8;">Remote mogelijk</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="contact-cta">
+            <a href="mailto:info@imetech.nl?subject=Project%20Bespreking" class="btn btn-primary btn-large cta-pulse">
+              Start je project vandaag
+            </a>
+            <p class="cta-subtitle">Gratis eerste gesprek - geen verplichtingen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <div class="brand-header">
+                <img src="images/Logo blauw 1000x500.webp" alt="IMeTech Engineering" class="footer-logo" />
+              </div>
+              <p class="footer-mission">Eenvoudig als het kan, doordacht als het moet. Van idee tot werkend product.</p>
+              <div class="footer-values">
+                <div class="value-item">
+                  <span class="value-title">Betrouwbaar</span>
+                  <span class="value-desc">Duidelijke communicatie en afspraken</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-title">Innovatief</span>
+                  <span class="value-desc">Moderne technieken en slimme oplossingen</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-title">Praktisch</span>
+                  <span class="value-desc">Van concept naar werkend product</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="footer-contact">
+              <h4>Direct contact</h4>
+              <div class="contact-methods">
+                <a href="mailto:info@imetech.nl" class="contact-method-footer">
+                  <div class="contact-icon-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="contact-details-footer">
+                    <span class="contact-title">Email</span>
+                    <span class="contact-value">info@imetech.nl</span>
+                  </div>
+                </a>
+                
+                <a href="tel:+31612385439" class="contact-method-footer">
+                  <div class="contact-icon-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="contact-details-footer">
+                    <span class="contact-title">Telefoon</span>
+                    <span class="contact-value">+31 6 12 38 54 39</span>
+                  </div>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" class="contact-method-footer">
+                  <div class="contact-icon-footer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </div>
+                  <div class="contact-details-footer">
+                    <span class="contact-title">LinkedIn</span>
+                    <span class="contact-value">Ivo Mengerink</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="footer-cta">
+              <h4>Start je project</h4>
+              <p>Heb je een technische uitdaging? Laten we samen kijken naar de mogelijkheden.</p>
+              <a href="#contact" class="footer-btn">
+                <span>Bespreek je project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-legal">
+          <div class="company-details">
+            <p>© 2025 Ivo Mengerink - IMeTech Engineering</p>
+            <p>KvK: 97538612 | BTW: NL005275849B96</p>
+            <p class="company-address">Hoge Veld 63, 7122ZM Aalten, Nederland</p>
+          </div>
+          <div class="legal-links">
+            <a href="algemenevoorwaarden/">Algemene voorwaarden</a>
+            <a href="disclaimer/">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA Panel -->
+  <div class="floating-cta-panel" id="floating-cta">
+    <div class="cta-toggle" id="cta-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </div>
+    
+    <div class="cta-options" id="cta-options">
+      <a href="mailto:info@imetech.nl" class="cta-option" data-contact="email">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>Email</span>
+      </a>
+      
+      <a href="tel:+31612385439" class="cta-option" data-contact="phone">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <span>Bellen</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" class="cta-option" data-contact="linkedin">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>
