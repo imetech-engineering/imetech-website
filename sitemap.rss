@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>IMeTech Engineering RSS Feed</title>
+    <link>https://imetech.nl/</link>
+    <description>Laatste updates en pagina's van IMeTech Engineering</description>
+    <item>
+      <title>Home</title>
+      <link>https://imetech.nl/</link>
+      <description>IMeTech Engineering - Homepagina</description>
+    </item>
+    <item>
+      <title>Algemene Voorwaarden</title>
+      <link>https://imetech.nl/algemenevoorwaarden/</link>
+      <description>Algemene Voorwaarden van IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>Disclaimer</title>
+      <link>https://imetech.nl/disclaimer/</link>
+      <description>Disclaimer van IMeTech Engineering</description>
+    </item>
+  </channel>
+</rss> 
