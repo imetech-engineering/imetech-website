@@ -769,16 +769,48 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Preload critical images
   const criticalImages = [
-    'images/Logo blauw 1000x500.png',
-    'images/fertigationFront.png',
-    'images/WieBenIk.png',
-    'images/fertigationBack.png'
+    'images/Logo blauw 1000x500.webp',
+    'images/WieBenIk.webp',
   ];
   
   criticalImages.forEach(src => {
     const img = new Image();
     img.src = src;
   });
+
+  // Contactformulier highlight/focus bij klikken op #contact links
+  function highlightContactForm() {
+    const channel = document.querySelector('.channel-item.email-channel');
+    const form = channel ? channel.querySelector('.contact-form') : null;
+    const nameField = form ? form.querySelector('input[name="name"]') : null;
+    if (channel) {
+      channel.classList.add('form-highlight');
+      setTimeout(() => channel.classList.remove('form-highlight'), 1000);
+    }
+    if (nameField) {
+      nameField.focus();
+    }
+  }
+
+  function isContactLink(el) {
+    if (!el) return false;
+    if (el.tagName === 'A') {
+      const href = el.getAttribute('href');
+      return href === '#contact' || href === '/index.html#contact';
+    }
+    return false;
+  }
+
+  document.body.addEventListener('click', function(e) {
+    let el = e.target;
+    // Zoek naar de dichtstbijzijnde <a>
+    while (el && el !== document.body && el.tagName !== 'A') {
+      el = el.parentElement;
+    }
+    if (isContactLink(el)) {
+      setTimeout(highlightContactForm, 400); // na scrollen
+    }
+  }, true);
 });
 
 // ===== PROJECT CAROUSEL AUTO-SCROLL + BUTTONS =====
