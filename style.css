@@ -1903,6 +1903,7 @@ p {
   overflow: hidden;
   transition: var(--transition-slow);
   position: relative;
+  text-decoration: none;
 }
 
 .project-card::before {
@@ -1975,7 +1976,18 @@ p {
 }
 
 .project-content {
-  padding: var(--space-8);
+  max-width: 800px;
+  margin: 0 auto 0 auto;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .project-content {
+    padding: var(--space-8) var(--space-4);
+    margin-bottom: var(--space-4);
+  }
 }
 
 .project-content h3 {
@@ -3146,12 +3158,17 @@ p {
   font-weight: var(--weight-semibold);
 }
 
-.terms-actions {
+.terms-actions,
+.project-nav-actions {
   display: flex;
   gap: var(--space-4);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.project-nav-actions {
+  margin-bottom: var(--space-16);
 }
 
 .terms-download-btn {
@@ -3217,13 +3234,16 @@ p {
     font-size: 0.9rem;
   }
   
-  .terms-actions {
+  .terms-actions,
+  .project-nav-actions {
     flex-direction: column;
     gap: var(--space-3);
   }
   
   .terms-download-btn,
-  .terms-back-btn {
+  .terms-back-btn,
+  .project-prev-btn,
+  .project-next-btn {
     width: 100%;
     justify-content: center;
   }
@@ -5677,6 +5697,9 @@ p {
   .terms-header {
     padding-top: 100px !important;
   }
+  .project-header {
+    padding-top: 150px !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -5867,15 +5890,103 @@ p {
   gap: var(--space-6);
 }
 
-.project-nav-actions {
-  display: flex;
+.project-prev-btn,
+.project-next-btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 3rem 0 1.5rem 0;
-  flex-wrap: wrap;
-}
-.project-nav-actions .terms-download-btn,
-.project-nav-actions .terms-back-btn {
-  min-width: 200px;
   text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-inverse);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  font-weight: var(--weight-semibold);
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-prev-btn:hover,
+.project-next-btn:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Projectpagina visueel gelijk aan homepage */
+.project-section {
+  padding-top: var(--section-padding-y);
+  background: var(--bg-primary);
+}
+
+.project-header {
+  margin-bottom: var(--space-16);
+  text-align: center;
+  padding-top: var(--space-32);
+}
+.project-header h1 {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-4);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--primary-dark);
+}
+.project-header .project-intro {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  justify-items: center;
+  place-items: center;
+}
+.project-images img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-secondary);
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.project-images img:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.project-content {
+  max-width: 800px;
+  margin: 0 auto var(--space-8) auto;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-8);
+}
+@media (max-width: 768px) {
+  .project-content {
+    padding: var(--space-8) var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+}
+
+.project-description h2 {
+  margin-bottom: var(--space-8);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .project-header h1 {
+    margin-top: var(--space-8);
+  }
+  .project-content {
+    padding: var(--space-8) var(--space-4);
+  }
+  .project-images {
+    gap: var(--space-4);
+  }
 }
