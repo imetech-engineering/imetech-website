@@ -1,30 +1,42 @@
 # IMeTech Engineering Website
 
-Welcome to the source code repository for the IMeTech Engineering website. This repository contains all the files necessary to run and maintain the IMeTech website.
+Welcome to the official website of IMeTech Engineering, showcasing our expertise in product development, PCB design, and embedded systems.
 
-## Project Structure
+## About IMeTech Engineering
 
-- **`index.html`**: The main landing page of the website.
-- **`style.css`**: Contains all the styles for the website, ensuring a consistent look and feel across all pages.
-- **`script.js`**: JavaScript file responsible for adding interactivity to the website.
-- **`images/`**: Directory containing all image assets used throughout the site.
-- **`algemenevoorwaarden/`**: HTML files for the terms and conditions.
-- **`disclaimer/`**: HTML files for the website disclaimer.
-- **`files/`**: Contains downloadable PDF documents such as terms and conditions and disclaimers.
-- **`projecten/`**: HTML files for various projects showcased on the website.
+IMeTech Engineering specializes in innovative engineering solutions, from concept to prototype. We offer services in:
 
-## Viewing the Website Locally
+- **Product Development** - Complete product lifecycle management
+- **PCB Design** - Professional circuit board design and optimization
+- **Embedded Systems** - Custom firmware and hardware integration
+- **Prototyping** - Rapid prototyping and testing solutions
 
-To view the website on your local machine, simply open the `index.html` file in your preferred web browser. This is a static website, so no additional server setup is required.
+## Website Features
 
-## Deployment Instructions
+This website showcases our portfolio of projects and provides comprehensive information about our services. Key sections include:
 
-To deploy the website, upload the contents of this repository to your web server. Alternatively, you can use GitHub Pages for hosting by pushing the repository to a GitHub repository and enabling GitHub Pages in the repository settings.
+- **Home** - Company overview and key services
+- **About** - Meet our team and company story
+- **Services** - Detailed service offerings
+- **Projects** - Portfolio of completed work
+- **Blog** - Technical insights and industry knowledge
+- **Contact** - Get in touch for your next project
 
-## License
+## Technology
 
-This project is © IMeTech Engineering. All rights reserved.
+Built with modern web technologies for optimal performance and user experience:
+- Responsive design for all devices
+- Multilingual support (Dutch/English)
+- Component-based architecture
+- Optimized for speed and accessibility
+
+## Contact
+
+**IMeTech Engineering**  
+📍 Aalten, Netherlands  
+📧 info@imetech.nl  
+🌐 [imetech.nl](https://imetech.nl)
 
 ---
 
-For any inquiries or support, please contact IMeTech Engineering.
+© 2025 IMeTech Engineering. All rights reserved.
