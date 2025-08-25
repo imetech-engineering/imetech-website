@@ -11,10 +11,12 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="description" content="IMeTech Engineering in Aalten, Achterhoek: specialist in productontwikkeling, prototype laten maken, embedded systemen, pcb ontwerp, maatwerk software ontwikkeling, elektronica, mechanica en software. Lokale technische oplossingen voor bedrijven in de regio Achterhoek en Gelderland. Ontdek onze expertise in engineering Aalten en Achterhoek!">
-  <meta name="keywords" content="engineering, engineer, Aalten, Achterhoek, Gelderland, technische oplossingen, PCB design, productontwikkeling, prototype laten maken, embedded systemen, pcb ontwerp, maatwerk software ontwikkeling, SolidWorks, prototypes, software ontwikkeling, IMeTech, ingenieur, techniek, lokaal, innovatie, elektronica, mechanica, data-analyse, consultancy, remote engineering, engineer Achterhoek, engineer Aalten, technische dienst Achterhoek, technische dienst Aalten">
-  <meta name="author" content="Ivo Mengerink">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="nl">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
   <meta property="og:title" content="Engineering Aalten & Achterhoek - IMeTech Engineering">
   <meta property="og:description" content="IMeTech Engineering: lokale technische oplossingen in Aalten en de Achterhoek. Specialist in productontwikkeling, prototype laten maken, embedded systemen, pcb ontwerp, maatwerk software ontwikkeling, engineering, elektronica, mechanica en software.">
   <meta property="og:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
@@ -22,7 +24,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IMeTech Engineering" />
   <meta property="og:locale" content="nl_NL" />
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="IMeTech Engineering Logo">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering Aalten & Achterhoek - IMeTech Engineering">
+  <meta name="twitter:description" content="Lokale technische oplossingen in Aalten en de Achterhoek. Specialist in productontwikkeling, embedded systemen en PCB ontwerp.">
+  <meta name="twitter:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
+  <meta name="twitter:creator" content="@imetech_engineering">
   <title>IMeTech Engineering - Productontwikkeling, PCB ontwerp & Software | Aalten</title>
   <link rel="icon" href="images/favicon-32x32.png" type="image/png" />
   <link rel="canonical" href="https://imetech.nl">
@@ -35,21 +44,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=8" />
   
-  <!-- Structured Data -->
+  <!-- Enhanced Structured Data for Better EEAT -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": "IMeTech Engineering",
     "url": "https://imetech.nl",
     "logo": "https://imetech.nl/images/Logo blauw 1000x500.webp",
     "description": "Technische oplossingen in software, elektronica, mechanica en data science. Van idee tot werkend product.",
-    "founder": {
-      "@type": "Person",
-      "name": "Ivo Mengerink",
-      "jobTitle": "Engineering",
-      "alumniOf": "HAN University of Applied Sciences",
-      "hasCredential": "Certified SolidWorks Professional (CSWP)"
+    "image": "https://imetech.nl/images/Logo blauw 1000x500.webp",
+    "telephone": "+31612385439",
+    "email": "info@imetech.nl",
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Bank Transfer, Invoice",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Aalten"
+      },
+      {
+        "@type": "City", 
+        "name": "Doetinchem"
+      },
+      {
+        "@type": "City",
+        "name": "Winterswijk"
+      },
+      {
+        "@type": "City",
+        "name": "Zutphen"
+      },
+      {
+        "@type": "City",
+        "name": "Arnhem"
+      }
+    ],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.8996",
+        "longitude": "6.5670"
+      },
+      "geoRadius": "50000"
     },
     "address": {
       "@type": "PostalAddress",
@@ -64,19 +103,82 @@
       "email": "info@imetech.nl",
       "contactType": "customer service",
       "areaServed": "NL",
-      "availableLanguage": "Dutch"
+      "availableLanguage": ["Dutch", "English"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Ivo Mengerink",
+      "jobTitle": "Senior Engineer & Founder",
+      "alumniOf": "HAN University of Applied Sciences",
+      "hasCredential": "Certified SolidWorks Professional (CSWP)",
+      "knowsAbout": [
+        "Software Development",
+        "Electronics Engineering",
+        "Mechanical Engineering", 
+        "Data Science",
+        "Product Development",
+        "SolidWorks CAD Design",
+        "PCB Design",
+        "Embedded Systems",
+        "Prototyping"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/ivo-mengerink-30789b200/"
+      ]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Engineering Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Product Development",
+            "description": "Complete product lifecycle management from concept to prototype"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "PCB Design",
+            "description": "Professional circuit board design and optimization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Embedded Systems",
+            "description": "Custom firmware and hardware integration"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Prototyping",
+            "description": "Rapid prototyping and testing solutions"
+          }
+        }
+      ]
     },
     "sameAs": [
       "https://www.linkedin.com/in/ivo-mengerink-30789b200/"
     ],
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": "51.8996",
-        "longitude": "6.5670"
-      },
-      "geoRadius": "50000"
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "1",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   }
   </script>
@@ -177,6 +279,64 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Diensten: productontwikkeling, PCB design, softwareontwikkeling, mechanisch ontwerp, data-analyse en technische consultancy."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Welke engineering diensten biedt IMeTech Engineering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wij bieden een breed scala aan engineering diensten: Productontwikkeling (van concept tot werkend prototype), PCB Ontwerp (professionele printplaat ontwerpen en optimalisatie), Embedded Systemen (custom firmware en hardware integratie), Prototyping (snelle prototyping en test oplossingen), en Software Ontwikkeling (maatwerk software voor technische toepassingen)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "In welke regio's werkt IMeTech Engineering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wij zijn gevestigd in Aalten, Achterhoek en werken in de hele regio Gelderland en daarbuiten. Lokale regio: Aalten, Doetinchem, Winterswijk, Zutphen. Gelderland: Arnhem, Nijmegen, Apeldoorn. Ook beschikbaar voor projecten op afstand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wat is de ervaring van Ivo Mengerink?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ivo Mengerink heeft uitgebreide ervaring in engineering: Opleiding: Mechatronica aan de HAN University of Applied Sciences, Certificering: Certified SolidWorks Professional (CSWP), Werkervaring: R2R Engineering, Engineering Systems, Expertise: 10+ jaar ervaring in productontwikkeling en embedded systemen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hoe ziet het werkproces eruit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ons werkproces is gestructureerd en efficiënt: 1. Analyse: Uitgebreide bespreking van uw behoeften en doelstellingen, 2. Concept: Ontwikkeling van technische concepten en oplossingen, 3. Design: Gedetailleerd ontwerp en engineering, 4. Prototyping: Bouw en test van werkende prototypes, 5. Implementatie: Finalisering en oplevering van het project."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welke industrieën bedient IMeTech Engineering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wij werken met diverse industrieën en sectoren: Industriële automatisering (machine besturing en sensoren), Consumentenelektronica (smart devices en IoT toepassingen), Medische apparatuur (diagnostische en monitoring systemen), Agrotech (precisie landbouw en monitoring), en Onderwijs (educatieve apparatuur en demonstraties)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hoe kan ik contact opnemen voor een project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neem gerust contact op voor een vrijblijvend gesprek: Telefoon: +31 6 1238 5439, Email: info@imetech.nl, LinkedIn: Ivo Mengerink, Locatie: Hoge Veld 63, 7122ZM Aalten."
         }
       }
     ]
@@ -482,7 +642,6 @@
       </div>
     </section>
 
-
     <!-- CTA Section -->
     <section class="cta-section section">
       <div class="container">
@@ -525,7 +684,7 @@
       <a href="tel:+31612385439" class="cta-option" data-contact="phone">
         <div class="cta-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 00.7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
         </div>
         <span>Bellen</span>

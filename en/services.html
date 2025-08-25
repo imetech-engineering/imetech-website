@@ -11,10 +11,12 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="description" content="Services from IMeTech Engineering: product development, PCB design, embedded systems, custom software development, mechanical design and data science. Specialist in engineering Aalten and Netherlands.">
-  <meta name="keywords" content="services, product development, PCB design, embedded systems, custom software development, mechanical design, data science, engineering Aalten, Netherlands, IMeTech">
-  <meta name="author" content="Ivo Mengerink">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="en">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
   <meta property="og:title" content="Services - IMeTech Engineering Aalten & Netherlands">
   <meta property="og:description" content="Specialist in product development, PCB design, embedded systems and custom software development. Technical solutions for businesses in Aalten and the Netherlands.">
   <meta property="og:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
@@ -22,7 +24,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IMeTech Engineering" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="IMeTech Engineering Services">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services - IMeTech Engineering Aalten & Netherlands">
+  <meta name="twitter:description" content="Specialist in product development, PCB design, embedded systems and custom software development.">
+  <meta name="twitter:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
+  <meta name="twitter:creator" content="@imetech_engineering">
   <title>Services: Product Development & PCB Design | IMeTech Engineering</title>
   <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
   <link rel="canonical" href="https://imetech.nl/en/services.html">
@@ -35,33 +44,98 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=8" />
   
-  <!-- Structured Data -->
+  <!-- Enhanced Service Schema for Better EEAT -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "IMeTech Engineering Services",
+    "description": "Comprehensive engineering services including product development, PCB design, embedded systems, and custom software development.",
     "provider": {
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       "name": "IMeTech Engineering",
+      "url": "https://imetech.nl",
+      "logo": "https://imetech.nl/images/Logo blauw 1000x500.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Hoge Veld 63",
         "addressLocality": "Aalten",
         "postalCode": "7122ZM",
         "addressCountry": "NL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+31612385439",
+        "email": "info@imetech.nl"
       }
     },
     "serviceType": [
       "Product Development",
-      "PCB Design",
+      "PCB Design", 
       "Embedded Systems",
       "Custom Software Development",
       "Mechanical Design",
-      "Data Science"
+      "Data Science",
+      "Prototyping",
+      "Engineering Consultancy"
     ],
-    "areaServed": "Netherlands",
-    "url": "https://imetech.nl/en/services.html"
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Aalten"
+      },
+      {
+        "@type": "City",
+        "name": "Doetinchem"
+      },
+      {
+        "@type": "City",
+        "name": "Winterswijk"
+      },
+      {
+        "@type": "City",
+        "name": "Zutphen"
+      },
+      {
+        "@type": "City",
+        "name": "Arnhem"
+      }
+    ],
+    "url": "https://imetech.nl/en/services.html",
+    "offers": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Product Development",
+          "description": "Complete product lifecycle management from concept to prototype"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "PCB Design",
+          "description": "Professional circuit board design and optimization"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Embedded Systems",
+          "description": "Custom firmware and hardware integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Software Development",
+          "description": "Tailored software solutions for technical applications"
+        }
+      }
+    ]
   }
   </script>
 </head> 

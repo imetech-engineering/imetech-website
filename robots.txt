@@ -1,3 +1,26 @@
 User-agent: *
 Allow: /
-Sitemap: https://imetech.nl/sitemap.xml 
+
+# Optimize crawl rate
+Crawl-delay: 1
+
+# Block unnecessary files
+Disallow: /components/
+Disallow: /template.html
+Disallow: /run-git.bat
+Disallow: /*.bat
+Disallow: /*.ps1
+
+# Allow important directories
+Allow: /images/
+Allow: /files/
+Allow: /projecten/
+Allow: /blog/
+Allow: /en/
+
+# Sitemaps
+Sitemap: https://imetech.nl/sitemap.xml
+Sitemap: https://imetech.nl/sitemap.rss
+
+# Host
+Host: https://imetech.nl 
