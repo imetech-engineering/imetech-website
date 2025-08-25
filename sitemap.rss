@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>IMeTech Engineering RSS Feed</title>
+    <link>https://imetech.nl/</link>
+    <description>Laatste updates en pagina's van IMeTech Engineering</description>
+    <item>
+      <title>Home</title>
+      <link>https://imetech.nl/</link>
+      <description>IMeTech Engineering - Homepagina</description>
+    </item>
+    <item>
+      <title>Algemene Voorwaarden</title>
+      <link>https://imetech.nl/algemenevoorwaarden/</link>
+      <description>Algemene Voorwaarden van IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>Disclaimer</title>
+      <link>https://imetech.nl/disclaimer/</link>
+      <description>Disclaimer van IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>2x2 Steering Robot</title>
+      <link>https://imetech.nl/projecten/2x2-steering-robot.html</link>
+      <description>Projectpagina voor de 2x2 Steering Robot</description>
+    </item>
+    <item>
+      <title>6 DOF SpaceMouse</title>
+      <link>https://imetech.nl/projecten/6-dof-spacemouse.html</link>
+      <description>Projectpagina voor de 6 DOF SpaceMouse</description>
+    </item>
+    <item>
+      <title>Dubbele Labvoeding</title>
+      <link>https://imetech.nl/projecten/dubbele-labvoeding.html</link>
+      <description>Projectpagina voor de Dubbele Labvoeding</description>
+    </item>
+    <item>
+      <title>Fume Extractor</title>
+      <link>https://imetech.nl/projecten/fume-extractor.html</link>
+      <description>Projectpagina voor de Fume Extractor</description>
+    </item>
+    <item>
+      <title>Automatische Laptopstand</title>
+      <link>https://imetech.nl/projecten/laptop-stand.html</link>
+      <description>Projectpagina voor de Automatische Laptopstand</description>
+    </item>
+    <item>
+      <title>Letterklok</title>
+      <link>https://imetech.nl/projecten/letterklok.html</link>
+      <description>Projectpagina voor de Letterklok</description>
+    </item>
+    <item>
+      <title>Magnetisch Levitatie Plantenpot</title>
+      <link>https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html</link>
+      <description>Projectpagina voor de Magnetisch Levitatie Plantenpot</description>
+    </item>
+    <item>
+      <title>Multifunctioneel Soldeerstation</title>
+      <link>https://imetech.nl/projecten/multifunctioneel-soldeerstation.html</link>
+      <description>Projectpagina voor de Multifunctioneel Soldeerstation</description>
+    </item>
+    <item>
+      <title>USB-C Li-Ion Oplaad PCB</title>
+      <link>https://imetech.nl/projecten/ubs-c-laad-pcb.html</link>
+      <description>Projectpagina voor de USB-C Li-Ion Oplaad PCB</description>
+    </item>
+    <item>
+      <title>Zelfbalancerende Kubus</title>
+      <link>https://imetech.nl/projecten/zelfbalancerende-kubus.html</link>
+      <description>Projectpagina voor de Zelfbalancerende Kubus</description>
+    </item>
+  </channel>
+</rss> 

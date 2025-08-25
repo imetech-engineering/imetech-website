@@ -1,0 +1,89 @@
+<header class="header" id="header">
+  <div class="header-content">
+    <div class="brand">
+      <a href="{BASE_URL}{HOME_URL}">
+        <img src="{BASE_URL}images/Logo blauw 1000x500.webp" alt="IMeTech Engineering logo Aalten Achterhoek, productontwikkeling, pcb ontwerp, embedded systemen" loading="lazy" class="logo" />
+      </a>
+    </div>
+    
+    <div class="header-flex">
+      <div class="header-contact">
+        <a href="tel:+31612385439" class="contact-link">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>{PHONE_TEXT}</span>
+        </a>
+        <a href="{BASE_URL}{CONTACT_URL}" class="contact-link primary">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>{CONTACT_TEXT}</span>
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="{NAV_ARIA_LABEL}">
+        <ul class="nav-links">
+          <li><a href="{BASE_URL}{HOME_URL}" class="nav-link">{NAV_HOME}</a></li>
+          <li><a href="{BASE_URL}{ABOUT_URL}" class="nav-link">{NAV_ABOUT}</a></li>
+          <li><a href="{BASE_URL}{SERVICES_URL}" class="nav-link">{NAV_SERVICES}</a></li>
+          <li><a href="{BASE_URL}{PROJECTS_URL}" class="nav-link">{NAV_PROJECTS}</a></li>
+          <li><a href="{BASE_URL}{BLOG_URL}" class="nav-link">{NAV_BLOG}</a></li>
+          <li><a href="{BASE_URL}{CONTACT_URL}" class="nav-link">{NAV_CONTACT}</a></li>
+        </ul>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher" aria-label="{LANG_ARIA_LABEL}">
+          <a href="{NL_URL}" class="lang-option" data-lang="nl" title="Nederlands">NL</a>
+          <a href="{EN_URL}" class="lang-option" data-lang="en" title="English">EN</a>
+        </div>
+      </nav>
+      
+      <!-- Mobile Navigation Toggle -->
+      <button class="mobile-nav-toggle" aria-label="{MOBILE_MENU_ARIA}" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="{MOBILE_NAV_ARIA}">
+  <div class="mobile-nav-header" style="justify-content: flex-end;">
+    <button class="mobile-nav-close" aria-label="{MOBILE_CLOSE_ARIA}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="mobile-nav-content">
+    <ul class="mobile-nav-links">
+      <li><a href="{BASE_URL}{HOME_URL}" class="mobile-nav-link">{NAV_HOME}</a></li>
+      <li><a href="{BASE_URL}{ABOUT_URL}" class="mobile-nav-link">{NAV_ABOUT}</a></li>
+      <li><a href="{BASE_URL}{SERVICES_URL}" class="mobile-nav-link">{NAV_SERVICES}</a></li>
+      <li><a href="{BASE_URL}{PROJECTS_URL}" class="mobile-nav-link">{NAV_PROJECTS}</a></li>
+      <li><a href="{BASE_URL}{BLOG_URL}" class="mobile-nav-link">{NAV_BLOG}</a></li>
+      <li><a href="{BASE_URL}{CONTACT_URL}" class="mobile-nav-link">{NAV_CONTACT}</a></li>
+    </ul>
+    
+    <div class="mobile-language-switcher">
+      <p class="mobile-lang-title">{MOBILE_LANG_TITLE}</p>
+      <div class="mobile-lang-options">
+        <a href="{NL_URL}" class="mobile-lang-option" data-lang="nl" title="Nederlands">
+          <span>NL</span>
+        </a>
+        <a href="{EN_URL}" class="mobile-lang-option" data-lang="en" title="English">
+          <span>EN</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav-overlay"></div>

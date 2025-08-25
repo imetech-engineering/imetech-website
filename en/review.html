@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LP253W3VD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1LP253W3VD');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Review form from IMeTech Engineering - Ivo Mengerink. Clear agreements for technical services.">
+  <meta name="author" content="Ivo Mengerink">
+  <meta property="og:title" content="Review Form - IMeTech Engineering">
+  <meta property="og:description" content="Share your experience and help others get to know IMeTech Engineering.">
+  <meta property="og:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
+  <meta property="og:url" content="https://imetech.nl/en/review.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Review Form - IMeTech Engineering | Share your experience</title>
+  <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/review.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=8" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Review Form IMeTech Engineering",
+    "description": "Review form for IMeTech Engineering customers",
+    "url": "https://imetech.nl/en/review.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "IMeTech Engineering",
+      "url": "https://imetech.nl"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header will be loaded dynamically -->
+  <div id="header-container"></div>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header section">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>Review Form</h1>
+          <p class="page-description">Thank you for working with IMeTech Engineering. With your feedback, I can continue to grow and show others what I have to offer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Review Form Section -->
+    <section class="section contact" id="review">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-form-container">
+
+            <div id="googleReminder" class="modal hidden">
+              <div class="modal-content">
+                <h2>Would you also like to leave a Google review?</h2>
+                <p>Your review on Google helps IMeTech stay visible and reach more people. Would you like to share it there as well?</p>
+                <div class="modal-actions">
+                  <button id="btnGoogle" class="btn btn-primary">Place Google review</button>
+                  <button id="btnSkip" class="btn btn-secondary">Only via this form</button>
+                </div>
+              </div>
+            </div>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form compact" id="reviewForm">
+              <input type="hidden" name="access_key" value="36fe41a3-1e8e-4282-a4d9-5d8ee89c7a64">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="naam">Name*</label>
+                  <input type="text" name="naam" id="naam" required>
+                </div>
+                <div class="form-group">
+                  <label for="functie">Position / Company (optional)</label>
+                  <input type="text" name="functie" id="functie">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="quote">Short title or quote (optional)</label>
+                <input type="text" name="quote" id="quote" placeholder="E.g. 'Thoughtful and professionally executed'">
+              </div>
+
+              <div class="form-group rating-group">
+                <label for="sterren">Rating (1–5 stars):</label>
+                <div class="rating-stars">
+                  <input type="hidden" name="sterren" id="ratingValue" required>
+                  <span class="star" data-value="1">&#9733;</span>
+                  <span class="star" data-value="2">&#9733;</span>
+                  <span class="star" data-value="3">&#9733;</span>
+                  <span class="star" data-value="4">&#9733;</span>
+                  <span class="star" data-value="5">&#9733;</span>
+                </div>
+              </div>
+              
+
+              <div class="form-group">
+                <label for="ervaring">How did you experience the collaboration?*</label>
+                <textarea name="ervaring" id="ervaring" rows="4" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="feedback">Do you have feedback about my approach, communication or working method?</label>
+                <textarea name="feedback" id="feedback" rows="3" placeholder="E.g. clear, flexible, involved..."></textarea>
+              </div>
+
+              <div class="form-group checkbox">
+                <input type="checkbox" name="toestemming" id="toestemming" required>
+                <label for="toestemming">I give permission to show this review on IMeTech's website and social media.</label>
+              </div>
+
+              <p class="text-small">Would you also like to place your review on Google? Click below – you can easily reuse your text:</p>
+              <a href="https://g.page/r/CY-Xn_8t6Vr3EAE/review" target="_blank" onclick="markGoogleReviewClicked()" class="btn btn-primary btn-block">Place on Google</a>
+
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+              <button type="submit" class="btn btn-secondary btn-block">
+                Submit review
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+              </button>
+              <div id="result"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be loaded dynamically -->
+  <div id="footer-container"></div>
+
+  <script src="../script.js?v=8"></script>
+</body>
+</html>

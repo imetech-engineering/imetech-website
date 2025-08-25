@@ -1,0 +1,22 @@
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Ignore editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore log files
+*.log
+
+# Ignore cache files
+*.cache
