@@ -11,10 +11,17 @@ class ComponentLoader {
 
   calculateBaseUrl() {
     const path = this.currentPath;
-    // Count the number of directory levels from root
-    const pathParts = path.split('/').filter(part => part.length > 0);
     
-    if (path.startsWith('/en/')) {
+    // Handle GitHub Pages subdirectory
+    let adjustedPath = path;
+    if (path.startsWith('/imetech-website/')) {
+      adjustedPath = path.replace('/imetech-website', '');
+    }
+    
+    // Count the number of directory levels from root
+    const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
+    
+    if (adjustedPath.startsWith('/en/')) {
       // For English pages: /en/about.html -> need 1 level up (../)
       // For English pages: /en/projects/robot.html -> need 2 levels up (../../)
       return '../'.repeat(pathParts.length);
@@ -26,7 +33,11 @@ class ComponentLoader {
   }
 
   detectLanguage() {
-    return this.currentPath.startsWith('/en/') ? 'en' : 'nl';
+    let path = this.currentPath;
+    if (path.startsWith('/imetech-website/')) {
+      path = path.replace('/imetech-website', '');
+    }
+    return path.startsWith('/en/') ? 'en' : 'nl';
   }
 
   getTexts() {
@@ -98,7 +109,12 @@ class ComponentLoader {
   }
 
   generateLanguageUrls() {
-    const currentPath = this.currentPath;
+    let currentPath = this.currentPath;
+    
+    // Handle GitHub Pages subdirectory
+    if (currentPath.startsWith('/imetech-website/')) {
+      currentPath = currentPath.replace('/imetech-website', '');
+    }
     
     if (this.language === 'en') {
       // English to Dutch mappings (including all project pages)
