@@ -1753,7 +1753,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     btnGoogle.addEventListener("click", () => {
-      window.open("https://g.page/r/CY-Xn_8t6Vr3EAE/review", "_blank");
+      window.open("https://g.page/r/CV9KoNq0t1d-EAE/review", "_blank");
       googleReviewClicked = true;
       modal.classList.add("hidden");
     });
