@@ -7594,7 +7594,8 @@ html, body {
 }
 
 /* ===== PROJECT FILTERS ===== */
-.project-filters {
+.project-filters,
+.quick-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);

@@ -140,7 +140,8 @@ class ComponentLoader {
         '/en/blog/index.html': '/blog/index.html',
         '/en/review.html': '/review.html',
         '/en/disclaimer/': '/disclaimer/',
-        '/en/terms-and-conditions/': '/algemenevoorwaarden/'
+        '/en/terms-and-conditions/': '/algemenevoorwaarden/',
+        '/en/404.html': '/404.html'
       };
       
       const nlUrl = pathMappings[currentPath] || '/';
@@ -172,7 +173,8 @@ class ComponentLoader {
         '/blog/index.html': '/en/blog/index.html',
         '/review.html': '/en/review.html',
         '/disclaimer/': '/en/disclaimer/',
-        '/algemenevoorwaarden/': '/en/terms-and-conditions/'
+        '/algemenevoorwaarden/': '/en/terms-and-conditions/',
+        '/404.html': '/en/404.html'
       };
       
       const enUrl = pathMappings[currentPath] || '/en/';
@@ -448,7 +450,10 @@ function initLanguageSwitching() {
     option.addEventListener('click', (e) => {
       e.preventDefault();
       const targetLang = option.dataset.lang;
-      const currentPath = window.location.pathname;
+      let currentPath = window.location.pathname;
+      if (currentPath.startsWith('/imetech-website/')) {
+        currentPath = currentPath.replace('/imetech-website', '');
+      }
       
       // Enhanced language switching logic for modular website
       if (targetLang === 'en') {
@@ -480,11 +485,13 @@ function initLanguageSwitching() {
             '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
             '/blog/': '/en/blog/',
             '/blog/index.html': '/en/blog/index.html',
-            '/review.html': '/en/review.html'
+            '/review.html': '/en/review.html',
+            '/404.html': '/en/404.html'
           };
           
           const englishPath = pathMapping[currentPath] || '/en/';
-          window.location.href = englishPath;
+          const prefix = window.location.pathname.startsWith('/imetech-website/') ? '/imetech-website' : '';
+          window.location.href = prefix + englishPath;
         }
       } else {
         // Switch to Dutch version  
@@ -511,11 +518,13 @@ function initLanguageSwitching() {
             '/en/projects/self-balancing-cube.html': '/projecten/zelfbalancerende-kubus.html',
             '/en/blog/': '/blog/',
             '/en/blog/index.html': '/blog/index.html',
-            '/en/review.html': '/review.html'
+            '/en/review.html': '/review.html',
+            '/en/404.html': '/404.html'
           };
           
           const dutchPath = pathMapping[currentPath] || '/';
-          window.location.href = dutchPath;
+          const prefix = window.location.pathname.startsWith('/imetech-website/') ? '/imetech-website' : '';
+          window.location.href = prefix + dutchPath;
         } else {
           // Already on Dutch version
           return;
