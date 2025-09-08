@@ -105,8 +105,17 @@ class CookieManager {
       adjustedPath = path.replace('/imetech-website', '');
     }
     const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
-    // Remove the filename from pathParts to get directory depth
-    const directoryDepth = pathParts.length - 1;
+    
+    // Calculate directory depth based on whether path ends with a slash or has a filename
+    let directoryDepth;
+    if (adjustedPath.endsWith('/')) {
+      // Directory URL like /projecten/ -> directory depth = pathParts.length
+      directoryDepth = pathParts.length;
+    } else {
+      // File URL like /projecten/index.html -> directory depth = pathParts.length - 1
+      directoryDepth = pathParts.length - 1;
+    }
+    
     return '../'.repeat(directoryDepth);
   }
 
@@ -200,8 +209,15 @@ class ComponentLoader {
     // Count the number of directory levels from root
     const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
     
-    // Remove the filename from pathParts to get directory depth
-    const directoryDepth = pathParts.length - 1;
+    // Calculate directory depth based on whether path ends with a slash or has a filename
+    let directoryDepth;
+    if (adjustedPath.endsWith('/')) {
+      // Directory URL like /projecten/ -> directory depth = pathParts.length
+      directoryDepth = pathParts.length;
+    } else {
+      // File URL like /projecten/index.html -> directory depth = pathParts.length - 1
+      directoryDepth = pathParts.length - 1;
+    }
     
     if (adjustedPath.startsWith('/en/')) {
       // For English pages: /en/about.html -> need 1 level up (../)
