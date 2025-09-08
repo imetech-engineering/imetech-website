@@ -1,5 +1,184 @@
 // ===== PROFESSIONAL INTERACTIONS & ANIMATIONS =====
 
+// ===== COOKIE MANAGEMENT SYSTEM =====
+class CookieManager {
+  constructor() {
+    this.cookieConsent = this.getCookieConsent();
+    this.googleAnalyticsLoaded = false;
+    this.init();
+  }
+
+  init() {
+    // Load cookie banner component
+    this.loadCookieBanner();
+    
+    // Initialize Google Analytics if consent is given
+    if (this.cookieConsent.analytics) {
+      this.loadGoogleAnalytics();
+    }
+  }
+
+  getCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent) {
+      return JSON.parse(consent);
+    }
+    return {
+      necessary: true,
+      analytics: false,
+      timestamp: null
+    };
+  }
+
+  saveCookieConsent(consent) {
+    const consentData = {
+      ...consent,
+      timestamp: new Date().toISOString()
+    };
+    localStorage.setItem('cookieConsent', JSON.stringify(consentData));
+    this.cookieConsent = consentData;
+  }
+
+  loadCookieBanner() {
+    // Only show banner if no consent has been given yet
+    if (!this.cookieConsent.timestamp) {
+      this.showCookieBanner();
+    }
+  }
+
+  async showCookieBanner() {
+    try {
+      const response = await fetch(`${this.getBaseUrl()}components/cookie-banner.html`);
+      let html = await response.text();
+      
+      // Get the ComponentLoader instance to access texts and URLs
+      const loader = window.componentLoader;
+      if (loader) {
+        // Replace placeholders with actual values
+        const replacements = {
+          ...loader.texts,
+          ...loader.generateNavigationUrls(),
+          BASE_URL: loader.baseUrl
+        };
+        
+        // Replace all placeholders
+        Object.entries(replacements).forEach(([key, value]) => {
+          const regex = new RegExp(`{${key}}`, 'g');
+          html = html.replace(regex, value);
+        });
+        
+        // Handle URL replacements for different languages
+        if (loader.language === 'en') {
+          html = html.replace(/{BASE_URL}privacyverklaring\.html/g, `${loader.baseUrl}privacy-policy.html`);
+          html = html.replace(/{BASE_URL}algemenevoorwaarden\.html/g, `${loader.baseUrl}termsandconditions.html`);
+        } else {
+          html = html.replace(/{BASE_URL}privacy-policy\.html/g, `${loader.baseUrl}privacyverklaring.html`);
+          html = html.replace(/{BASE_URL}termsandconditions\.html/g, `${loader.baseUrl}algemenevoorwaarden.html`);
+        }
+      }
+      
+      // Create container for cookie banner
+      const container = document.createElement('div');
+      container.innerHTML = html;
+      document.body.appendChild(container.firstElementChild);
+      
+      // Initialize cookie banner functionality
+      this.initCookieBannerEvents();
+      
+      // Show banner with animation
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.style.display = 'block';
+          setTimeout(() => banner.classList.add('show'), 100);
+        }
+      }, 500);
+    } catch (error) {
+      console.error('Error loading cookie banner:', error);
+    }
+  }
+
+  getBaseUrl() {
+    const path = window.location.pathname;
+    let adjustedPath = path;
+    if (path.startsWith('/imetech-website/')) {
+      adjustedPath = path.replace('/imetech-website', '');
+    }
+    const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
+    // Remove the filename from pathParts to get directory depth
+    const directoryDepth = pathParts.length - 1;
+    return '../'.repeat(directoryDepth);
+  }
+
+  initCookieBannerEvents() {
+    // Accept all cookies
+    const acceptAllBtn = document.getElementById('cookie-accept-all');
+    if (acceptAllBtn) {
+      acceptAllBtn.addEventListener('click', () => {
+        this.acceptAllCookies();
+      });
+    }
+
+    // Accept necessary only
+    const acceptNecessaryBtn = document.getElementById('cookie-accept-necessary');
+    if (acceptNecessaryBtn) {
+      acceptNecessaryBtn.addEventListener('click', () => {
+        this.acceptNecessaryOnly();
+      });
+    }
+  }
+
+  acceptAllCookies() {
+    this.saveCookieConsent({
+      necessary: true,
+      analytics: true
+    });
+    this.loadGoogleAnalytics();
+    this.hideCookieBanner();
+  }
+
+  acceptNecessaryOnly() {
+    this.saveCookieConsent({
+      necessary: true,
+      analytics: false
+    });
+    this.hideCookieBanner();
+  }
+
+
+  hideCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+      banner.classList.remove('show');
+      setTimeout(() => {
+        banner.remove();
+      }, 300);
+    }
+  }
+
+  loadGoogleAnalytics() {
+    if (this.googleAnalyticsLoaded) return;
+    
+    // Load Google Analytics script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-1LP253W3VD';
+    document.head.appendChild(script);
+
+    // Initialize gtag
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1LP253W3VD', {
+      anonymize_ip: true,
+      cookie_flags: 'secure;samesite=strict'
+    });
+    
+    window.gtag = gtag;
+    this.googleAnalyticsLoaded = true;
+  }
+}
+
 // ===== COMPONENT LOADING SYSTEM =====
 class ComponentLoader {
   constructor() {
@@ -21,14 +200,17 @@ class ComponentLoader {
     // Count the number of directory levels from root
     const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
     
+    // Remove the filename from pathParts to get directory depth
+    const directoryDepth = pathParts.length - 1;
+    
     if (adjustedPath.startsWith('/en/')) {
       // For English pages: /en/about.html -> need 1 level up (../)
       // For English pages: /en/projects/robot.html -> need 2 levels up (../../)
-      return '../'.repeat(pathParts.length);
+      return '../'.repeat(directoryDepth);
     } else {
       // For Dutch pages: /index.html -> need 0 levels up
       // For Dutch pages: /projecten/robot.html -> need 1 level up (../)
-      return '../'.repeat(pathParts.length);
+      return '../'.repeat(directoryDepth);
     }
   }
 
@@ -71,7 +253,12 @@ class ComponentLoader {
         FOOTER_CTA_TEXT: 'Heb je een technische uitdaging? Laten we samen kijken naar de mogelijkheden.',
         FOOTER_CTA_BUTTON: 'Bespreek je project',
         FOOTER_DISCLAIMER: 'Disclaimer',
-        FOOTER_TERMS: 'Algemene voorwaarden'
+        FOOTER_TERMS: 'Algemene voorwaarden',
+        FOOTER_PRIVACY: 'Privacyverklaring',
+        COOKIE_BANNER_TITLE: 'Cookies op deze website',
+        COOKIE_BANNER_TEXT: 'Wij gebruiken cookies om de website te verbeteren en statistieken bij te houden. Functionele cookies zijn altijd actief. Analytische cookies worden alleen geplaatst met uw toestemming.',
+         COOKIE_BANNER_ACCEPT_ALL: 'Alles accepteren',
+         COOKIE_BANNER_ACCEPT_NECESSARY: 'Alleen noodzakelijk'
       },
       en: {
         PHONE_TEXT: '+31 6 12 38 54 39',
@@ -102,7 +289,12 @@ class ComponentLoader {
         FOOTER_CTA_TEXT: 'Do you have a technical challenge? Let\'s explore the possibilities together.',
         FOOTER_CTA_BUTTON: 'Discuss your project',
         FOOTER_DISCLAIMER: 'Disclaimer',
-        FOOTER_TERMS: 'Terms & Conditions'
+        FOOTER_TERMS: 'Terms & Conditions',
+        FOOTER_PRIVACY: 'Privacy Policy',
+        COOKIE_BANNER_TITLE: 'Cookies on this website',
+        COOKIE_BANNER_TEXT: 'We use cookies to improve the website and keep statistics. Functional cookies are always active. Analytical cookies are only placed with your consent.',
+         COOKIE_BANNER_ACCEPT_ALL: 'Accept All',
+         COOKIE_BANNER_ACCEPT_NECESSARY: 'Necessary Only'
       }
     };
     return texts[this.language];
@@ -139,9 +331,11 @@ class ComponentLoader {
         '/en/projects/usb-c-charging-pcb.html': '/projecten/usb-c-laad-pcb.html',
         '/en/blog/': '/blog/',
         '/en/blog/index.html': '/blog/index.html',
+        '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
         '/en/review.html': '/review.html',
         '/en/disclaimer/': '/disclaimer/',
         '/en/terms-and-conditions/': '/algemenevoorwaarden/',
+        '/en/privacy-policy/': '/privacyverklaring/',
         '/en/404.html': '/404.html'
       };
       
@@ -173,9 +367,11 @@ class ComponentLoader {
         '/projecten/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/index.html',
+        '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
         '/review.html': '/en/review.html',
         '/disclaimer/': '/en/disclaimer/',
         '/algemenevoorwaarden/': '/en/terms-and-conditions/',
+        '/privacyverklaring/': '/en/privacy-policy/',
         '/404.html': '/en/404.html'
       };
       
@@ -198,7 +394,8 @@ class ComponentLoader {
         BLOG_URL: 'blog/',
         CONTACT_URL: 'contact.html',
         DISCLAIMER_URL: 'disclaimer.html',
-        TERMS_URL: 'termsandconditions.html'
+        TERMS_URL: 'termsandconditions.html',
+        PRIVACY_URL: 'privacy-policy.html'
       };
     } else {
       // For Dutch pages, use relative paths to Dutch pages
@@ -210,7 +407,8 @@ class ComponentLoader {
         BLOG_URL: 'blog/',
         CONTACT_URL: 'contact.html',
         DISCLAIMER_URL: 'disclaimer.html',
-        TERMS_URL: 'algemenevoorwaarden.html'
+        TERMS_URL: 'algemenevoorwaarden.html',
+        PRIVACY_URL: 'privacyverklaring.html'
       };
     }
   }
@@ -270,6 +468,7 @@ class ComponentLoader {
         html = html.replace(/{BASE_URL}contact\.html/g, `${this.baseUrl}contact.html`);
         html = html.replace(/{BASE_URL}disclaimer\.html/g, `${this.baseUrl}disclaimer.html`);
         html = html.replace(/{BASE_URL}algemenevoorwaarden\.html/g, `${this.baseUrl}termsandconditions.html`);
+        html = html.replace(/{BASE_URL}privacyverklaring\.html/g, `${this.baseUrl}privacy-policy.html`);
       } else {
         // Replace English URLs with Dutch equivalents (for Dutch pages)
         html = html.replace(/{BASE_URL}about\.html/g, `${this.baseUrl}over-mij.html`);
@@ -278,6 +477,7 @@ class ComponentLoader {
         html = html.replace(/{BASE_URL}blog\//g, `${this.baseUrl}blog/`);
         html = html.replace(/{BASE_URL}review\.html/g, `${this.baseUrl}review.html`);
         html = html.replace(/{BASE_URL}termsandconditions\.html/g, `${this.baseUrl}algemenevoorwaarden.html`);
+        html = html.replace(/{BASE_URL}privacy-policy\.html/g, `${this.baseUrl}privacyverklaring.html`);
       }
       
       // Additional URL replacements for component templates
@@ -293,6 +493,7 @@ class ComponentLoader {
         html = html.replace(/href="([^"]*\/)contact\.html"/g, 'href="$1contact.html"');
         html = html.replace(/href="([^"]*\/)disclaimer\.html"/g, 'href="$1disclaimer.html"');
         html = html.replace(/href="([^"]*\/)algemenevoorwaarden\.html"/g, 'href="$1termsandconditions.html"');
+        html = html.replace(/href="([^"]*\/)privacyverklaring\.html"/g, 'href="$1privacy-policy.html"');
         
         // Also handle direct href replacements without path prefix
         html = html.replace(/href="over-mij\.html"/g, 'href="about.html"');
@@ -301,6 +502,7 @@ class ComponentLoader {
         html = html.replace(/href="blog\//g, 'href="blog/');
         html = html.replace(/href="review\.html"/g, 'href="review.html"');
         html = html.replace(/href="algemenevoorwaarden\.html"/g, 'href="termsandconditions.html"');
+        html = html.replace(/href="privacyverklaring\.html"/g, 'href="privacy-policy.html"');
       } else {
         // For Dutch pages, ensure all navigation links point to Dutch pages
         html = html.replace(/href="([^"]*\/)about\.html"/g, 'href="$1over-mij.html"');
@@ -308,6 +510,7 @@ class ComponentLoader {
         html = html.replace(/href="([^"]*\/)projects\//g, 'href="$1projecten/');
         html = html.replace(/href="([^"]*\/)blog\//g, 'href="$1blog/');
         html = html.replace(/href="([^"]*\/)termsandconditions\.html"/g, 'href="$1algemenevoorwaarden.html"');
+        html = html.replace(/href="([^"]*\/)privacy-policy\.html"/g, 'href="$1privacyverklaring.html"');
         
         // Also handle direct href replacements without path prefix
         html = html.replace(/href="about\.html"/g, 'href="over-mij.html"');
@@ -316,6 +519,7 @@ class ComponentLoader {
         html = html.replace(/href="blog\//g, 'href="blog/');
         html = html.replace(/href="review\.html"/g, 'href="review.html"');
         html = html.replace(/href="termsandconditions\.html"/g, 'href="algemenevoorwaarden.html"');
+        html = html.replace(/href="privacy-policy\.html"/g, 'href="privacyverklaring.html"');
       }
       
       // Replace all placeholders
@@ -373,7 +577,11 @@ class ComponentLoader {
 // Initialize component loader
 document.addEventListener('DOMContentLoaded', async function() {
   const loader = new ComponentLoader();
+  window.componentLoader = loader; // Make loader globally available
   await loader.loadComponents();
+  
+  // Initialize cookie manager
+  new CookieManager();
 });
 
 // ===== MOBILE NAVIGATION =====
@@ -473,6 +681,7 @@ function initLanguageSwitching() {
             '/contact.html': '/en/contact.html',
             '/algemenevoorwaarden.html': '/en/termsandconditions.html',
             '/disclaimer.html': '/en/disclaimer.html',
+            '/privacyverklaring.html': '/en/privacy-policy.html',
             '/projecten/': '/en/projects/',
             '/projecten/index.html': '/en/projects/index.html',
             '/projecten/2x2-steering-robot.html': '/en/projects/2x2-steering-robot.html',
@@ -488,11 +697,13 @@ function initLanguageSwitching() {
             '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
             '/blog/': '/en/blog/',
             '/blog/index.html': '/en/blog/index.html',
+            '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
             '/review.html': '/en/review.html',
             '/404.html': '/en/404.html'
           };
           
           const englishPath = pathMapping[currentPath] || '/en/';
+          console.log('Language switch - Current path:', currentPath, 'Mapped to:', englishPath);
           const prefix = window.location.pathname.startsWith('/imetech-website/') ? '/imetech-website' : '';
           window.location.href = prefix + englishPath;
         }
@@ -507,10 +718,12 @@ function initLanguageSwitching() {
             '/en/contact.html': '/contact.html',
             '/en/termsandconditions.html': '/algemenevoorwaarden.html',
             '/en/disclaimer.html': '/disclaimer.html',
+            '/en/privacy-policy.html': '/privacyverklaring.html',
             '/en/projects/': '/projecten/',
             '/en/projects/index.html': '/projecten/index.html',
             '/en/projects/2x2-steering-robot.html': '/projecten/2x2-steering-robot.html',
             '/en/projects/6-dof-spacemouse.html': '/projecten/6-dof-spacemouse.html',
+            '/en/projects/control-panels.html': '/projecten/besturingskasten.html',
             '/en/projects/dual-lab-power-supply.html': '/projecten/dubbele-labvoeding.html',
             '/en/projects/fume-extractor.html': '/projecten/fume-extractor.html',
             '/en/projects/laptop-stand.html': '/projecten/laptop-stand.html',
@@ -521,11 +734,13 @@ function initLanguageSwitching() {
             '/en/projects/self-balancing-cube.html': '/projecten/zelfbalancerende-kubus.html',
             '/en/blog/': '/blog/',
             '/en/blog/index.html': '/blog/index.html',
+            '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
             '/en/review.html': '/review.html',
             '/en/404.html': '/404.html'
           };
           
           const dutchPath = pathMapping[currentPath] || '/';
+          console.log('Language switch - Current path:', currentPath, 'Mapped to:', dutchPath);
           const prefix = window.location.pathname.startsWith('/imetech-website/') ? '/imetech-website' : '';
           window.location.href = prefix + dutchPath;
         } else {

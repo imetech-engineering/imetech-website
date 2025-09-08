@@ -69,5 +69,40 @@
       <link>https://imetech.nl/projecten/zelfbalancerende-kubus.html</link>
       <description>Projectpagina voor de Zelfbalancerende Kubus</description>
     </item>
+    <item>
+      <title>Besturingskasten</title>
+      <link>https://imetech.nl/projecten/besturingskasten.html</link>
+      <description>Projectpagina voor Besturingskasten</description>
+    </item>
+    <item>
+      <title>Embedded Systemen Blog</title>
+      <link>https://imetech.nl/blog/embedded-systemen.html</link>
+      <description>Blog post over embedded systemen en hun rol in moderne technologie</description>
+    </item>
+    <item>
+      <title>Privacyverklaring</title>
+      <link>https://imetech.nl/privacyverklaring.html</link>
+      <description>Privacyverklaring van IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://imetech.nl/en/privacy-policy.html</link>
+      <description>Privacy Policy of IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>Terms and Conditions</title>
+      <link>https://imetech.nl/en/termsandconditions.html</link>
+      <description>Terms and Conditions of IMeTech Engineering</description>
+    </item>
+    <item>
+      <title>Control Panels</title>
+      <link>https://imetech.nl/en/projects/control-panels.html</link>
+      <description>Project page for Control Panels</description>
+    </item>
+    <item>
+      <title>Embedded Systems Blog</title>
+      <link>https://imetech.nl/en/blog/embedded-systems.html</link>
+      <description>Blog post about embedded systems and their role in modern technology</description>
+    </item>
   </channel>
 </rss> 

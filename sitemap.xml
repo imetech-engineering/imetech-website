@@ -104,4 +104,32 @@
     <loc>https://imetech.nl/projecten/zelfbalancerende-kubus.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://imetech.nl/projecten/besturingskasten.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/blog/embedded-systemen.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/privacyverklaring.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/privacy-policy.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/termsandconditions.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/control-panels.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/blog/embedded-systems.html</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset> 
