@@ -89,6 +89,8 @@ class CookieManager {
       setTimeout(() => {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
+          // Ensure any utility hidden class is removed so inline style can apply
+          banner.classList.remove('hidden');
           banner.style.display = 'block';
           setTimeout(() => banner.classList.add('show'), 100);
         }
@@ -1599,7 +1601,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Preload critical images
   const criticalImages = [
-    'images/Logo blauw 1000x500.webp',
+    'images/logo-blauw-1000x500.webp',
     'images/WieBenIk.webp',
   ];
   

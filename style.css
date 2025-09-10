@@ -6667,6 +6667,20 @@ p {
   align-items: flex-end;
 }
 
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+
+.text-success {
+  color: var(--success);
+}
+
+/* Components cleanup */
+.mobile-nav-header {
+  justify-content: flex-end;
+}
+
 .btn-block {
   width: 100%;
   display: flex;

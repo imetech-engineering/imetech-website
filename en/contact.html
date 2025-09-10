@@ -9,7 +9,7 @@
   <meta name="author" content="Ivo Mengerink">
   <meta property="og:title" content="Contact - IMeTech Engineering Aalten">
   <meta property="og:description" content="Contact us for your technical challenge. IMeTech Engineering helps with product development, PCB design and embedded systems in Aalten and the Netherlands.">
-  <meta property="og:image" content="https://imetech.nl/images/Logo blauw 1000x500.webp">
+  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
   <meta property="og:url" content="https://imetech.nl/en/contact.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -114,7 +114,7 @@
                         <label for="message" class="sr-only">Message</label>
                         <textarea id="message" name="message" rows="3" placeholder="Your message..." required></textarea>
                       </div>
-                      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                      <input type="checkbox" name="botcheck" class="hidden">
                       <div id="result"></div>
                       <button type="submit" class="btn btn-primary btn-block">
                         Send message
@@ -256,7 +256,7 @@
     </div>
   </div>
 
-  <script src="../script.js?v=8"></script>
+  <script src="../script.js?v=8" defer></script>
   <!-- Web3Forms JSON script -->
   <script>
   const form = document.getElementById('contactForm');
