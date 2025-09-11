@@ -1591,6 +1591,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initPersonalSection();
   initFloatingCTA();
   initProjectCategoryFilters();
+  initShareLinks();
   
   // Set initial states for animated elements
   const skillCards = document.querySelectorAll('.skill-card');
@@ -1645,6 +1646,32 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(highlightContactForm, 400); // na scrollen
     }
   }, true);
+});
+// ===== SOCIAL SHARE LINKS (no external JS) =====
+function initShareLinks() {
+  const blocks = document.querySelectorAll('.share-links');
+  blocks.forEach(block => {
+    const url = encodeURIComponent(block.getAttribute('data-canonical') || window.location.href);
+    const title = encodeURIComponent(block.getAttribute('data-title') || document.title);
+    const linkX = block.querySelector('.share-x');
+    const linkLn = block.querySelector('.share-linkedin');
+    const linkWa = block.querySelector('.share-whatsapp');
+    if (linkX) linkX.href = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (linkLn) linkLn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+    if (linkWa) linkWa.href = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+    // Show WhatsApp only on small screens via CSS class (handled in CSS)
+  });
+}
+
+// ===== EMAIL OBFUSCATION =====
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('[data-email-user][data-email-domain]');
+  links.forEach(link => {
+    const user = link.getAttribute('data-email-user');
+    const domain = link.getAttribute('data-email-domain');
+    const addr = `${user}@${domain}`;
+    link.href = `mailto:${addr}`;
+  });
 });
 
 // ===== PROJECT CATEGORY FILTERS =====

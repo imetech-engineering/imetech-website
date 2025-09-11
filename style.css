@@ -131,6 +131,24 @@ img, picture, video, canvas, svg {
   height: auto;
 }
 
+/* Prevent CLS on key hero/profile images */
+.profile-img img { aspect-ratio: 4 / 3; width: 100%; height: auto; }
+.project-image img { aspect-ratio: 4 / 3; width: 100%; height: auto; }
+
+/* Lightweight share links */
+.share-links { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+.share-links .label { font-weight: 600; color: var(--text-secondary); margin-right: 0.5rem; }
+.share-button { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem; border: 1px solid #e3f2fd; border-radius: var(--radius); color: var(--primary); background: #f8fbff; transition: all .2s ease; position: relative; }
+.share-button:hover { background: #e3f2fd; border-color: var(--primary); transform: translateY(-1px); }
+.share-button:hover::after { content: attr(aria-label); position: absolute; bottom: -2.5rem; left: 50%; transform: translateX(-50%); background: var(--text-primary); color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.8rem; white-space: nowrap; z-index: 10; }
+.share-button:hover::before { content: ''; position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-bottom-color: var(--text-primary); z-index: 10; }
+.share-button svg { width: 18px; height: 18px; }
+.share-links.prominent { margin-top: 0.75rem; }
+.share-links .share-whatsapp { display: none; }
+@media (max-width: 768px) {
+  .share-links .share-whatsapp { display: inline-flex; }
+}
+
 input, button, textarea, select {
   font: inherit;
 }
