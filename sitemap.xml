@@ -1,135 +1,423 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home -->
   <url>
     <loc>https://imetech.nl/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- About -->
   <url>
     <loc>https://imetech.nl/over-mij.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/diensten.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/contact.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/review.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/over-mij.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/over-mij.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/over-mij.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/over-mij.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://imetech.nl/diensten.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/services.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Projects index -->
+  <url>
+    <loc>https://imetech.nl/projecten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://imetech.nl/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Contact -->
   <url>
-    <loc>https://imetech.nl/en/contact.html</loc>
+    <loc>https://imetech.nl/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/contact.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://imetech.nl/en/review.html</loc>
+    <loc>https://imetech.nl/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/contact.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Review -->
+  <url>
+    <loc>https://imetech.nl/review.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/review.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/review.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/review.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://imetech.nl/en/review.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/review.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/review.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/review.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal / info -->
   <url>
     <loc>https://imetech.nl/algemenevoorwaarden.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/disclaimer.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/2x2-steering-robot.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/6-dof-spacemouse.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/dubbele-labvoeding.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/fume-extractor.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/laptop-stand.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/letterklok.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/multifunctioneel-soldeerstation.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/usb-c-laad-pcb.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/zelfbalancerende-kubus.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/projecten/besturingskasten.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/embedded-systemen.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/privacyverklaring.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/privacy-policy.html</loc>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/algemenevoorwaarden.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/termsandconditions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/algemenevoorwaarden.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/termsandconditions.html</loc>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/algemenevoorwaarden.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/termsandconditions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/algemenevoorwaarden.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://imetech.nl/en/projects/control-panels.html</loc>
+    <loc>https://imetech.nl/disclaimer.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/disclaimer.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/disclaimer.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/disclaimer.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/privacyverklaring.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/privacyverklaring.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/privacyverklaring.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/privacyverklaring.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/privacyverklaring.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://imetech.nl/blog/embedded-systemen.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/embedded-systemen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/embedded-systems.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/embedded-systemen.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imetech.nl/en/blog/embedded-systems.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/embedded-systemen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/embedded-systems.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/embedded-systemen.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset> 
+
+  <!-- Project detail pages (NL/EN pairs) -->
+  <url>
+    <loc>https://imetech.nl/projecten/2x2-steering-robot.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/2x2-steering-robot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/2x2-steering-robot.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/2x2-steering-robot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/6-dof-spacemouse.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/6-dof-spacemouse.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/6-dof-spacemouse.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/6-dof-spacemouse.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/dubbele-labvoeding.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/dual-lab-power-supply.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/dual-lab-power-supply.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/dual-lab-power-supply.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/fume-extractor.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/fume-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/fume-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/fume-extractor.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/fume-extractor.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/fume-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/fume-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/fume-extractor.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/laptop-stand.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/laptop-stand.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/laptop-stand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/laptop-stand.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/laptop-stand.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/laptop-stand.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/laptop-stand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/laptop-stand.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/letterklok.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/letterklok.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/letter-clock.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/letterklok.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/letter-clock.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/letterklok.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/letter-clock.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/letterklok.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/magnetic-levitation-planter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/magnetic-levitation-planter.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/magnetic-levitation-planter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/multifunctioneel-soldeerstation.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/multifunctional-soldering-station.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/multifunctional-soldering-station.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/multifunctional-soldering-station.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/usb-c-laad-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/usb-c-charging-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/usb-c-charging-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/usb-c-charging-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/zelfbalancerende-kubus.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/self-balancing-cube.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/self-balancing-cube.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/self-balancing-cube.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/besturingskasten.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/besturingskasten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/control-panels.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/besturingskasten.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/control-panels.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/besturingskasten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/control-panels.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/besturingskasten.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Project pages present in NL without EN counterparts listed above -->
+  <!-- (no extra entries; index pages are represented by trailing-slash URLs) -->
+
+  <!-- English home index explicitly -->
+  <url>
+    <loc>https://imetech.nl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

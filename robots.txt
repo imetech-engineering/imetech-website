@@ -20,7 +20,3 @@ Allow: /en/
 
 # Sitemaps
 Sitemap: https://imetech.nl/sitemap.xml
-Sitemap: https://imetech.nl/sitemap.rss
-
-# Host
-Host: https://imetech.nl 
