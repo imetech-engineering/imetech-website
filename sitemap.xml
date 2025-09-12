@@ -406,6 +406,24 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://imetech.nl/projecten/smartlamp-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/smartlamp-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Project pages present in NL without EN counterparts listed above -->
   <!-- (no extra entries; index pages are represented by trailing-slash URLs) -->

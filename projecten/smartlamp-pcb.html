@@ -4,9 +4,14 @@
   <!-- Google Analytics will be loaded after cookie consent -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Besturingskasten voor luchtkwaliteitsmeting: vijf complete besturingspanelen voor ammoniak en CO2 monitoring. WAGO PLC programmering, sensoren, webvisualisatie en PCB ontwerp.">
-  <title>Besturingskasten voor Luchtkwaliteitsmeting | PLC & Embedded Systemen</title>
+  <meta name="description" content="SmartLamp PCB: RGBW LED driver met ESP32, Li-Ion accu en USB-C opladen. Compacte printplaat voor slimme verlichting met handmatige en automatische bediening.">
+  <title>SmartLamp PCB | RGBW LED Driver & Li-Ion Charging Board</title>
   <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/projecten/smartlamp-pcb.html">
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -22,8 +27,8 @@
       <div class="container">
         <div class="page-header-content">
           
-          <h1>Besturingskasten voor Luchtkwaliteitsmeting</h1>
-          <p class="page-description">Vijf complete besturingspanelen voor ammoniak en CO2 monitoring met WAGO PLC, sensoren, webvisualisatie en custom PCB ontwerp.</p>
+          <h1>SmartLamp PCB</h1>
+          <p class="page-description">Een compacte RGBW LED driver printplaat met ESP32 integratie, Li-Ion accu en USB-C opladen. Geschikt voor zowel handmatige als automatische LED-strip bediening.</p>
           <p class="project-date">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -31,7 +36,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            Juli 2025
+            September 2025
           </p>
         </div>
       </div>
@@ -41,28 +46,27 @@
     <section class="project-section">
       <div class="container">
         <div class="project-images">
-          <img src="../images/Besturingskast01.webp" alt="Besturingskast voor luchtkwaliteitsmeting met WAGO PLC en sensoren" />
-          <img src="../images/Besturingskast02.webp" alt="Interieur besturingskast met DIN rails en kabelgoten" />
-          <img src="../images/Besturingskast03.webp" alt="Detail van sensoren en meetbuis in besturingskast" />
-          <img src="../images/Besturingskast04.webp" alt="Webvisualisatie interface voor luchtkwaliteitsmonitoring" />
+          <img src="../images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - RGBW LED driver met ESP32 en Li-Ion accu opladen" />
+          <img src="../images/3D_SmartLamp02_RB.webp" alt="SmartLamp PCB - Detail van ESP32 header en RGBW LED connector" />
+          <img src="../images/SCH_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - Schema van RGBW LED driver circuit met boost converter" />
         </div>
 
         <div class="project-content">
           <section class="project-description">
             <h2>Projectbeschrijving</h2>
             <p>
-              Dit project omvatte de ontwikkeling van <strong>vijf complete besturingskasten</strong> voor een installatie die ammoniak en CO2 waarden van de luchtinlaat kan meten. De lucht wordt via een pomp door een meetbuis geleid waarin de sensoren zijn geplaatst. Het gehele systeem wordt aangestuurd door een <strong>WAGO PLC</strong>, waarvoor ik het volledige programma heb geschreven.
+              De <strong>SmartLamp PCB</strong> is een veelzijdige printplaat die een RGBW LED strip kan aansturen via een ESP32 microcontroller. Het bord ondersteunt zowel 12V als 5V LED strips via een schakelaar en biedt handmatige bediening via potmeters als backup voor de ESP-signalen.
             </p>
             <p>
-              De <strong>PLC programmering</strong> in CODESYS omvatte het opzetten van communicatie tussen PLC en sensoren, het verwerken van meetwaarden, en het creëren van een besturingspaneel in de vorm van een <strong>webvisualisatie</strong>. De geïntegreerde sensoren bestaan uit een debietmeter, CO2 sensor en ammoniaksensor. Het ontwerpproces omvatte ook de ontwikkeling van een <strong>custom PCB</strong> voor communicatiedoeleinden.
+              Het ontwerp bevat een geïntegreerde Li-Ion accu (3.7V) die oplaadbaar is via USB-C. De boost converter zorgt voor een stabiele uitgangsspanning van 5V of 12V, afhankelijk van de LED-strip configuratie. Het bord is geschikt voor zowel kleine accentverlichting als grotere verlichtingsprojecten.
             </p>
             <p>
-              Ik heb het volledige project van A tot Z uitgevoerd: van de assemblage van de meetbuis tot de mechanische plaatsing van kabelgoten en DIN rails, het monteren van de diverse componenten, het doorlussen van alle bedrading via de klemmenstrook, het schrijven van de PLC software, en het testen en valideren van het gehele systeem. Dit project toont mijn expertise in <strong>embedded systemen</strong>, <strong>PLC programmering</strong>, en <strong>industriële automatisering</strong>.
-            </p>
+              De printplaat is vormgeoptimaliseerd voor behuizing en bevat alle benodigde beveiligingen zoals PTC resetbare zekering, thermische beveiliging en automatische herstart bij overtemperatuur. Dit maakt het een robuuste oplossing voor <strong>slimme verlichting</strong>, <strong>IoT projecten</strong> en <strong>embedded systemen</strong>.
+            </p>                       
           </section>
         </div>
         <div class="project-nav-actions">
-          <a href="../projecten/smartlamp-pcb.html" class="project-prev-btn">
+          <a href="../projecten/2x2-steering-robot.html" class="project-prev-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
@@ -74,7 +78,7 @@
             </svg>
             <span>Terug naar projecten</span>
           </a>
-          <a href="../projecten/usb-c-laad-pcb.html" class="project-next-btn">
+          <a href="../projecten/besturingskasten.html" class="project-next-btn">
             <span>Volgend project</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -87,6 +91,8 @@
     
   </main>
 
+  <script src="../script.js?v=8" defer></script>
+  
   <!-- Floating CTA Panel -->
   <div class="floating-cta-panel" id="floating-cta">
     <div class="cta-toggle" id="cta-toggle">
@@ -127,8 +133,5 @@
       </a>
     </div>
   </div>
-
-  <script src="../script.js?v=8" defer></script>
 </body>
 </html>
-

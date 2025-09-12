@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <!-- Google Analytics will be loaded after cookie consent -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Besturingskasten voor luchtkwaliteitsmeting: vijf complete besturingspanelen voor ammoniak en CO2 monitoring. WAGO PLC programmering, sensoren, webvisualisatie en PCB ontwerp.">
-  <title>Besturingskasten voor Luchtkwaliteitsmeting | PLC & Embedded Systemen</title>
-  <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
+  <meta name="description" content="SmartLamp PCB: RGBW LED driver with ESP32, Li-Ion battery and USB-C charging. Compact circuit board for smart lighting with manual and automatic control.">
+  <title>SmartLamp PCB | RGBW LED Driver & Li-Ion Charging Board</title>
+  <link rel="icon" href="../../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/projects/smartlamp-pcb.html">
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=8" />
+  <link rel="stylesheet" href="../../style.css?v=8" />
 </head>
 <body>
   <!-- Header will be loaded dynamically -->
@@ -22,8 +27,8 @@
       <div class="container">
         <div class="page-header-content">
           
-          <h1>Besturingskasten voor Luchtkwaliteitsmeting</h1>
-          <p class="page-description">Vijf complete besturingspanelen voor ammoniak en CO2 monitoring met WAGO PLC, sensoren, webvisualisatie en custom PCB ontwerp.</p>
+          <h1>SmartLamp PCB</h1>
+          <p class="page-description">A compact RGBW LED driver circuit board with ESP32 integration, Li-Ion battery and USB-C charging. Suitable for both manual and automatic LED strip control.</p>
           <p class="project-date">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -31,7 +36,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            Juli 2025
+            September 2025
           </p>
         </div>
       </div>
@@ -41,41 +46,40 @@
     <section class="project-section">
       <div class="container">
         <div class="project-images">
-          <img src="../images/Besturingskast01.webp" alt="Besturingskast voor luchtkwaliteitsmeting met WAGO PLC en sensoren" />
-          <img src="../images/Besturingskast02.webp" alt="Interieur besturingskast met DIN rails en kabelgoten" />
-          <img src="../images/Besturingskast03.webp" alt="Detail van sensoren en meetbuis in besturingskast" />
-          <img src="../images/Besturingskast04.webp" alt="Webvisualisatie interface voor luchtkwaliteitsmonitoring" />
+          <img src="../../images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - RGBW LED driver with ESP32 and Li-Ion battery charging" />
+          <img src="../../images/3D_SmartLamp02_RB.webp" alt="SmartLamp PCB - Detail of ESP32 header and RGBW LED connector" />
+          <img src="../../images/SCH_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - Schematic of RGBW LED driver circuit with boost converter" />
         </div>
 
         <div class="project-content">
           <section class="project-description">
-            <h2>Projectbeschrijving</h2>
+            <h2>Project Description</h2>
             <p>
-              Dit project omvatte de ontwikkeling van <strong>vijf complete besturingskasten</strong> voor een installatie die ammoniak en CO2 waarden van de luchtinlaat kan meten. De lucht wordt via een pomp door een meetbuis geleid waarin de sensoren zijn geplaatst. Het gehele systeem wordt aangestuurd door een <strong>WAGO PLC</strong>, waarvoor ik het volledige programma heb geschreven.
+              The <strong>SmartLamp PCB</strong> is a versatile circuit board that can control an RGBW LED strip via an ESP32 microcontroller. The board supports both 12V and 5V LED strips via a switch and provides manual control via potentiometers as backup for ESP signals.
             </p>
             <p>
-              De <strong>PLC programmering</strong> in CODESYS omvatte het opzetten van communicatie tussen PLC en sensoren, het verwerken van meetwaarden, en het creëren van een besturingspaneel in de vorm van een <strong>webvisualisatie</strong>. De geïntegreerde sensoren bestaan uit een debietmeter, CO2 sensor en ammoniaksensor. Het ontwerpproces omvatte ook de ontwikkeling van een <strong>custom PCB</strong> voor communicatiedoeleinden.
+              The design includes an integrated Li-Ion battery (3.7V) that can be charged via USB-C, with a maximum charging power of 1A. The boost converter provides a stable output voltage of 5V or 12V, depending on the LED strip configuration. With a maximum LED power of 12W, the board is suitable for both small accent lighting and larger lighting projects.
             </p>
             <p>
-              Ik heb het volledige project van A tot Z uitgevoerd: van de assemblage van de meetbuis tot de mechanische plaatsing van kabelgoten en DIN rails, het monteren van de diverse componenten, het doorlussen van alle bedrading via de klemmenstrook, het schrijven van de PLC software, en het testen en valideren van het gehele systeem. Dit project toont mijn expertise in <strong>embedded systemen</strong>, <strong>PLC programmering</strong>, en <strong>industriële automatisering</strong>.
-            </p>
+              The circuit board is shape-optimized for housing and includes all necessary protections such as PTC resettable fuse, thermal protection and automatic restart on overtemperature. This makes it a robust solution for <strong>smart lighting</strong>, <strong>IoT projects</strong> and <strong>embedded systems</strong>.
+            </p>                       
           </section>
         </div>
         <div class="project-nav-actions">
-          <a href="../projecten/smartlamp-pcb.html" class="project-prev-btn">
+          <a href="../../en/projects/2x2-steering-robot.html" class="project-prev-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-            <span>Vorig project</span>
+            <span>Previous project</span>
           </a>
-          <a href="../projecten/" class="terms-back-btn">
+          <a href="../projects/" class="terms-back-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-            <span>Terug naar projecten</span>
+            <span>Back to projects</span>
           </a>
-          <a href="../projecten/usb-c-laad-pcb.html" class="project-next-btn">
-            <span>Volgend project</span>
+          <a href="../../en/projects/control-panels.html" class="project-next-btn">
+            <span>Next project</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
@@ -87,6 +91,8 @@
     
   </main>
 
+  <script src="../../script.js?v=8" defer></script>
+  
   <!-- Floating CTA Panel -->
   <div class="floating-cta-panel" id="floating-cta">
     <div class="cta-toggle" id="cta-toggle">
@@ -112,7 +118,7 @@
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
         </div>
-        <span>Bellen</span>
+        <span>Call</span>
       </a>
       
       <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" class="cta-option" data-contact="linkedin">
@@ -127,8 +133,5 @@
       </a>
     </div>
   </div>
-
-  <script src="../script.js?v=8" defer></script>
 </body>
 </html>
-
