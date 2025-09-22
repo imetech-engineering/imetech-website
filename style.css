@@ -145,6 +145,30 @@ img, picture, video, canvas, svg {
 .share-button svg { width: 18px; height: 18px; }
 .share-links.prominent { margin-top: 0.75rem; }
 .share-links .share-whatsapp { display: none; }
+
+/* Copy button specific styles */
+.share-copy {
+  cursor: pointer;
+  border: 1px solid #e3f2fd;
+  background: #f8fbff;
+}
+
+.share-copy:hover {
+  background: #e3f2fd;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.share-copy:active {
+  transform: translateY(0);
+  background: #dbeafe;
+}
+
+.share-copy:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .share-links .share-whatsapp { display: inline-flex; }
 }

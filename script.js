@@ -1660,9 +1660,67 @@ function initShareLinks() {
     const linkX = block.querySelector('.share-x');
     const linkLn = block.querySelector('.share-linkedin');
     const linkWa = block.querySelector('.share-whatsapp');
+    const copyBtn = block.querySelector('.share-copy');
+    
     if (linkX) linkX.href = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
     if (linkLn) linkLn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
     if (linkWa) linkWa.href = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+    
+    // Copy to clipboard functionality
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async function() {
+        const urlToCopy = block.getAttribute('data-canonical') || window.location.href;
+        
+        try {
+          await navigator.clipboard.writeText(urlToCopy);
+          
+          // Visual feedback
+          const originalTitle = this.getAttribute('title');
+          const originalAriaLabel = this.getAttribute('aria-label');
+          const isEnglish = window.location.pathname.startsWith('/en/');
+          const copiedText = isEnglish ? 'Copied!' : 'Gekopieerd!';
+          
+          this.setAttribute('title', copiedText);
+          this.setAttribute('aria-label', copiedText);
+          this.style.color = 'var(--success, #10b981)';
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            this.setAttribute('title', originalTitle);
+            this.setAttribute('aria-label', originalAriaLabel);
+            this.style.color = '';
+          }, 2000);
+          
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+          
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = urlToCopy;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          // Visual feedback for fallback
+          const originalTitle = this.getAttribute('title');
+          const originalAriaLabel = this.getAttribute('aria-label');
+          const isEnglish = window.location.pathname.startsWith('/en/');
+          const copiedText = isEnglish ? 'Copied!' : 'Gekopieerd!';
+          
+          this.setAttribute('title', copiedText);
+          this.setAttribute('aria-label', copiedText);
+          this.style.color = 'var(--success, #10b981)';
+          
+          setTimeout(() => {
+            this.setAttribute('title', originalTitle);
+            this.setAttribute('aria-label', originalAriaLabel);
+            this.style.color = '';
+          }, 2000);
+        }
+      });
+    }
+    
     // Show WhatsApp only on small screens via CSS class (handled in CSS)
   });
 }
