@@ -171,6 +171,16 @@ img, picture, video, canvas, svg {
 
 @media (max-width: 768px) {
   .share-links .share-whatsapp { display: inline-flex; }
+  
+  /* Globale oplossing voor lange h1-titels op mobiel */
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    line-height: 1.2;
+  }
 }
 
 input, button, textarea, select {
@@ -797,6 +807,17 @@ p {
     padding-top: calc(var(--header-height) + var(--space-32));
     padding-bottom: var(--space-24);
   }
+  
+  /* Verbeterde tekstomloop voor lange h1-titels op mobiel */
+  .page-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);    
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    line-height: 1.2;
+    max-width: 100%;
+  }
 }
 
 /* ===== CTA SECTION STYLES ===== */
@@ -1102,6 +1123,59 @@ p {
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
+}
+
+/* Project Reference Component */
+.project-reference {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+.project-reference-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.project-reference-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.project-reference-text h4 {
+  font-size: 1.125rem;
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.project-reference-text p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.project-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
 }
 
 
