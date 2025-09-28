@@ -896,12 +896,6 @@ p {
   margin-bottom: var(--space-6);
 }
 
-.intro-text p {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  margin-bottom: var(--space-8);
-}
-
 .intro-cta {
   display: flex;
   gap: var(--space-4);
@@ -3732,7 +3726,7 @@ p {
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
   :root {
-    --section-padding-y: clamp(3rem, 6vw, 6rem);
+    --section-padding-y: clamp(3.5rem, 6.5vw, 6.5rem);
   }
 }
 
@@ -3749,10 +3743,21 @@ p {
     width: 100%;
     justify-content: center;
   }
-  
+
   .hero-cta {
     flex-direction: column;
   }
+  
+  /* Exclude filter buttons and homepage CTA buttons from full-width rule */
+  .project-filters .btn,
+  .quick-links .btn,
+  .intro-cta .btn,
+  .hero-cta .btn {
+    width: auto;
+    flex-shrink: 0;
+  }
+  
+  
 }
 
 @media (max-width: 480px) {
@@ -6467,6 +6472,7 @@ p {
   .footer-logo {
     display: block;
     margin: 0 auto 1rem auto;
+    height: 60px;
   }
 }
 
@@ -7135,7 +7141,7 @@ p {
   }
   
   .btn-large {
-    font-size: 1rem;
+    font-size: 0.875rem;
     padding: var(--space-4) var(--space-6);
   }
   
@@ -7158,7 +7164,7 @@ p {
   
   /* Kleinere spacing */
   .section {
-    padding: var(--space-8) 0;
+    padding: var(--space-16) 0;
   }
   
   .container {
@@ -8724,5 +8730,16 @@ html, body {
   .quote-icon {
     width: 24px;
     height: 24px;
+  }
+}
+
+/* Global mobile H2 sizing to maintain hierarchy below H1 */
+@media (max-width: 768px) {
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem) !important;
+  }
+  
+  .page-description {
+    font-size: 1.125rem;
   }
 }
