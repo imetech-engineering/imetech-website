@@ -209,6 +209,24 @@
 
   <!-- Project detail pages (NL/EN pairs) -->
   <url>
+    <loc>https://imetech.nl/projecten/adresprint-scd30-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/scd30-address-board.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/scd30-address-board.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/scd30-address-board.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://imetech.nl/projecten/2x2-steering-robot.html</loc>
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/2x2-steering-robot.html"/>
