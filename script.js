@@ -221,9 +221,13 @@ class ComponentLoader {
       directoryDepth = pathParts.length - 1;
     }
     
-    // Use absolute paths from root for images and other assets
-    // This ensures images load correctly regardless of subdirectory depth
-    return '/';
+    // For component loading, use relative paths to ensure components load correctly
+    // This is especially important for 404 pages and other root-level pages
+    if (directoryDepth === 0) {
+      return './';
+    } else {
+      return '../'.repeat(directoryDepth);
+    }
   }
 
   getRelativePrefix() {
@@ -246,7 +250,12 @@ class ComponentLoader {
       directoryDepth = pathParts.length - 1;
     }
     
-    return '../'.repeat(directoryDepth);
+    // For root-level pages (like 404.html), use empty string
+    if (directoryDepth === 0) {
+      return '';
+    } else {
+      return '../'.repeat(directoryDepth);
+    }
   }
 
   detectLanguage() {
