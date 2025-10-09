@@ -7662,6 +7662,26 @@ html, body {
     padding: var(--space-4);
   }
   
+  .blog-content ul {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-4);
+  }
+  
+  .blog-content ul li {
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-4);
+  }
+  
+  .blog-content ol {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-4);
+  }
+  
+  .blog-content ol li {
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-4);
+  }
+  
   .blog-cta {
     padding: var(--space-6);
   }
@@ -7908,6 +7928,66 @@ html, body {
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: var(--space-8);
+}
+
+/* Blog Content Lists */
+.blog-content ul {
+  margin: var(--space-6) 0;
+  padding-left: var(--space-6);
+  list-style: none;
+}
+
+.blog-content ul li {
+  position: relative;
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-6);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+}
+
+.blog-content ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--primary);
+  font-weight: var(--weight-bold);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.blog-content ul li strong {
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.blog-content ol {
+  margin: var(--space-6) 0;
+  padding-left: var(--space-6);
+  counter-reset: list-counter;
+}
+
+.blog-content ol li {
+  position: relative;
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-6);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  counter-increment: list-counter;
+  display: flex;
+  align-items: flex-start;
+}
+
+.blog-content ol li::before {
+  content: counter(list-counter) '.';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--primary);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
 }
 
 /* Embedded Diagram Improvements */
