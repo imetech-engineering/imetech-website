@@ -221,15 +221,32 @@ class ComponentLoader {
       directoryDepth = pathParts.length - 1;
     }
     
-    if (adjustedPath.startsWith('/en/')) {
-      // For English pages: /en/about.html -> need 1 level up (../)
-      // For English pages: /en/projects/robot.html -> need 2 levels up (../../)
-      return '../'.repeat(directoryDepth);
-    } else {
-      // For Dutch pages: /index.html -> need 0 levels up
-      // For Dutch pages: /projecten/robot.html -> need 1 level up (../)
-      return '../'.repeat(directoryDepth);
+    // Use absolute paths from root for images and other assets
+    // This ensures images load correctly regardless of subdirectory depth
+    return '/';
+  }
+
+  getRelativePrefix() {
+    const path = this.currentPath;
+    let adjustedPath = path;
+    if (path.startsWith('/imetech-website/')) {
+      adjustedPath = path.replace('/imetech-website', '');
     }
+    
+    // Count the number of directory levels from root
+    const pathParts = adjustedPath.split('/').filter(part => part.length > 0);
+    
+    // Calculate directory depth based on whether path ends with a slash or has a filename
+    let directoryDepth;
+    if (adjustedPath.endsWith('/')) {
+      // Directory URL like /projecten/ -> directory depth = pathParts.length
+      directoryDepth = pathParts.length;
+    } else {
+      // File URL like /projecten/index.html -> directory depth = pathParts.length - 1
+      directoryDepth = pathParts.length - 1;
+    }
+    
+    return '../'.repeat(directoryDepth);
   }
 
   detectLanguage() {
@@ -410,31 +427,33 @@ class ComponentLoader {
   }
 
   generateNavigationUrls() {
+    const relativePrefix = this.getRelativePrefix();
+    
     if (this.language === 'en') {
       // For English pages, use relative paths to English pages
       return {
-        HOME_URL: 'index.html',
-        ABOUT_URL: 'about.html',
-        SERVICES_URL: 'services.html',
-        PROJECTS_URL: 'projects/',
-        BLOG_URL: 'blog/',
-        CONTACT_URL: 'contact.html',
-        DISCLAIMER_URL: 'disclaimer.html',
-        TERMS_URL: 'termsandconditions.html',
-        PRIVACY_URL: 'privacy-policy.html'
+        HOME_URL: relativePrefix + 'en/index.html',
+        ABOUT_URL: relativePrefix + 'en/about.html',
+        SERVICES_URL: relativePrefix + 'en/services.html',
+        PROJECTS_URL: relativePrefix + 'en/projects/',
+        BLOG_URL: relativePrefix + 'en/blog/',
+        CONTACT_URL: relativePrefix + 'en/contact.html',
+        DISCLAIMER_URL: relativePrefix + 'en/disclaimer.html',
+        TERMS_URL: relativePrefix + 'en/termsandconditions.html',
+        PRIVACY_URL: relativePrefix + 'en/privacy-policy.html'
       };
     } else {
       // For Dutch pages, use relative paths to Dutch pages
       return {
-        HOME_URL: 'index.html',
-        ABOUT_URL: 'over-mij.html',
-        SERVICES_URL: 'diensten.html',
-        PROJECTS_URL: 'projecten/',
-        BLOG_URL: 'blog/',
-        CONTACT_URL: 'contact.html',
-        DISCLAIMER_URL: 'disclaimer.html',
-        TERMS_URL: 'algemenevoorwaarden.html',
-        PRIVACY_URL: 'privacyverklaring.html'
+        HOME_URL: relativePrefix + 'index.html',
+        ABOUT_URL: relativePrefix + 'over-mij.html',
+        SERVICES_URL: relativePrefix + 'diensten.html',
+        PROJECTS_URL: relativePrefix + 'projecten/',
+        BLOG_URL: relativePrefix + 'blog/',
+        CONTACT_URL: relativePrefix + 'contact.html',
+        DISCLAIMER_URL: relativePrefix + 'disclaimer.html',
+        TERMS_URL: relativePrefix + 'algemenevoorwaarden.html',
+        PRIVACY_URL: relativePrefix + 'privacyverklaring.html'
       };
     }
   }
@@ -453,57 +472,37 @@ class ComponentLoader {
       const langUrls = this.generateLanguageUrls();
       const navUrls = this.generateNavigationUrls();
       
-      // Create full URLs by combining BASE_URL with navigation URLs
-      const fullNavUrls = {};
-      Object.entries(navUrls).forEach(([key, value]) => {
-        if (this.language === 'en') {
-          // For English pages, we need to ensure URLs point to /en/ directory
-          // If we're in /en/projects/, baseUrl is ../../, so we need to go back to /en/
-          if (this.currentPath.includes('/en/projects/')) {
-            // From /en/projects/ -> need ../../ to get to root, then /en/
-            fullNavUrls[key] = '../../en/' + value;
-          } else if (this.currentPath.includes('/en/')) {
-            // From /en/ -> need ../ to get to root, then /en/
-            fullNavUrls[key] = '../en/' + value;
-          } else {
-            // Fallback
-            fullNavUrls[key] = this.baseUrl + value;
-          }
-        } else {
-          // For Dutch pages, use normal relative paths
-          fullNavUrls[key] = this.baseUrl + value;
-        }
-      });
-      
       const replacements = {
         '{BASE_URL}': this.baseUrl,
         ...this.texts,
         ...langUrls,
-        ...fullNavUrls
+        ...navUrls
       };
       
       // Handle navigation URLs based on language for old component templates
       if (this.language === 'en') {
-        // Replace Dutch URLs with English equivalents
-        html = html.replace(/{BASE_URL}index\.html/g, `${this.baseUrl}index.html`);
-        html = html.replace(/{BASE_URL}over-mij\.html/g, `${this.baseUrl}about.html`);
-        html = html.replace(/{BASE_URL}diensten\.html/g, `${this.baseUrl}services.html`);
-        html = html.replace(/{BASE_URL}projecten\//g, `${this.baseUrl}projects/`);
-        html = html.replace(/{BASE_URL}blog\//g, `${this.baseUrl}blog/`);
-        html = html.replace(/{BASE_URL}review\.html/g, `${this.baseUrl}review.html`);
-        html = html.replace(/{BASE_URL}contact\.html/g, `${this.baseUrl}contact.html`);
-        html = html.replace(/{BASE_URL}disclaimer\.html/g, `${this.baseUrl}disclaimer.html`);
-        html = html.replace(/{BASE_URL}algemenevoorwaarden\.html/g, `${this.baseUrl}termsandconditions.html`);
-        html = html.replace(/{BASE_URL}privacyverklaring\.html/g, `${this.baseUrl}privacy-policy.html`);
+        // Replace Dutch URLs with English equivalents using relative paths
+        const relativePrefix = this.getRelativePrefix();
+        html = html.replace(/{BASE_URL}index\.html/g, `${relativePrefix}en/index.html`);
+        html = html.replace(/{BASE_URL}over-mij\.html/g, `${relativePrefix}en/about.html`);
+        html = html.replace(/{BASE_URL}diensten\.html/g, `${relativePrefix}en/services.html`);
+        html = html.replace(/{BASE_URL}projecten\//g, `${relativePrefix}en/projects/`);
+        html = html.replace(/{BASE_URL}blog\//g, `${relativePrefix}en/blog/`);
+        html = html.replace(/{BASE_URL}review\.html/g, `${relativePrefix}en/review.html`);
+        html = html.replace(/{BASE_URL}contact\.html/g, `${relativePrefix}en/contact.html`);
+        html = html.replace(/{BASE_URL}disclaimer\.html/g, `${relativePrefix}en/disclaimer.html`);
+        html = html.replace(/{BASE_URL}algemenevoorwaarden\.html/g, `${relativePrefix}en/termsandconditions.html`);
+        html = html.replace(/{BASE_URL}privacyverklaring\.html/g, `${relativePrefix}en/privacy-policy.html`);
       } else {
-        // Replace English URLs with Dutch equivalents (for Dutch pages)
-        html = html.replace(/{BASE_URL}about\.html/g, `${this.baseUrl}over-mij.html`);
-        html = html.replace(/{BASE_URL}services\.html/g, `${this.baseUrl}diensten.html`);
-        html = html.replace(/{BASE_URL}projects\//g, `${this.baseUrl}projecten/`);
-        html = html.replace(/{BASE_URL}blog\//g, `${this.baseUrl}blog/`);
-        html = html.replace(/{BASE_URL}review\.html/g, `${this.baseUrl}review.html`);
-        html = html.replace(/{BASE_URL}termsandconditions\.html/g, `${this.baseUrl}algemenevoorwaarden.html`);
-        html = html.replace(/{BASE_URL}privacy-policy\.html/g, `${this.baseUrl}privacyverklaring.html`);
+        // Replace English URLs with Dutch equivalents using relative paths
+        const relativePrefix = this.getRelativePrefix();
+        html = html.replace(/{BASE_URL}about\.html/g, `${relativePrefix}over-mij.html`);
+        html = html.replace(/{BASE_URL}services\.html/g, `${relativePrefix}diensten.html`);
+        html = html.replace(/{BASE_URL}projects\//g, `${relativePrefix}projecten/`);
+        html = html.replace(/{BASE_URL}blog\//g, `${relativePrefix}blog/`);
+        html = html.replace(/{BASE_URL}review\.html/g, `${relativePrefix}review.html`);
+        html = html.replace(/{BASE_URL}termsandconditions\.html/g, `${relativePrefix}algemenevoorwaarden.html`);
+        html = html.replace(/{BASE_URL}privacy-policy\.html/g, `${relativePrefix}privacyverklaring.html`);
       }
       
       // Additional URL replacements for component templates
@@ -721,6 +720,7 @@ function initLanguageSwitching() {
             '/projecten/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station.html',
             '/projecten/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
             '/projecten/smartlamp-pcb.html': '/en/projects/smartlamp-pcb.html',
+            '/projecten/keypad-controller-pcb.html': '/en/projects/keypad-controller-pcb.html',
             '/projecten/adresprint-scd30-pcb.html': '/en/projects/scd30-address-board.html',
             '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
             '/blog/': '/en/blog/',
@@ -761,6 +761,7 @@ function initLanguageSwitching() {
             '/en/projects/multifunctional-soldering-station.html': '/projecten/multifunctioneel-soldeerstation.html',
             '/en/projects/usb-c-charging-pcb.html': '/projecten/usb-c-laad-pcb.html',
             '/en/projects/smartlamp-pcb.html': '/projecten/smartlamp-pcb.html',
+            '/en/projects/keypad-controller-pcb.html': '/projecten/keypad-controller-pcb.html',
             '/en/projects/scd30-address-board.html': '/projecten/adresprint-scd30-pcb.html',
             '/en/projects/self-balancing-cube.html': '/projecten/zelfbalancerende-kubus.html',
             '/en/blog/': '/blog/',

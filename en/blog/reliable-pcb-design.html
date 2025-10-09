@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics will be loaded after cookie consent -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="description" content="Practical insights for designing reliable PCBs. From component selection and derating to layout, EMC and DFM – based on real-world experience.">
+  <meta name="keywords" content="pcb design, reliable pcb, component selection, derating, layout optimization, EMC, DFM, DFT, signal integrity, power integrity">
+  <meta name="author" content="Ivo Mengerink">
+  <meta property="og:title" content="Designing reliable PCBs: from component selection to layout optimization">
+  <meta property="og:description" content="Practical insights for designing reliable PCBs. From component selection and derating to layout, EMC and DFM – based on real-world experience.">
+  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
+  <meta property="og:url" content="https://imetech.nl/en/blog/reliable-pcb-design.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Designing reliable PCBs: from component selection to layout optimization | IMeTech Engineering Blog</title>
+  <link rel="icon" href="../../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/blog/reliable-pcb-design.html">
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html" />
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/en/blog/reliable-pcb-design.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=8">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Designing reliable PCBs: from component selection to layout optimization",
+    "description": "Practical insights for designing reliable PCBs. From component selection and derating to layout, EMC and DFM.",
+    "url": "https://imetech.nl/en/blog/reliable-pcb-design.html",
+    "datePublished": "2025-10-16",
+    "dateModified": "2025-10-16",
+    "author": {
+      "@type": "Person",
+      "name": "Ivo Mengerink",
+      "url": "https://imetech.nl/en/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IMeTech Engineering",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://imetech.nl/en/blog/reliable-pcb-design.html"
+    },
+    "keywords": ["pcb design", "reliability", "component selection", "derating", "layout", "EMC", "DFM", "DFT", "signal integrity", "power integrity"]
+  }
+  </script>
+</head> 
+<body>
+  <!-- Header will be loaded dynamically -->
+  <div id="header-container"></div>
+  <noscript>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/en/index.html">Home</a></li>
+        <li><a href="/en/about.html">About me</a></li>
+        <li><a href="/en/services.html">Services</a></li>
+        <li><a href="/en/projects/">Projects</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </noscript>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header section">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>Designing reliable PCBs: from component selection to layout optimization</h1>
+          <p class="page-description">Practical insights for designing reliable PCBs. From component selection and derating to layout, EMC and DFM — based on real-world experience.</p>
+          <div class="share-links prominent" data-canonical="https://imetech.nl/en/blog/reliable-pcb-design.html" data-title="Designing reliable PCBs: from component selection to layout optimization">
+            <a class="share-button share-x" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg>
+            </a>
+            <a class="share-button share-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" stroke-width="1.5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a class="share-button share-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0012.06 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.64a11.9 11.9 0 005.76 1.47h.01c6.6 0 11.95-5.35 11.95-11.94a11.84 11.84 0 00-3.5-8.41zM12.07 21.3c-1.8 0-3.56-.48-5.1-1.38l-.36-.21-3.74.97 1-3.64-.24-.37a9.32 9.32 0 01-1.43-4.87c0-5.17 4.21-9.37 9.39-9.37 2.51 0 4.86.98 6.63 2.76a9.33 9.33 0 012.75 6.61c0 5.17-4.21 9.36-9.4 9.36zm5.4-6.99c-.3-.15-1.78-.88-2.05-.98-.27-.1-.46-.15-.65.15-.2.3-.75.98-.92 1.18-.17.2-.34.22-.64.07-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.73-1.63-2.02-.17-.3-.02-.46.13-.6.14-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.48 1.06 2.9 1.2 3.1.15.2 2.09 3.2 5.06 4.49.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.42.25-.69.25-1.28.17-1.42-.08-.14-.27-.22-.57-.37z"/></svg>
+            </a>
+            <button class="share-button share-copy" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="blog-meta">
+            <div class="blog-date">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              October 16, 2025
+            </div>
+            <div class="blog-author">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              By Ivo Mengerink
+            </div>
+            <div class="blog-read-time">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12,6 12,12 16,14"></polyline>
+              </svg>
+              10 min read
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content section">
+      <div class="container">
+        <div class="blog-article">
+          
+          <!-- Introduction -->
+          <div class="blog-intro">
+            <p class="lead">
+              Designing <strong>reliable PCBs</strong> starts with deliberate choices: component selection and derating, early stack-up definition and disciplined layout. This article shares the practical principles that have the biggest impact in the lab and in production.
+            </p>
+            <p>
+              Whether you build a simple sensor board or a power-dense converter with strict EMI requirements, the same fundamentals apply. Let's go step by step so you can reach robust, repeatable results faster.
+            </p>
+          </div>
+
+          <!-- Visual -->
+          <section class="blog-section">
+            <div class="embedded-diagram">
+              <div class="diagram-container">
+                <img src="../../images/DesignStepsPCBEN.webp" alt="Design steps for reliable PCBs" class="embedded-architecture-image" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Sections mirror NL version but in concise EN -->
+          <section class="blog-section">
+            <h2>Why reliability matters</h2>
+            <p>
+              Reliability doesn't just determine the total cost of a project—it also affects warranty claims, user experience, and your company's reputation. A PCB that fails prematurely can lead to costly recalls, customer dissatisfaction, and legal issues. That's why it's crucial to design from the start with <strong>lifetime</strong>, <strong>temperature</strong>, and <strong>environment</strong> in mind.
+            </p>
+            <p>
+              In my experience, most PCB problems can be prevented through early attention to component selection, thermal management, and robust design principles. It's much more cost-effective to invest extra time in the design phase than to have expensive iterations and production adjustments later.
+            </p>
+          </section>
+
+          <section class="blog-section">
+            <h2>Component selection and derating: the foundation of reliability</h2>
+            <p>
+              Component selection forms the foundation of a reliable PCB. This goes far beyond just selecting the right values—it requires a deep understanding of how components perform under different conditions. I always work with <strong>thermal margins</strong>, <strong>voltage/current derating</strong>, <strong>tolerances</strong>, and <strong>availability</strong> as starting points.
+            </p>
+            
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Thermal aspects</h3>
+                <ul>
+                  <li>Use datasheet derating curves with realistic ambient temperatures</li>
+                  <li>Calculate thermal resistance (Rth) for worst-case scenarios</li>
+                  <li>Spread dissipation across multiple components where possible</li>
+                  <li>Consider thermal cycling and aging effects</li>
+                </ul>
+              </div>
+              
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>Electrical aspects</h3>
+                <ul>
+                  <li>Analyze and protect against voltage spikes (inrush, transients)</li>
+                  <li>Check DC-bias loss in capacitors</li>
+                  <li>Respect SOA (Safe Operating Area) for MOSFETs/diodes</li>
+                  <li>Add protection circuits where needed</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>
+              A practical example: when selecting a MOSFET for a switching power supply, I check not only the nominal currents but also inrush currents, thermal cycling, and the impact of fast switching transients. This has saved me from component failures in production multiple times.
+            </p>
+          </section>
+
+          <section class="blog-section">
+            <h2>Schematic design and PCB stack-up: laying the foundation</h2>
+            <p>
+              Schematic design and PCB stack-up are closely connected and largely determine the performance of your end product. In schematic design, I always start with proven reference designs but add <strong>protection circuits</strong> like TVS diodes, snubber circuits, fuses, and reverse protection. The system must be <strong>fault-tolerant</strong> and contain sufficient <strong>test points</strong> for debugging and production testing.
+            </p>
+            <p>
+              Stack-up definition is crucial and must be locked down early in the process. I always define the <strong>FR-4 class/Tg</strong>, <strong>copper thickness</strong>, impedance control, and return planes before starting the layout. This determines not only signal integrity and power integrity but also EMI performance and thermal behavior of the PCB. A wrong stack-up choice cannot be corrected later without a completely new PCB.
+            </p>
+          </section>
+
+          <section class="blog-section">
+            <h2>Layout principles and EMI/EMC: the art of placement</h2>
+            <p>
+              The layout phase is where all theoretical knowledge is converted into practical results. These principles have the most effect on reliability and performance, so focus here for maximum impact with minimal effort. It's not just about placing components nicely, but about creating a robust system that functions reliably for years.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Current and return paths</h4>
+                <p>Design for short, controlled returns with solid ground planes. Avoid long, narrow traces for high currents.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Decoupling</h4>
+                <p>Close to pins, right ESR/ESL; short and multiple vias. Different frequencies require different capacitances.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Thermal</h4>
+                <p>Thermal vias, copper polygons, spread dissipation and avoid hotspots. Temperature differences cause mechanical stress.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                  </svg>
+                </div>
+                <h4>Creepage/clearance</h4>
+                <p>Respect standards for mains voltage and critical paths. Safety comes first.</p>
+              </div>
+            </div>
+            
+            <p>
+              EMI/EMC must be considered from day one in the design. Minimize loop areas through careful placement of components and traces, use proper <strong>terminations</strong> for high-speed signals, implement <strong>filters</strong> where needed, and develop a thoughtful <strong>ground strategy</strong>. Separate analog, digital, and power domains where possible—this prevents cross-interference and makes debugging much easier.
+            </p>
+            <p>
+              Power Integrity and Signal Integrity are closely connected to layout choices. Design your PDN (Power Distribution Network) with sufficiently low impedance across the entire frequency spectrum. Prevent ringing and overshoot through proper terminations and layout speed control. A well-designed PDN is often the difference between a PCB that works and one that works reliably under all conditions.
+            </p>
+          </section>
+
+          <section class="blog-section">
+            <h2>DFM/DFT and prototype validation: from design to production</h2>
+            <p>
+              Design for Manufacturing (DFM) and Design for Test (DFT) are often underappreciated aspects of PCB design, but they make the difference between a prototype that works and a product that can be reliably manufactured. These principles ensure efficient production and reliable quality control, ultimately resulting in lower costs and higher quality.
+            </p>
+            
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Design Rules</h3>
+                  <p>Honor assembly and design rules: clearances, solder mask, paste apertures. Work with your assembler for optimal rules.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Panelization</h3>
+                  <p>Plan panelization, fiducials and tooling holes for efficient production. Optimize for minimal waste and maximum throughput.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Test Points</h3>
+                  <p>Add test points for AOI/ICT and functional tests during production. Testability is crucial for quality control.</p>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              The prototype phase is where theory and practice come together. Always run thorough <strong>ERC/DRC</strong> before going to production, test under worst-case conditions and log all measurement data systematically. Consider simulation for high‑speed/power where it pays off—this can save a lot of time and money in later phases. A well-tested prototype is the foundation for a successful product.
+            </p>
+            
+            <div class="project-reference">
+              <div class="project-reference-content">
+                <div class="project-reference-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div class="project-reference-text">
+                  <h4>Real-world examples</h4>
+                  <p>Want to see concrete examples? Explore PCB projects on the <a href="../../en/projects/index.html" class="project-link">projects page</a> where these principles are applied in practice.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="blog-section">
+            <h2>Common pitfalls and quick wins</h2>
+            <p>
+              After years of PCB design, I've seen certain patterns that keep recurring. These common mistakes not only cost time and money but can also lead to production problems and customer dissatisfaction. Here are the most frequent pitfalls and how to avoid them:
+            </p>
+            <ul>
+              <li><strong>No defined return path:</strong> This introduces EMI problems and measurement issues. Always ensure a continuous, low-impedance return path.</li>
+              <li><strong>Insufficient or poorly placed decoupling:</strong> This causes power integrity problems and instability. Place decoupling close to every IC pin.</li>
+              <li><strong>Via-in-pad without proper filling:</strong> This leads to solder problems and mechanical weaknesses. Use via-in-pad only where necessary and fill them properly.</li>
+              <li><strong>No thermal path for power components:</strong> This causes overheating and premature failure. Thermal pads are essential for power components.</li>
+              <li><strong>Stack-up missing continuous reference planes:</strong> This causes signal integrity problems. Plan your stack-up carefully for continuous reference planes.</li>
+            </ul>
+            <p>
+              The quickest wins come from paying attention to these basic principles. It takes little extra time to do them right, but saves enormous time and money in later project phases.
+            </p>
+          </section>
+
+          <section class="blog-section">
+            <h2>Checklist before production</h2>
+            <ul>
+              <li>Derating checked (T, V, I) for all critical parts</li>
+              <li>Stack-up locked with impedances and copper thicknesses</li>
+              <li>Decoupling per IC reviewed (value, ESR/ESL, placement, vias)</li>
+              <li>Return paths and reference planes continuous and short</li>
+              <li>EMC: filters/terminations and domain separation</li>
+              <li>PI/SI: critical nets reviewed/simulated when needed</li>
+              <li>DFM/DFT: clearances, test points, fiducials, panel</li>
+              <li>DRC/ERC clean; bring-up points and plan in place</li>
+            </ul>
+          </section>
+
+          <section class="blog-section">
+            <h2>Conclusion</h2>
+            <p>Reliability is the result of early decisions and consistent execution. By steering component selection, stack-up, layout and test from day one, you build boards that perform predictably and are easy to manufacture.</p>
+            <p>Need a second set of eyes on your PCB design, or help taking a concept to production? Get in touch.</p>
+          </section>
+
+          <div class="blog-tags">
+            <span class="tag">PCB Design</span>
+            <span class="tag">Reliability</span>
+            <span class="tag">EMC</span>
+            <span class="tag">Layout</span>
+            <span class="tag">Component Selection</span>
+            <span class="tag">DFM/DFT</span>
+            <span class="tag">SI/PI</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Interested in PCB design?</h2>
+          <p>Want a review or help translating an idea into a manufacturable board? Let's look at what's possible.</p>
+          <a href="../../en/contact.html" class="btn btn-primary btn-large cta-pulse">
+            Start your PCB project
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be loaded dynamically -->
+  <div id="footer-container"></div>
+
+  <!-- Floating CTA Panel -->
+  <div class="floating-cta-panel" id="floating-cta">
+    <div class="cta-toggle" id="cta-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </div>
+    
+    <div class="cta-options" id="cta-options">
+      <a href="../../en/contact.html" class="cta-option" data-contact="email">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>Email</span>
+      </a>
+      
+      <a href="tel:+31612385439" class="cta-option" data-contact="phone">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <span>Call</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" class="cta-option" data-contact="linkedin">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="../../script.js?v=8" defer></script>
+</body>
+</html>
+
+

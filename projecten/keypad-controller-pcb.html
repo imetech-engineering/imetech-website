@@ -4,14 +4,14 @@
   <!-- Google Analytics will be loaded after cookie consent -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SmartLamp PCB: RGBW LED driver met ESP32, Li-Ion accu en USB-C opladen. Compacte printplaat voor slimme verlichting met handmatige en automatische bediening.">
-  <title>SmartLamp PCB | RGBW LED Driver & Li-Ion Charging Board</title>
+  <meta name="description" content="Keypad Controller PCB: 4x5 button matrix controller met ESP32 DevKit en LiPo-voeding via USB-C. Compacte oplossing voor keypad bediening met oplaadfunctie en bescherming.">
+  <title>Keypad Controller PCB | 4x5 Button Matrix met ESP32 & LiPo</title>
   <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
-  <link rel="canonical" href="https://imetech.nl/projecten/smartlamp-pcb.html">
+  <link rel="canonical" href="https://imetech.nl/projecten/keypad-controller-pcb.html">
   <!-- Hreflang alternates -->
-  <link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
-  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html" />
-  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html" />
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/keypad-controller-pcb.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/keypad-controller-pcb.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/keypad-controller-pcb.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -27,8 +27,8 @@
       <div class="container">
         <div class="page-header-content">
           
-          <h1>SmartLamp PCB</h1>
-          <p class="page-description">Een compacte RGBW LED driver printplaat met ESP32 integratie, Li-Ion accu en USB-C opladen. Geschikt voor zowel handmatige als automatische LED-strip bediening.</p>
+          <h1>Keypad Controller PCB</h1>
+          <p class="page-description">Een compacte 4x5 button matrix controller met ESP32 DevKit en LiPo-voeding via USB-C. Robuuste oplossing voor draadloze keypad bediening met geïntegreerde oplaadcircuit en bescherming.</p>
           <p class="project-date">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -38,7 +38,7 @@
             </svg>
             September 2025
           </p>
-          <div class="share-links prominent" data-canonical="https://imetech.nl/projecten/smartlamp-pcb.html" data-title="SmartLamp PCB | LED Controller Board">
+          <div class="share-links prominent" data-canonical="https://imetech.nl/projecten/keypad-controller-pcb.html" data-title="Keypad Controller PCB | 4x5 Button Matrix Controller">
             <a class="share-button share-x" target="_blank" rel="noopener noreferrer" aria-label="Deel op X">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg>
             </a>
@@ -60,27 +60,29 @@
     <section class="project-section">
       <div class="container">
         <div class="project-images">
-          <img src="../images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - RGBW LED driver met ESP32 en Li-Ion accu opladen" />
-          <img src="../images/3D_SmartLamp02_RB.webp" alt="SmartLamp PCB - Detail van ESP32 header en RGBW LED connector" />
-          <img src="../images/SCH_SmartLamp PCB_RB.webp" alt="SmartLamp PCB - Schema van RGBW LED driver circuit met boost converter" />
+          <img src="../images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB - 4x5 button matrix met ESP32 DevKit en LiPo accu opladen" />
+          <img src="../images/KeypadControllerPCB01.webp" alt="Keypad Controller PCB - Detail van ESP32 DevKit header en Omron tactile switches" />
         </div>
 
         <div class="project-content">
           <section class="project-description">
             <h2>Projectbeschrijving</h2>
             <p>
-              De <strong>SmartLamp PCB</strong> is een veelzijdige printplaat die een RGBW LED strip kan aansturen via een ESP32 microcontroller. Het bord ondersteunt zowel 12V als 5V LED strips via een schakelaar en biedt handmatige bediening via potmeters als backup voor de ESP-signalen.
+              De <strong>Keypad Controller PCB</strong> is een veelzijdige printplaat die een 4x5 button matrix uitleest via een ESP32 DevKit. Het bord wordt gevoed door een LiPo accupakket dat oplaadbaar is via een USB-C aansluiting, waardoor draadloze bediening mogelijk is zonder externe voeding.
             </p>
             <p>
-              Het ontwerp bevat een geïntegreerde Li-Ion accu (3.7V) die oplaadbaar is via USB-C. De boost converter zorgt voor een stabiele uitgangsspanning van 5V of 12V, afhankelijk van de LED-strip configuratie. Het bord is geschikt voor zowel kleine accentverlichting als grotere verlichtingsprojecten.
+              Het ontwerp bevat een geïntegreerde oplaadcircuit gebaseerd op de TP4056 chip met LED-indicatie voor de laadstatus. De printplaat beschikt over uitgebreide bescherming: een PTC resetbare zekering op de USB-poort, TVS diode voor overspanningsbeveiliging en een boost converter die een stabiele 3.3V voeding levert voor de ESP32.
             </p>
             <p>
-              De printplaat is vormgeoptimaliseerd voor behuizing en bevat alle benodigde beveiligingen zoals PTC resetbare zekering, thermische beveiliging en automatische herstart bij overtemperatuur. Dit maakt het een robuuste oplossing voor <strong>slimme verlichting</strong>, <strong>IoT projecten</strong> en <strong>embedded systemen</strong>.
+              De button matrix bestaat uit 20 Omron B3F tactile switches in een 4×5 configuratie. Het uitlezen gebeurt efficiënt via matrix scanning: kolommen worden één voor één laag gestuurd, terwijl de rijen worden ingelezen via interne pull-ups van de ESP32.
+            </p>
+            <p>
+              De printplaat is vormgeoptimaliseerd en bevat montagegaten voor eenvoudige bevestiging in behuizingen. De USB-C aansluiting is gecentreerd onderin de PCB geplaatst voor gebruiksgemak. Dit maakt het een robuuste oplossing voor <strong>draadloze bedieningen</strong>, <strong>IoT projecten</strong> en <strong>embedded keypad toepassingen</strong>.
             </p>                       
           </section>
         </div>
         <div class="project-nav-actions">
-          <a href="../projecten/keypad-controller-pcb.html" class="project-prev-btn">
+          <a href="../projecten/adresprint-scd30-pcb.html" class="project-prev-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
@@ -92,7 +94,7 @@
             </svg>
             <span>Terug naar projecten</span>
           </a>
-          <a href="../projecten/besturingskasten.html" class="project-next-btn">
+          <a href="../projecten/smartlamp-pcb.html" class="project-next-btn">
             <span>Volgend project</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -149,3 +151,4 @@
   </div>
 </body>
 </html>
+

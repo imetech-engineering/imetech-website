@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- Google Analytics will be loaded after cookie consent -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="description" content="Praktische inzichten voor het ontwerpen van betrouwbare printplaten. Van componentkeuze en derating tot layout, EMC en DFM, gebaseerd op jaren praktijkervaring.">
+  <meta name="keywords" content="pcb ontwerp, betrouwbare printplaten, componentkeuze, derating, layout optimalisatie, EMC, DFM, DFT, signaalintegriteit, power integrity">
+  <meta name="author" content="Ivo Mengerink">
+  <meta property="og:title" content="Betrouwbare printplaten ontwerpen: van componentkeuze tot layout optimalisatie">
+  <meta property="og:description" content="Praktische inzichten voor het ontwerpen van betrouwbare printplaten. Van componentkeuze en derating tot layout, EMC en DFM, gebaseerd op jaren praktijkervaring.">
+  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
+  <meta property="og:url" content="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Betrouwbare printplaten ontwerpen: van componentkeuze tot layout optimalisatie | IMeTech Engineering Blog</title>
+  <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html">
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=8">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Betrouwbare printplaten ontwerpen: van componentkeuze tot layout optimalisatie",
+    "description": "Praktische inzichten voor het ontwerpen van betrouwbare printplaten. Van componentkeuze en derating tot layout, EMC en DFM.",
+    "url": "https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html",
+    "datePublished": "2025-10-16",
+    "dateModified": "2025-10-16",
+    "author": {
+      "@type": "Person",
+      "name": "Ivo Mengerink",
+      "url": "https://imetech.nl/over-mij.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IMeTech Engineering",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"
+    },
+    "keywords": ["pcb ontwerp", "betrouwbaarheid", "componentkeuze", "derating", "layout", "EMC", "DFM", "DFT", "signaalintegriteit", "power integrity"]
+  }
+  </script>
+</head> 
+<body>
+  <!-- Header will be loaded dynamically -->
+  <div id="header-container"></div>
+  <noscript>
+    <nav aria-label="Hoofdnavigatie">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/over-mij.html">Over mij</a></li>
+        <li><a href="/diensten.html">Diensten</a></li>
+        <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </noscript>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header section">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>Betrouwbare printplaten ontwerpen: van componentkeuze tot layout optimalisatie</h1>
+          <p class="page-description">Praktische inzichten voor het ontwerpen van betrouwbare printplaten. Van componentkeuze en derating tot layout, EMC en DFM — gebaseerd op mijn ervaring in de praktijk.</p>
+          <div class="share-links prominent" data-canonical="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html" data-title="Betrouwbare printplaten ontwerpen: van componentkeuze tot layout optimalisatie">
+            <a class="share-button share-x" target="_blank" rel="noopener noreferrer" aria-label="Deel op X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg>
+            </a>
+            <a class="share-button share-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Deel op LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" stroke-width="1.5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a class="share-button share-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Deel op WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0012.06 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.64a11.9 11.9 0 005.76 1.47h.01c6.6 0 11.95-5.35 11.95-11.94a11.84 11.84 0 00-3.5-8.41zM12.07 21.3c-1.8 0-3.56-.48-5.1-1.38l-.36-.21-3.74.97 1-3.64-.24-.37a9.32 9.32 0 01-1.43-4.87c0-5.17 4.21-9.37 9.39-9.37 2.51 0 4.86.98 6.63 2.76a9.33 9.33 0 012.75 6.61c0 5.17-4.21 9.36-9.4 9.36zm5.4-6.99c-.3-.15-1.78-.88-2.05-.98-.27-.1-.46-.15-.65.15-.2.3-.75.98-.92 1.18-.17.2-.34.22-.64.07-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.73-1.63-2.02-.17-.3-.02-.46.13-.6.14-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.48 1.06 2.9 1.2 3.1.15.2 2.09 3.2 5.06 4.49.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.42.25-.69.25-1.28.17-1.42-.08-.14-.27-.22-.57-.37z"/></svg>
+            </a>
+            <button class="share-button share-copy" aria-label="Kopieer link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="blog-meta">
+            <div class="blog-date">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              16 oktober 2025
+            </div>
+            <div class="blog-author">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Door Ivo Mengerink
+            </div>
+            <div class="blog-read-time">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12,6 12,12 16,14"></polyline>
+              </svg>
+              10 min lezen
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content section">
+      <div class="container">
+        <div class="blog-article">
+          
+          <!-- Introduction -->
+          <div class="blog-intro">
+            <p class="lead">
+              <strong>Betrouwbare PCB's</strong> ontwerpen begint bij heldere keuzes: van componentselectie en derating tot een doordachte stack-up en layout. In dit artikel deel ik mijn praktische aanpak en de principes die in de praktijk het meeste effect hebben.
+            </p>
+            <p>
+              Of je nu een eenvoudige sensorprint maakt of een complexe voedingsmodule met hoge stromen en EMI-eisen: dezelfde grondslagen keren steeds terug. Hieronder neem ik je stap voor stap mee, zodat je sneller tot robuuste, reproduceerbare resultaten komt.
+            </p>
+          </div>
+
+          <!-- Visual -->
+          <section class="blog-section">
+            <div class="embedded-diagram">
+              <div class="diagram-container">
+                <img src="../images/DesignStepsPCB.webp" alt="Ontwerpstappen voor betrouwbare PCB's" class="embedded-architecture-image" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 1. Waarom betrouwbaarheid telt -->
+          <section class="blog-section">
+            <h2>Waarom betrouwbaarheid telt</h2>
+            <p>
+              Betrouwbaarheid bepaalt niet alleen de totale kosten van een project, maar ook garantieclaims, gebruikerservaring en de reputatie van je bedrijf. Een PCB die voortijdig faalt kan leiden tot kostbare recalls, klantontevredenheid en juridische problemen. Daarom is het cruciaal om vanaf het begin te ontwerpen met <strong>levensduur</strong>, <strong>temperatuur</strong> en <strong>omgeving</strong> in gedachten.
+            </p>
+            <p>
+              In mijn ervaring zijn de meeste PCB-problemen te voorkomen door vroegtijdige aandacht voor componentkeuze, thermisch management en robuuste ontwerpprincipes. Het is veel kosteneffectiever om extra tijd te investeren in het ontwerp dan later dure iteraties en productie-aanpassingen te moeten doorvoeren.
+            </p>
+          </section>
+
+          <!-- 2. Componentkeuze en derating -->
+          <section class="blog-section">
+            <h2>Componentkeuze en derating: de basis van betrouwbaarheid</h2>
+            <p>
+              De keuze van componenten vormt de fundering van een betrouwbare PCB. Dit gaat veel verder dan alleen het selecteren van de juiste waarden - het vereist een diep begrip van hoe componenten presteren onder verschillende omstandigheden. Ik werk altijd met <strong>thermische marges</strong>, <strong>spannings-/stroomderating</strong>, <strong>toleranties</strong> en <strong>leverbaarheid</strong> als uitgangspunt.
+            </p>
+            
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Thermische aspecten</h3>
+                <ul>
+                  <li>Datasheet-deratingcurves gebruiken met realistische omgevingstemperaturen</li>
+                  <li>Thermische weerstand (Rth) berekenen voor worst-case scenario's</li>
+                  <li>Dissipatie spreiden over meerdere componenten waar mogelijk</li>
+                  <li>Thermische cycling en aging-effecten meenemen</li>
+                </ul>
+              </div>
+              
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>Elektrische aspecten</h3>
+                <ul>
+                  <li>Spanningspieken (inrush, transiënten) analyseren en beschermen</li>
+                  <li>DC-bias verlies bij capacitoren controleren</li>
+                  <li>SOA (Safe Operating Area) voor MOSFETs/diodes respecteren</li>
+                  <li>Beschermingscircuits toevoegen waar nodig</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>
+              Een praktisch voorbeeld: bij het selecteren van een MOSFET voor een schakelende voeding controleer ik niet alleen de nominale stromen, maar ook de inrush-currents, thermische cycling en de impact van snelle schakeltransiënten. Dit heeft me meerdere keren gered van component-failures in productie.
+            </p>
+          </section>
+
+          <!-- 3. Schema-ontwerp en stack-up -->
+          <section class="blog-section">
+            <h2>Schema-ontwerp en PCB stack-up: fundament leggen</h2>
+            <p>
+              Het schema-ontwerp en de PCB stack-up zijn nauw met elkaar verbonden en bepalen voor een groot deel de prestaties van je eindproduct. Bij het schema-ontwerp werk ik altijd met bewezen referentieontwerpen als uitgangspunt, maar voeg daar <strong>beschermingscircuits</strong> aan toe zoals TVS-diodes, snubber-circuits, zekeringen en reverse protection. Het systeem moet <strong>fouttolerant</strong> zijn en voldoende <strong>meetpunten</strong> bevatten voor debugging en productietests.
+            </p>
+            <p>
+              De stack-up definitie is cruciaal en moet vroeg in het proces worden vastgelegd. Ik definieer altijd de <strong>FR-4 klasse/Tg</strong>, <strong>koperdikte</strong>, impedantiecontrole en retourvlakken voordat ik begin met de layout. Dit bepaalt niet alleen de signaalintegriteit en power integrity, maar ook de EMI-prestaties en thermisch gedrag van de PCB. Een verkeerde stack-up keuze kan later niet meer worden gecorrigeerd zonder een volledig nieuwe PCB.
+            </p>
+          </section>
+
+          <!-- 4. Layoutprincipes en EMI/EMC -->
+          <section class="blog-section">
+            <h2>Layoutprincipes en EMI/EMC: de kunst van het plaatsen</h2>
+            <p>
+              De layout-fase is waar alle theoretische kennis wordt omgezet in praktische resultaten. Deze principes hebben het meeste effect op betrouwbaarheid en prestaties, dus focus hierop voor maximale impact met minimale inspanning. Het gaat niet alleen om het mooi plaatsen van componenten, maar om het creëren van een robuust systeem dat jarenlang betrouwbaar functioneert.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Stroom- en retourpaden</h4>
+                <p>Ontwerp voor korte, gecontroleerde retouren met solide ground planes. Vermijd lange, smalle traces voor hoge stromen.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Decoupling</h4>
+                <p>Dichtbij pinnen, juiste ESR/ESL; via's kort en meervoudig. Verschillende frequenties vereisen verschillende capaciteiten.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Thermiek</h4>
+                <p>Thermische via's, koperpolygons, spreid dissipatie en vermijd hotspots. Temperatuurverschillen veroorzaken mechanische stress.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                  </svg>
+                </div>
+                <h4>Creepage/clearance</h4>
+                <p>Respecteer normen voor netspanning en kritische paden. Veiligheid gaat boven alles.</p>
+              </div>
+            </div>
+            
+            <p>
+              EMI/EMC moet vanaf dag één worden meegenomen in het ontwerp. Minimaliseer lusoppervlakken door zorgvuldige plaatsing van componenten en traces, gebruik juiste <strong>terminaties</strong> voor high-speed signalen, implementeer <strong>filters</strong> waar nodig en ontwikkel een doordachte <strong>ground-strategie</strong>. Scheid analoge, digitale en vermogensdomeinen waar mogelijk - dit voorkomt kruisinterferentie en maakt debugging veel eenvoudiger.
+            </p>
+            <p>
+              Power Integrity en Signaalintegriteit zijn nauw verbonden met de layout-keuzes. Ontwerp je PDN (Power Distribution Network) met voldoende lage impedantie over het hele frequentiespectrum. Voorkom ringen en overshoot door passende terminaties en layout-snelheidsbeheersing. Een goed ontworpen PDN is vaak het verschil tussen een PCB die werkt en een die betrouwbaar werkt onder alle omstandigheden.
+            </p>
+          </section>
+
+          <!-- 5. DFM/DFT en prototype validatie -->
+          <section class="blog-section">
+            <h2>DFM/DFT en prototype validatie: van ontwerp naar productie</h2>
+            <p>
+              Design for Manufacturing (DFM) en Design for Test (DFT) zijn vaak onderbelichte aspecten van PCB-ontwerp, maar ze maken het verschil tussen een prototype dat werkt en een product dat betrouwbaar in productie kan worden genomen. Deze principes zorgen voor efficiënte productie en betrouwbare kwaliteitscontrole, wat uiteindelijk resulteert in lagere kosten en hogere kwaliteit.
+            </p>
+            
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Design Rules</h3>
+                  <p>Respecteer assemblage- en designregels: clearances, soldeermaskers, paste-apertures. Werk samen met je assembler voor optimale regels.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Paneelindeling</h3>
+                  <p>Plan paneelindeling, fiducials en tooling-holes voor efficiënte productie. Optimaliseer voor minimale afval en maximale throughput.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Testpunten</h3>
+                  <p>Voorzie testpunten voor AOI/ICT en functionele tests tijdens productie. Testbaarheid is cruciaal voor kwaliteitscontrole.</p>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              De prototype-fase is waar theorie en praktijk samenkomen. Voer altijd grondig <strong>ERC/DRC</strong> uit voordat je naar productie gaat, test met worst-case condities en log alle meetdata systematisch. Overweeg waar zinvol simulatie voor high‑speed/voedingen - dit kan veel tijd en geld besparen in latere fasen. Een goed getest prototype is de basis voor een succesvol product.
+            </p>
+            
+            <div class="project-reference">
+              <div class="project-reference-content">
+                <div class="project-reference-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div class="project-reference-text">
+                  <h4>Praktijkvoorbeelden</h4>
+                  <p>Wil je concrete voorbeelden zien van hoe deze principes in de praktijk worden toegepast? Bekijk enkele PCB-projecten op de <a href="../projecten/index.html" class="project-link">projectenpagina</a> waar je deze technieken in actie kunt zien.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. Veelgemaakte fouten en snelle winst -->
+          <section class="blog-section">
+            <h2>Veelgemaakte fouten en snelle winst</h2>
+            <p>
+              Na jaren van PCB-ontwerp heb ik een aantal patronen gezien die keer op keer terugkomen. Deze veelgemaakte fouten kosten niet alleen tijd en geld, maar kunnen ook leiden tot productie-problemen en klantontevredenheid. Hier zijn de meest voorkomende valkuilen en hoe je ze kunt vermijden:
+            </p>
+            <ul>
+              <li><strong>Geen duidelijk retourpad:</strong> Dit introduceert EMI-problemen en meetfouten. Zorg altijd voor een continu, laag-impedantie retourpad.</li>
+              <li><strong>Te weinig of te ver weg geplaatste ontkoppeling:</strong> Dit veroorzaakt power integrity problemen en instabiliteit. Plaats decoupling dichtbij elke IC-pin.</li>
+              <li><strong>Via-in-pad zonder goed te vullen:</strong> Dit leidt tot soldeerproblemen en mechanische zwaktes. Gebruik via-in-pad alleen waar nodig en vul ze correct.</li>
+              <li><strong>Geen thermisch pad bij vermogenscomponenten:</strong> Dit veroorzaakt oververhitting en vroegtijdige failure. Thermische pads zijn essentieel voor vermogenscomponenten.</li>
+              <li><strong>Stack-up laat geen continu referentievlak toe:</strong> Dit veroorzaakt signaalintegriteit problemen. Plan je stack-up zorgvuldig voor continue referentievlakken.</li>
+            </ul>
+            <p>
+              De snelste winst behaal je door aandacht te besteden aan deze basisprincipes. Het kost weinig extra tijd om ze goed te doen, maar het bespaart enorm veel tijd en geld in latere fasen van het project.
+            </p>
+          </section>
+
+          <!-- 11. Checklist -->
+          <section class="blog-section">
+            <h2>Checklist vóór productie</h2>
+            <ul>
+              <li>Derating gecontroleerd (T, V, I) voor alle kritische componenten</li>
+              <li>Stack-up vastgelegd met impedanties en koperdikten</li>
+              <li>Decoupling per IC beoordeeld (waarde, ESR/ESL, plaatsing, via's)</li>
+              <li>Retourpaden en referentievlakken continu en kort</li>
+              <li>EMC: filters/terminaties en scheiding domeinen</li>
+              <li>PI/SI: kritische netten beoordeeld/gesimuleerd waar nodig</li>
+              <li>DFM/DFT: clearances, testpunten, fiducials, paneel</li>
+              <li>DRC/ERC schoon; bring-up meetpunten en plan aanwezig</li>
+            </ul>
+          </section>
+
+          <!-- Conclusion -->
+          <section class="blog-section">
+            <h2>Conclusie</h2>
+            <p>
+              Betrouwbaarheid is het resultaat van vroege keuzes en consequente uitvoering. Door componentkeuze, stack-up, layout en test vanaf dag één te sturen, bouw je PCB's die voorspelbaar presteren en makkelijk te produceren zijn.
+            </p>
+            <p>
+              Heb je een PCB‑ontwerp waarvoor je een tweede paar ogen wilt of wil je een ontwerp laten uitwerken tot productie? Neem gerust contact op.
+            </p>
+          </section>
+
+          <!-- Tags -->
+          <div class="blog-tags">
+            <span class="tag">PCB Ontwerp</span>
+            <span class="tag">Betrouwbaarheid</span>
+            <span class="tag">EMC</span>
+            <span class="tag">Layout</span>
+            <span class="tag">Componentselectie</span>
+            <span class="tag">DFM/DFT</span>
+            <span class="tag">SI/PI</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Geïnteresseerd in PCB‑ontwerp?</h2>
+          <p>Wil je een ontwerp laten reviewen of een idee vertalen naar een maakbare printplaat? Laten we samen kijken wat er mogelijk is.</p>
+          <a href="../contact.html" class="btn btn-primary btn-large cta-pulse">
+            Start je PCB‑project
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be loaded dynamically -->
+  <div id="footer-container"></div>
+
+  <!-- Floating CTA Panel -->
+  <div class="floating-cta-panel" id="floating-cta">
+    <div class="cta-toggle" id="cta-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </div>
+    
+    <div class="cta-options" id="cta-options">
+      <a href="../contact.html" class="cta-option" data-contact="email">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>Email</span>
+      </a>
+      
+      <a href="tel:+31612385439" class="cta-option" data-contact="phone">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <span>Bellen</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" class="cta-option" data-contact="linkedin">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="../script.js?v=8" defer></script>
+</body>
+</html>
+
+
