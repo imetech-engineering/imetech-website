@@ -25,6 +25,11 @@
       <description>Projectpagina voor de Adresprint SCD30 PCB</description>
     </item>
     <item>
+      <title>Keypad Controller PCB</title>
+      <link>https://imetech.nl/projecten/keypad-controller-pcb.html</link>
+      <description>Projectpagina voor de Keypad Controller PCB</description>
+    </item>
+    <item>
       <title>2x2 Steering Robot</title>
       <link>https://imetech.nl/projecten/2x2-steering-robot.html</link>
       <description>Projectpagina voor de 2x2 Steering Robot</description>
@@ -65,6 +70,11 @@
       <description>Projectpagina voor de Multifunctioneel Soldeerstation</description>
     </item>
     <item>
+      <title>Plantsappers 3D Productietekeningen</title>
+      <link>https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html</link>
+      <description>Projectpagina voor Plantsappers 3D Productietekeningen - SolidWorks CAD ontwerp</description>
+    </item>
+    <item>
       <title>USB-C Li-Ion Oplaad PCB</title>
       <link>https://imetech.nl/projecten/usb-c-laad-pcb.html</link>
       <description>Projectpagina voor de USB-C Li-Ion Oplaad PCB</description>
@@ -83,6 +93,11 @@
       <title>Embedded Systemen Blog</title>
       <link>https://imetech.nl/blog/embedded-systemen.html</link>
       <description>Blog post over embedded systemen en hun rol in moderne technologie</description>
+    </item>
+    <item>
+      <title>Betrouwbare Printplaten Ontwerpen Blog</title>
+      <link>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</link>
+      <description>Blog post over betrouwbare printplaten ontwerpen en best practices</description>
     </item>
     <item>
       <title>Privacyverklaring</title>
@@ -108,6 +123,16 @@
       <title>Embedded Systems Blog</title>
       <link>https://imetech.nl/en/blog/embedded-systems.html</link>
       <description>Blog post about embedded systems and their role in modern technology</description>
+    </item>
+    <item>
+      <title>Reliable PCB Design Blog</title>
+      <link>https://imetech.nl/en/blog/reliable-pcb-design.html</link>
+      <description>Blog post about reliable PCB design and best practices</description>
+    </item>
+    <item>
+      <title>Plant Juice Press 3D Production Drawings</title>
+      <link>https://imetech.nl/en/projects/plant-juice-press-3d-production-drawings.html</link>
+      <description>Project page for Plant Juice Press 3D Production Drawings - SolidWorks CAD design</description>
     </item>
   </channel>
 </rss> 

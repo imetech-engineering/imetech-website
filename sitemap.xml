@@ -206,6 +206,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/blog/reliable-pcb-design.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Project detail pages (NL/EN pairs) -->
   <url>
@@ -222,6 +240,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/scd30-address-board.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/keypad-controller-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/keypad-controller-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/keypad-controller-pcb.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/keypad-controller-pcb.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
     <lastmod>2025-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -420,6 +456,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/besturingskasten.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/control-panels.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/besturingskasten.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/plant-sappers-3d-production-drawings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/plant-juice-press-3d-production-drawings.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/plant-juice-press-3d-production-drawings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
     <lastmod>2025-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
