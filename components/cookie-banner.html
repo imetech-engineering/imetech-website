@@ -1,17 +1,42 @@
-<!-- Cookie Banner -->
-<div id="cookie-banner" class="cookie-banner hidden">
-  <div class="cookie-banner-content">
-    <div class="cookie-banner-text">
-      <h3>{COOKIE_BANNER_TITLE}</h3>
-      <p>{COOKIE_BANNER_TEXT}</p>
+<!-- Cookie Consent Modal -->
+<div id="cookie-banner" class="cookie-modal hidden">
+  <div class="cookie-modal-content">
+    <div class="cookie-modal-header">
+      <h2>{COOKIE_BANNER_TITLE}</h2>
+      <div class="cookie-icon">🍪</div>
     </div>
-    <div class="cookie-banner-actions">
-      <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">
-        {COOKIE_BANNER_ACCEPT_ALL}
-      </button>
-      <button id="cookie-accept-necessary" class="cookie-btn cookie-btn-secondary">
-        {COOKIE_BANNER_ACCEPT_NECESSARY}
-      </button>
+    <div class="cookie-modal-body">
+      <div class="cookie-banner-text">
+        <p>{COOKIE_BANNER_TEXT}</p>
+        <div class="cookie-benefits">
+          <div class="cookie-benefit">
+            <span class="benefit-icon">✓</span>
+            <span>{COOKIE_BENEFIT_1}</span>
+          </div>
+          <div class="cookie-benefit">
+            <span class="benefit-icon">✓</span>
+            <span>{COOKIE_BENEFIT_2}</span>
+          </div>
+          <div class="cookie-benefit">
+            <span class="benefit-icon">✓</span>
+            <span>{COOKIE_BENEFIT_3}</span>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-banner-links">
+        <a href="{BASE_URL}privacyverklaring.html" class="cookie-link">{FOOTER_PRIVACY}</a>
+        <a href="{BASE_URL}algemenevoorwaarden.html" class="cookie-link">{FOOTER_TERMS}</a>
+      </div>
+    </div>
+    <div class="cookie-modal-footer">
+      <div class="cookie-banner-actions">
+        <button id="cookie-accept-necessary" class="cookie-btn cookie-btn-secondary">
+          {COOKIE_BANNER_ACCEPT_NECESSARY}
+        </button>
+        <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">
+          {COOKIE_BANNER_ACCEPT_ALL}
+        </button>
+      </div>
     </div>
   </div>
 </div>

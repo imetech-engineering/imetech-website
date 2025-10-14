@@ -85,14 +85,14 @@ class CookieManager {
       // Initialize cookie banner functionality
       this.initCookieBannerEvents();
       
-      // Show banner with animation
+      // Show modal with animation
       setTimeout(() => {
-        const banner = document.getElementById('cookie-banner');
-        if (banner) {
+        const modal = document.getElementById('cookie-banner');
+        if (modal) {
           // Ensure any utility hidden class is removed so inline style can apply
-          banner.classList.remove('hidden');
-          banner.style.display = 'block';
-          setTimeout(() => banner.classList.add('show'), 100);
+          modal.classList.remove('hidden');
+          modal.style.display = 'flex';
+          setTimeout(() => modal.classList.add('show'), 100);
         }
       }, 500);
     } catch (error) {
@@ -158,11 +158,11 @@ class CookieManager {
 
 
   hideCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-      banner.classList.remove('show');
+    const modal = document.getElementById('cookie-banner');
+    if (modal) {
+      modal.classList.remove('show');
       setTimeout(() => {
-        banner.remove();
+        modal.remove();
       }, 300);
     }
   }
@@ -300,8 +300,11 @@ class ComponentLoader {
         FOOTER_TERMS: 'Algemene voorwaarden',
         FOOTER_PRIVACY: 'Privacyverklaring',
         FOOTER_COOKIE_SETTINGS: 'Cookie-instellingen',
-        COOKIE_BANNER_TITLE: 'Cookies op deze website',
-        COOKIE_BANNER_TEXT: 'Wij gebruiken cookies om de website te verbeteren en statistieken bij te houden. Functionele cookies zijn altijd actief. Analytische cookies worden alleen geplaatst met uw toestemming.',
+        COOKIE_BANNER_TITLE: 'Cookies & Privacy',
+        COOKIE_BANNER_TEXT: 'Wij gebruiken cookies om uw ervaring te verbeteren en onze website te optimaliseren. Door cookies te accepteren krijgt u toegang tot alle functionaliteiten en een gepersonaliseerde ervaring.',
+        COOKIE_BENEFIT_1: 'Verbeterde website prestaties',
+        COOKIE_BENEFIT_2: 'Gepersonaliseerde ervaring',
+        COOKIE_BENEFIT_3: 'Relevante content en aanbiedingen',
          COOKIE_BANNER_ACCEPT_ALL: 'Alles accepteren',
          COOKIE_BANNER_ACCEPT_NECESSARY: 'Alleen noodzakelijk'
       },
@@ -337,8 +340,11 @@ class ComponentLoader {
         FOOTER_TERMS: 'Terms & Conditions',
         FOOTER_PRIVACY: 'Privacy Policy',
         FOOTER_COOKIE_SETTINGS: 'Cookie settings',
-        COOKIE_BANNER_TITLE: 'Cookies on this website',
-        COOKIE_BANNER_TEXT: 'We use cookies to improve the website and keep statistics. Functional cookies are always active. Analytical cookies are only placed with your consent.',
+        COOKIE_BANNER_TITLE: 'Cookies & Privacy',
+        COOKIE_BANNER_TEXT: 'We use cookies to improve your experience and optimize our website. By accepting cookies, you get access to all functionalities and a personalized experience.',
+        COOKIE_BENEFIT_1: 'Improved website performance',
+        COOKIE_BENEFIT_2: 'Personalized experience',
+        COOKIE_BENEFIT_3: 'Relevant content and offers',
          COOKIE_BANNER_ACCEPT_ALL: 'Accept All',
          COOKIE_BANNER_ACCEPT_NECESSARY: 'Necessary Only'
       }
