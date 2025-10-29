@@ -20,3 +20,6 @@ desktop.ini
 
 # Ignore cache files
 *.cache
+
+# Ignore command files
+.cursor/
