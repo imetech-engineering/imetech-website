@@ -1611,6 +1611,125 @@ function initFloatingCTA() {
   });
 }
 
+// ===== TESTIMONIALS CAROUSEL AUTO-ROTATE =====
+function initTestimonialsCarousel() {
+  const track = document.querySelector('.testimonials-carousel-track');
+  if (!track) return;
+  
+  const cards = Array.from(track.querySelectorAll('.testimonial-card:not(.testimonial-clone)'));
+  if (cards.length <= 1) return; // No need for carousel if only one testimonial
+  
+  let currentIndex = 0;
+  let autoScrollInterval;
+  let isTransitioning = false;
+  
+  // Clone first card to the end for infinite loop
+  function setupInfinite() {
+    // Remove old clones if any
+    const clones = track.querySelectorAll('.testimonial-clone');
+    clones.forEach(clone => clone.remove());
+    
+    // Clone first card and append to end
+    const firstCard = cards[0];
+    const clone = firstCard.cloneNode(true);
+    clone.classList.add('testimonial-clone');
+    track.appendChild(clone);
+  }
+  
+  function getCardWidth() {
+    // Use the actual card width (which should be 100% of track width)
+    return cards[0].offsetWidth;
+  }
+  
+  function moveTo(index, instant = false) {
+    const cardWidth = getCardWidth();
+    const translateX = -index * cardWidth;
+    
+    if (instant) {
+      track.style.transition = 'none';
+      track.style.transform = `translateX(${translateX}px)`;
+      // Force reflow and restore transition
+      requestAnimationFrame(() => {
+        track.offsetHeight;
+        track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)';
+      });
+    } else {
+      track.style.transform = `translateX(${translateX}px)`;
+    }
+    
+    currentIndex = index;
+  }
+  
+  function nextSlide() {
+    if (isTransitioning) return;
+    
+    isTransitioning = true;
+    currentIndex++;
+    
+    // If we're at the cloned card (last position), reset to beginning
+    if (currentIndex >= cards.length) {
+      moveTo(currentIndex, false);
+      setTimeout(() => {
+        currentIndex = 0;
+        moveTo(0, true);
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 50);
+      }, 600); // Wait for transition to complete
+    } else {
+      moveTo(currentIndex, false);
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 600);
+    }
+  }
+  
+  function startAutoScroll() {
+    if (autoScrollInterval) clearInterval(autoScrollInterval);
+    // Rotate every 9 seconds (between 8-10 seconds as requested)
+    autoScrollInterval = setInterval(nextSlide, 9000);
+  }
+  
+  function stopAutoScroll() {
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = null;
+    }
+  }
+  
+  // Handle window resize
+  function handleResize() {
+    setupInfinite();
+    moveTo(currentIndex, true);
+  }
+  
+  // Initialize
+  setupInfinite();
+  moveTo(0, true);
+  
+  // Pause on hover
+  const wrapper = document.querySelector('.testimonials-carousel-wrapper');
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopAutoScroll);
+    wrapper.addEventListener('mouseleave', startAutoScroll);
+  }
+  
+  // Pause when tab is not visible
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      stopAutoScroll();
+    } else {
+      startAutoScroll();
+    }
+  });
+  
+  // Start auto-scroll
+  startAutoScroll();
+  
+  // Handle window resize
+  window.addEventListener('resize', handleResize);
+}
+
 // ===== INITIALIZE ON DOM CONTENT LOADED =====
 document.addEventListener('DOMContentLoaded', function() {
   // app loaded
@@ -1626,6 +1745,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initFloatingCTA();
   initProjectCategoryFilters();
   initShareLinks();
+  initTestimonialsCarousel();
   
   // Set initial states for animated elements
   const skillCards = document.querySelectorAll('.skill-card');
