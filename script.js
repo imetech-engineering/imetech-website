@@ -1,5 +1,46 @@
 // ===== PROFESSIONAL INTERACTIONS & ANIMATIONS =====
 
+// ===== 301 REDIRECTS =====
+// Central redirect handling for GitHub Pages, localhost, and file:// environments
+(function() {
+  const redirects = {
+    '/en/projects/dubbele-labvoeding.html': '/en/projects/dual-lab-power-supply.html',
+    '/en/projects/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
+    '/en/projects/besturingskasten.html': '/en/projects/control-panels.html',
+    '/en/projects/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
+    '/en/projects/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station.html',
+    '/disclaimer/': '/disclaimer.html',
+    '/algemenevoorwaarden/': '/algemenevoorwaarden.html'
+  };
+
+  // Get current path, handling GitHub Pages subdirectory if present
+  let currentPath = window.location.pathname;
+  const isGhSubdir = currentPath.indexOf('/imetech-website/') === 0;
+  if (isGhSubdir) {
+    currentPath = currentPath.replace('/imetech-website', '');
+  }
+
+  // Check if current path needs redirect
+  const redirectTo = redirects[currentPath];
+  if (redirectTo) {
+    // Build target URL - works for localhost, GitHub Pages, and file://
+    let targetUrl;
+    if (isGhSubdir) {
+      // GitHub Pages with subdirectory
+      targetUrl = '/imetech-website' + redirectTo;
+    } else {
+      // For localhost and production, use absolute path from root
+      targetUrl = redirectTo;
+    }
+    
+    // Preserve query string and hash
+    targetUrl += window.location.search + window.location.hash;
+    
+    // Use replace instead of href to prevent back button issues
+    window.location.replace(targetUrl);
+  }
+})();
+
 // ===== COOKIE MANAGEMENT SYSTEM =====
 class CookieManager {
   constructor() {
