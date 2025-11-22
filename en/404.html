@@ -130,6 +130,31 @@
   </div>
 
   <script src="../script.js?v=8" defer></script>
+  <script>
+    (function(){
+      // Check if this URL needs a redirect (in case user lands directly on /en/404.html)
+      const redirects = {
+        '/en/projects/dubbele-labvoeding.html': '/en/projects/dual-lab-power-supply.html',
+        '/en/projects/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
+        '/en/projects/besturingskasten.html': '/en/projects/control-panels.html',
+        '/en/projects/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
+        '/en/projects/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station.html',
+        '/disclaimer/': '/disclaimer.html',
+        '/algemenevoorwaarden/': '/algemenevoorwaarden.html'
+      };
+      
+      var fullPath = window.location.pathname || '';
+      var isGhSubdir = fullPath.indexOf('/imetech-website/') === 0;
+      var logicalPath = isGhSubdir ? fullPath.replace('/imetech-website', '') : fullPath;
+      
+      // Check if this path needs a redirect
+      const redirectTo = redirects[logicalPath];
+      if (redirectTo) {
+        var targetUrl = (isGhSubdir ? '/imetech-website' : '') + redirectTo + window.location.search + window.location.hash;
+        window.location.replace(targetUrl);
+      }
+    })();
+  </script>
   
 </body>
 </html>

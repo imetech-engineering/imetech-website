@@ -132,9 +132,30 @@
   <script src="script.js?v=8" defer></script>
   <script>
     (function(){
+      // First check if this URL needs a redirect (before redirecting to /en/404.html)
+      const redirects = {
+        '/en/projects/dubbele-labvoeding.html': '/en/projects/dual-lab-power-supply.html',
+        '/en/projects/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
+        '/en/projects/besturingskasten.html': '/en/projects/control-panels.html',
+        '/en/projects/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
+        '/en/projects/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station.html',
+        '/disclaimer/': '/disclaimer.html',
+        '/algemenevoorwaarden/': '/algemenevoorwaarden.html'
+      };
+      
       var fullPath = window.location.pathname || '';
       var isGhSubdir = fullPath.indexOf('/imetech-website/') === 0;
       var logicalPath = isGhSubdir ? fullPath.replace('/imetech-website', '') : fullPath;
+      
+      // Check if this path needs a redirect
+      const redirectTo = redirects[logicalPath];
+      if (redirectTo) {
+        var targetUrl = (isGhSubdir ? '/imetech-website' : '') + redirectTo + window.location.search + window.location.hash;
+        window.location.replace(targetUrl);
+        return; // Stop here, don't redirect to /en/404.html
+      }
+      
+      // Only redirect to /en/404.html if it's an /en/ path and not already on /en/404.html
       if (/^\/en\//.test(logicalPath) && logicalPath !== '/en/404.html') {
         var target = (isGhSubdir ? '/imetech-website' : '') + '/en/404.html';
         window.location.replace(target);
