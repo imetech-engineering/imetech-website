@@ -408,6 +408,11 @@ class ComponentLoader {
         '/en/index.html': '/index.html',
         '/en/about.html': '/over-mij.html',
         '/en/services.html': '/diensten.html',
+        '/en/services/software-development.html': '/diensten/softwareontwikkeling.html',
+        '/en/services/electronics-pcb-design.html': '/diensten/elektronica-pcb-ontwerp.html',
+        '/en/services/mechanical-cad-drawings.html': '/diensten/mechanica-cad-tekeningen.html',
+        '/en/services/data-science-machine-learning.html': '/diensten/data-science-machine-learning.html',
+        '/en/services/product-development.html': '/diensten/productontwikkeling.html',
         '/en/contact.html': '/contact.html',
         '/en/projects/': '/projecten/',
         '/en/projects/index.html': '/projecten/index.html',
@@ -448,6 +453,11 @@ class ComponentLoader {
         '/index.html': '/en/index.html',
         '/over-mij.html': '/en/about.html',
         '/diensten.html': '/en/services.html',
+        '/diensten/softwareontwikkeling.html': '/en/services/software-development.html',
+        '/diensten/elektronica-pcb-ontwerp.html': '/en/services/electronics-pcb-design.html',
+        '/diensten/mechanica-cad-tekeningen.html': '/en/services/mechanical-cad-drawings.html',
+        '/diensten/data-science-machine-learning.html': '/en/services/data-science-machine-learning.html',
+        '/diensten/productontwikkeling.html': '/en/services/product-development.html',
         '/contact.html': '/en/contact.html',
         '/projecten/': '/en/projects/',
         '/projecten/index.html': '/en/projects/index.html',
@@ -761,6 +771,11 @@ function initLanguageSwitching() {
             '/index.html': '/en/index.html',
             '/over-mij.html': '/en/about.html',
             '/diensten.html': '/en/services.html',
+            '/diensten/softwareontwikkeling.html': '/en/services/software-development.html',
+            '/diensten/elektronica-pcb-ontwerp.html': '/en/services/electronics-pcb-design.html',
+            '/diensten/mechanica-cad-tekeningen.html': '/en/services/mechanical-cad-drawings.html',
+            '/diensten/data-science-machine-learning.html': '/en/services/data-science-machine-learning.html',
+            '/diensten/productontwikkeling.html': '/en/services/product-development.html',
             '/contact.html': '/en/contact.html',
             '/algemenevoorwaarden.html': '/en/termsandconditions.html',
             '/disclaimer.html': '/en/disclaimer.html',
@@ -805,7 +820,12 @@ function initLanguageSwitching() {
             '/en/': '/',
             '/en/index.html': '/index.html',
             '/en/about.html': '/over-mij.html',
-            '/en/services.html': '/diensten.html', 
+            '/en/services.html': '/diensten.html',
+            '/en/services/software-development.html': '/diensten/softwareontwikkeling.html',
+            '/en/services/electronics-pcb-design.html': '/diensten/elektronica-pcb-ontwerp.html',
+            '/en/services/mechanical-cad-drawings.html': '/diensten/mechanica-cad-tekeningen.html',
+            '/en/services/data-science-machine-learning.html': '/diensten/data-science-machine-learning.html',
+            '/en/services/product-development.html': '/diensten/productontwikkeling.html',
             '/en/contact.html': '/contact.html',
             '/en/termsandconditions.html': '/algemenevoorwaarden.html',
             '/en/disclaimer.html': '/disclaimer.html',
@@ -864,7 +884,9 @@ function setActiveNavigation() {
         (currentPath === '/' && linkPath === '/index.html') ||
         (currentPath.includes('/projecten/') && linkPath.includes('/projecten/')) ||
         (currentPath.includes('/en/projects/') && linkPath.includes('/en/projects/')) ||
-        (currentPath.includes('/blog/') && linkPath.includes('/blog/'))) {
+        (currentPath.includes('/blog/') && linkPath.includes('/blog/')) ||
+        (currentPath.includes('/diensten/') && (linkPath.includes('/diensten.html') || linkPath === '/diensten.html')) ||
+        (currentPath.includes('/en/services/') && (linkPath.includes('/en/services.html') || linkPath === '/en/services.html'))) {
       link.classList.add('active');
     }
   });

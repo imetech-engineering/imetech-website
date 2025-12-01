@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage Images -->
+  <url>
+    <loc>https://imetech.nl/</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/og-default.webp</image:loc>
+      <image:title>IMeTech Engineering - Productontwikkeling en embedded systemen specialist in Aalten, Achterhoek</image:title>
+      <image:caption>IMeTech Engineering Logo - Engineering diensten en productontwikkeling Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/logo-blauw-1000x500.webp</image:loc>
+      <image:title>IMeTech Engineering Logo</image:title>
+      <image:caption>IMeTech Engineering Logo - Engineering diensten en productontwikkeling Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - Adresprint SCD30 PCB -->
+  <url>
+    <loc>https://imetech.nl/projecten/adresprint-scd30-pcb.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SCD30_PCB01.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren</image:title>
+      <image:caption>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SCD30_PCB02.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - RS-485 detail</image:title>
+      <image:caption>Adresprint SCD30 PCB - RS-485 busin/busout detail, PCB ontwerp Achterhoek</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SCD30_PCB03.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - Montagevoorbeeld</image:title>
+      <image:caption>Adresprint SCD30 PCB - Montagevoorbeeld industriële sensorinstallatie, embedded hardware Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SCD30_PCB04.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - PCB layout detail</image:title>
+      <image:caption>Adresprint SCD30 PCB - PCB layout detail en componenten, printplaat ontwerpen Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - Keypad Controller PCB -->
+  <url>
+    <loc>https://imetech.nl/projecten/keypad-controller-pcb.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/KeypadControllerPCB01.webp</image:loc>
+      <image:title>Keypad Controller PCB - ESP32 DevKit detail</image:title>
+      <image:caption>Keypad Controller PCB - ESP32 DevKit detail, printplaat ontwerpen Achterhoek</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/KeypadControllerPCB02.webp</image:loc>
+      <image:title>Keypad Controller PCB - 4x5 button matrix</image:title>
+      <image:caption>Keypad Controller PCB - 4x5 button matrix met ESP32, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - SmartLamp PCB -->
+  <url>
+    <loc>https://imetech.nl/projecten/smartlamp-pcb.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/3D_SmartLamp PCB_RB.webp</image:loc>
+      <image:title>SmartLamp PCB - RGBW LED driver</image:title>
+      <image:caption>SmartLamp PCB - RGBW LED driver met ESP32, PCB ontwerp embedded software door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/3D_SmartLamp02_RB.webp</image:loc>
+      <image:title>SmartLamp PCB - 3D render</image:title>
+      <image:caption>SmartLamp PCB - 3D render van PCB ontwerp, embedded systemen Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - Schets tot Render -->
+  <url>
+    <loc>https://imetech.nl/projecten/schets-tot-render.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SketchToRender01.webp</image:loc>
+      <image:title>Schets tot Render - Eerste schets</image:title>
+      <image:caption>Schets tot Render - Eerste ruwe schets met hoofdmaten, CAD tekenen Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/SketchToRender04.webp</image:loc>
+      <image:title>Schets tot Render - Fotorealistische 3D-render</image:title>
+      <image:caption>Schets tot Render - CAD tekenen en mechanisch ontwerp met SolidWorks door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - Plantsappers -->
+  <url>
+    <loc>https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/plantsappersHero.webp</image:loc>
+      <image:title>Plantsappers 3D Productietekeningen</image:title>
+      <image:caption>Plantsappers 3D Productietekeningen - SolidWorks CAD tekenen en mechanisch ontwerp door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Images - Embedded Systemen -->
+  <url>
+    <loc>https://imetech.nl/blog/embedded-systemen.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/EmbeddedSysteemArchitectuur.webp</image:loc>
+      <image:title>Embedded Systemen Architectuur</image:title>
+      <image:caption>Embedded systemen architectuur diagram - Microcontroller en IoT ontwikkeling door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Images - Betrouwbare Printplaten -->
+  <url>
+    <loc>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/DesignStepsPCB.webp</image:loc>
+      <image:title>Ontwerpstappen voor Betrouwbare PCB's</image:title>
+      <image:caption>Ontwerpstappen voor betrouwbare PCB's - PCB ontwerp en printplaat ontwerpen door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/reliablePCBHero.webp</image:loc>
+      <image:title>Betrouwbare Printplaten Ontwerpen</image:title>
+      <image:caption>Betrouwbare printplaten ontwerpen - PCB design tips door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page Images -->
+  <url>
+    <loc>https://imetech.nl/over-mij.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/WieBenIk.webp</image:loc>
+      <image:title>Ivo Mengerink - Engineer Aalten</image:title>
+      <image:caption>Ivo Mengerink, engineer en oprichter van IMeTech Engineering - Productontwikkeling specialist Aalten</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
+
+

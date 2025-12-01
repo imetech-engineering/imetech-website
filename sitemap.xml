@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,7 +17,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/over-mij.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/about.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/over-mij.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26,7 +26,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/over-mij.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/about.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/over-mij.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -37,7 +37,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -46,7 +46,99 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Service Pages -->
+  <url>
+    <loc>https://imetech.nl/diensten/softwareontwikkeling.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/softwareontwikkeling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/software-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/softwareontwikkeling.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/services/software-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/softwareontwikkeling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/software-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/softwareontwikkeling.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/diensten/elektronica-pcb-ontwerp.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/elektronica-pcb-ontwerp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/electronics-pcb-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/elektronica-pcb-ontwerp.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/services/electronics-pcb-design.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/elektronica-pcb-ontwerp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/electronics-pcb-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/elektronica-pcb-ontwerp.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/diensten/mechanica-cad-tekeningen.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/mechanica-cad-tekeningen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/mechanical-cad-drawings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/mechanica-cad-tekeningen.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/services/mechanical-cad-drawings.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/mechanica-cad-tekeningen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/mechanical-cad-drawings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/mechanica-cad-tekeningen.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/diensten/data-science-machine-learning.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/data-science-machine-learning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/data-science-machine-learning.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/data-science-machine-learning.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/services/data-science-machine-learning.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/data-science-machine-learning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/data-science-machine-learning.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/data-science-machine-learning.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/diensten/productontwikkeling.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/productontwikkeling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/product-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/productontwikkeling.html"/>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/services/product-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/productontwikkeling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/product-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/productontwikkeling.html"/>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -57,7 +149,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -66,7 +158,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -77,7 +169,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,7 +178,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -97,7 +189,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/contact.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/contact.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/contact.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -106,7 +198,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/contact.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/contact.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/contact.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -117,7 +209,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/review.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/review.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/review.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -126,7 +218,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/review.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/review.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/review.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -137,7 +229,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/algemenevoorwaarden.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/termsandconditions.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/algemenevoorwaarden.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -146,7 +238,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/algemenevoorwaarden.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/termsandconditions.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/algemenevoorwaarden.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -155,7 +247,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/disclaimer.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/disclaimer.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/disclaimer.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -164,7 +256,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/disclaimer.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/disclaimer.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/disclaimer.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -173,7 +265,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/privacyverklaring.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/privacy-policy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/privacyverklaring.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,7 +274,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/privacyverklaring.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/privacy-policy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/privacyverklaring.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -193,7 +285,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/embedded-systemen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/embedded-systems.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/embedded-systemen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -202,7 +294,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/embedded-systemen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/embedded-systems.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/embedded-systemen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -211,7 +303,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -220,7 +312,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/reliable-pcb-design.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -231,7 +323,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/scd30-address-board.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -240,7 +332,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/scd30-address-board.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/adresprint-scd30-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -249,7 +341,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/keypad-controller-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -258,7 +350,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/keypad-controller-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/keypad-controller-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -267,7 +359,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/2x2-steering-robot.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -276,7 +368,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/2x2-steering-robot.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/2x2-steering-robot.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -285,7 +377,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/6-dof-spacemouse.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -294,7 +386,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/6-dof-spacemouse.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/6-dof-spacemouse.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -303,7 +395,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/dual-lab-power-supply.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -312,7 +404,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/dual-lab-power-supply.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/dubbele-labvoeding.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -321,7 +413,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/fume-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/fume-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/fume-extractor.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -330,7 +422,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/fume-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/fume-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/fume-extractor.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -339,7 +431,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/laptop-stand.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/laptop-stand.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/laptop-stand.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -348,7 +440,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/laptop-stand.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/laptop-stand.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/laptop-stand.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -357,7 +449,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/letterklok.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/letter-clock.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/letterklok.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -366,7 +458,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/letterklok.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/letter-clock.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/letterklok.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -375,7 +467,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/magnetic-levitation-planter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -384,7 +476,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/magnetic-levitation-planter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/magnetische-levitatie-plantenpot.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -393,7 +485,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/multifunctional-soldering-station.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -402,7 +494,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/multifunctional-soldering-station.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/multifunctioneel-soldeerstation.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -411,7 +503,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/usb-c-charging-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -420,7 +512,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/usb-c-charging-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/usb-c-laad-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -429,7 +521,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/self-balancing-cube.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -438,7 +530,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/self-balancing-cube.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/zelfbalancerende-kubus.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -447,7 +539,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/besturingskasten.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/control-panels.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/besturingskasten.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -456,7 +548,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/besturingskasten.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/control-panels.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/besturingskasten.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -465,7 +557,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/plant-sappers-3d-production-drawings.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -474,7 +566,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/plant-juice-press-3d-production-drawings.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -483,7 +575,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -492,7 +584,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/smartlamp-pcb.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/smartlamp-pcb.html"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -506,7 +598,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/"/>
-    <lastmod>2025-09-11</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

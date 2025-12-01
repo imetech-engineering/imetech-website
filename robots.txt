@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
 
-# Optimize crawl rate
-Crawl-delay: 1
-
 # Block unnecessary files
 Disallow: /components/
 Disallow: /template.html
@@ -20,3 +17,4 @@ Allow: /en/
 
 # Sitemaps
 Sitemap: https://imetech.nl/sitemap.xml
+Sitemap: https://imetech.nl/sitemap-images.xml
