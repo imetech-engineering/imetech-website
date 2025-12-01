@@ -432,8 +432,10 @@ class ComponentLoader {
         '/en/projects/sketch-to-render.html': '/projecten/schets-tot-render.html',
         '/en/blog/': '/blog/',
         '/en/blog/index.html': '/blog/index.html',
+        '/en/blog/concept-development-iterative-design.html': '/blog/concept-ontwikkeling-iteratief-ontwerp.html',
         '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
         '/en/blog/reliable-pcb-design.html': '/blog/betrouwbare-printplaten-ontwerpen.html',
+        '/en/blog/from-idea-to-prototype-workflow.html': '/blog/van-idee-tot-prototype-workflow.html',
         '/en/review.html': '/review.html',
         '/en/disclaimer/': '/disclaimer/',
         '/en/terms-and-conditions/': '/algemenevoorwaarden/',
@@ -477,8 +479,10 @@ class ComponentLoader {
         '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render.html',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/index.html',
+        '/blog/concept-ontwikkeling-iteratief-ontwerp.html': '/en/blog/concept-development-iterative-design.html',
         '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
         '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
+        '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
         '/review.html': '/en/review.html',
         '/disclaimer/': '/en/disclaimer/',
         '/algemenevoorwaarden/': '/en/terms-and-conditions/',
@@ -804,6 +808,7 @@ function initLanguageSwitching() {
             '/blog/concept-ontwikkeling-iteratief-ontwerp.html': '/en/blog/concept-development-iterative-design.html',
             '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
             '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
+            '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
             '/review.html': '/en/review.html',
             '/404.html': '/en/404.html'
           };
@@ -854,6 +859,7 @@ function initLanguageSwitching() {
             '/en/blog/concept-development-iterative-design.html': '/blog/concept-ontwikkeling-iteratief-ontwerp.html',
             '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
             '/en/blog/reliable-pcb-design.html': '/blog/betrouwbare-printplaten-ontwerpen.html',
+            '/en/blog/from-idea-to-prototype-workflow.html': '/blog/van-idee-tot-prototype-workflow.html',
             '/en/review.html': '/review.html',
             '/en/404.html': '/404.html'
           };
