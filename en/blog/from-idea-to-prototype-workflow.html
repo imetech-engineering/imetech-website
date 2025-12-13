@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics will be loaded after cookie consent -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="description" content="A detailed look at how I approach projects, from initial concept to working prototype. Including pitfalls, best practices and practical workflow tips for product development.">
+  <meta name="keywords" content="product development, prototype development, from idea to prototype, workflow, prototyping, project management, engineering workflow, product design, innovation, engineering best practices, product development Aalten, prototype development service">
+  <meta name="author" content="Ivo Mengerink">
+  <meta property="og:title" content="From idea to prototype: my workflow for product development">
+  <meta property="og:description" content="A detailed look at how I approach projects, from initial concept to working prototype. Including pitfalls, best practices and practical workflow tips.">
+  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
+  <meta property="og:url" content="https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image">
+  <title>From Idea to Prototype: Product Development Workflow | Prototype Development Aalten</title>
+  <link rel="icon" href="../../images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html">
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/van-idee-tot-prototype-workflow.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/van-idee-tot-prototype-workflow.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=8">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "From idea to prototype: my workflow for product development",
+    "description": "A detailed look at how I approach projects, from initial concept to working prototype. Including pitfalls, best practices and practical workflow tips.",
+    "url": "https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html",
+    "datePublished": "2025-12-13",
+    "dateModified": "2025-12-13",
+    "author": {
+      "@type": "Person",
+      "name": "Ivo Mengerink",
+      "url": "https://imetech.nl/en/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IMeTech Engineering",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html"
+    },
+    "keywords": ["product development", "workflow", "prototyping", "project management", "engineering workflow", "product design"]
+  }
+  </script>
+</head> 
+<body>
+  <!-- Header will be loaded dynamically -->
+  <div id="header-container"></div>
+  <noscript>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/en/index.html">Home</a></li>
+        <li><a href="/en/about.html">About</a></li>
+        <li><a href="/en/services.html">Services</a></li>
+        <li><a href="/en/projects/">Projects</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </noscript>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header section">
+      <div class="container">
+        <div class="page-header-content">
+          <h1>From idea to prototype: my workflow for product development</h1>
+          <p class="page-description">A detailed look at how I approach projects, from initial concept to working prototype. Including pitfalls, best practices and practical workflow tips for successful product development.</p>
+          <div class="share-links prominent" data-canonical="https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html" data-title="From idea to prototype: my workflow for product development">
+            <a class="share-button share-x" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg>
+            </a>
+            <a class="share-button share-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" stroke-width="1.5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a class="share-button share-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0012.06 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.64a11.9 11.9 0 005.76 1.47h.01c6.6 0 11.95-5.35 11.95-11.94a11.84 11.84 0 00-3.5-8.41zM12.07 21.3c-1.8 0-3.56-.48-5.1-1.38l-.36-.21-3.74.97 1-3.64-.24-.37a9.32 9.32 0 01-1.43-4.87c0-5.17 4.21-9.37 9.39-9.37 2.51 0 4.86.98 6.63 2.76a9.33 9.33 0 012.75 6.61c0 5.17-4.21 9.36-9.4 9.36zm5.4-6.99c-.3-.15-1.78-.88-2.05-.98-.27-.1-.46-.15-.65.15-.2.3-.75.98-.92 1.18-.17.2-.34.22-.64.07-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.73-1.63-2.02-.17-.3-.02-.46.13-.6.14-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.48 1.06 2.9 1.2 3.1.15.2 2.09 3.2 5.06 4.49.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.42.25-.69.25-1.28.17-1.42-.08-.14-.27-.22-.57-.37z"/></svg>
+            </a>
+            <button class="share-button share-copy" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="blog-meta">
+            <div class="blog-date">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              December 13, 2025
+            </div>
+            <div class="blog-author">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              By Ivo Mengerink
+            </div>
+            <div class="blog-read-time">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12,6 12,12 16,14"></polyline>
+              </svg>
+              9 min read
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content section">
+      <div class="container">
+        <div class="blog-article">
+          
+          <!-- Introduction -->
+          <div class="blog-intro">
+            <p class="lead">
+              After years of product development, I've learned that <strong>every engineer has their own workflow</strong>. What works for one person doesn't necessarily work for another. In this article, I share my personal approach: how I go from an initial idea to a working prototype, including all the pitfalls, shortcuts, and lessons I've learned along the way.
+            </p>
+            <p>
+              This isn't a theoretical guide, but a practical behind-the-scenes look at how I approach projects. From the first sketch on a napkin to the moment a prototype actually works. Here is my complete workflow, with all the ups and downs that come with it.
+            </p>
+          </div>
+
+          <!-- Visual: Product Development Workflow -->
+          <section class="blog-section">
+            <div class="embedded-diagram">
+              <div class="diagram-container">
+                <img src="../../images/conceptDevelopmentHeroEN.webp" alt="My personal workflow: from idea to prototype" class="embedded-architecture-image" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 1. The first 24 hours: from idea to action -->
+          <section class="blog-section">
+            <h2>The first 24 hours: from idea to action</h2>
+            <p>
+              The moment you get an idea is magical, but it's also dangerous. Too many people get stuck in the "what if" phase and never take action. My rule is simple: <strong>within 24 hours, I must have something tangible</strong>. That could be a sketch, a breadboard, or just a list of questions I need to answer.
+            </p>
+            <p>
+              Why 24 hours? Because after that time, enthusiasm fades and you start to doubt. By acting quickly, you create momentum and prevent your idea from disappearing into the "I'll do this someday" category. It doesn't have to be perfect, it just needs to exist.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Hour 1-4: Capture the idea</h4>
+                <p>Write down everything you know. Make a sketch, note assumptions, and ask yourself: "What's the smallest thing I can make to test this?"</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Hour 5-12: First validation</h4>
+                <p>Talk to one person who might have this problem. Not ten people, not a survey, just one good conversation. What you learn is worth its weight in gold.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Hour 13-24: First prototype</h4>
+                <p>Build something, no matter how simple. A breadboard, a 3D print, or just a cardboard mockup. It must physically exist, not just in your head.</p>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My golden rule:</strong> If I'm still enthusiastic about the idea after 24 hours, then it's worth continuing. If not, I let it go and move on to the next idea. There are plenty of good ideas, the problem is that we take too little action.
+            </p>
+          </section>
+
+          <!-- 2. Week 1: The reality check -->
+          <section class="blog-section">
+            <h2>Week 1: The reality check</h2>
+            <p>
+              After those first 24 hours comes the reality check. Now I need to be honest with myself: is this idea really worth it? I have a simple test: <strong>can I explain the problem in one sentence to my mother or girlfriend?</strong> If they don't understand it, then it's too complex or too vague.
+            </p>
+            <p>
+              This week is crucial because this is where most projects die. You discover that the problem isn't as big as you thought, or that a good solution already exists, or that you simply don't have the right skills. That's okay, better now than after months of work.
+            </p>
+            
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Good signals</h3>
+                <ul>
+                  <li>People recognize the problem immediately</li>
+                  <li>Existing solutions are expensive/complex</li>
+                  <li>You get excited about building</li>
+                  <li>You can explain the problem simply</li>
+                  <li>You have the basic skills to start</li>
+                </ul>
+              </div>
+              
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>Red flags</h3>
+                <ul>
+                  <li>People say "interesting" but nothing more</li>
+                  <li>A perfect solution already exists</li>
+                  <li>You need to learn too many new skills</li>
+                  <li>The problem is too vague/abstract</li>
+                  <li>You're already doubting after a week</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My experience:</strong> Out of 10 ideas I get, maybe 2 survive this week. And that's good, it means I'm spending my time on the best ideas. Better 2 good projects than 10 mediocre ones.
+            </p>
+          </section>
+
+          <!-- 3. Week 2-4: The first prototype -->
+          <section class="blog-section">
+            <h2>Week 2-4: The first prototype</h2>
+            <p>
+              Now the real work begins. I order components, grab my breadboard, and start building. This is my favorite phase, here I see my idea come to life for the first time. But it's also the phase where I make the most mistakes.
+            </p>
+            <p>
+              My approach is simple: <strong>build the dumbest prototype that still works</strong>. No nice housing, no perfect code, no elegant solutions. Just something that proves the concept works. If it doesn't work, then I know I need to go back to the drawing board.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Week 2: Hardware</h4>
+                <p>Breadboard, jumper wires, and the cheapest components I can find. If it works on a breadboard, it can work on a PCB too.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Week 3: Software</h4>
+                <p>The simplest code that works. No error handling, no nice interfaces, just the core functionality. If it works, it's good enough.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Week 4: Testing</h4>
+                <p>Test the prototype under different conditions. Does it still work? What goes wrong? What can be improved? Document everything.</p>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My lesson learned:</strong> The first prototype is never perfect, and it doesn't need to be. The goal is to prove that the concept works, not to make a beautiful product. Perfection comes later, when I know I'm on the right track.
+            </p>
+          </section>
+
+          <!-- 4. Month 2: The first big mistake -->
+          <section class="blog-section">
+            <h2>Month 2: The first big mistake</h2>
+            <p>
+              This always happens: your first prototype works, you're proud, and then you make the classic mistake. You think: "Now I'm going to make it beautiful." You order a PCB, you design a housing, you write beautiful code. And then you discover that you've overlooked something fundamental.
+            </p>
+            <p>
+              My biggest mistake? I had built a sensor that worked perfectly in the office, but once in a housing in practical use, it turned out that certain chosen components couldn't handle the temperatures they encountered in practice. This led to sensor deviations.
+            </p>
+            
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>Common mistakes</h3>
+                <ul>
+                  <li>Going to production too quickly</li>
+                  <li>Not testing in real environment</li>
+                  <li>Pursuing perfection too early</li>
+                  <li>Not involving users</li>
+                  <li>Too many features at once</li>
+                  <li>Underestimating costs</li>
+                </ul>
+              </div>
+              
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>How to prevent</h3>
+                <ul>
+                  <li>Test in real environment</li>
+                  <li>Talk to real users</li>
+                  <li>Start simple and build up</li>
+                  <li>Document all assumptions</li>
+                  <li>Plan for mistakes</li>
+                  <li>Keep track of budget</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My lesson learned:</strong> Mistakes aren't bad, as long as you make them early. Better a mistake in month 2 than in month 12. And every mistake teaches you something valuable about your product and your process.
+            </p>
+          </section>
+
+          <!-- 5. Month 3-6: The long road to a working prototype -->
+          <section class="blog-section">
+            <h2>Month 3-6: The long road to a working prototype</h2>
+            <p>
+              After the first mistake comes reality: product development is hard work. You have to iterate, test, adjust, and start over. This is where most people give up, but this is also where the real work happens. Here you learn what your product really is, not what you think it is.
+            </p>
+            <p>
+              My approach in this phase is simple: <strong>solve one problem at a time</strong>. Not everything at once, not perfect, just step by step forward. Every week something must work that didn't work the week before. If that doesn't happen, then I'm on the wrong path.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Week 1-4: It works, but...</h4>
+                <p>Your prototype works, but there are problems. The battery drains too quickly, the connection drops, or the user doesn't understand it. Solve one problem per week.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Week 5-8: It works better, but...</h4>
+                <p>The big problems are solved, but there are still details. The interface is confusing, the housing is too large, or the price is too high. Focus on user experience.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Week 9-12: It works well, but...</h4>
+                <p>The prototype works well, but is it production-ready? Are the costs acceptable? Is the quality consistent? Test under real conditions.</p>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My golden rule:</strong> Every week something must be better than the week before. If that doesn't happen, then I'm on the wrong path and need to change direction. Failing fast is better than failing slowly.
+            </p>
+          </section>
+
+          <!-- 6. My toolkit: what I really use -->
+          <section class="blog-section">
+            <h2>My toolkit: what I really use</h2>
+            <p>
+              There are thousands of tools for product development, but I only use a handful. Why? Because I'd rather know a few tools well than many tools half-heartedly. Here's what I really use, and why.
+            </p>
+            
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Hardware</h3>
+                <ul>
+                  <li><strong>Breadboard + jumper wires:</strong> For quick prototypes</li>
+                  <li><strong>Arduino/ESP32:</strong> For proof of concepts</li>
+                  <li><strong>Multimeter + oscilloscope:</strong> For debugging</li>
+                  <li><strong>3D printer:</strong> For housings and mounts</li>
+                  <li><strong>Soldering iron:</strong> For permanent connections</li>
+                </ul>
+              </div>
+              
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h3>Software</h3>
+                <ul>
+                  <li><strong>Arduino IDE:</strong> For embedded code</li>
+                  <li><strong>KiCad:</strong> For PCB design</li>
+                  <li><strong>SolidWorks:</strong> For 3D modeling</li>
+                  <li><strong>Git:</strong> For version control</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My tip:</strong> Start with the simplest tools that work. You can always upgrade when you find yourself limited. But most projects don't need advanced tools, they just need someone who works consistently.
+            </p>
+          </section>
+
+          <!-- 7. The moments I want to give up -->
+          <section class="blog-section">
+            <h2>The moments I want to give up</h2>
+            <p>
+              Let's be honest: product development isn't always fun. There are moments when you want to give up, when you think you can't do it, when you doubt yourself. I have those moments too, and here's how I deal with them.
+            </p>
+            
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>It doesn't work</h4>
+                <p>Your prototype doesn't work and you don't know why. You've tried everything, but it's not working. This is normal. Take a break, talk to someone else, and start again.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>It takes too much time</h4>
+                <p>You thought it would take a month, but you've been working on it for three months already. This is also normal. Product development always takes longer than you think. Plan for 2x the time you expect.</p>
+              </div>
+              
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Nobody understands it</h4>
+                <p>You think you've made something great, but nobody understands it. This means you haven't defined the problem well, or your solution is too complex.</p>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My strategy:</strong> When I want to give up, I ask myself one question: "If I saw this a year from now, would I regret stopping?" Usually the answer is yes, and then I continue. Sometimes the answer is no, and then I stop. And that's okay too.
+            </p>
+          </section>
+
+          <!-- 8. When is a prototype ready? -->
+          <section class="blog-section">
+            <h2>When is a prototype ready?</h2>
+            <p>
+              This is the question I get most often: "When is my prototype ready?" The answer is simple: <strong>a prototype is never ready</strong>. It's always a work in progress, always improvable, always imperfect. But there comes a moment when you have to stop iterating and start the next project.
+            </p>
+            
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>It works</h3>
+                  <p>Your prototype does what it's supposed to do. It solves the problem you wanted to solve, even if it's not perfect.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>People understand it</h3>
+                  <p>Other people can use your prototype without explanation. They understand what it does and why it's useful.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>You're proud of it</h3>
+                  <p>You're proud of what you've made. You want to show it to others, even if it's not perfect.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>You want to move on to the next</h3>
+                  <p>You have new ideas, new problems you want to solve. It's time to move on.</p>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              <strong>My rule:</strong> If your prototype meets these four criteria, then it's ready. Not perfect, not production-ready, but ready enough to move on to the next project. Perfection is the enemy of progress.
+            </p>
+          </section>
+
+          <!-- Conclusion -->
+          <section class="blog-section">
+            <h2>Conclusion: My workflow isn't perfect, and that's okay</h2>
+            <p>
+              This is my workflow, but it's not perfect. I still make mistakes, I still doubt, and I still give up on projects that don't work. And that's okay. Product development isn't an exact science, it's a process of trial and error, of learning and adapting.
+            </p>
+            <p>
+              The most important thing I've learned is that there's no perfect workflow. What works for me might not work for you. What works for one project might not work for another. The art is to develop your own workflow, based on your own experiences and lessons.
+            </p>
+            <p>
+              Start small, test early, learn fast, and don't be afraid to make mistakes. Every mistake is a lesson, every lesson makes you better, and every improvement brings you closer to a product that people really want to use. That's my workflow, and it works for me.
+            </p>
+            <p>
+              Do you have an idea for a product or want help developing your own workflow? Feel free to get in touch. I'd be happy to help you realize your idea, from initial concept to working prototype. And who knows, maybe I'll learn something from you too.
+            </p>
+          </section>
+
+          <!-- Tags -->
+          <div class="blog-tags">
+            <span class="tag">Product Development</span>
+            <span class="tag">Workflow</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Engineering Best Practices</span>
+            <span class="tag">Innovation</span>
+            <span class="tag">Iterative Design</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to develop your product idea?</h2>
+          <p>Do you have an idea for a product or want help developing a structured workflow? Let's work together to turn your idea into a working prototype.</p>
+          <a href="../contact.html" class="btn btn-primary btn-large cta-pulse">
+            Start your product development
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be loaded dynamically -->
+  <div id="footer-container"></div>
+
+  <!-- Floating CTA Panel -->
+  <div class="floating-cta-panel" id="floating-cta">
+    <div class="cta-toggle" id="cta-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </div>
+    
+    <div class="cta-options" id="cta-options">
+      <a href="../contact.html" class="cta-option" data-contact="email">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>Email</span>
+      </a>
+      
+      <a href="tel:+31612385439" class="cta-option" data-contact="phone">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <span>Call</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" class="cta-option" data-contact="linkedin">
+        <div class="cta-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="../../script.js?v=8" defer></script>
+</body>
+</html>
+
