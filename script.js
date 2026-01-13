@@ -2267,7 +2267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form) {
     form.addEventListener('submit', function (e) {
-      if (!googleReviewClicked && !form.dataset.confirmed) {
+      if (!googleReviewClicked && !form.dataset.confirmed && selectedRating >= 4) {
         e.preventDefault();
         modal.classList.remove("hidden");
       } else if (!form.dataset.submitted) {
