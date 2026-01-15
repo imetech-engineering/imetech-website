@@ -341,6 +341,7 @@ class ComponentLoader {
         FOOTER_TERMS: 'Algemene voorwaarden',
         FOOTER_PRIVACY: 'Privacyverklaring',
         FOOTER_COOKIE_SETTINGS: 'Cookie-instellingen',
+        FOOTER_MEMBER_OF: 'Lid van',
         COOKIE_BANNER_TITLE: 'Cookies & Privacy',
         COOKIE_BANNER_TEXT: 'Wij gebruiken cookies om uw ervaring te verbeteren en onze website te optimaliseren. Door cookies te accepteren krijgt u toegang tot alle functionaliteiten en een gepersonaliseerde ervaring.',
         COOKIE_BENEFIT_1: 'Verbeterde website prestaties',
@@ -381,6 +382,7 @@ class ComponentLoader {
         FOOTER_TERMS: 'Terms & Conditions',
         FOOTER_PRIVACY: 'Privacy Policy',
         FOOTER_COOKIE_SETTINGS: 'Cookie settings',
+        FOOTER_MEMBER_OF: 'Member of',
         COOKIE_BANNER_TITLE: 'Cookies & Privacy',
         COOKIE_BANNER_TEXT: 'We use cookies to improve your experience and optimize our website. By accepting cookies, you get access to all functionalities and a personalized experience.',
         COOKIE_BENEFIT_1: 'Improved website performance',
@@ -436,6 +438,7 @@ class ComponentLoader {
         '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
         '/en/blog/reliable-pcb-design.html': '/blog/betrouwbare-printplaten-ontwerpen.html',
         '/en/blog/from-idea-to-prototype-workflow.html': '/blog/van-idee-tot-prototype-workflow.html',
+        '/en/blog/software-development-embedded-systems.html': '/blog/softwareontwikkeling-embedded-systemen.html',
         '/en/review.html': '/review.html',
         '/en/disclaimer/': '/disclaimer/',
         '/en/terms-and-conditions/': '/algemenevoorwaarden/',
@@ -483,6 +486,7 @@ class ComponentLoader {
         '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
         '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
         '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
+        '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems.html',
         '/review.html': '/en/review.html',
         '/disclaimer/': '/en/disclaimer/',
         '/algemenevoorwaarden/': '/en/terms-and-conditions/',
@@ -809,6 +813,7 @@ function initLanguageSwitching() {
             '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
             '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
             '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
+            '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems.html',
             '/review.html': '/en/review.html',
             '/404.html': '/en/404.html'
           };
@@ -860,6 +865,7 @@ function initLanguageSwitching() {
             '/en/blog/embedded-systems.html': '/blog/embedded-systemen.html',
             '/en/blog/reliable-pcb-design.html': '/blog/betrouwbare-printplaten-ontwerpen.html',
             '/en/blog/from-idea-to-prototype-workflow.html': '/blog/van-idee-tot-prototype-workflow.html',
+            '/en/blog/software-development-embedded-systems.html': '/blog/softwareontwikkeling-embedded-systemen.html',
             '/en/review.html': '/review.html',
             '/en/404.html': '/404.html'
           };
