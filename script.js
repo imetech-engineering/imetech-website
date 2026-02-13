@@ -432,6 +432,8 @@ class ComponentLoader {
         '/en/projects/smartlamp-pcb.html': '/projecten/smartlamp-pcb.html',
         '/en/projects/scd30-address-board.html': '/projecten/adresprint-scd30-pcb.html',
         '/en/projects/sketch-to-render.html': '/projecten/schets-tot-render.html',
+        '/en/projects/rollator-control.html': '/projecten/besturing-rollator.html',
+        '/en/projects/poc-proximity-chat.html': '/projecten/poc-proximity-chat.html',
         '/en/blog/': '/blog/',
         '/en/blog/index.html': '/blog/index.html',
         '/en/blog/concept-development-iterative-design.html': '/blog/concept-ontwikkeling-iteratief-ontwerp.html',
@@ -480,6 +482,8 @@ class ComponentLoader {
         '/projecten/smartlamp-pcb.html': '/en/projects/smartlamp-pcb.html',
         '/projecten/adresprint-scd30-pcb.html': '/en/projects/scd30-address-board.html',
         '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render.html',
+        '/projecten/besturing-rollator.html': '/en/projects/rollator-control.html',
+        '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat.html',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/index.html',
         '/blog/concept-ontwikkeling-iteratief-ontwerp.html': '/en/blog/concept-development-iterative-design.html',
@@ -487,6 +491,7 @@ class ComponentLoader {
         '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
         '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
         '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems.html',
+        '/blog/machine-learning-productontwikkeling.html': '/en/blog/machine-learning-product-development.html',
         '/review.html': '/en/review.html',
         '/disclaimer/': '/en/disclaimer/',
         '/algemenevoorwaarden/': '/en/terms-and-conditions/',
@@ -805,6 +810,7 @@ function initLanguageSwitching() {
             '/projecten/keypad-controller-pcb.html': '/en/projects/keypad-controller-pcb.html',
             '/projecten/adresprint-scd30-pcb.html': '/en/projects/scd30-address-board.html',
             '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat.html',
+            '/projecten/besturing-rollator.html': '/en/projects/rollator-control.html',
             '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render.html',
             '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
             '/blog/': '/en/blog/',
@@ -814,6 +820,7 @@ function initLanguageSwitching() {
             '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
             '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
             '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems.html',
+            '/blog/machine-learning-productontwikkeling.html': '/en/blog/machine-learning-product-development.html',
             '/review.html': '/en/review.html',
             '/404.html': '/en/404.html'
           };
@@ -857,6 +864,7 @@ function initLanguageSwitching() {
             '/en/projects/keypad-controller-pcb.html': '/projecten/keypad-controller-pcb.html',
             '/en/projects/scd30-address-board.html': '/projecten/adresprint-scd30-pcb.html',
             '/en/projects/poc-proximity-chat.html': '/projecten/poc-proximity-chat.html',
+            '/en/projects/rollator-control.html': '/projecten/besturing-rollator.html',
             '/en/projects/sketch-to-render.html': '/projecten/schets-tot-render.html',
             '/en/projects/self-balancing-cube.html': '/projecten/zelfbalancerende-kubus.html',
             '/en/blog/': '/blog/',
@@ -866,6 +874,7 @@ function initLanguageSwitching() {
             '/en/blog/reliable-pcb-design.html': '/blog/betrouwbare-printplaten-ontwerpen.html',
             '/en/blog/from-idea-to-prototype-workflow.html': '/blog/van-idee-tot-prototype-workflow.html',
             '/en/blog/software-development-embedded-systems.html': '/blog/softwareontwikkeling-embedded-systemen.html',
+            '/en/blog/machine-learning-product-development.html': '/blog/machine-learning-productontwikkeling.html',
             '/en/review.html': '/review.html',
             '/en/404.html': '/404.html'
           };

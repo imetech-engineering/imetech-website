@@ -90,6 +90,26 @@
       <description>Projectpagina voor Besturingskasten</description>
     </item>
     <item>
+      <title>Machine Learning in productontwikkeling</title>
+      <link>https://imetech.nl/blog/machine-learning-productontwikkeling.html</link>
+      <description>Blog over machine learning in productontwikkeling: trainingsdata, toepassingen in ouderenzorg en navigatie.</description>
+    </item>
+    <item>
+      <title>Softwareontwikkeling voor embedded systemen</title>
+      <link>https://imetech.nl/blog/softwareontwikkeling-embedded-systemen.html</link>
+      <description>Praktische gids voor softwareontwikkeling in embedded systemen en IoT: van firmware tot applicatie.</description>
+    </item>
+    <item>
+      <title>Van idee tot prototype workflow</title>
+      <link>https://imetech.nl/blog/van-idee-tot-prototype-workflow.html</link>
+      <description>Workflow voor productontwikkeling van eerste concept tot werkend prototype.</description>
+    </item>
+    <item>
+      <title>Conceptontwikkeling en iteratief ontwerp</title>
+      <link>https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp.html</link>
+      <description>Conceptontwikkeling en iteratief ontwerp: van idee tot werkend product.</description>
+    </item>
+    <item>
       <title>Embedded Systemen Blog</title>
       <link>https://imetech.nl/blog/embedded-systemen.html</link>
       <description>Blog post over embedded systemen en hun rol in moderne technologie</description>
@@ -98,6 +118,21 @@
       <title>Betrouwbare Printplaten Ontwerpen Blog</title>
       <link>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</link>
       <description>Blog post over betrouwbare printplaten ontwerpen en best practices</description>
+    </item>
+    <item>
+      <title>POC Proximity Chat</title>
+      <link>https://imetech.nl/projecten/poc-proximity-chat.html</link>
+      <description>Projectpagina voor POC Proximity Chat</description>
+    </item>
+    <item>
+      <title>Besturing rollator</title>
+      <link>https://imetech.nl/projecten/besturing-rollator.html</link>
+      <description>Projectpagina voor besturing rollator</description>
+    </item>
+    <item>
+      <title>Schets tot Render</title>
+      <link>https://imetech.nl/projecten/schets-tot-render.html</link>
+      <description>Projectpagina voor Schets tot Render - van schets tot fotorealistische 3D-render</description>
     </item>
     <item>
       <title>Privacyverklaring</title>
@@ -125,9 +160,44 @@
       <description>Blog post about embedded systems and their role in modern technology</description>
     </item>
     <item>
+      <title>Machine learning in product development</title>
+      <link>https://imetech.nl/en/blog/machine-learning-product-development.html</link>
+      <description>Blog about machine learning in product development: training data, applications in elderly care and navigation.</description>
+    </item>
+    <item>
+      <title>Software development for embedded systems</title>
+      <link>https://imetech.nl/en/blog/software-development-embedded-systems.html</link>
+      <description>Practical guide for software development in embedded systems and IoT: from firmware to application.</description>
+    </item>
+    <item>
+      <title>From idea to prototype workflow</title>
+      <link>https://imetech.nl/en/blog/from-idea-to-prototype-workflow.html</link>
+      <description>Product development workflow from initial concept to working prototype.</description>
+    </item>
+    <item>
+      <title>Concept development and iterative design</title>
+      <link>https://imetech.nl/en/blog/concept-development-iterative-design.html</link>
+      <description>Concept development and iterative design: from idea to working product.</description>
+    </item>
+    <item>
       <title>Reliable PCB Design Blog</title>
       <link>https://imetech.nl/en/blog/reliable-pcb-design.html</link>
       <description>Blog post about reliable PCB design and best practices</description>
+    </item>
+    <item>
+      <title>POC Proximity Chat</title>
+      <link>https://imetech.nl/en/projects/poc-proximity-chat.html</link>
+      <description>Project page for POC Proximity Chat</description>
+    </item>
+    <item>
+      <title>Rollator control</title>
+      <link>https://imetech.nl/en/projects/rollator-control.html</link>
+      <description>Project page for rollator control</description>
+    </item>
+    <item>
+      <title>Sketch to Render</title>
+      <link>https://imetech.nl/en/projects/sketch-to-render.html</link>
+      <description>Project page for Sketch to Render - from sketch to photorealistic 3D render</description>
     </item>
     <item>
       <title>Plant Juice Press 3D Production Drawings</title>

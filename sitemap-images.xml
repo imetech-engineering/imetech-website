@@ -106,6 +106,21 @@
     </image:image>
   </url>
 
+  <!-- Blog Images - Machine Learning productontwikkeling -->
+  <url>
+    <loc>https://imetech.nl/blog/machine-learning-productontwikkeling.html</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/machineLearningHero.webp</image:loc>
+      <image:title>Machine Learning in productontwikkeling: van data tot slimme producten</image:title>
+      <image:caption>Machine learning in productontwikkeling - trainingsdata, interactiemodellen en toepassingen in zorg en navigatie, IMeTech Engineering</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/machineLearningTrainingData.webp</image:loc>
+      <image:title>Kwaliteit en representativiteit van trainingsdata</image:title>
+      <image:caption>Trainingsdata als basis voor machine learning modellen - IMeTech Engineering</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog Images - Betrouwbare Printplaten -->
   <url>
     <loc>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</loc>
