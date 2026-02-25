@@ -6,65 +6,25 @@
   <title>Engineering Services | PCB Design, Embedded Systems, Mechanical Design Achterhoek</title>
   <meta name="description" content="Five engineering disciplines under one roof: software development, PCB design, mechanical design, data science and full product development. Based in Aalten, Achterhoek." />
   <meta name="keywords" content="PCB design Aalten, engineering services Achterhoek, embedded systems, SolidWorks, mechanical design, product development, Netherlands" />
-  <link rel="icon" href="../../images/favicon-32x32.png" type="image/png" />
+  <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style-v2.css">
 </head>
 <body>
-  <div class="v2-scroll-progress" aria-hidden="true"></div>
-
-  <!-- HEADER -->
-  <header class="v2-header" role="banner">
-    <div class="v2-wrap v2-header-inner">
-      <a href="/en/v2/" class="v2-logo">
-        <img src="../../images/Logo wit.webp" alt="IMeTech Engineering" class="v2-logo-light" />
-        <img src="../../images/Icon licht.webp" alt="IMeTech Engineering" class="v2-logo-dark" />
-      </a>
-      <nav class="v2-nav" aria-label="Main navigation">
-        <a href="/en/v2/">Home</a>
-        <a href="/en/v2/services.html">Services</a>
-        <a href="/en/projects/">Projects</a>
-        <a href="/en/blog/">Blog</a>
-        <a href="/en/about.html">About</a>
-        <a href="/en/contact.html" class="v2-nav-cta">Start a project</a>
-        <div class="v2-lang" aria-label="Language">
-          <a href="/" title="Nederlands">NL</a>
-          <a href="/en/v2/services.html" class="active" title="English">EN</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- BURGER (outside header for z-index stacking) -->
-  <button class="v2-burger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-
-  <!-- MOBILE NAV -->
-  <div class="v2-mobile-nav" role="dialog" aria-label="Mobile navigation">
-    <a href="/en/v2/">Home</a>
-    <a href="/en/v2/services.html">Services</a>
-    <a href="/en/projects/">Projects</a>
-    <a href="/en/blog/">Blog</a>
-    <a href="/en/about.html">About</a>
-    <a href="/en/contact.html" class="v2-btn v2-btn-primary">Start a project</a>
-    <div class="v2-mobile-lang">
-      <a href="/" title="Nederlands">NL</a>
-      <a href="/en/v2/services.html" class="active" title="English">EN</a>
-    </div>
-  </div>
+  <!-- v2 SHARED HEADER (loaded via JS) -->
+  <div id="v2-header-container"></div>
 
   <main>
     <!-- ===== PAGE HERO ===== -->
     <section class="v2-page-hero">
       <div class="v2-page-hero-slides" aria-roledescription="slideshow">
-        <div class="v2-page-hero-slide active" style="background-image:url('../../images/Besturingskast01.webp')"></div>
-        <div class="v2-page-hero-slide" style="background-image:url('../../images/SelfBalancingCube01.webp')"></div>
-        <div class="v2-page-hero-slide" style="background-image:url('../../images/rollatorBesturing01.webp')"></div>
-        <div class="v2-page-hero-slide" style="background-image:url('../../images/SpaceMouse03.webp')"></div>
-        <div class="v2-page-hero-slide" style="background-image:url('../../images/SketchToRender04.webp')"></div>
+        <div class="v2-page-hero-slide active" style="background-image:url('/images/Besturingskast01.webp')"></div>
+        <div class="v2-page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
+        <div class="v2-page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
+        <div class="v2-page-hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
+        <div class="v2-page-hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
       </div>
       <div class="v2-page-hero-overlay"></div>
       <div class="v2-wrap reveal-blur">
@@ -75,7 +35,7 @@
     </section>
 
     <!-- ===== SERVICE 1: SOFTWARE ===== -->
-    <section class="v2-section" id="software">
+    <section class="v2-section" id="software" data-parallax="focus">
       <div class="v2-deco v2-deco-blob v2-deco-blob-1" style="width:400px;height:400px;top:-100px;right:-150px" data-speed="0.075" data-drift="-0.015"></div>
       <div class="v2-deco v2-deco-dots" style="top:4rem;left:2rem" data-speed="0.125" data-rotate="0.02"></div>
       <div class="v2-wrap">
@@ -88,29 +48,29 @@
             <p>From control software in C++ or Python to industrial PLC programming. Reliable, scalable systems designed for real-world conditions.</p>
             <ul>
               <li>Embedded firmware (C/C++, ESP32, STM32)</li>
-              <li>Industrial PLC programming (WAGO, Siemens)</li>
+              <li>Industrial PLC programming (WAGO, CODESYS)</li>
               <li>Desktop and web applications (Python, JS)</li>
               <li>Real-time control systems</li>
             </ul>
-            <a href="/en/services/software-development.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="/en/v2/services/product-development.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
           <div class="v2-service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="../../images/Besturingskast01.webp" alt="Control cabinet with PLC programming" loading="lazy" />
+            <img src="/images/Besturingskast01.webp" alt="Control cabinet with PLC programming" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== SERVICE 2: ELECTRONICS ===== -->
-    <section class="v2-section v2-section-alt" id="electronics">
+    <section class="v2-section v2-section-alt" id="electronics" data-parallax="focus">
       <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:350px;height:350px;bottom:-80px;left:-120px" data-speed="0.1" data-drift="0.02"></div>
       <div class="v2-deco v2-deco-ring" style="width:180px;height:180px;top:2rem;right:5rem" data-speed="0.15" data-rotate="-0.035"></div>
       <div class="v2-deco v2-deco-icon" style="bottom:10%;right:4%">
-        <img src="../../images/Icon licht.webp" alt="" width="100" height="100" aria-hidden="true" />
+        <img src="/images/Icon licht.webp" alt="" width="100" height="100" aria-hidden="true" />
       </div>
       <div class="v2-wrap">
-        <div class="v2-service-detail">
-          <div class="reveal-left">
+        <div class="v2-service-detail v2-service-detail-reversed">
+          <div class="reveal-right">
             <div class="v2-service-detail-icon">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
@@ -124,15 +84,15 @@
             </ul>
             <a href="/en/services/electronics-pcb-design.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
-          <div class="v2-service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="../../images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB layout with ESP32" loading="lazy" />
+          <div class="v2-service-detail-visual reveal-left" data-parallax="image" data-speed="0.12">
+            <img src="/images/rollatorBesturing01.webp" alt="Rollator control PCB with embedded electronics" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== SERVICE 3: MECHANICS ===== -->
-    <section class="v2-section" id="mechanics">
+    <section class="v2-section" id="mechanics" data-parallax="focus">
       <div class="v2-deco v2-deco-blob v2-deco-blob-3" style="width:380px;height:380px;top:-60px;left:-140px" data-speed="0.1" data-drift="-0.012"></div>
       <div class="v2-deco v2-deco-dots" style="bottom:2rem;right:3rem" data-speed="0.125" data-rotate="0.025"></div>
       <div class="v2-wrap">
@@ -152,21 +112,21 @@
             <a href="/en/services/mechanical-cad-drawings.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
           <div class="v2-service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="../../images/plantsappersHero.webp" alt="Plant juice press 3D CAD production drawings in SolidWorks" loading="lazy" />
+            <img src="/images/plantsappersHero.webp" alt="Plant juice press 3D CAD production drawings in SolidWorks" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== SERVICE 4: DATA SCIENCE ===== -->
-    <section class="v2-section v2-section-alt" id="datascience">
+    <section class="v2-section v2-section-alt" id="datascience" data-parallax="focus">
       <div class="v2-deco v2-deco-blob v2-deco-blob-1" style="width:320px;height:320px;top:5%;right:-100px" data-speed="0.1" data-drift="0.015"></div>
       <div class="v2-deco v2-deco-icon" style="top:15%;left:3%">
-        <img src="../../images/Icon donker.webp" alt="" width="80" height="80" aria-hidden="true" />
+        <img src="/images/Icon donker.webp" alt="" width="80" height="80" aria-hidden="true" />
       </div>
       <div class="v2-wrap">
-        <div class="v2-service-detail">
-          <div class="reveal-left">
+        <div class="v2-service-detail v2-service-detail-reversed">
+          <div class="reveal-right">
             <div class="v2-service-detail-icon">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
@@ -180,15 +140,15 @@
             </ul>
             <a href="/en/services/data-science-machine-learning.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
-          <div class="v2-service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="../../images/LevitatingPlant01.webp" alt="Magnetic levitation plant pot with control algorithms" loading="lazy" />
+          <div class="v2-service-detail-visual reveal-left" data-parallax="image" data-speed="0.12">
+            <img src="/images/SelfBalancingCube01.webp" alt="Self-balancing cube with machine learning control algorithms" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== SERVICE 5: PRODUCT DEV ===== -->
-    <section class="v2-section" id="product">
+    <section class="v2-section" id="product" data-parallax="focus">
       <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:400px;height:400px;bottom:-100px;left:-150px" data-speed="0.088" data-drift="-0.018"></div>
       <div class="v2-deco v2-deco-ring" style="width:140px;height:140px;top:4rem;right:6rem" data-speed="0.125" data-rotate="0.04"></div>
       <div class="v2-deco v2-deco-dots" style="bottom:3rem;left:5rem" data-speed="0.15" data-rotate="-0.022"></div>
@@ -206,10 +166,10 @@
               <li>Design for manufacturing (DFM)</li>
               <li>Small series production support</li>
             </ul>
-            <a href="/en/services/product-development.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="/en/v2/services/product-development.html" class="v2-btn v2-btn-primary">Learn more <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
           <div class="v2-service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="../../images/SketchToRender04.webp" alt="Complete product development from sketch to photorealistic 3D render" loading="lazy" />
+            <img src="/images/SketchToRender04.webp" alt="Complete product development from sketch to photorealistic 3D render" loading="lazy" />
           </div>
         </div>
       </div>
@@ -257,90 +217,16 @@
       <div class="v2-wrap reveal-blur v2-heading-animate">
         <h2>Have a technical challenge?</h2>
         <p>Let's explore the possibilities together. Free discovery call, no obligations.</p>
-        <a href="/en/contact.html" class="v2-btn v2-btn-primary" style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/en/v2/contact.html" class="v2-btn v2-btn-primary" style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="v2-footer" role="contentinfo">
-    <div class="v2-deco v2-deco-blob v2-deco-blob-1" style="width:400px;height:400px;top:-100px;right:-150px" data-speed="0.05" data-drift="0.01"></div>
-    <div class="v2-deco v2-deco-ring" style="width:200px;height:200px;bottom:3rem;left:4rem" data-speed="0.075" data-rotate="-0.025"></div>
-    <div class="v2-deco v2-deco-dots" style="top:4rem;left:30%" data-speed="0.1" data-rotate="0.018"></div>
-    <div class="v2-wrap">
-      <div class="v2-footer-top">
-        <div class="v2-footer-brand reveal">
-          <img src="../../images/Logo wit.webp" alt="IMeTech Engineering" class="v2-footer-logo" />
-          <p>From idea to working product. Complete product development combining mechanics, electronics, embedded systems, and software.</p>
-          <div class="v2-footer-contact-row">
-            <a href="mailto:info@imetech.nl" class="v2-footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@imetech.nl
-            </a>
-            <a href="tel:+31612385439" class="v2-footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              +31 6 1238 5439
-            </a>
-          </div>
-          <div class="v2-footer-partner">
-            <div class="v2-footer-partner-label">Member of</div>
-            <a href="https://www.coopkracht-productontwerp.nl/" target="_blank" rel="noopener noreferrer" aria-label="Coopkracht Productontwerp">
-              <img src="../../images/coopkracht-logo-wit.webp" alt="Coopkracht Productontwerp logo" />
-            </a>
-          </div>
-        </div>
-        <div class="reveal stagger-2">
-          <h4>Quick links</h4>
-          <ul>
-            <li><a href="/en/v2/">Home</a></li>
-            <li><a href="/en/v2/services.html">Services</a></li>
-            <li><a href="/en/projects/">Projects</a></li>
-            <li><a href="/en/blog/">Blog</a></li>
-            <li><a href="/en/about.html">About</a></li>
-            <li><a href="/en/contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="reveal stagger-3">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/imetech_engineering/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="/en/contact.html">Start a project</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="v2-footer-bottom">
-        <span>&copy; 2026 Ivo Mengerink - IMeTech Engineering &middot; KvK 97538612 &middot; BTW NL005275849B96</span>
-        <div class="v2-footer-legal">
-          <a href="/en/privacy-policy.html">Privacy</a>
-          <a href="/en/termsandconditions.html">Terms</a>
-          <a href="/en/disclaimer.html">Disclaimer</a>
-          <a href="#" onclick="localStorage.removeItem('cookieConsent'); location.reload(); return false;">Cookies</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- v2 SHARED FOOTER (loaded via JS) -->
+  <div id="v2-footer-container"></div>
 
-  <!-- FLOATING CTA -->
-  <div class="v2-floating-cta">
-    <div class="v2-floating-options">
-      <a href="/en/contact.html" class="v2-floating-option">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email
-      </a>
-      <a href="tel:+31612385439" class="v2-floating-option">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call
-      </a>
-      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener" class="v2-floating-option">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
-    <button class="v2-floating-btn" aria-label="Contact options">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-    </button>
-  </div>
+  <!-- v2 SHARED FLOATING CTA (loaded via JS) -->
+  <div id="v2-floating-cta-container"></div>
 
   <script src="/script-v2.js" defer></script>
 </body>
