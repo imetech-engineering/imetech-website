@@ -421,40 +421,152 @@
       });
     });
 
-    // ===== CONTACT / REVIEW FORM =====
-    document.querySelectorAll('.v2-form').forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = form.querySelector('button[type="submit"]');
-        var btnText = btn ? btn.textContent : '';
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    // ===== REVIEW FORM WITH GOOGLE POPUP =====
+    var googleReviewClicked = false;
+    window.markGoogleReviewClicked = function() { googleReviewClicked = true; };
 
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(function (r) {
-          if (r.ok) {
-            var success = form.querySelector('.v2-form-success');
-            if (success) success.style.display = 'block';
-            form.reset();
-            if (starContainer) {
-              starContainer.querySelectorAll('.v2-star').forEach(function (s) { s.classList.remove('active'); });
-            }
-          } else {
-            throw new Error('Form submission failed');
-          }
-        })
-        .catch(function () {
-          var errorEl = form.querySelector('.v2-form-error');
-          if (errorEl) errorEl.style.display = 'block';
-        })
-        .finally(function () {
-          if (btn) { btn.disabled = false; btn.textContent = btnText; }
+    var reviewForm = document.getElementById('reviewForm');
+    var googleModal = document.getElementById('googleReminder');
+    var btnGoogle = document.getElementById('btnGoogle');
+    var btnSkip = document.getElementById('btnSkip');
+    var reviewResult = document.getElementById('result');
+    var selectedRating = 0;
+
+    if (starContainer) {
+      var allStars = starContainer.querySelectorAll('.v2-star');
+      allStars.forEach(function (star, idx) {
+        star.addEventListener('click', function () {
+          selectedRating = idx + 1;
+          var ri = document.getElementById('ratingValue');
+          if (ri) ri.value = selectedRating;
+          allStars.forEach(function (s, i) {
+            s.classList.toggle('active', i < selectedRating);
+          });
         });
       });
-    });
+    }
+
+    if (reviewForm) {
+      function sendReview() {
+        var formData = new FormData(reviewForm);
+        var object = Object.fromEntries(formData);
+        var json = JSON.stringify(object);
+        if (reviewResult) { reviewResult.innerHTML = 'Please wait...'; reviewResult.style.display = 'block'; reviewResult.className = 'v2-form-result'; }
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+          if (data.success) {
+            if (reviewResult) { reviewResult.innerHTML = 'Review submitted successfully! Thank you.'; reviewResult.className = 'v2-form-result v2-form-success'; reviewResult.style.display = 'block'; }
+            reviewForm.reset();
+            selectedRating = 0;
+            if (starContainer) starContainer.querySelectorAll('.v2-star').forEach(function(s){ s.classList.remove('active'); });
+          } else {
+            if (reviewResult) { reviewResult.innerHTML = data.message || 'Something went wrong.'; reviewResult.className = 'v2-form-result v2-form-error'; reviewResult.style.display = 'block'; }
+          }
+        })
+        .catch(function() {
+          if (reviewResult) { reviewResult.innerHTML = 'Something went wrong. Please try again or email info@imetech.nl.'; reviewResult.className = 'v2-form-result v2-form-error'; reviewResult.style.display = 'block'; }
+        })
+        .then(function() {
+          reviewForm.dataset.submitted = 'true';
+          setTimeout(function(){ if (reviewResult) reviewResult.style.display = 'none'; }, 4000);
+        });
+      }
+
+      reviewForm.addEventListener('submit', function(e) {
+        if (!googleReviewClicked && !reviewForm.dataset.confirmed && selectedRating >= 4) {
+          e.preventDefault();
+          if (googleModal) googleModal.style.display = 'flex';
+        } else if (!reviewForm.dataset.submitted) {
+          e.preventDefault();
+          sendReview();
+        }
+      });
+
+      if (btnGoogle) {
+        btnGoogle.addEventListener('click', function() {
+          window.open('https://g.page/r/CY-Xn_8t6Vr3EAE/review', '_blank');
+          googleReviewClicked = true;
+          if (googleModal) googleModal.style.display = 'none';
+        });
+      }
+      if (btnSkip) {
+        btnSkip.addEventListener('click', function() {
+          if (googleModal) googleModal.style.display = 'none';
+          reviewForm.dataset.confirmed = 'true';
+          reviewForm.requestSubmit();
+        });
+      }
+    }
+
+    // ===== CONTACT PAGE SCROLL =====
+    (function() {
+      var contactFormSection = document.getElementById('contact-form');
+      if (!contactFormSection) return;
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        var href = link.getAttribute('href');
+        if (href === '#contact-form' || href === '/en/v2/contact.html#contact-form') {
+          e.preventDefault();
+          contactFormSection.scrollIntoView({ behavior: 'smooth' });
+          var nameInput = contactFormSection.querySelector('input[name="name"]');
+          if (nameInput) setTimeout(function(){ nameInput.focus(); }, 600);
+        }
+        if (window.location.pathname.indexOf('/en/v2/contact') !== -1 && (href === '/en/v2/contact.html' || href === '/en/v2/contact.html#contact-form')) {
+          e.preventDefault();
+          contactFormSection.scrollIntoView({ behavior: 'smooth' });
+          var ni = contactFormSection.querySelector('input[name="name"]');
+          if (ni) setTimeout(function(){ ni.focus(); }, 600);
+        }
+      });
+    })();
+
+    // ===== COOKIE CONSENT BANNER =====
+    (function() {
+      var consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        showCookieBanner();
+      }
+
+      function showCookieBanner() {
+        var existing = document.getElementById('v2-cookie-banner');
+        if (existing) { existing.style.display = 'flex'; return; }
+        var banner = document.createElement('div');
+        banner.id = 'v2-cookie-banner';
+        banner.className = 'v2-cookie-banner';
+        banner.innerHTML = '<div class="v2-cookie-inner">' +
+          '<div class="v2-cookie-text"><span class="v2-cookie-icon">\uD83C\uDF6A</span>' +
+          '<div><h3>Cookie preferences</h3>' +
+          '<p>This website uses cookies for analytics and functionality. Read our <a href="/en/v2/privacy-policy.html">privacy policy</a>.</p></div></div>' +
+          '<div class="v2-cookie-actions">' +
+          '<button class="v2-btn v2-btn-outline v2-cookie-necessary">Necessary only</button>' +
+          '<button class="v2-btn v2-btn-primary v2-cookie-accept">Accept all</button>' +
+          '</div></div>';
+        document.body.appendChild(banner);
+        requestAnimationFrame(function(){ banner.classList.add('v2-cookie-visible'); });
+
+        banner.querySelector('.v2-cookie-accept').addEventListener('click', function() {
+          localStorage.setItem('cookieConsent', 'all');
+          banner.classList.remove('v2-cookie-visible');
+          setTimeout(function(){ banner.style.display = 'none'; }, 400);
+        });
+        banner.querySelector('.v2-cookie-necessary').addEventListener('click', function() {
+          localStorage.setItem('cookieConsent', 'necessary');
+          banner.classList.remove('v2-cookie-visible');
+          setTimeout(function(){ banner.style.display = 'none'; }, 400);
+        });
+      }
+
+      window.openCookieSettings = function() {
+        localStorage.removeItem('cookieConsent');
+        showCookieBanner();
+      };
+    })();
 
     // ===== GALLERY LIGHTBOX =====
     var galleryItems = document.querySelectorAll('.v2-gallery-item');

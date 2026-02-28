@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Contact - IMeTech Engineering</title>
-  <meta name="description" content="Get in touch with IMeTech Engineering. Discuss your technical challenge, request a free consultation, or start your product development project." />
+  <meta name="description"
+    content="Get in touch with IMeTech Engineering. Discuss your technical challenge, request a free consultation, or start your product development project." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/style-v2.css">
 </head>
+
 <body>
   <div id="v2-header-container"></div>
 
@@ -27,55 +31,72 @@
       <div class="v2-wrap reveal-blur">
         <span class="v2-label" style="color:#60a5fa">Contact</span>
         <h1>Let&rsquo;s work together</h1>
-        <p>Do you have a technical challenge, an idea that needs to be developed, or are you curious about what I can do for you?</p>
+        <p>Do you have a technical challenge, an idea that needs to be developed, or are you curious about what I can do
+          for you?</p>
       </div>
     </section>
 
-    <section class="v2-section" data-parallax="focus">
-      <div class="v2-deco v2-deco-blob v2-deco-blob-1" style="width:420px;height:420px;top:-100px;right:-160px" data-speed="0.088" data-drift="-0.02"></div>
-      <div class="v2-deco v2-deco-ring" style="width:160px;height:160px;bottom:4rem;left:5rem" data-speed="0.15" data-rotate="0.035"></div>
+    <section class="v2-section" id="contact-form" data-parallax="focus">
+      <div class="v2-deco v2-deco-blob v2-deco-blob-1" style="width:420px;height:420px;top:-100px;right:-160px"
+        data-speed="0.088" data-drift="-0.02"></div>
+      <div class="v2-deco v2-deco-ring" style="width:160px;height:160px;bottom:4rem;left:5rem" data-speed="0.15"
+        data-rotate="0.035"></div>
       <div class="v2-deco v2-deco-dots" style="top:5rem;left:2rem" data-speed="0.125" data-rotate="-0.025"></div>
       <div class="v2-wrap">
         <div class="v2-service-detail">
           <div class="reveal-left">
-            <form class="v2-form" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <form class="v2-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="36fe41a3-1e8e-4282-a4d9-5d8ee89c7a64">
               <input type="hidden" name="subject" value="New contact via IMeTech v2">
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none">
               <div class="v2-form-group">
                 <label for="contact-name">Name</label>
-                <input type="text" id="contact-name" name="name" required class="v2-input" />
+                <input type="text" id="contact-name" name="name" required class="v2-input" placeholder="Your name" />
               </div>
               <div class="v2-form-group">
                 <label for="contact-email">Email</label>
-                <input type="email" id="contact-email" name="email" required class="v2-input" />
+                <input type="email" id="contact-email" name="email" required class="v2-input"
+                  placeholder="your@email.com" />
               </div>
               <div class="v2-form-group">
                 <label for="contact-message">Message</label>
-                <textarea id="contact-message" name="message" required rows="5" class="v2-input v2-textarea"></textarea>
+                <textarea id="contact-message" name="message" required rows="5" class="v2-input v2-textarea"
+                  placeholder="Tell me about your project..."></textarea>
               </div>
-              <button class="v2-btn v2-btn-primary" type="submit">Send message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-              <div class="v2-form-success" style="display:none">Thank you! Your message has been sent. I&rsquo;ll respond within 24 hours.</div>
-              <div class="v2-form-error" style="display:none">Something went wrong. Please try again or email me directly.</div>
+              <button class="v2-btn v2-btn-primary" type="submit">Send message <svg width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></button>
+              <div id="contactResult" class="v2-form-result" style="display:none"></div>
             </form>
           </div>
           <div class="reveal-right">
             <div class="v2-contact-card">
               <div class="v2-contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
               </div>
               <h3>Email</h3>
               <a href="mailto:info@imetech.nl">info@imetech.nl</a>
             </div>
             <div class="v2-contact-card">
               <div class="v2-contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
               </div>
               <h3>Phone</h3>
               <a href="tel:+31612385439">+31 6 12 38 54 39</a>
             </div>
             <div class="v2-contact-card">
               <div class="v2-contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
               </div>
               <h3>Location</h3>
               <p>Vierde Broekdijk 1, 7122JD Aalten</p>
@@ -87,8 +108,10 @@
     </section>
 
     <section class="v2-section v2-section-alt" data-parallax="focus">
-      <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:350px;height:350px;bottom:-80px;right:-120px" data-speed="0.1" data-drift="0.018"></div>
-      <div class="v2-deco v2-deco-ring" style="width:130px;height:130px;top:3rem;left:6rem" data-speed="0.125" data-rotate="-0.032"></div>
+      <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:350px;height:350px;bottom:-80px;right:-120px"
+        data-speed="0.1" data-drift="0.018"></div>
+      <div class="v2-deco v2-deco-ring" style="width:130px;height:130px;top:3rem;left:6rem" data-speed="0.125"
+        data-rotate="-0.032"></div>
       <div class="v2-deco v2-deco-dots" style="bottom:2rem;right:4rem" data-speed="0.15" data-rotate="0.022"></div>
       <div class="v2-wrap">
         <div class="v2-info-grid">
@@ -100,7 +123,8 @@
           <div class="v2-info-card reveal stagger-2">
             <span class="v2-label">No obligations</span>
             <h3>Free consultation</h3>
-            <p>First meeting is always free and non-binding. Discuss your challenge and see if it&rsquo;s a good match.</p>
+            <p>First meeting is always free and non-binding. Discuss your challenge and see if it&rsquo;s a good match.
+            </p>
           </div>
           <div class="v2-info-card reveal stagger-3">
             <span class="v2-label">Remote</span>
@@ -112,27 +136,47 @@
     </section>
 
     <section class="v2-section" data-parallax="focus">
-      <div class="v2-deco v2-deco-blob v2-deco-blob-3" style="width:380px;height:380px;top:-80px;left:-140px" data-speed="0.088" data-drift="-0.015"></div>
-      <div class="v2-deco v2-deco-ring" style="width:150px;height:150px;bottom:3rem;right:7rem" data-speed="0.14" data-rotate="0.04"></div>
+      <div class="v2-deco v2-deco-blob v2-deco-blob-3" style="width:380px;height:380px;top:-80px;left:-140px"
+        data-speed="0.088" data-drift="-0.015"></div>
+      <div class="v2-deco v2-deco-ring" style="width:150px;height:150px;bottom:3rem;right:7rem" data-speed="0.14"
+        data-rotate="0.04"></div>
       <div class="v2-wrap">
         <div class="v2-section-header reveal v2-heading-animate">
           <span class="v2-label">Location</span>
           <h2>Find us</h2>
         </div>
         <div class="v2-map-container reveal">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2462.5!2d6.5769!3d51.9286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8ec48f75caab1%3A0xf75ae92dff9f978f!2sIMeTech%20Engineering!5e0!3m2!1sen!2snl!4v1700000000000" width="100%" height="450" style="border:0;border-radius:1rem" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="IMeTech Engineering location"></iframe>
-          <a href="https://maps.google.com/?q=IMeTech+Engineering+Aalten" target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-primary" style="margin-top:1.5rem;display:inline-flex">Open in Google Maps <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2461.273306690894!2d6.571855157377803!3d51.91072453072166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4eab831916edc06f%3A0x7e57b7b4daa04a5f!2sIMeTech%20Engineering!5e0!3m2!1snl!2snl!4v1768503484421!5m2!1snl!2snl"
+            width="100%" height="450" style="border:0;border-radius:1rem" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location of IMeTech Engineering at Vierde Broekdijk 1, 7122JD Aalten"></iframe>
+        </div>
+        <div class="reveal" style="text-align:center; padding-top: 1.5rem;">
+          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z/data=!3m1!4b1!4m6!3m5!1s0x4eab831916edc06f:0x7e57b7b4daa04a5f!8m2!3d51.9107245!4d6.57443!16s%2Fg%2F11v0qj5q0j?entry=ttu"
+            target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-outline">Open in Google Maps <svg width="18"
+              height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg></a>
         </div>
       </div>
     </section>
 
     <section class="v2-cta-section">
-      <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:300px;height:300px;top:-60px;right:-80px" data-speed="0.1" data-drift="-0.015"></div>
-      <div class="v2-deco v2-deco-ring" style="width:120px;height:120px;bottom:2rem;left:8rem" data-speed="0.125" data-rotate="0.038"></div>
+      <div class="v2-deco v2-deco-blob v2-deco-blob-2" style="width:300px;height:300px;top:-60px;right:-80px"
+        data-speed="0.1" data-drift="-0.015"></div>
+      <div class="v2-deco v2-deco-ring" style="width:120px;height:120px;bottom:2rem;left:8rem" data-speed="0.125"
+        data-rotate="0.038"></div>
       <div class="v2-wrap reveal-blur v2-heading-animate">
         <h2>Ready to start your project?</h2>
         <p>Let&rsquo;s discuss your technical challenge. Free discovery call, no obligations.</p>
-        <a href="/en/v2/contact.html" class="v2-btn v2-btn-primary" style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#contact-form" class="v2-btn v2-btn-primary"
+          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg></a>
       </div>
     </section>
   </main>
@@ -140,5 +184,48 @@
   <div id="v2-footer-container"></div>
   <div id="v2-floating-cta-container"></div>
   <script src="/script-v2.js" defer></script>
+  <script>
+    (function () {
+      var form = document.getElementById('contactForm');
+      var result = document.getElementById('contactResult');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        var object = Object.fromEntries(formData);
+        var json = JSON.stringify(object);
+        result.innerHTML = 'Please wait...';
+        result.style.display = 'block';
+        result.className = 'v2-form-result';
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        })
+          .then(function (response) { return response.json(); })
+          .then(function (data) {
+            if (data.success) {
+              result.innerHTML = 'Message sent successfully! I\u2019ll respond within 24 hours.';
+              result.className = 'v2-form-result v2-form-success';
+              result.style.display = 'block';
+              form.reset();
+            } else {
+              result.innerHTML = data.message || 'Something went wrong.';
+              result.className = 'v2-form-result v2-form-error';
+              result.style.display = 'block';
+            }
+          })
+          .catch(function () {
+            result.innerHTML = 'Something went wrong. Please try again or email me directly.';
+            result.className = 'v2-form-result v2-form-error';
+            result.style.display = 'block';
+          })
+          .then(function () {
+            setTimeout(function () { result.style.display = 'none'; }, 4000);
+          });
+      });
+    })();
+  </script>
 </body>
+
 </html>
