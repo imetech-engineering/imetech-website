@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-  <!-- Google Analytics will be loaded after cookie consent -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="description" content="Machine Learning in productontwikkeling: praktische toepassingen, het belang van trainingsdata en ervaringen uit de ouderenzorg en navigatie. Door IMeTech Engineering.">
-  <meta name="keywords" content="machine learning, productontwikkeling, AI, trainingsdata, ouderenzorg, navigatie, computer vision, interactiemodel, embedded AI, IMeTech Engineering">
-  <meta name="author" content="Ivo Mengerink">
-  <meta property="og:title" content="Machine Learning in productontwikkeling: van data tot slimme producten">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="nl">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
+  <meta property="og:title" content="Machine Learning in productontwikkeling: van data tot slimme producten | IMeTech Engineering Blog">
   <meta property="og:description" content="Machine Learning in productontwikkeling: praktische toepassingen, het belang van trainingsdata en ervaringen uit de ouderenzorg en navigatie.">
   <meta property="og:image" content="https://imetech.nl/images/machineLearningHero.webp">
   <meta property="og:url" content="https://imetech.nl/blog/machine-learning-productontwikkeling.html">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="IMeTech Engineering" />
-  <meta property="og:locale" content="nl_NL" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@imetech_engineering" />
-  <title>Machine Learning in productontwikkeling: van data tot slimme producten | IMeTech Engineering Blog</title>
-  <link rel="icon" href="../images/favicon-32x32.png" type="image/png" />
+  <meta property="og:site_name" content="IMeTech Engineering">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Machine Learning in productontwikkeling: van data tot slimme producten | IMeTech Engineering Blog">
+  <meta name="twitter:description" content="Machine Learning in productontwikkeling: praktische toepassingen, het belang van trainingsdata en ervaringen uit de ouderenzorg en navigatie.">
+  <meta name="twitter:image" content="https://imetech.nl/images/machineLearningHero.webp">
+  <meta name="twitter:creator" content="@imetech_engineering">
+    <title>Machine Learning in productontwikkeling: van data tot slimme producten | IMeTech Engineering Blog</title>
+    <meta name="description"
+    content="Machine Learning in productontwikkeling: praktische toepassingen, het belang van trainingsdata en ervaringen uit de ouderenzorg en navigatie." />
+    <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
   <link rel="canonical" href="https://imetech.nl/blog/machine-learning-productontwikkeling.html">
-  <!-- Hreflang alternates -->
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/machine-learning-productontwikkeling.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/machine-learning-product-development.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/machine-learning-productontwikkeling.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=8">
-  
-  <!-- Structured Data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,104 +46,44 @@
     "description": "Machine Learning in productontwikkeling: praktische toepassingen, het belang van trainingsdata en ervaringen uit de ouderenzorg en navigatie.",
     "url": "https://imetech.nl/blog/machine-learning-productontwikkeling.html",
     "datePublished": "2026-02-23",
-    "dateModified": "2026-02-23",
-    "author": {
-      "@type": "Person",
-      "name": "Ivo Mengerink",
-      "url": "https://imetech.nl/over-mij.html"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "IMeTech Engineering",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://imetech.nl/blog/machine-learning-productontwikkeling.html"
-    },
-    "keywords": ["machine learning", "productontwikkeling", "AI", "trainingsdata", "ouderenzorg", "navigatie", "computer vision"]
+    "inLanguage": "nl",
+    "author": { "@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/over-mij.html" },
+    "publisher": { "@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": { "@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp" } },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://imetech.nl/blog/machine-learning-productontwikkeling.html" }
   }
-  </script>
-</head> 
+  </script></head>
+
 <body>
-  <!-- Header will be loaded dynamically -->
-  <div id="header-container"></div>
-  <noscript>
-    <nav aria-label="Hoofdnavigatie">
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/over-mij.html">Over mij</a></li>
-        <li><a href="/diensten.html">Diensten</a></li>
-        <li><a href="/projecten/">Projecten</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </noscript>
+    <div id="header-container"></div>
 
-  <main>
-    <!-- Page Header -->
-    <section class="page-header section">
-      <div class="container">
-        <div class="page-header-content">
-          <h1>Machine Learning in productontwikkeling: van data tot slimme producten</h1>
-          <p class="page-description">Hoe machine learning echte meerwaarde biedt in productontwikkeling. Praktische toepassingen, het cruciale belang van trainingsdata en lessen uit projecten in de ouderenzorg en navigatie.</p>
-          <div class="share-links prominent" data-canonical="https://imetech.nl/blog/machine-learning-productontwikkeling.html" data-title="Machine Learning in productontwikkeling: van data tot slimme producten">
-            <a class="share-button share-x" target="_blank" rel="noopener noreferrer" aria-label="Deel op X">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg>
-            </a>
-            <a class="share-button share-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Deel op LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" stroke-width="1.5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a class="share-button share-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Deel op WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0012.06 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.64a11.9 11.9 0 005.76 1.47h.01c6.6 0 11.95-5.35 11.95-11.94a11.84 11.84 0 00-3.5-8.41zM12.07 21.3c-1.8 0-3.56-.48-5.1-1.38l-.36-.21-3.74.97 1-3.64-.24-.37a9.32 9.32 0 01-1.43-4.87c0-5.17 4.21-9.37 9.39-9.37 2.51 0 4.86.98 6.63 2.76a9.33 9.33 0 012.75 6.61c0 5.17-4.21 9.36-9.4 9.36zm5.4-6.99c-.3-.15-1.78-.88-2.05-.98-.27-.1-.46-.15-.65.15-.2.3-.75.98-.92 1.18-.17.2-.34.22-.64.07-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.73-1.63-2.02-.17-.3-.02-.46.13-.6.14-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.48 1.06 2.9 1.2 3.1.15.2 2.09 3.2 5.06 4.49.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.42.25-.69.25-1.28.17-1.42-.08-.14-.27-.22-.57-.37z"/></svg>
-            </a>
-            <button class="share-button share-copy" aria-label="Kopieer link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-            </button>
-          </div>
-          <div class="blog-meta">
-            <div class="blog-date">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              23 februari 2026
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-slides" aria-roledescription="slideshow">
+                <div class="page-hero-slide active" style="background-image:url('/images/machineLearningHero.webp')">
+                </div>
+                <div class="page-hero-slide" style="background-image:url('/images/ElektronicaHardware01.webp')">
+                </div>
             </div>
-            <div class="blog-author">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              Door Ivo Mengerink
+            <div class="page-hero-overlay"></div>
+            <div class="wrap reveal-blur">
+                <span class="label" style="color:#60a5fa">Blog</span>
+                <h1>Machine Learning in productontwikkeling: van data tot slimme producten</h1>
+                <p>Hoe machine learning echte meerwaarde biedt in productontwikkeling. Praktische toepassingen, het cruciale belang van trainingsdata en lessen uit projecten in de ouderenzorg en navigatie.</p>
             </div>
-            <div class="blog-read-time">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12,6 12,12 16,14"></polyline>
-              </svg>
-              13 min lezen
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Blog Content -->
-    <section class="blog-content section">
-      <div class="container">
-        <div class="blog-article">
-          
-          <!-- Introduction -->
-          <div class="blog-intro">
+        <section class="section" data-parallax="focus">
+            <div class="deco deco-blob deco-blob-1" style="width:400px;height:400px;top:-80px;right:-140px"
+                data-speed="0.09" data-drift="-0.025"></div>
+            <div class="wrap">
+                <div class="article-meta reveal">
+                    <span>23 februari 2026</span>
+                    <span>Ivo Mengerink</span>
+                    <span>13 min lezen</span>
+                </div>
+
+                <div class="article-content reveal">
+<div class="lead">
             <p class="lead">
               <strong>Machine learning</strong> is geen buzzword meer—het is een krachtig instrument in productontwikkeling wanneer je het koppelt aan duidelijke use cases en kwalitatief goede data. In de praktijk merk ik steeds weer: het model is maar zo goed als de data waarop het wordt getraind. In dit artikel deel ik hoe ik ML inzet in uiteenlopende producten, van empathische interactie in de ouderenzorg tot slimme navigatie voor zwaar transport, en wat ik heb geleerd over het opbouwen en inzetten van trainingsdata.
             </p>
@@ -145,50 +93,16 @@
           </div>
 
           <!-- Visual -->
-          <section class="blog-section">
-            <div class="embedded-diagram">
-              <div class="diagram-container">
-                <img src="../images/machineLearningHero.webp" alt="Machine learning in productontwikkeling: van sensordata tot slimme beslissingen" class="embedded-architecture-image" />
+          <section >
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <img src="/images/machineLearningHero.webp" alt="Machine learning in productontwikkeling: van sensordata tot slimme beslissingen"  />
               </div>
             </div>
           </section>
 
-          <!-- 1. Wat is machine learning? -->
-          <section class="blog-section">
-            <h2>Wat is machine learning eigenlijk?</h2>
-            <p>
-              <strong>Machine learning (ML)</strong> is een vorm van kunstmatige intelligentie waarbij een systeem patronen leert uit data in plaats van dat een programmeur elke regel expliciet programmeert. In klassieke software schrijf je: “als temperatuur &gt; 30, doe X”. Bij ML voed je het systeem met veel voorbeelden (bijvoorbeeld sensormetingen met bijbehorende uitkomst), en het leert zelf de onderliggende relaties. Het model generaliseert daarna naar nieuwe, vergelijkbare situaties—zolang de data representatief is en het probleem goed is afgebakend.
-            </p>
-            <p>
-              In de praktijk zie je grofweg twee manieren van leren. Bij <strong>supervised learning</strong> heb je gelabelde data: je weet bij elke input wat de gewenste output is (bijv. “dit plaatje is een rotonde”, “deze gebruiker gaf positieve feedback”). Het model leert de mapping van input naar label. Bij <strong>unsupervised learning</strong> zijn er geen labels; het model zoekt zelf naar structuur in de data, zoals clustering of afwijkingen. Voor de meeste producttoepassingen—herkenning, voorspelling, persoonlijke aanbevelingen—werk je met supervised of semi-supervised aanpak. Het resultaat is geen zwarte doos: je kiest het type model, de features en de manier van evalueren, en je kunt het gedrag testen en begrenzen.
-            </p>
-            <p>
-              Belangrijk om te beseffen: ML vervangt niet het hele product. Het lost een <em>deel</em> van het probleem op—bijvoorbeeld “welke toon past bij deze gebruiker?” of “past deze vrachtwagen door deze rotonde?”—binnen duidelijke randvoorwaarden. De rest van het product (hardware, gebruikersinterface, veiligheid, bedrijfslogica) blijft gewoon ontwerp- en softwarewerk. ML is dus een onderdeel van de productontwikkeling, geen vervanging ervan.
-            </p>
-          </section>
-
-          <!-- 2. Hoe implementeer je ML in slimme producten? -->
-          <section class="blog-section">
-            <h2>Hoe implementeer je ML in slimme producten?</h2>
-            <p>
-              ML in een product krijgen kan op verschillende manieren. De keuze hangt af van latency, beschikbaarheid van internet, rekenkracht in het product en onderhoudbaarheid.
-            </p>
-            <p>
-              <strong>Edge en on-device:</strong> Het model draait op het apparaat zelf (microcontroller, single-board computer, telefoon). Voordelen: lage latency, werkt offline, geen datastroom naar de cloud. Nadelen: beperkte rekenkracht en geheugen, dus modellen moeten klein en geoptimaliseerd zijn (gequantizeerde netwerken, kleine architecturen). Geschikt voor: spraakcommando’s, eenvoudige beeldherkenning, sensorfusie, persoonlijke aanpassing in de ouderenzorg-companion.
-            </p>
-            <p>
-              <strong>Cloud en API:</strong> Sensordata of gebruikersinput gaat naar een server; het model draait daar en stuurt het resultaat terug. Voordelen: zware modellen, eenvoudig updaten en hertrainen. Nadelen: afhankelijkheid van netwerk, latency, privacy- en kostenoverwegingen. Geschikt voor: complexe analyses, grote modellen, scenario’s waar real-time op het apparaat niet strikt nodig is.
-            </p>
-            <p>
-              <strong>Hybride:</strong> Licht model op de edge voor snelle reactie (bijv. “is er een persoon?”), zwaarder model in de cloud voor detail (bijv. “welke activiteit?”). Dit vereist duidelijke interface tussen edge en cloud en goede foutafhandeling als de verbinding wegvalt.
-            </p>
-            <p>
-              Naast <em>waar</em> het model draait, is het type taak bepalend. <strong>Classificatie</strong> (bijv. “welke intentie heeft de gebruiker?”, “welk type rotonde?”), <strong>regressie</strong> (bijv. “hoe groot is de diameter?”), en <strong>sequentiemodellen</strong> (bijv. “welke zin of actie past hierna?”) komen vaak voor. Soms combineer je meerdere modellen: eerst detectie, dan interpretatie, dan beslissing. In alle gevallen moet de output van het model vertaald worden naar concreet productgedrag—bijvoorbeeld welke zin de companion uitspreekt of welke route de navigatie voorstelt. Die vertaallaag is expliciet ontwerpwerk en even belangrijk als het model zelf.
-            </p>
-          </section>
-
-          <!-- 3. Waarom Machine Learning in productontwikkeling -->
-          <section class="blog-section">
+          <!-- 1. Waarom ML in productontwikkeling -->
+          <section >
             <h2>Waarom Machine Learning in productontwikkeling?</h2>
             <p>
               Producten worden steeds slimmer: ze reageren op gedrag, herkennen patronen en ondersteunen gebruikers proactief. Dat vraagt om meer dan vaste regels en if-then logica. <strong>Machine learning</strong> maakt het mogelijk om uit ruwe data—sensoren, beelden, interacties—patronen te leren en beslissingen te nemen die zich aanpassen aan de context. Dat is waardevol in zorg, logistiek, industrie en consumentenproducten.
@@ -233,8 +147,8 @@
             </div>
           </section>
 
-          <!-- 2. Trainingsdata: de basis van elk goed model -->
-          <section class="blog-section">
+          <!-- 2. Trainingsdata -->
+          <section >
             <h2>Trainingsdata: de basis van elk goed model</h2>
             <p>
               De belangrijkste les die ik in project na project tegenkom: <strong>trainingsdata is bepalend</strong>. Een slim algoritme met slechte of eenzijdige data levert slechte resultaten. Goede, geannoteerde en representatieve data maakt het verschil tussen een prototype dat “wel eens goed gaat” en een product dat betrouwbaar presteert in de echte wereld.
@@ -242,12 +156,9 @@
             <p>
               Dat betekent: vroeg nadenken over welke data je nodig hebt, hoe je die verzamelt (in de praktijk, met echte gebruikers of omstandigheden) en hoe je labels of feedback structureert. Soms is het verzamelen en opschonen van data het zwaarste onderdeel van het project—maar het is ook het meest bepalende. Investeer daar tijd in; het betaalt zich terug in modelkwaliteit en minder correctiewerk achteraf.
             </p>
-            <p>
-              Een typische workflow is: data verzamelen, opschonen en eventueel augmenteren (bijv. beeldrotaties bij computer vision), annoteren of labelen, splitsen in train/validatie/test, model traineren en evalueren op de testset. Daarna volgt vaak een iteratie: waar faalt het model? Verzamel meer data voor die gevallen, hertrain, en meet opnieuw. Dit cyclische proces is normaal; weinig projecten zijn “klaar” na één trainingsronde.
-            </p>
-            <div class="embedded-diagram">
-              <div class="diagram-container">
-                <img src="../images/machineLearningTrainingData.webp" alt="Kwaliteit en representativiteit van trainingsdata bepalen het model" class="embedded-architecture-image" />
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <img src="/images/machineLearningTrainingData.webp" alt="Kwaliteit en representativiteit van trainingsdata bepalen het model"  />
               </div>
             </div>
             <div class="challenges-grid">
@@ -287,8 +198,8 @@
             </div>
           </section>
 
-          <!-- 5. Voorbeeld: interactiemodel in de ouderenzorg -->
-          <section class="blog-section">
+          <!-- 3. Voorbeeld: interactiemodel in de ouderenzorg -->
+          <section >
             <h2>Voorbeeld: een empathisch interactiemodel in de ouderenzorg</h2>
             <p>
               In een project voor de <strong>ouderenzorg</strong> werkte ik aan een robotachtige companion die ouderen ondersteunt. Het product bood al functionaliteit zoals herinneringen, eenvoudige spelletjes en sensoren voor onder meer hartslag en bewegingspatronen. De grote uitdaging was niet de hardware of de sensoren, maar <strong>hoe</strong> de companion met de gebruiker communiceert: op een manier die natuurlijk aanvoelt en empathie opwekt, in plaats van starre antwoorden of voorgeprogrammeerde scripts.
@@ -302,7 +213,7 @@
           </section>
 
           <!-- 4. Voorbeeld: navigatie en rotondes -->
-          <section class="blog-section">
+          <section >
             <h2>Voorbeeld: slimme navigatie voor zwaar transport</h2>
             <p>
               Een ander praktijkvoorbeeld is <strong>navigatie voor grote vrachtwagens</strong>. Niet elke rotonde is geschikt voor elke voertuigcombinatie: afmetingen, draaicirkel en hoogte bepalen of een route haalbaar is. Handmatig elke rotonde in kaart brengen is duur en moeilijk up-to-date te houden. Daarom heb ik een oplossing ontwikkeld die <strong>satellietbeelden</strong> gebruikt om rotondes automatisch te herkennen, hun afmetingen te schatten en te beoordelen of een gegeven vrachtwagen over die rotonde kan.
@@ -315,8 +226,8 @@
             </p>
           </section>
 
-          <!-- 5. Best practices en conclusie -->
-          <section class="blog-section">
+          <!-- 7. Praktische lessen en conclusie -->
+          <section >
             <h2>Praktische lessen en vervolgstappen</h2>
             <p>
               Op basis van deze en andere projecten zou ik de volgende punten meegeven als je machine learning in een product wilt inzetten:
@@ -368,86 +279,46 @@
               Machine learning in productontwikkeling is geen magie—het is een kwestie van goed probleem formuleren, de juiste data verzamelen en iteratief verbeteren. Met die aanpak kun je producten bouwen die echt slimmer en gebruiksvriendelijker worden.
             </p>
             <p>
-              Heb je vragen over het toepassen van machine learning in jouw product of wil je sparren over data en use cases? Neem gerust <a href="../contact.html">contact</a> op. Ik denk graag mee over hoe je ML praktisch en verantwoord inzet in productontwikkeling.
+              Heb je vragen over het toepassen van machine learning in jouw product of wil je sparren over data en use cases? Neem gerust <a href="../../contact.html">contact</a> op. Ik denk graag mee over hoe je ML praktisch en verantwoord inzet in productontwikkeling.
             </p>
           </section>
 
           <!-- Tags -->
-          <div class="blog-tags">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Productontwikkeling</span>
-            <span class="tag">Trainingsdata</span>
-            <span class="tag">AI</span>
-            <span class="tag">Ouderenzorg</span>
-            <span class="tag">Navigatie</span>
-            <span class="tag">Computer Vision</span>
+          
+</div>
+                <div class="article-tags reveal">
+            <span >Machine Learning</span>
+            <span >Productontwikkeling</span>
+            <span >Trainingsdata</span>
+            <span >AI</span>
+            <span >Ouderenzorg</span>
+            <span >Navigatie</span>
+            <span >Computer Vision</span>
           </div>
 
-        </div>
-      </div>
-    </section>
+                <div class="share-buttons reveal">
+                    <a href="https://twitter.com/intent/tweet?text=Machine%20Learning%20in%20productontwikkeling:%20van%20data%20tot%20slimme%20producten&url=https://imetech.nl/blog/machine-learning-productontwikkeling.html" target="_blank" rel="noopener noreferrer" aria-label="Deel op X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://imetech.nl/blog/machine-learning-productontwikkeling.html" target="_blank" rel="noopener noreferrer" aria-label="Deel op LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    <a href="https://wa.me/?text=Machine%20Learning%20in%20productontwikkeling:%20van%20data%20tot%20slimme%20producten%20https://imetech.nl/blog/machine-learning-productontwikkeling.html" target="_blank" rel="noopener noreferrer" class="share-whatsapp" aria-label="Deel op WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    <button data-share="copy" aria-label="Kopieer link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                </div>
+</div>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section section">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Machine learning in jouw product?</h2>
-          <p>Wil je verkennen hoe machine learning jouw product slimmer of gebruiksvriendelijker kan maken? Of heb je hulp nodig bij het opzetten van data en modellen? Laten we samen kijken naar de mogelijkheden.</p>
-          <a href="../contact.html" class="btn btn-primary btn-large cta-pulse">
-            Neem contact op
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+        <section class="cta-section">
+            <div class="wrap reveal-blur heading-animate">
+                <h2>Machine learning in jouw product?</h2>
+                <p>Wil je verkennen hoe machine learning jouw product slimmer of gebruiksvriendelijker kan maken? Of heb je hulp nodig bij het opzetten van data en modellen? Laten we samen kijken naar de mogelijkheden.</p>
+                <a href="/contact.html" class="btn btn-primary" style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">
+                    Neem contact op <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
 
-  <!-- Footer will be loaded dynamically -->
-  <div id="footer-container"></div>
-
-  <!-- Floating CTA Panel -->
-  <div class="floating-cta-panel" id="floating-cta">
-    <div class="cta-toggle" id="cta-toggle">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-      </svg>
-    </div>
-    
-    <div class="cta-options" id="cta-options">
-      <a href="../contact.html" class="cta-option" data-contact="email">
-        <div class="cta-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-        </div>
-        <span>Email</span>
-      </a>
-      
-      <a href="tel:+31612385439" class="cta-option" data-contact="phone">
-        <div class="cta-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-        </div>
-        <span>Bellen</span>
-      </a>
-      
-      <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" class="cta-option" data-contact="linkedin">
-        <div class="cta-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </div>
-        <span>LinkedIn</span>
-      </a>
-    </div>
-  </div>
-
-  <script src="../script.js?v=8" defer></script>
+    <div id="footer-container"></div>
+    <div id="floating-cta-container"></div>
+    <script src="/script.js" defer></script>
 </body>
+
 </html>

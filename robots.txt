@@ -1,20 +1,18 @@
 User-agent: *
 Allow: /
 
-# Block unnecessary files
+Disallow: /v1/
 Disallow: /components/
 Disallow: /template.html
-Disallow: /run-git.bat
 Disallow: /*.bat
 Disallow: /*.ps1
 
-# Allow important directories
 Allow: /images/
 Allow: /files/
 Allow: /projecten/
+Allow: /diensten/
 Allow: /blog/
 Allow: /en/
 
-# Sitemaps
 Sitemap: https://imetech.nl/sitemap.xml
 Sitemap: https://imetech.nl/sitemap-images.xml

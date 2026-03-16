@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="en">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
+  <meta property="og:title" content="From Prototype to Small Series Production - IMeTech Engineering">
+  <meta property="og:description" content="How to transition from a working prototype to small series production. Practical guide covering PCB design, enclosure manufacturing, DFM, and cost optimization.">
+  <meta property="og:image" content="https://imetech.nl/images/prototypeToProductionHero.webp">
+  <meta property="og:url" content="https://imetech.nl/en/blog/prototype-to-production.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="From Prototype to Small Series Production - IMeTech Engineering">
+  <meta name="twitter:description" content="How to transition from a working prototype to small series production. Practical guide covering PCB design, enclosure manufacturing, DFM, and cost optimization.">
+  <meta name="twitter:image" content="https://imetech.nl/images/prototypeToProductionHero.webp">
+  <meta name="twitter:creator" content="@imetech_engineering">
+  <title>From Prototype to Small Series Production - IMeTech Engineering</title>
+  <meta name="description"
+    content="How to transition from a working prototype to small series production. Practical guide covering PCB design, enclosure manufacturing, DFM, and cost optimization." />
+  <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/blog/prototype-to-production.html">
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/prototype-naar-productie.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/prototype-to-production.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/prototype-naar-productie.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "From Prototype to Small Series Production",
+    "description": "How to transition from a working prototype to small series production. Practical guide covering PCB design, enclosure manufacturing, DFM, and cost optimization.",
+    "url": "https://imetech.nl/en/blog/prototype-to-production.html",
+    "datePublished": "2026-03-10",
+    "author": { "@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html" },
+    "publisher": { "@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": { "@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp" } },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://imetech.nl/en/blog/prototype-to-production.html" }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-slides" aria-roledescription="slideshow">
+        <!-- IMAGE PROMPT: A progression of three stages of an electronic product: a breadboard prototype on the left, a custom PCB with 3D-printed enclosure in the middle, and a polished final product on the right, arranged on a clean white workbench, studio lighting, professional product photography, no text -->
+        <div class="page-hero-slide active" style="background-image:url('/images/prototypeToProductionHero.webp')"></div>
+        <div class="page-hero-slide" style="background-image:url('/images/ElektronicaHardware01.webp')"></div>
+      </div>
+      <div class="page-hero-overlay"></div>
+      <div class="wrap reveal-blur">
+        <span class="label" style="color:#60a5fa">Blog</span>
+        <h1>From Prototype to Small Series Production</h1>
+        <p>The practical steps between "it works on my bench" and "we can ship 50 units."</p>
+      </div>
+    </section>
+
+    <section class="section" data-parallax="focus">
+      <div class="deco deco-blob deco-blob-1" style="width:400px;height:400px;top:-80px;right:-140px"
+        data-speed="0.09" data-drift="-0.025"></div>
+      <div class="wrap">
+        <div class="article-meta reveal">
+          <span>March 10, 2026</span>
+          <span>Ivo Mengerink</span>
+          <span>10 min read</span>
+        </div>
+
+        <div class="article-content reveal">
+          <div class="lead">
+            <p class="lead">
+              Your prototype works. It does what it is supposed to do, you have demonstrated it to stakeholders, and people are excited. Now comes the question: <strong>"Can we make 50 of these?"</strong> This is where most hardware projects hit a wall. The gap between a working prototype and a producible product is larger than most people expect — but it is also very manageable if you know what to focus on.
+            </p>
+            <p>
+              In this article I walk through the key transitions: from breadboard to custom PCB, from 3D print to production enclosure, from prototype firmware to robust software. Each step has its own pitfalls and trade-offs, and I share practical lessons from products I have taken through this journey.
+            </p>
+          </div>
+
+          <section>
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <!-- IMAGE PROMPT: A split view showing a messy breadboard prototype with jumper wires on one side, transitioning into a clean professionally manufactured PCB with components on the other side, dramatic lighting, high contrast, electronics photography, no text -->
+                <img src="/images/productionTransition.webp" alt="Transition from breadboard prototype to production PCB" />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The prototype trap</h2>
+            <p>
+              A prototype is designed to answer one question: <strong>does the concept work?</strong> It is not designed to be manufactured, maintained, or used by someone who did not build it. The wires are messy, the code has hardcoded values, and the housing is held together with tape. That is fine — that is what prototypes are for.
+            </p>
+            <p>
+              The trap is thinking that production is just "cleaning up" the prototype. It is not. Production requires fundamentally different thinking: about consistency, about cost per unit, about assembly time, about what happens when component X goes out of stock, and about how to test each unit before it ships. These are not afterthoughts — they are design decisions that should drive the transition.
+            </p>
+          </section>
+
+          <section>
+            <h2>PCB transition: from breadboard to custom board</h2>
+            <p>
+              The most visible step is moving from a breadboard or dev-board prototype to a <strong>custom PCB</strong>. This is where the circuit gets locked down: component choices become permanent, trace widths affect reliability, and the board layout determines your enclosure design.
+            </p>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                </div>
+                <h4>Component selection</h4>
+                <p>Replace prototype parts with production-grade components. Check availability, minimum order quantities, and lead times. Choose components available from multiple suppliers where possible to avoid single-source risk.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Design for manufacturing</h4>
+                <p>Follow your PCB manufacturer's design rules. Use standard board thickness, avoid unnecessarily small vias, and keep components on one side if possible. SMD components are cheaper to assemble than through-hole at scale.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Test points and programming</h4>
+                <p>Add test points for critical signals and a programming header. When you need to flash and test 50 boards, having a reliable, fast method is essential. Consider a pogo-pin jig for batch programming.</p>
+              </div>
+            </div>
+
+            <p>
+              <strong>My approach:</strong> I always order a small batch of PCBs (5-10) first as a pilot run. Assemble one by hand, test thoroughly, fix any issues, and only then order the production batch. The cost of one extra PCB revision is always less than the cost of 50 boards with a bug.
+            </p>
+          </section>
+
+          <section>
+            <h2>Enclosure: from 3D print to production housing</h2>
+            <p>
+              The enclosure transition depends heavily on your volume. For 10-50 units, <strong>3D printing</strong> can actually be the production method — if you choose the right process. For 100+ units, you start looking at other manufacturing methods.
+            </p>
+
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Small series (10-100 units)</h3>
+                <ul>
+                  <li><strong>FDM 3D printing:</strong> Cheapest, but visible layer lines</li>
+                  <li><strong>SLS 3D printing:</strong> Professional finish, no support marks</li>
+                  <li><strong>CNC machining:</strong> Excellent quality, higher cost per unit</li>
+                  <li><strong>Laser cutting + bending:</strong> Great for sheet metal enclosures</li>
+                  <li><strong>Off-the-shelf enclosures:</strong> Often overlooked, but very cost-effective</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h3>Medium series (100-1000 units)</h3>
+                <ul>
+                  <li><strong>Injection moulding:</strong> Low unit cost, high tooling cost</li>
+                  <li><strong>Vacuum casting:</strong> Bridge between 3D print and injection</li>
+                  <li><strong>MJF 3D printing:</strong> Production-quality at reasonable volume</li>
+                  <li><strong>Hybrid:</strong> Standard enclosure + custom 3D-printed inserts</li>
+                  <li>Tooling typically pays off above 200-500 units</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>
+              <strong>Practical tip:</strong> Do not underestimate off-the-shelf enclosures. Companies like Hammond, Bopla, and Spelsberg make hundreds of standard boxes in every size and IP rating. A standard enclosure with a custom front panel (laser-cut or CNC-milled) looks professional and costs a fraction of a fully custom design.
+            </p>
+          </section>
+
+          <section>
+            <h2>Firmware hardening: from "it works" to "it always works"</h2>
+            <p>
+              Prototype firmware has one job: demonstrate the concept. Production firmware has a very different job: <strong>work reliably in every condition, for every user, for years</strong>. The gap is significant, but the changes are well-defined.
+            </p>
+
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Error handling</h3>
+                  <p>Every sensor read, every communication, every state transition can fail. Production firmware must handle every failure gracefully — log it, recover, and continue. No silent crashes, no infinite loops.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Watchdog timer</h3>
+                  <p>Always enable a hardware watchdog. If the firmware hangs for any reason, the watchdog resets the system automatically. This is your last line of defence against unknown bugs.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Configuration management</h3>
+                  <p>Replace hardcoded values with configurable parameters stored in non-volatile memory. Serial numbers, calibration values, and feature flags should be settable per unit without recompiling.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Over-the-air updates</h3>
+                  <p>If the product has connectivity, implement OTA firmware updates from day one. You will find bugs after deployment — the question is whether you can fix them without physically accessing each unit.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>BOM management and cost optimisation</h2>
+            <p>
+              The <strong>Bill of Materials</strong> (BOM) is the backbone of production planning. Every component, every screw, every label must be listed with part numbers, quantities, suppliers, and unit costs. A well-managed BOM prevents surprises during procurement and assembly.
+            </p>
+
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <!-- IMAGE PROMPT: A neatly organized workbench with labeled component bins, a printed BOM checklist, PCBs in various stages of assembly, tweezers and soldering iron nearby, overhead view, warm workshop lighting, professional photography, no text -->
+                <img src="/images/dfmChecklist.webp" alt="Organized production workbench with component bins and BOM checklist" />
+              </div>
+            </div>
+
+            <p>
+              Cost optimisation at small volumes is different from mass production. You cannot negotiate prices with suppliers for 50 units. Instead, focus on reducing assembly time (fewer components, fewer manual steps), choosing standard values (one resistor value instead of three slightly different ones), and consolidating suppliers (fewer orders, less shipping cost).
+            </p>
+            <p>
+              <strong>A real example:</strong> In one project, I reduced the BOM from 47 unique components to 31 by consolidating resistor values and replacing two separate ICs with a single one that did both functions. The component cost barely changed, but assembly time dropped by 30% because there were fewer different parts to place and fewer mistakes to make.
+            </p>
+          </section>
+
+          <section>
+            <h2>Testing: the production bottleneck nobody plans for</h2>
+            <p>
+              Testing a prototype means running it through its paces manually: does it turn on, does the sensor read correctly, does the LED blink. Testing a production unit must be faster, repeatable, and documented. If each unit takes 30 minutes to test by hand, testing 50 units takes three full days. That is a week of engineering time that nobody budgeted for.
+            </p>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <h4>Automated self-test</h4>
+                <p>Build a self-test mode into the firmware. On a special boot command, the unit runs through all peripherals, checks sensor ranges, verifies communication, and reports pass/fail. This takes minutes instead of half an hour.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h4>Test jig</h4>
+                <p>For PCBs, build a simple test jig with pogo pins that contacts the test points. Connect, run the self-test script, read the results. A good jig reduces per-unit test time to under 2 minutes.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                </div>
+                <h4>Test documentation</h4>
+                <p>Log every test result with serial number, date, and pass/fail per check. This is essential for traceability and helps diagnose field failures later. A simple CSV file or database is sufficient.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>When to scale (and when not to)</h2>
+            <p>
+              Not every product needs to scale beyond small series. Many industrial products, custom solutions, and niche applications live happily at 20-100 units per year. The decision to scale should be driven by <strong>demand, not ambition</strong>. If your order book says 50 units per year, optimise for 50 units per year — not for 10,000 that you hope to sell someday.
+            </p>
+            <p>
+              Scale when the manual effort of producing each unit becomes the bottleneck, when component costs dominate the price, or when quality consistency suffers from hand assembly. Until then, small series production with good processes is a perfectly valid and profitable business.
+            </p>
+            <p>
+              Ready to take your prototype to production? I help with the full transition — PCB redesign for manufacturing, enclosure development, firmware hardening, and production planning. <a href="/en/contact.html">Let's discuss your project</a> and figure out the most efficient path from bench to batch.
+            </p>
+          </section>
+
+        </div>
+        <div class="article-tags reveal">
+          <span>Prototype</span>
+          <span>Production</span>
+          <span>DFM</span>
+          <span>PCB Design</span>
+          <span>Manufacturing</span>
+          <span>Product Development</span>
+          <span>Small Series</span>
+        </div>
+
+        <div class="share-buttons reveal">
+          <a href="https://twitter.com/intent/tweet?text=From%20Prototype%20to%20Small%20Series%20Production&url=https://imetech.nl/en/blog/prototype-to-production.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://imetech.nl/en/blog/prototype-to-production.html" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://wa.me/?text=From%20Prototype%20to%20Small%20Series%20Production%20https://imetech.nl/en/blog/prototype-to-production.html" target="_blank" rel="noopener noreferrer" class="share-whatsapp" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <button data-share="copy" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="wrap reveal-blur heading-animate">
+        <h2>Ready to go from prototype to product?</h2>
+        <p>Let's plan the transition together. Free discovery call, no obligations.</p>
+        <a href="/en/contact.html" class="btn btn-primary"
+          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+  <div id="floating-cta-container"></div>
+  <script src="/script.js" defer></script>
+</body>
+
+</html>

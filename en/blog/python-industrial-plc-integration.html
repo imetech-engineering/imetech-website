@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="en">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
+  <meta property="og:title" content="Integrating Python with Industrial PLCs: Bridging IT and OT - IMeTech Engineering">
+  <meta property="og:description" content="How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.">
+  <meta property="og:image" content="https://imetech.nl/images/pythonPLCHero.webp">
+  <meta property="og:url" content="https://imetech.nl/en/blog/python-industrial-plc-integration.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Integrating Python with Industrial PLCs: Bridging IT and OT - IMeTech Engineering">
+  <meta name="twitter:description" content="How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.">
+  <meta name="twitter:image" content="https://imetech.nl/images/pythonPLCHero.webp">
+  <meta name="twitter:creator" content="@imetech_engineering">
+  <title>Integrating Python with Industrial PLCs: Bridging IT and OT - IMeTech Engineering</title>
+  <meta name="description"
+    content="How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing." />
+  <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="canonical" href="https://imetech.nl/en/blog/python-industrial-plc-integration.html">
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/python-industriele-plc-integratie.html" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/python-industrial-plc-integration.html" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/python-industriele-plc-integratie.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Integrating Python with Industrial PLCs: Bridging IT and OT",
+    "description": "How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.",
+    "url": "https://imetech.nl/en/blog/python-industrial-plc-integration.html",
+    "datePublished": "2026-03-16",
+    "author": { "@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html" },
+    "publisher": { "@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": { "@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp" } },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://imetech.nl/en/blog/python-industrial-plc-integration.html" }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-slides" aria-roledescription="slideshow">
+        <!-- IMAGE PROMPT: Industrial PLC cabinet with open doors showing wiring and DIN-rail mounted controllers, with a laptop running Python code visible in the foreground, warm workshop lighting, professional industrial photography style, no text -->
+        <div class="page-hero-slide active" style="background-image:url('/images/pythonPLCHero.webp')"></div>
+        <div class="page-hero-slide" style="background-image:url('/images/ElektronicaHardware01.webp')"></div>
+      </div>
+      <div class="page-hero-overlay"></div>
+      <div class="wrap reveal-blur">
+        <span class="label" style="color:#60a5fa">Blog</span>
+        <h1>Integrating Python with Industrial PLCs: Bridging IT and OT</h1>
+        <p>How to unlock the data trapped in your PLCs and turn it into actionable dashboards and analytics.</p>
+      </div>
+    </section>
+
+    <section class="section" data-parallax="focus">
+      <div class="deco deco-blob deco-blob-1" style="width:400px;height:400px;top:-80px;right:-140px"
+        data-speed="0.09" data-drift="-0.025"></div>
+      <div class="wrap">
+        <div class="article-meta reveal">
+          <span>March 16, 2026</span>
+          <span>Ivo Mengerink</span>
+          <span>15 min read</span>
+        </div>
+
+        <div class="article-content reveal">
+          <div class="lead">
+            <p class="lead">
+              Every modern factory is full of <strong>PLCs</strong> — programmable logic controllers that run conveyor belts, monitor temperatures, count products, and control valves. They do their job reliably, day after day. But the data they generate? That usually stays locked inside, invisible to anyone without a SCADA licence or a ladder-logic background.
+            </p>
+            <p>
+              In this article I show how <strong>Python</strong> can bridge the gap between the operational technology (OT) world of PLCs and the information technology (IT) world of databases, dashboards, and machine learning. Whether you want a simple live overview for the production floor or a full analytics pipeline, Python is the glue that makes it possible — without replacing anything that already works.
+            </p>
+          </div>
+
+          <section>
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <!-- IMAGE PROMPT: Architectural diagram showing a PLC connected via Modbus/OPC UA to a Python application, which feeds into a database and a dashboard, clean technical illustration style, blue and grey tones, light background, no text labels -->
+                <img src="/images/pythonPLCArchitecture.webp" alt="Architecture overview: PLC to Python to dashboard pipeline" />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The IT/OT divide: why it exists and why it matters</h2>
+            <p>
+              Walk into any manufacturing company and you will find two worlds that barely talk to each other. On one side is <strong>OT</strong> — the PLCs, HMIs, and SCADA systems that keep the factory running. On the other side is <strong>IT</strong> — the ERP systems, databases, and business tools that management uses to make decisions. The gap between them is not just technical; it is cultural. OT engineers prioritise uptime and determinism. IT teams prioritise flexibility and data access. Both are right, and both are needed.
+            </p>
+            <p>
+              The problem is that valuable production data — cycle times, reject rates, energy consumption, machine states — sits on the OT side with no easy way to get it to the people who need it. Production managers rely on paper logs or weekly reports. Quality engineers download CSV files from SCADA manually. And the management team makes decisions based on data that is days or weeks old.
+            </p>
+            <p>
+              Python sits perfectly in the middle. It is flexible enough to speak OT protocols like Modbus and OPC UA, yet powerful enough to feed databases, build dashboards, and run analytics. It does not replace the PLC or the SCADA — it extends their reach into the IT world.
+            </p>
+          </section>
+
+          <section>
+            <h2>Communication protocols: how to talk to a PLC</h2>
+            <p>
+              Before you can do anything useful with PLC data, you need to get the data out. That means speaking one of the industrial communication protocols the PLC supports. The two most common are <strong>Modbus</strong> and <strong>OPC UA</strong>, and each has different strengths.
+            </p>
+
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Modbus (TCP / RTU)</h3>
+                <ul>
+                  <li>Simple, well-understood protocol from 1979</li>
+                  <li>Supported by nearly every PLC on the market</li>
+                  <li>Read/write registers directly by address</li>
+                  <li>TCP variant runs over standard Ethernet</li>
+                  <li>RTU variant uses RS-485 serial</li>
+                  <li>No built-in security or discovery</li>
+                  <li>Python library: <strong>pymodbus</strong></li>
+                </ul>
+              </div>
+
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h3>OPC UA</h3>
+                <ul>
+                  <li>Modern, platform-independent standard</li>
+                  <li>Rich data model with types and hierarchy</li>
+                  <li>Built-in security (encryption, authentication)</li>
+                  <li>Supports subscriptions for event-driven data</li>
+                  <li>Browse available data points dynamically</li>
+                  <li>More complex to set up than Modbus</li>
+                  <li>Python library: <strong>opcua / asyncua</strong></li>
+                </ul>
+              </div>
+            </div>
+
+            <p>
+              <strong>My rule of thumb:</strong> If the PLC already exposes an OPC UA server (most modern WAGO, Siemens, and Beckhoff PLCs do), use OPC UA — it is more structured and safer. If you are working with older equipment or simple sensors, Modbus TCP is often the fastest path. In many real-world projects I use both, depending on the machine.
+            </p>
+          </section>
+
+          <section>
+            <h2>MQTT as middleware: decoupling producers and consumers</h2>
+            <p>
+              Once you can read data from a PLC, you face a design question: should your Python dashboard connect directly to the PLC, or should there be something in between? For a single machine in a small setup, a direct connection works fine. But the moment you have multiple machines, multiple consumers (dashboard, database, alerting), or need to handle network interruptions gracefully, you want a <strong>message broker</strong>.
+            </p>
+            <p>
+              <strong>MQTT</strong> is the standard choice in industrial IoT. It is lightweight, supports quality-of-service levels, and decouples data producers (the PLC readers) from data consumers (dashboards, databases). A small Python script reads from the PLC via Modbus or OPC UA and publishes the values to an MQTT broker. Any number of consumers can then subscribe to the topics they care about, without the PLC knowing or caring.
+            </p>
+            <p>
+              This architecture scales beautifully. Adding a new machine means adding one more publisher script. Adding a new dashboard means adding one more subscriber. Nothing else changes. The broker (Mosquitto is my usual choice) handles routing and buffering.
+            </p>
+          </section>
+
+          <section>
+            <h2>Building the data pipeline step by step</h2>
+            <p>
+              Here is the practical workflow I follow in most projects. It is deliberately incremental — each step delivers value on its own, so you do not have to build the entire pipeline before seeing results.
+            </p>
+
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Identify the data points</h3>
+                  <p>Talk to the operators and the PLC programmer. Which registers hold the values you need? What are the data types, units, and update rates? Document everything in a simple spreadsheet before writing a single line of code.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Read and validate</h3>
+                  <p>Write a small Python script that reads those registers and prints them to the console. Verify that the values match what the HMI shows. This catches byte-order issues, scaling factors, and wrong addresses early.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Publish to MQTT</h3>
+                  <p>Wrap the reader in a loop, publish each reading to an MQTT topic with a timestamp. Now any consumer on the network can access the data in real time without touching the PLC directly.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Store in a time-series database</h3>
+                  <p>Subscribe to the MQTT topics and write the data to a time-series database like InfluxDB or TimescaleDB. This gives you history, trend analysis, and the ability to query arbitrary time ranges.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h3>Visualise</h3>
+                  <p>Connect a dashboard tool (Grafana, custom web app, or even a simple Python Dash application) to the database. Build the views that operators and managers actually need — not everything you can show, but what helps them make decisions.</p>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              <strong>Key insight:</strong> Steps 1 and 2 alone can take a day. Steps 3-5 take a few more days. Within a week you can have a working pipeline from PLC to dashboard. That is fast enough to prove value before anyone questions the investment.
+            </p>
+          </section>
+
+          <section>
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <!-- IMAGE PROMPT: A data pipeline visualization showing flow from industrial sensors through a processing layer to a clean dashboard display, isometric technical illustration, blue and teal color scheme, dark background with glowing connection lines, no text -->
+                <img src="/images/plcDataPipeline.webp" alt="Data pipeline from PLC sensors through processing to dashboard visualization" />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Real-time vs batch: choosing the right rhythm</h2>
+            <p>
+              Not every data point needs to be updated every second. A common mistake is to treat everything as real-time, which floods the network and the database with data that nobody looks at in real time anyway. I split data into three tiers:
+            </p>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h4>Real-time (< 1 second)</h4>
+                <p>Safety-critical values, active alarms, machine states. These need to be visible immediately. Use MQTT with QoS 1 and a live dashboard widget.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h4>Near-real-time (1-60 seconds)</h4>
+                <p>Production counters, temperatures, flow rates. Updated every few seconds is fine. This covers most operational dashboards and trend charts.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h4>Batch (minutes to hours)</h4>
+                <p>Energy totals, shift summaries, quality reports. Aggregated data that is calculated periodically. Store raw data and compute summaries on a schedule.</p>
+              </div>
+            </div>
+
+            <p>
+              Choosing the right tier for each data point keeps network traffic manageable, database size reasonable, and dashboard performance snappy. Over-polling a PLC can even interfere with its control cycle, so always check the PLC programmer's recommendations for safe polling intervals.
+            </p>
+          </section>
+
+          <section>
+            <h2>Data storage: why time-series databases matter</h2>
+            <p>
+              You could store PLC data in a regular SQL database, and for small setups that works fine. But once you are logging dozens of data points every few seconds across multiple machines, a general-purpose database starts to struggle. <strong>Time-series databases</strong> are designed exactly for this pattern: large volumes of timestamped data with fast writes and efficient range queries.
+            </p>
+            <p>
+              <strong>InfluxDB</strong> is my default choice for most projects. It handles high write throughput, compresses historical data automatically, and integrates natively with Grafana. For projects that need SQL compatibility or complex joins with business data, <strong>TimescaleDB</strong> (a PostgreSQL extension) is an excellent alternative — you get time-series performance with the full power of SQL.
+            </p>
+            <p>
+              Whichever you choose, think about <strong>retention policies</strong> early. Raw data at 1-second resolution generates gigabytes per month. After a few weeks, you rarely need second-level granularity — minute or hour averages suffice. Set up automatic downsampling so the database stays fast and storage costs stay reasonable.
+            </p>
+          </section>
+
+          <section>
+            <h2>Dashboards and visualisation</h2>
+            <p>
+              The dashboard is where all the effort pays off. It is the interface between the data and the people who make decisions. I have used several approaches, and the right one depends on the audience and the complexity of the project.
+            </p>
+
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h3>Grafana</h3>
+                <ul>
+                  <li>Excellent for time-series data and trends</li>
+                  <li>Native InfluxDB and MQTT support</li>
+                  <li>Fast to set up with pre-built panels</li>
+                  <li>Alerting built in (email, Slack, webhook)</li>
+                  <li>Best for technical or semi-technical users</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>Custom web dashboard</h3>
+                <ul>
+                  <li>Full control over layout and branding</li>
+                  <li>Tailored to specific workflows</li>
+                  <li>Better for non-technical end users</li>
+                  <li>Can integrate business logic and navigation</li>
+                  <li>More development effort up front</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>
+              For most industrial projects, I start with Grafana because it delivers value within hours. If the project grows and the audience shifts from engineers to managers, I build a custom dashboard that hides complexity and focuses on the three or four numbers that actually drive decisions.
+            </p>
+          </section>
+
+          <section>
+            <h2>Security: do not forget the factory network</h2>
+            <p>
+              The moment you connect a PLC to anything on the IT network, security becomes critical. PLCs were designed to be reliable, not secure. Most Modbus connections have no authentication at all. That does not mean you cannot build a safe system — it means you need to think about network architecture carefully.
+            </p>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h4>Network segmentation</h4>
+                <p>Keep the OT network physically or logically separated from the IT network. Your Python gateway sits in a DMZ between them, with firewall rules that only allow the specific traffic needed.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h4>Read-only access</h4>
+                <p>In most analytics and dashboard scenarios, you only need to read from the PLC. Configure your connection as read-only and block write commands at the protocol level. Never give a dashboard the ability to change a setpoint.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                </div>
+                <h4>Use OPC UA where possible</h4>
+                <p>OPC UA supports TLS encryption and certificate-based authentication out of the box. It is designed for exactly this use case. If security is a concern (and it should be), OPC UA is strongly preferred over Modbus.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Scaling: from one machine to a factory</h2>
+            <p>
+              A common trajectory I see: someone builds a Python script that reads one PLC and shows data on a screen next to the machine. It works great. Then the boss asks: "Can we do this for all 12 machines?" This is where architecture matters.
+            </p>
+            <p>
+              The key is to keep each component independent. One reader script per machine (or per PLC), all publishing to the same MQTT broker. One database receiving from all topics. One or more dashboards pulling from the database. Adding a machine means deploying one more reader script and adding a dashboard panel. Nothing else needs to change.
+            </p>
+            <p>
+              For deployment, I typically use Docker containers on a small industrial PC (a fanless mini-PC or even a Raspberry Pi 4 for lighter loads). Each reader script runs in its own container, with automatic restart on failure. The MQTT broker, database, and Grafana each get their own container. Docker Compose ties it all together in a single configuration file that anyone can deploy.
+            </p>
+            <p>
+              <strong>Practical tip:</strong> Start with one machine and get it right. Then template the reader script so adding a new machine is just a matter of copying a configuration file with the new PLC address and register map. I have seen factories go from zero to full coverage in two weeks once the template is proven.
+            </p>
+          </section>
+
+          <section>
+            <h2>Common pitfalls and lessons learned</h2>
+            <p>
+              After building several of these pipelines, here are the mistakes I see most often — including ones I have made myself.
+            </p>
+
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>Common mistakes</h3>
+                <ul>
+                  <li>Polling the PLC too fast and disrupting its control cycle</li>
+                  <li>Ignoring byte order (big-endian vs little-endian) when reading float values</li>
+                  <li>No error handling for network drops — the script crashes silently</li>
+                  <li>Storing everything at maximum resolution forever</li>
+                  <li>Building the dashboard first and the pipeline second</li>
+                  <li>Not involving the PLC programmer early enough</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3>What works well</h3>
+                <ul>
+                  <li>Start with the 3-5 most important data points, not everything</li>
+                  <li>Validate readings against the HMI before trusting them</li>
+                  <li>Implement reconnection logic with exponential backoff</li>
+                  <li>Use retention policies from day one</li>
+                  <li>Build the pipeline end-to-end first, then widen it</li>
+                  <li>Sit with operators to understand what they actually want to see</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>
+              <strong>The biggest lesson:</strong> This is not primarily a software project. It is a communication project. The Python code is straightforward. The hard part is understanding what data exists, what it means, and what decisions it should support. Spend the first day talking to people, not writing code.
+            </p>
+          </section>
+
+          <section>
+            <h2>Conclusion: Python as the bridge</h2>
+            <p>
+              Python is uniquely suited to bridge the IT/OT gap. It speaks industrial protocols, it has rich libraries for data processing and visualisation, and it is easy enough that a single engineer can build and maintain the entire pipeline. You do not need a team of software developers or an expensive middleware platform. A well-structured Python application, a message broker, and a time-series database can unlock years of trapped production data.
+            </p>
+            <p>
+              The result is not just a pretty dashboard. It is the ability to answer questions that were previously unanswerable: How long did machine 3 actually run last Tuesday? What is the average cycle time trend over the past month? Which shift has the lowest reject rate? These answers drive better decisions, and better decisions drive better products.
+            </p>
+            <p>
+              Interested in connecting your PLCs to a modern data stack? I work with WAGO, Siemens, and other PLC platforms and can set up a complete pipeline — from protocol integration to a dashboard your team will actually use. <a href="/en/contact.html">Get in touch</a> for a free discovery call.
+            </p>
+          </section>
+
+        </div>
+        <div class="article-tags reveal">
+          <span>Python</span>
+          <span>PLC</span>
+          <span>Industrial Automation</span>
+          <span>OPC UA</span>
+          <span>Modbus</span>
+          <span>IT/OT</span>
+          <span>Data Visualization</span>
+          <span>SCADA</span>
+        </div>
+
+        <div class="share-buttons reveal">
+          <a href="https://twitter.com/intent/tweet?text=Integrating%20Python%20with%20Industrial%20PLCs:%20Bridging%20IT%20and%20OT&url=https://imetech.nl/en/blog/python-industrial-plc-integration.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://imetech.nl/en/blog/python-industrial-plc-integration.html" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://wa.me/?text=Integrating%20Python%20with%20Industrial%20PLCs:%20Bridging%20IT%20and%20OT%20https://imetech.nl/en/blog/python-industrial-plc-integration.html" target="_blank" rel="noopener noreferrer" class="share-whatsapp" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <button data-share="copy" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="wrap reveal-blur heading-animate">
+        <h2>Unlock your factory data?</h2>
+        <p>Let's connect your PLCs to a modern data stack. Free discovery call, no obligations.</p>
+        <a href="/en/contact.html" class="btn btn-primary"
+          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Get in touch <svg width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+  <div id="floating-cta-container"></div>
+  <script src="/script.js" defer></script>
+</body>
+
+</html>
