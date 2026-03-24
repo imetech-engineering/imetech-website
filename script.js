@@ -578,6 +578,7 @@
     var btnSkip = document.getElementById('btnSkip');
     var reviewResult = document.getElementById('result');
     var selectedRating = 0;
+    var isSubmittingReview = false;
 
     if (starContainer) {
       var allStars = starContainer.querySelectorAll('.star');
@@ -595,6 +596,8 @@
 
     if (reviewForm) {
       function sendReview() {
+        if (isSubmittingReview) return;
+        isSubmittingReview = true;
         var formData = new FormData(reviewForm);
         var object = Object.fromEntries(formData);
         var json = JSON.stringify(object);
@@ -620,17 +623,21 @@
           })
           .then(function () {
             reviewForm.dataset.submitted = 'true';
+            isSubmittingReview = false;
             setTimeout(function () { if (reviewResult) reviewResult.style.display = 'none'; }, 4000);
+          })
+          .catch(function () {
+            isSubmittingReview = false;
           });
       }
 
       reviewForm.addEventListener('submit', function (e) {
-        if (!googleReviewClicked && !reviewForm.dataset.confirmed && selectedRating >= 4) {
-          e.preventDefault();
-          if (googleModal) googleModal.style.display = 'flex';
-        } else if (!reviewForm.dataset.submitted) {
+        if (!reviewForm.dataset.submitted) {
           e.preventDefault();
           sendReview();
+          if (!googleReviewClicked && selectedRating >= 4 && googleModal) {
+            googleModal.style.display = 'flex';
+          }
         }
       });
 
@@ -644,8 +651,6 @@
       if (btnSkip) {
         btnSkip.addEventListener('click', function () {
           if (googleModal) googleModal.style.display = 'none';
-          reviewForm.dataset.confirmed = 'true';
-          reviewForm.requestSubmit();
         });
       }
     }
