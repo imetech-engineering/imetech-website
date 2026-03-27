@@ -82,6 +82,433 @@
 
   var lang = document.documentElement.lang || 'nl';
   var suffix = lang === 'en' ? '-en' : '-nl';
+  var googleReviewsUrl = 'https://g.page/r/CV9KoNq0t1d-EBM';
+  var googleReviewsByLang = {
+    nl: [
+      {
+        author: 'Nando Kolk',
+        rating: 5,
+        publishedDate: '2025-09-26',
+        text: 'Ik heb de samenwerking met Ivo als ontzettend prettig ervaren. Hij nam de tijd om mijn vragen duidelijk te beantwoorden en dacht actief mee tijdens het hele proces. Zijn technische kennis gaf mij veel vertrouwen en het eindresultaat was precies wat ik voor ogen had. Alles werd professioneel uitgevoerd en ik zou hem zeker opnieuw inschakelen.',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      },
+      {
+        author: 'Nico Provoost',
+        rating: 5,
+        publishedDate: '2026-03-25',
+        text: 'Top discipline en heldere communicatie - absoluut een aanrader.',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      },
+      {
+        author: 'Max van der A',
+        rating: 5,
+        publishedDate: '2025-12-26',
+        text: 'Ivo heeft mij zeer goed geholpen met het ontwikkelen van een custom PCB. Daarbij een duidelijke handleiding gemaakt hoe het werkt. Ivo staat naderhand altijd klaar om te helpen met vragen. Kortom zeker een aanrader!',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      }
+    ],
+    en: [
+      {
+        author: 'Nando Kolk',
+        rating: 5,
+        publishedDate: '2025-09-26',
+        text: 'I had a very positive collaboration with Ivo. He took time to answer my questions clearly, thought along throughout the process, and delivered exactly what I had in mind.',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      },
+      {
+        author: 'Nico Provoost',
+        rating: 5,
+        publishedDate: '2026-03-25',
+        text: 'Great discipline and clear communication - absolutely recommended.',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      },
+      {
+        author: 'Max van der A',
+        rating: 5,
+        publishedDate: '2025-12-26',
+        text: 'Ivo helped me very well with developing a custom PCB, provided clear documentation, and remained available for follow-up questions.',
+        sourceType: 'google',
+        sourceLabel: 'Google Reviews',
+        sourceIcon: 'google',
+        sourceUrl: googleReviewsUrl,
+        publicationPermission: true
+      }
+    ]
+  };
+  var clientReviewsByLang = {
+    nl: [
+      {
+        author: 'Nando',
+        dedupeKey: 'Nando Kolk',
+        rating: 5,
+        publishedDate: '2025-09-07',
+        text: 'Ik heb de samenwerking met Ivo als ontzettend prettig ervaren. Hij nam de tijd om mijn vragen duidelijk te beantwoorden en dacht actief mee tijdens het hele proces. Zijn technische kennis gaf mij veel vertrouwen en het eindresultaat was precies wat ik voor ogen had. Alles werd professioneel uitgevoerd en ik zou hem zeker opnieuw inschakelen.',
+        sourceType: 'client',
+        sourceLabel: 'Klantreview',
+        sourceIcon: 'imetech',
+        publicationPermission: true
+      },
+      {
+        author: 'Rutger de Vries',
+        rating: 5,
+        publishedDate: '2025-11-11',
+        text: 'Ik heb de samenwerking met Ivo als zeer fijn ervaren. Ivo heeft in zeer korte tijd een custom PCB ontwikkeld en meegedacht hoe dit geoptimaliseerd kan worden. Kortom adviseer ik IMeTech aan iedereen aan!',
+        sourceType: 'client',
+        sourceLabel: 'Klantreview',
+        sourceIcon: 'imetech',
+        publicationPermission: true
+      }
+    ],
+    en: [
+      {
+        author: 'Nando',
+        dedupeKey: 'Nando Kolk',
+        rating: 5,
+        publishedDate: '2025-09-07',
+        text: 'Working with Ivo was very pleasant. He answered my questions clearly, thought along actively, and delivered exactly the result I had in mind.',
+        sourceType: 'client',
+        sourceLabel: 'Client review',
+        sourceIcon: 'imetech',
+        publicationPermission: true
+      },
+      {
+        author: 'Rutger de Vries',
+        rating: 5,
+        publishedDate: '2025-11-11',
+        text: 'I had a great collaboration with Ivo. He developed a custom PCB in a short timeframe and proactively suggested practical optimizations.',
+        sourceType: 'client',
+        sourceLabel: 'Client review',
+        sourceIcon: 'imetech',
+        publicationPermission: true
+      }
+    ]
+  };
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatRelativeDate(dateString, isEnglish) {
+    var parsed = new Date(dateString);
+    if (Number.isNaN(parsed.getTime())) {
+      return isEnglish ? 'Recently' : 'Recent';
+    }
+
+    var now = new Date();
+    var utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    var utcPublished = Date.UTC(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
+    var dayMs = 24 * 60 * 60 * 1000;
+    var diffDays = Math.max(0, Math.floor((utcNow - utcPublished) / dayMs));
+
+    if (isEnglish) {
+      if (diffDays === 0) return 'Today';
+      if (diffDays === 1) return '1 day ago';
+      if (diffDays < 30) return diffDays + ' days ago';
+      if (diffDays < 365) {
+        var months = Math.max(1, Math.floor(diffDays / 30));
+        return months === 1 ? '1 month ago' : months + ' months ago';
+      }
+      var years = Math.max(1, Math.floor(diffDays / 365));
+      return years === 1 ? '1 year ago' : years + ' years ago';
+    }
+
+    if (diffDays === 0) return 'Vandaag';
+    if (diffDays === 1) return '1 dag geleden';
+    if (diffDays < 30) return diffDays + ' dagen geleden';
+    if (diffDays < 365) {
+      var nlMonths = Math.max(1, Math.floor(diffDays / 30));
+      return nlMonths + ' maanden geleden';
+    }
+    var nlYears = Math.max(1, Math.floor(diffDays / 365));
+    return nlYears === 1 ? '1 jaar geleden' : nlYears + ' jaar geleden';
+  }
+
+  function normalizeName(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function buildMergedReviews(currentLang) {
+    var isEnglish = currentLang === 'en';
+    var langKey = isEnglish ? 'en' : 'nl';
+    var map = new Map();
+    var clients = clientReviewsByLang[langKey] || [];
+    var google = googleReviewsByLang[langKey] || [];
+
+    clients.forEach(function (review) {
+      if (!review.publicationPermission) return;
+      var key = normalizeName(review.dedupeKey || review.author);
+      if (!key) return;
+      map.set(key, review);
+    });
+
+    google.forEach(function (review) {
+      if (!review.publicationPermission) return;
+      var key = normalizeName(review.dedupeKey || review.author);
+      if (!key) return;
+      map.set(key, review); // Google priority on duplicates
+    });
+
+    return Array.from(map.values()).sort(function (a, b) {
+      return new Date(b.publishedDate) - new Date(a.publishedDate);
+    });
+  }
+
+  function getCardsPerView() {
+    if (window.matchMedia('(max-width: 767px)').matches) return 1;
+    return 3;
+  }
+
+  function initReviewsCarousel() {
+    var viewport = document.getElementById('google-reviews-viewport');
+    var track = document.getElementById('google-reviews-track');
+    if (!viewport || !track) return;
+    track.querySelectorAll('.testimonial-clone').forEach(function (el) { el.remove(); });
+    var originalCards = Array.prototype.slice.call(track.querySelectorAll('.testimonial'));
+    if (!originalCards.length) return;
+
+    var perView = getCardsPerView();
+    var cloneCount = Math.min(perView, originalCards.length);
+    if (originalCards.length > 1) {
+      for (var i = 0; i < cloneCount; i++) {
+        var headClone = originalCards[i].cloneNode(true);
+        var tailClone = originalCards[originalCards.length - cloneCount + i].cloneNode(true);
+        headClone.classList.add('testimonial-clone');
+        tailClone.classList.add('testimonial-clone');
+        track.appendChild(headClone);
+        track.insertBefore(tailClone, track.firstChild);
+      }
+    }
+
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.testimonial'));
+    if (!cards.length) return;
+
+    var currentIndex = cloneCount;
+    var timer = null;
+    var intervalMs = window.matchMedia('(max-width: 767px)').matches ? 8500 : 4200;
+    var scrollingByCode = false;
+
+    function goTo(index, smooth) {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      var target = cards[currentIndex];
+      if (!target) return;
+      scrollingByCode = true;
+      viewport.scrollTo({ left: target.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+      window.setTimeout(function () { scrollingByCode = false; }, smooth ? 420 : 40);
+    }
+
+    function jumpWithoutAnimation(index) {
+      var target = cards[index];
+      if (!target) return;
+      currentIndex = index;
+      scrollingByCode = true;
+      viewport.scrollTo({ left: target.offsetLeft, behavior: 'auto' });
+      window.setTimeout(function () { scrollingByCode = false; }, 40);
+    }
+
+    function next() {
+      var nextIndex = currentIndex + 1;
+      goTo(nextIndex, true);
+      if (nextIndex >= cards.length - cloneCount) {
+        window.setTimeout(function () { jumpWithoutAnimation(cloneCount); }, 430);
+      }
+    }
+
+    function restart() {
+      if (timer) window.clearInterval(timer);
+      if (cards.length <= getCardsPerView()) return;
+      timer = window.setInterval(next, intervalMs);
+    }
+
+    var scrollStopTimer = null;
+    viewport.addEventListener('scroll', function () {
+      if (scrollingByCode) return;
+      if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+      scrollStopTimer = window.setTimeout(function () {
+        var nearest = 0;
+        var smallest = Number.POSITIVE_INFINITY;
+        cards.forEach(function (card, idx) {
+          var distance = Math.abs(card.offsetLeft - viewport.scrollLeft);
+          if (distance < smallest) {
+            smallest = distance;
+            nearest = idx;
+          }
+        });
+        currentIndex = nearest;
+        if (originalCards.length > 1) {
+          if (nearest < cloneCount) {
+            jumpWithoutAnimation(originalCards.length + nearest);
+            return;
+          }
+          if (nearest >= cards.length - cloneCount) {
+            jumpWithoutAnimation(cloneCount + (nearest - (cards.length - cloneCount)));
+            return;
+          }
+        }
+      }, 120);
+    }, { passive: true });
+
+    viewport.addEventListener('mouseenter', function () { if (timer) window.clearInterval(timer); });
+    viewport.addEventListener('mouseleave', restart);
+    viewport.addEventListener('focusin', function () { if (timer) window.clearInterval(timer); });
+    viewport.addEventListener('focusout', restart);
+    viewport.addEventListener('touchstart', function () { if (timer) window.clearInterval(timer); }, { passive: true });
+    viewport.addEventListener('touchend', restart, { passive: true });
+    window.addEventListener('resize', initReviewsCarousel, { passive: true, once: true });
+
+    jumpWithoutAnimation(cloneCount);
+    restart();
+  }
+
+  function initProjectsMobileCarousel() {
+    if (!window.matchMedia('(max-width: 640px)').matches) return;
+    var grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+    grid.querySelectorAll('.project-clone').forEach(function (el) { el.remove(); });
+    var baseCards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+    if (baseCards.length < 2) return;
+
+    var firstClone = baseCards[0].cloneNode(true);
+    var lastClone = baseCards[baseCards.length - 1].cloneNode(true);
+    firstClone.classList.add('project-clone');
+    lastClone.classList.add('project-clone');
+    grid.insertBefore(lastClone, grid.firstChild);
+    grid.appendChild(firstClone);
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+    var index = 1;
+    var timer = null;
+    var intervalMs = 7000;
+    var scrollingByCode = false;
+
+    function goTo(i, smooth) {
+      var target = cards[i];
+      if (!target) return;
+      index = i;
+      scrollingByCode = true;
+      grid.scrollTo({ left: target.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+      window.setTimeout(function () { scrollingByCode = false; }, smooth ? 420 : 40);
+    }
+
+    function jump(i) {
+      var target = cards[i];
+      if (!target) return;
+      index = i;
+      scrollingByCode = true;
+      grid.scrollTo({ left: target.offsetLeft, behavior: 'auto' });
+      window.setTimeout(function () { scrollingByCode = false; }, 40);
+    }
+
+    function next() {
+      var nextIndex = index + 1;
+      goTo(nextIndex, true);
+      if (nextIndex >= cards.length - 1) {
+        window.setTimeout(function () { jump(1); }, 430);
+      }
+    }
+
+    function restart() {
+      if (timer) window.clearInterval(timer);
+      timer = window.setInterval(next, intervalMs);
+    }
+
+    grid.addEventListener('touchstart', function () { if (timer) window.clearInterval(timer); }, { passive: true });
+    grid.addEventListener('touchend', restart, { passive: true });
+    var stopTimer = null;
+    grid.addEventListener('scroll', function () {
+      if (scrollingByCode) return;
+      if (stopTimer) window.clearTimeout(stopTimer);
+      stopTimer = window.setTimeout(function () {
+        var nearest = 0;
+        var smallest = Number.POSITIVE_INFINITY;
+        cards.forEach(function (card, idx) {
+          var distance = Math.abs(card.offsetLeft - grid.scrollLeft);
+          if (distance < smallest) {
+            smallest = distance;
+            nearest = idx;
+          }
+        });
+        index = nearest;
+        if (nearest === 0) {
+          jump(cards.length - 2);
+          return;
+        }
+        if (nearest === cards.length - 1) {
+          jump(1);
+        }
+      }, 120);
+    }, { passive: true });
+
+    jump(1);
+    restart();
+  }
+
+  function renderGoogleReviews(currentLang) {
+    var reviewsTrack = document.getElementById('google-reviews-track');
+    if (!reviewsTrack) return;
+
+    var isEnglish = currentLang === 'en';
+    var reviews = buildMergedReviews(currentLang);
+    var parallaxSpeeds = [1, 0, -1];
+
+    reviewsTrack.innerHTML = reviews.map(function (review, index) {
+      var initials = escapeHtml((review.author || '?').trim().charAt(0).toUpperCase());
+      var stars = '&#9733;'.repeat(Math.max(1, Math.min(5, parseInt(review.rating, 10) || 5)));
+      var stagger = index + 1;
+      var speed = parallaxSpeeds[index] !== undefined ? parallaxSpeeds[index] : 0;
+      var sourceText = isEnglish ? 'Source: ' : 'Bron: ';
+      var relativeDate = formatRelativeDate(review.publishedDate, isEnglish);
+      var sourceIconClass = review.sourceIcon === 'imetech' ? 'imetech-icon' : 'google-g';
+
+      return '' +
+        '<div class="testimonial reveal stagger-' + stagger + '" data-parallax="testimonial" data-speed="' + speed + '">' +
+        '<div class="testimonial-stars">' + stars + '</div>' +
+        '<blockquote>&ldquo;' + escapeHtml(review.text) + '&rdquo;</blockquote>' +
+        '<div class="testimonial-footer">' +
+        '<div class="testimonial-author">' +
+        '<div class="initials">' + initials + '</div>' +
+        '<div>' +
+        '<div class="name">' + escapeHtml(review.author) + '</div>' +
+        '<div class="date">' + escapeHtml(relativeDate) + '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="testimonial-source">' +
+        '<span class="' + sourceIconClass + '" aria-hidden="true"></span>' +
+        '<span>' + sourceText + escapeHtml(review.sourceLabel) + '</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    }).join('');
+
+    initReviewsCarousel();
+  }
 
   if (needsLoad) {
     Promise.all([
@@ -176,6 +603,10 @@
         }
       });
     })();
+
+    // ===== GOOGLE REVIEWS (HOME TESTIMONIALS) =====
+    renderGoogleReviews(lang);
+    initProjectsMobileCarousel();
 
     // ===== HEADER: solid after hero leaves viewport =====
     var header = document.querySelector('.header');
