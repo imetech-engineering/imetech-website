@@ -2523,7 +2523,7 @@ p {
   margin-bottom: .75rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .project-detail {
     grid-template-columns: 1fr;
   }
@@ -2861,6 +2861,24 @@ p {
 
 .article-content p {
   margin-bottom: 1rem;
+}
+
+.article-content p a,
+.article-content li a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(transparent calc(100% - 3px), rgba(37, 99, 235, 0.25) 3px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: all 0.25s ease-out;
+}
+
+.article-content p a:hover,
+.article-content li a:hover {
+  color: #1d4ed8;
+  background-image: linear-gradient(transparent 0%, rgba(37, 99, 235, 0.15) 0%);
+  border-radius: 2px;
 }
 
 .article-content ul {
@@ -3531,8 +3549,10 @@ p {
 }
 
 /* ========== FIX: Sticky sidebar needs overflow visible on project sections ========== */
-.section:has(.project-detail) {
-  overflow: visible;
+@media (min-width: 1025px) {
+  .section:has(.project-detail) {
+    overflow: visible;
+  }
 }
 
 /* ========== CTA SECTION CENTER FIX ========== */
