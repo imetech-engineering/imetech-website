@@ -560,6 +560,7 @@
         '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render.html',
         '/projecten/2x2-steering-robot.html': '/en/projects/2x2-steering-robot.html',
         '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat.html',
+        '/projecten/carryvision-plantcamerasysteem.html': '/en/projects/carryvision-plant-camera-system.html',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/index.html',
         '/blog/machine-learning-productontwikkeling.html': '/en/blog/machine-learning-product-development.html',

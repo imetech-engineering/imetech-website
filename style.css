@@ -2516,7 +2516,7 @@ p {
 }
 
 .project-meta {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .project-meta .label {
@@ -3780,28 +3780,35 @@ p {
 .project-collaboration {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-  padding: 0.5rem 1rem;
-  background: rgba(37, 99, 235, 0.06);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  color: #1e40af;
-  border-radius: 100px;
+  gap: 0.45rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem 0.85rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.8125rem;
-  transition: all .25s ease;
+  line-height: 1.35;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
 }
 
 .project-collaboration svg {
   flex-shrink: 0;
   width: 14px;
   height: 14px;
+  opacity: 0.85;
 }
 
 .project-collaboration:hover {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.3);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.project-collaboration:hover svg {
+  opacity: 1;
 }
