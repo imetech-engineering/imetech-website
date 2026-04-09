@@ -19,42 +19,69 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta property="og:image:alt" content="Integrating Python with Industrial PLCs: Bridging IT and OT">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Integrating Python with Industrial PLCs: Bridging IT and OT - IMeTech Engineering">
   <meta name="twitter:description" content="How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.">
   <meta name="twitter:image" content="https://imetech.nl/images/pythonPLCHero.webp">
+  <meta property="article:published_time" content="2026-03-16">
+  <meta property="article:author" content="https://imetech.nl/en/about.html">
   <meta name="twitter:creator" content="@imetech_engineering">
   <title>Integrating Python with Industrial PLCs: Bridging IT and OT - IMeTech Engineering</title>
   <meta name="description"
     content="How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
   <link rel="canonical" href="https://imetech.nl/en/blog/python-industrial-plc-integration.html">
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/python-industriele-plc-integratie.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/python-industrial-plc-integration.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/python-industriele-plc-integratie.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Integrating Python with Industrial PLCs: Bridging IT and OT", "description": "How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.", "url": "https://imetech.nl/en/blog/python-industrial-plc-integration.html", "datePublished": "2026-03-16", "author": {"@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html"}, "publisher": {"@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": {"@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://imetech.nl/en/blog/python-industrial-plc-integration.html"}, "dateModified": "2026-03-16", "image": "https://imetech.nl/images/pythonPLCHero.webp"}
+  </script>
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Integrating Python with Industrial PLCs: Bridging IT and OT",
-    "description": "How to connect Python to industrial PLCs using OPC UA and Modbus. Build data pipelines, dashboards and analytics that bridge the IT/OT gap in manufacturing.",
-    "url": "https://imetech.nl/en/blog/python-industrial-plc-integration.html",
-    "datePublished": "2026-03-16",
-    "author": { "@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html" },
-    "publisher": { "@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": { "@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp" } },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://imetech.nl/en/blog/python-industrial-plc-integration.html" }
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://imetech.nl/en/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Integrating Python with Industrial PLCs: Bridging IT and OT",
+        "item": "https://imetech.nl/en/blog/python-industrial-plc-integration.html"
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
   <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigation without JavaScript">
+    <a href="/en/">Home</a> · <a href="/en/services.html">Services</a> · <a href="/en/projects/">Projects</a> ·
+    <a href="/en/blog/">Blog</a> · <a href="/en/about.html">About</a> · <a href="/en/contact.html">Contact</a>
+  </nav>
+</noscript>
+
 
   <main>
     <section class="page-hero">
@@ -76,12 +103,12 @@
         data-speed="0.09" data-drift="-0.025"></div>
       <div class="wrap">
         <div class="article-meta reveal">
-          <span>March 16, 2026</span>
+          <span><time datetime="2026-03-16">March 16, 2026</time></span>
           <span>Ivo Mengerink</span>
           <span>15 min read</span>
         </div>
 
-        <div class="article-content reveal">
+        <article class="article-content reveal">
           <div class="lead">
             <p class="lead">
               Every modern factory is full of <strong>PLCs</strong> — programmable logic controllers that run conveyor belts, monitor temperatures, count products, and control valves. They do their job reliably, day after day. But the data they generate? That usually stays locked inside, invisible to anyone without a SCADA licence or a ladder-logic background.
@@ -95,7 +122,7 @@
             <div class="service-detail-visual">
               <div class="gallery">
                 <!-- IMAGE PROMPT: Architectural diagram showing a PLC connected via Modbus/OPC UA to a Python application, which feeds into a database and a dashboard, clean technical illustration style, blue and grey tones, light background, no text labels -->
-                <img src="/images/pythonPLCArchitecture.webp" alt="Architecture overview: PLC to Python to dashboard pipeline" />
+                <img src="/images/pythonPLCArchitecture.webp" alt="Architecture overview: PLC to Python to dashboard pipeline" fetchpriority="high" />
               </div>
             </div>
           </section>
@@ -233,7 +260,7 @@
             <div class="service-detail-visual">
               <div class="gallery">
                 <!-- IMAGE PROMPT: A data pipeline visualization showing flow from industrial sensors through a processing layer to a clean dashboard display, isometric technical illustration, blue and teal color scheme, dark background with glowing connection lines, no text -->
-                <img src="/images/plcDataPipeline.webp" alt="Data pipeline from PLC sensors through processing to dashboard visualization" />
+                <img src="/images/plcDataPipeline.webp" alt="Data pipeline from PLC sensors through processing to dashboard visualization" loading="lazy" decoding="async" />
               </div>
             </div>
           </section>

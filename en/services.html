@@ -19,7 +19,7 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta property="og:image:alt" content="Engineering Services">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Engineering Services | PCB Design, Embedded Systems, Mechanical Design Achterhoek">
   <meta name="twitter:description" content="Five engineering disciplines under one roof: software development, PCB design, mechanical design, data science and full product development. Based in Aalten, Achterhoek.">
@@ -31,13 +31,14 @@
   <meta name="keywords"
     content="PCB design Aalten, engineering services Achterhoek, embedded systems, SolidWorks, mechanical design, product development, Netherlands" />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
   <link rel="canonical" href="https://imetech.nl/en/services.html">
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/services.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 
@@ -55,11 +56,39 @@
       { "@type": "ListItem", "position": 5, "url": "https://imetech.nl/en/services/product-development.html", "name": "Product Development" }
     ]
   }
-  </script></head>
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://imetech.nl/en/services.html"
+      }
+    ]
+  }
+  </script>
+</head>
 
 <body>
   <!-- v2 SHARED HEADER (loaded via JS) -->
   <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigation without JavaScript">
+    <a href="/en/">Home</a> · <a href="/en/services.html">Services</a> · <a href="/en/projects/">Projects</a> ·
+    <a href="/en/blog/">Blog</a> · <a href="/en/about.html">About</a> · <a href="/en/contact.html">Contact</a>
+  </nav>
+</noscript>
+
 
   <main>
     <!-- ===== PAGE HERO ===== -->
@@ -110,7 +139,7 @@
               </svg></a>
           </div>
           <div class="service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="/images/Besturingskast01.webp" alt="Control cabinet with PLC programming" loading="lazy" />
+            <img src="/images/Besturingskast01.webp" alt="Control cabinet with PLC programming" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -123,7 +152,7 @@
       <div class="deco deco-ring" style="width:180px;height:180px;top:2rem;right:5rem" data-speed="0.15"
         data-rotate="-0.035"></div>
       <div class="deco deco-icon" style="bottom:10%;right:4%">
-        <img src="/images/Icon licht.webp" alt="" width="100" height="100" aria-hidden="true" />
+        <img src="/images/Icon licht.webp" alt="" width="100" height="100" aria-hidden="true" loading="lazy" decoding="async" />
       </div>
       <div class="wrap">
         <div class="service-detail service-detail-reversed">
@@ -197,7 +226,7 @@
       <div class="deco deco-blob deco-blob-1" style="width:320px;height:320px;top:5%;right:-100px"
         data-speed="0.1" data-drift="0.015"></div>
       <div class="deco deco-icon" style="top:15%;left:3%">
-        <img src="/images/Icon donker.webp" alt="" width="80" height="80" aria-hidden="true" />
+        <img src="/images/Icon donker.webp" alt="" width="80" height="80" aria-hidden="true" loading="lazy" decoding="async" />
       </div>
       <div class="wrap">
         <div class="service-detail service-detail-reversed">

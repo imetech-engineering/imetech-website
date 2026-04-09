@@ -3,7 +3,6 @@ Allow: /
 
 Disallow: /v1/
 Disallow: /components/
-Disallow: /template.html
 Disallow: /*.bat
 Disallow: /*.ps1
 
@@ -13,6 +12,29 @@ Allow: /projecten/
 Allow: /diensten/
 Allow: /blog/
 Allow: /en/
+Allow: /llms.txt
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
 
 Sitemap: https://imetech.nl/sitemap.xml
 Sitemap: https://imetech.nl/sitemap-images.xml
+Sitemap: https://imetech.nl/sitemap.rss

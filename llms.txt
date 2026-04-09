@@ -1,0 +1,54 @@
+# IMeTech Engineering
+
+> Complete product development from idea to working prototype. One engineer, every discipline.
+
+IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, based in Aalten, Achterhoek, Gelderland, the Netherlands. We offer full-stack product development: mechanical design (SolidWorks, CSWP certified), electronics and PCB design, embedded software (C++, Python, PLC), data science and machine learning, and end-to-end product development from concept through prototype to production.
+
+## Services
+
+- Software Development: https://imetech.nl/diensten/softwareontwikkeling.html
+- Electronics & PCB Design: https://imetech.nl/diensten/elektronica-pcb-ontwerp.html
+- Mechanical Design & CAD: https://imetech.nl/diensten/mechanica-cad-tekeningen.html
+- Data Science & Machine Learning: https://imetech.nl/diensten/data-science-machine-learning.html
+- Product Development: https://imetech.nl/diensten/productontwikkeling.html
+
+## Selected Projects
+
+- CarryVision Plant Camera System (ESP32-CAM, Raspberry Pi, IoT): https://imetech.nl/projecten/carryvision-plantcamerasysteem.html
+- Rollator Control Unit for Parkinson's patients (ESP32-C3, PCB, embedded): https://imetech.nl/projecten/besturing-rollator.html
+- SCD30 Address Board PCB (Modbus RTU, RS-485, CO2 sensors): https://imetech.nl/projecten/adresprint-scd30-pcb.html
+- Air Quality Control Panels (PLC, sensors, web dashboard): https://imetech.nl/projecten/besturingskasten.html
+- Self-Balancing Cube (robotics, control engineering, flywheels): https://imetech.nl/projecten/zelfbalancerende-kubus.html
+- 6-DOF SpaceMouse (3D input device, embedded): https://imetech.nl/projecten/6-dof-spacemouse.html
+- Sketch to Render (SolidWorks, 3D CAD, photorealistic rendering): https://imetech.nl/projecten/schets-tot-render.html
+- All projects: https://imetech.nl/projecten/
+
+## Blog (Technical Articles)
+
+- Machine Learning in Product Development: https://imetech.nl/blog/machine-learning-productontwikkeling.html
+- ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32.html
+- Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html
+- Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen.html
+- From Prototype to Production: https://imetech.nl/blog/prototype-naar-productie.html
+- Python Industrial PLC Integration: https://imetech.nl/blog/python-industriele-plc-integratie.html
+- All blog posts: https://imetech.nl/blog/
+
+## About
+
+- Founder: Ivo Mengerink, BSc Mechatronics (Saxion/HAN), CSWP Certified
+- Location: Aalten, Achterhoek, Gelderland, Netherlands
+- Client rating: 5.0/5.0
+- About page: https://imetech.nl/over-mij.html
+
+## Contact
+
+- Email: info@imetech.nl
+- Phone: +31 6 12385439
+- Address: Vierde Broekdijk 1, 7122JD Aalten, Netherlands
+- Contact page: https://imetech.nl/contact.html
+
+## Languages
+
+This website is available in Dutch (primary) and English.
+- Dutch: https://imetech.nl/
+- English: https://imetech.nl/en/

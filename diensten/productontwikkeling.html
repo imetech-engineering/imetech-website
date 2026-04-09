@@ -19,7 +19,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta property="og:image:alt" content="Productontwikkeling & Prototype Ontwikkeling Aalten">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Productontwikkeling & Prototype Ontwikkeling Aalten | Van Idee tot Prototype">
   <meta name="twitter:description" content="Complete productontwikkeling van idee tot prototype. Conceptontwikkeling, R&D en prototype ontwikkeling door IMeTech Engineering in Aalten, Achterhoek.">
@@ -29,13 +29,14 @@
   <meta name="description"
     content="Complete productontwikkeling van idee tot prototype. Conceptontwikkeling, R&D en prototype ontwikkeling door IMeTech Engineering in Aalten, Achterhoek." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
   <link rel="canonical" href="https://imetech.nl/diensten/productontwikkeling.html">
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/productontwikkeling.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/product-development.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/productontwikkeling.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
@@ -52,10 +53,44 @@
     },
     "areaServed": { "@type": "Place", "name": "Achterhoek, Gelderland" }
   }
-  </script></head>
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Diensten",
+        "item": "https://imetech.nl/diensten.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Productontwikkeling & Prototype Ontwikkeling Aalten",
+        "item": "https://imetech.nl/diensten/productontwikkeling.html"
+      }
+    ]
+  }
+  </script>
+</head>
 
 <body>
   <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigatie zonder JavaScript">
+    <a href="/">Home</a> · <a href="/diensten.html">Diensten</a> · <a href="/projecten/">Projecten</a> ·
+    <a href="/blog/">Blog</a> · <a href="/over-mij.html">Over mij</a> · <a href="/contact.html">Contact</a>
+  </nav>
+</noscript>
+
 
   <main>
     <section class="page-hero">
@@ -153,7 +188,7 @@
         </div>
         <div class="projects-grid">
           <a href="/projecten/2x2-steering-robot.html" class="project-card reveal stagger-1">
-            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot" loading="lazy" />
+            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot" fetchpriority="high" />
             </div>
             <div class="project-body">
               <h3>2x2 stuurrobot</h3>

@@ -942,7 +942,6 @@
     // ===== HERO ENTRANCE ANIMATION =====
     var heroContent = document.querySelector('.hero-content');
     if (heroContent) {
-      heroContent.classList.add('hero-enter');
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           heroContent.classList.add('hero-entered');

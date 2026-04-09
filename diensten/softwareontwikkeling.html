@@ -19,7 +19,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta property="og:image:alt" content="Embedded Software Ontwikkeling & PLC Programmering Aalten">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Embedded Software Ontwikkeling & PLC Programmering Aalten | IMeTech Engineering">
   <meta name="twitter:description" content="Embedded software ontwikkeling en PLC programmering voor industriÃ«le automatisering. C++, Python en besturingssoftware door IMeTech Engineering in Aalten, Achterhoek.">
@@ -29,13 +29,14 @@
     <meta name="description"
     content="Embedded software ontwikkeling en PLC programmering voor industriÃ«le automatisering. C++, Python en besturingssoftware door IMeTech Engineering in Aalten, Achterhoek." />
     <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
   <link rel="canonical" href="https://imetech.nl/diensten/softwareontwikkeling.html">
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/diensten/softwareontwikkeling.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/software-development.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/softwareontwikkeling.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
@@ -52,10 +53,44 @@
     },
     "areaServed": { "@type": "Place", "name": "Achterhoek, Gelderland" }
   }
-  </script></head>
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Diensten",
+        "item": "https://imetech.nl/diensten.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Embedded Software Ontwikkeling & PLC Programmering Aalten",
+        "item": "https://imetech.nl/diensten/softwareontwikkeling.html"
+      }
+    ]
+  }
+  </script>
+</head>
 
 <body>
     <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigatie zonder JavaScript">
+    <a href="/">Home</a> · <a href="/diensten.html">Diensten</a> · <a href="/projecten/">Projecten</a> ·
+    <a href="/blog/">Blog</a> · <a href="/over-mij.html">Over mij</a> · <a href="/contact.html">Contact</a>
+  </nav>
+</noscript>
+
 
     <main>
         <section class="page-hero">
@@ -146,7 +181,7 @@
                 <div class="projects-grid">
                     <a href="/projecten/zelfbalancerende-kubus.html" class="project-card reveal stagger-1">
                         <div class="project-img"><img src="/images/SelfBalancingCube01.webp"
-                                alt="Self-Balancing Cube" loading="lazy" />
+                                alt="Self-Balancing Cube" fetchpriority="high" />
                         </div>
                         <div class="project-body">
                             <h3>Zelfbalancerende Kubus</h3>

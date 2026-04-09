@@ -749,12 +749,12 @@ p {
 }
 
 /* ========== HERO ENTRANCE ========== */
-.hero-enter .hero-badge,
-.hero-enter>div:first-child>h1,
-.hero-enter .hero-sub,
-.hero-enter .hero-btns,
-.hero-enter .hero-stats,
-.hero-enter .hero-visual {
+.hero-content .hero-badge,
+.hero-content>div:first-child>h1,
+.hero-content .hero-sub,
+.hero-content .hero-btns,
+.hero-content .hero-stats,
+.hero-content .hero-visual {
   opacity: 0;
   transform: translateY(24px);
 }
@@ -803,12 +803,12 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
 
-  .hero-enter .hero-badge,
-  .hero-enter>div:first-child>h1,
-  .hero-enter .hero-sub,
-  .hero-enter .hero-btns,
-  .hero-enter .hero-stats,
-  .hero-enter .hero-visual {
+  .hero-content .hero-badge,
+  .hero-content>div:first-child>h1,
+  .hero-content .hero-sub,
+  .hero-content .hero-btns,
+  .hero-content .hero-stats,
+  .hero-content .hero-visual {
     opacity: 1;
     transform: none;
   }

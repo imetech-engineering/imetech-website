@@ -19,42 +19,69 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering">
+  <meta property="og:image:alt" content="Building Dashboards That Non-Technical People Actually Use">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Building Dashboards That Non-Technical People Actually Use - IMeTech Engineering">
   <meta name="twitter:description" content="Design principles for building dashboards that non-technical stakeholders actually use. Practical guide covering information hierarchy, chart selection, cognitive load, and common anti-patterns.">
   <meta name="twitter:image" content="https://imetech.nl/images/dashboardDesignHero.webp">
+  <meta property="article:published_time" content="2026-03-06">
+  <meta property="article:author" content="https://imetech.nl/en/about.html">
   <meta name="twitter:creator" content="@imetech_engineering">
   <title>Building Dashboards That Non-Technical People Actually Use - IMeTech Engineering</title>
   <meta name="description"
     content="Design principles for building dashboards that non-technical stakeholders actually use. Practical guide covering information hierarchy, chart selection, cognitive load, and common anti-patterns." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
   <link rel="canonical" href="https://imetech.nl/en/blog/effective-dashboards-non-technical.html">
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch.html" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/effective-dashboards-non-technical.html" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Building Dashboards That Non-Technical People Actually Use", "description": "Design principles for building dashboards that non-technical stakeholders actually use. Practical guide covering information hierarchy, chart selection, cognitive load, and common anti-patterns.", "url": "https://imetech.nl/en/blog/effective-dashboards-non-technical.html", "datePublished": "2026-03-06", "author": {"@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html"}, "publisher": {"@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": {"@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://imetech.nl/en/blog/effective-dashboards-non-technical.html"}, "dateModified": "2026-03-06", "image": "https://imetech.nl/images/dashboardDesignHero.webp"}
+  </script>
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Building Dashboards That Non-Technical People Actually Use",
-    "description": "Design principles for building dashboards that non-technical stakeholders actually use. Practical guide covering information hierarchy, chart selection, cognitive load, and common anti-patterns.",
-    "url": "https://imetech.nl/en/blog/effective-dashboards-non-technical.html",
-    "datePublished": "2026-03-06",
-    "author": { "@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about.html" },
-    "publisher": { "@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": { "@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp" } },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://imetech.nl/en/blog/effective-dashboards-non-technical.html" }
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://imetech.nl/en/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Building Dashboards That Non-Technical People Actually Use",
+        "item": "https://imetech.nl/en/blog/effective-dashboards-non-technical.html"
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
   <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigation without JavaScript">
+    <a href="/en/">Home</a> · <a href="/en/services.html">Services</a> · <a href="/en/projects/">Projects</a> ·
+    <a href="/en/blog/">Blog</a> · <a href="/en/about.html">About</a> · <a href="/en/contact.html">Contact</a>
+  </nav>
+</noscript>
+
 
   <main>
     <section class="page-hero">
@@ -76,12 +103,12 @@
         data-speed="0.09" data-drift="-0.025"></div>
       <div class="wrap">
         <div class="article-meta reveal">
-          <span>March 6, 2026</span>
+          <span><time datetime="2026-03-06">March 6, 2026</time></span>
           <span>Ivo Mengerink</span>
           <span>14 min read</span>
         </div>
 
-        <div class="article-content reveal">
+        <article class="article-content reveal">
           <div class="lead">
             <p class="lead">
               You have the data. You have the tools. You build a dashboard with twelve charts, three tables, and a filter panel. You present it to the management team, and they nod politely. Two weeks later, nobody is using it. <strong>What went wrong?</strong>
@@ -95,7 +122,7 @@
             <div class="service-detail-visual">
               <div class="gallery">
                 <!-- IMAGE PROMPT: A side-by-side comparison of two dashboard layouts: on the left a cluttered dashboard with too many small charts and numbers crammed together, on the right a clean minimal dashboard with just 3-4 well-spaced visualizations, both shown as wireframe-style illustrations, blue and grey tones, clean white background, no text or labels -->
-                <img src="/images/dashboardDesignPrinciples.webp" alt="Comparison of cluttered vs clean dashboard design" />
+                <img src="/images/dashboardDesignPrinciples.webp" alt="Comparison of cluttered vs clean dashboard design" fetchpriority="high" />
               </div>
             </div>
           </section>
@@ -230,7 +257,7 @@
             <div class="service-detail-visual">
               <div class="gallery">
                 <!-- IMAGE PROMPT: A clean infographic showing four chart types with simple example visualizations: a line chart showing a trend, a bar chart comparing categories, a gauge showing a current value, and a sparkline showing a mini trend, each in its own quadrant, blue and teal colors, clean white background, minimal style, no text labels -->
-                <img src="/images/chartTypeGuide.webp" alt="Guide to choosing the right chart type for different data questions" />
+                <img src="/images/chartTypeGuide.webp" alt="Guide to choosing the right chart type for different data questions" loading="lazy" decoding="async" />
               </div>
             </div>
 
@@ -321,7 +348,7 @@
             <div class="service-detail-visual">
               <div class="gallery">
                 <!-- IMAGE PROMPT: An illustration showing four common dashboard anti-patterns as simplified wireframe panels: one crammed with too many tiny charts, one with a giant data table filling the screen, one with clashing colors everywhere, and one that is completely empty with a 'no data' message, arranged in a 2x2 grid, sketch-like illustration style, red accent color for the anti-pattern indicators, grey and white tones, no text -->
-                <img src="/images/dashboardAntiPatterns.webp" alt="Common dashboard anti-patterns to avoid" />
+                <img src="/images/dashboardAntiPatterns.webp" alt="Common dashboard anti-patterns to avoid" loading="lazy" decoding="async" />
               </div>
             </div>
 
