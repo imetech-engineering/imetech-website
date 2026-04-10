@@ -13,7 +13,7 @@
       var existing = document.getElementById('cookie-banner');
       if (existing) {
         existing.style.display = 'flex';
-        requestAnimationFrame(function () { existing.classList.add('cookie-visible'); });
+        requestAnimationFrame(function () { requestAnimationFrame(function () { existing.classList.add('cookie-visible'); }); });
         return;
       }
       var banner = document.createElement('div');
@@ -38,7 +38,7 @@
         '<button class="btn btn-primary cookie-accept">' + cookieAccept + '</button>' +
         '</div></div>';
       document.body.appendChild(banner);
-      requestAnimationFrame(function () { banner.classList.add('cookie-visible'); });
+      requestAnimationFrame(function () { requestAnimationFrame(function () { banner.classList.add('cookie-visible'); }); });
 
       banner.querySelector('.cookie-accept').addEventListener('click', function () {
         localStorage.setItem('cookieConsent', 'all');
