@@ -4,9 +4,34 @@
 
   // ===== GOOGLE ANALYTICS 4 (gtag) — only with analytics consent =====
   var GA_MEASUREMENT_ID = 'G-1LP253W3VD';
+  var memoryCookieConsent = null;
+
+  function safeGetCookieConsent() {
+    try {
+      var stored = localStorage.getItem('cookieConsent');
+      if (stored !== null) return stored;
+    } catch (e) { }
+    return memoryCookieConsent;
+  }
+
+  function safeSetCookieConsent(value) {
+    memoryCookieConsent = value;
+    try {
+      localStorage.setItem('cookieConsent', value);
+    } catch (e) { }
+  }
+
+  function safeRemoveCookiePreferences() {
+    memoryCookieConsent = null;
+    ['cookieConsent', 'cookiePreferences', 'cookieSettings'].forEach(function (key) {
+      try {
+        localStorage.removeItem(key);
+      } catch (e) { }
+    });
+  }
 
   function hasAnalyticsConsent() {
-    var c = localStorage.getItem('cookieConsent');
+    var c = safeGetCookieConsent();
     if (!c) return false;
     if (c === 'all') return true;
     try {
@@ -39,12 +64,10 @@
   // ===== COOKIE CONSENT BANNER (run early so openCookieSettings is available before footer loads) =====
   (function () {
     function clearStoredCookiePreferences() {
-      ['cookieConsent', 'cookiePreferences', 'cookieSettings'].forEach(function (key) {
-        localStorage.removeItem(key);
-      });
+      safeRemoveCookiePreferences();
     }
 
-    var consent = localStorage.getItem('cookieConsent');
+    var consent = safeGetCookieConsent();
     if (!consent) {
       showCookieBanner();
     }
@@ -81,13 +104,13 @@
       requestAnimationFrame(function () { requestAnimationFrame(function () { banner.classList.add('cookie-visible'); }); });
 
       banner.querySelector('.cookie-accept').addEventListener('click', function () {
-        localStorage.setItem('cookieConsent', 'all');
+        safeSetCookieConsent('all');
         loadGoogleAnalyticsIfConsented();
         banner.classList.remove('cookie-visible');
         setTimeout(function () { banner.style.display = 'none'; }, 400);
       });
       banner.querySelector('.cookie-necessary').addEventListener('click', function () {
-        localStorage.setItem('cookieConsent', 'necessary');
+        safeSetCookieConsent('necessary');
         banner.classList.remove('cookie-visible');
         setTimeout(function () { banner.style.display = 'none'; }, 400);
       });
@@ -104,9 +127,7 @@
       window.openCookieSettings();
       return;
     }
-    ['cookieConsent', 'cookiePreferences', 'cookieSettings'].forEach(function (key) {
-      localStorage.removeItem(key);
-    });
+    safeRemoveCookiePreferences();
     window.location.reload();
   }
 
