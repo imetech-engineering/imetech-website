@@ -76,20 +76,20 @@
       function forceBannerVisible(el) {
         if (!el) return;
         el.style.display = 'flex';
-        el.classList.add('cookie-visible');
+        el.classList.add('consent-visible');
         // Hard fallback for browsers/extensions that interfere with transitions.
         el.style.transform = 'translateY(0)';
         el.style.opacity = '1';
       }
 
-      var existing = document.getElementById('cookie-banner');
+      var existing = document.getElementById('consent-panel');
       if (existing) {
         forceBannerVisible(existing);
         return;
       }
       var banner = document.createElement('div');
-      banner.id = 'cookie-banner';
-      banner.className = 'cookie-banner';
+      banner.id = 'consent-panel';
+      banner.className = 'consent-panel';
       var isEn = document.documentElement.lang === 'en';
       var cookieTitle = isEn ? 'Cookie preferences' : 'Cookievoorkeuren';
       var cookieText = isEn
@@ -97,29 +97,29 @@
         : 'Deze website gebruikt cookies voor analyse en functionaliteit. Lees ons <a href="/privacyverklaring.html">privacybeleid</a>.';
       var cookieNecessary = isEn ? 'Necessary only' : 'Alleen noodzakelijk';
       var cookieAccept = isEn ? 'Accept all' : 'Alles accepteren';
-      banner.innerHTML = '<div class="cookie-inner">' +
-        '<div class="cookie-content">' +
-        '<div class="cookie-icon-wrap">' +
+      banner.innerHTML = '<div class="consent-inner">' +
+        '<div class="consent-content">' +
+        '<div class="consent-icon-wrap">' +
         '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>' +
         '</div>' +
-        '<div class="cookie-text"><h3>' + cookieTitle + '</h3>' +
+        '<div class="consent-text"><h3>' + cookieTitle + '</h3>' +
         '<p>' + cookieText + '</p></div></div>' +
-        '<div class="cookie-actions">' +
-        '<button class="btn btn-outline cookie-necessary">' + cookieNecessary + '</button>' +
-        '<button class="btn btn-primary cookie-accept">' + cookieAccept + '</button>' +
+        '<div class="consent-actions">' +
+        '<button class="btn btn-outline consent-necessary">' + cookieNecessary + '</button>' +
+        '<button class="btn btn-primary consent-accept">' + cookieAccept + '</button>' +
         '</div></div>';
       document.body.appendChild(banner);
       forceBannerVisible(banner);
 
-      banner.querySelector('.cookie-accept').addEventListener('click', function () {
+      banner.querySelector('.consent-accept').addEventListener('click', function () {
         safeSetCookieConsent('all');
         loadGoogleAnalyticsIfConsented();
-        banner.classList.remove('cookie-visible');
+        banner.classList.remove('consent-visible');
         setTimeout(function () { banner.style.display = 'none'; }, 400);
       });
-      banner.querySelector('.cookie-necessary').addEventListener('click', function () {
+      banner.querySelector('.consent-necessary').addEventListener('click', function () {
         safeSetCookieConsent('necessary');
-        banner.classList.remove('cookie-visible');
+        banner.classList.remove('consent-visible');
         setTimeout(function () { banner.style.display = 'none'; }, 400);
       });
     }
@@ -132,7 +132,7 @@
     // Extra recovery path for strict browser shields/extensions:
     // if consent is missing but no banner exists after initial script work, recreate it.
     setTimeout(function () {
-      if (!safeGetCookieConsent() && !document.getElementById('cookie-banner')) {
+      if (!safeGetCookieConsent() && !document.getElementById('consent-panel')) {
         showCookieBanner();
       }
     }, 350);
