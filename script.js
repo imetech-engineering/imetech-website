@@ -111,7 +111,7 @@
   }
 
   function bindCookieSettingsLinks() {
-    document.querySelectorAll('[data-cookie-settings-link]').forEach(function (link) {
+    document.querySelectorAll('[data-cookie-settings-link], .cookie-settings-link').forEach(function (link) {
       if (link.dataset.cookieSettingsBound === 'true') return;
       link.dataset.cookieSettingsBound = 'true';
       link.addEventListener('click', function (event) {
@@ -124,7 +124,16 @@
   document.addEventListener('click', function (event) {
     var target = event.target;
     if (!(target instanceof Element)) return;
-    var cookieLink = target.closest('[data-cookie-settings-link]');
+    var cookieLink = target.closest('[data-cookie-settings-link], .cookie-settings-link');
+    if (!cookieLink) {
+      var fallbackFooterLink = target.closest('.footer-legal a[href="#"], .footer a[href="#"]');
+      if (fallbackFooterLink) {
+        var label = (fallbackFooterLink.textContent || '').trim().toLowerCase();
+        if (label === 'cookies' || label === 'cookie instellingen' || label === 'cookie settings') {
+          cookieLink = fallbackFooterLink;
+        }
+      }
+    }
     if (!cookieLink) return;
     event.preventDefault();
     resetCookiePreferencesAndOpenBanner();
@@ -1028,6 +1037,7 @@
     // ===== FLOATING CTA =====
     var floatingBtn = document.querySelector('.floating-btn');
     var floatingOpts = document.querySelector('.floating-options');
+    var floatingCta = document.querySelector('.floating-cta');
     if (floatingBtn && floatingOpts) {
       floatingBtn.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -1036,6 +1046,17 @@
       document.addEventListener('click', function () {
         floatingOpts.classList.remove('open');
       });
+    }
+    if (floatingCta) {
+      var footerEl = document.querySelector('.footer');
+      if (footerEl && 'IntersectionObserver' in window) {
+        var footerObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            floatingCta.classList.toggle('is-hidden-near-footer', entry.isIntersecting);
+          });
+        }, { root: null, threshold: 0.1 });
+        footerObserver.observe(footerEl);
+      }
     }
 
     // ===== PROJECT FILTER =====

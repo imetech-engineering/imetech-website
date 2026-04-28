@@ -1598,6 +1598,7 @@ p {
   padding: 4rem 0 0;
   position: relative;
   overflow: hidden;
+  z-index: 60;
 }
 
 .footer-top {
@@ -1735,6 +1736,8 @@ p {
 
 .footer-legal a {
   display: inline-block;
+  position: relative;
+  z-index: 61;
   font-size: .75rem;
   color: rgba(255, 255, 255, 0.55);
   transform: translateY(0);
@@ -2039,7 +2042,15 @@ p {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 50;
+  z-index: 40;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.floating-cta.is-hidden-near-footer {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
 }
 
 .floating-btn {
@@ -2055,6 +2066,7 @@ p {
   align-items: center;
   justify-content: center;
   transition: transform .3s ease, box-shadow .3s ease;
+  pointer-events: auto;
 }
 
 .floating-btn:hover {
@@ -2075,6 +2087,7 @@ p {
   visibility: hidden;
   transform: translateY(8px);
   transition: all .3s ease;
+  pointer-events: auto;
 }
 
 .floating-options.open {
