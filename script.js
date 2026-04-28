@@ -38,6 +38,12 @@
 
   // ===== COOKIE CONSENT BANNER (run early so openCookieSettings is available before footer loads) =====
   (function () {
+    function clearStoredCookiePreferences() {
+      ['cookieConsent', 'cookiePreferences', 'cookieSettings'].forEach(function (key) {
+        localStorage.removeItem(key);
+      });
+    }
+
     var consent = localStorage.getItem('cookieConsent');
     if (!consent) {
       showCookieBanner();
@@ -88,10 +94,24 @@
     }
 
     window.openCookieSettings = function () {
-      localStorage.removeItem('cookieConsent');
+      clearStoredCookiePreferences();
       showCookieBanner();
     };
   })();
+
+  document.addEventListener('click', function (event) {
+    var cookieLink = event.target.closest('[data-cookie-settings-link]');
+    if (!cookieLink) return;
+    event.preventDefault();
+    if (typeof window.openCookieSettings === 'function') {
+      window.openCookieSettings();
+      return;
+    }
+    ['cookieConsent', 'cookiePreferences', 'cookieSettings'].forEach(function (key) {
+      localStorage.removeItem(key);
+    });
+    window.location.reload();
+  });
 
   // ===== COMPONENT LOADER =====
   function loadComponent(containerId, url) {
