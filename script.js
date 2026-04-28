@@ -99,10 +99,7 @@
     };
   })();
 
-  document.addEventListener('click', function (event) {
-    var cookieLink = event.target.closest('[data-cookie-settings-link]');
-    if (!cookieLink) return;
-    event.preventDefault();
+  function resetCookiePreferencesAndOpenBanner() {
     if (typeof window.openCookieSettings === 'function') {
       window.openCookieSettings();
       return;
@@ -111,6 +108,26 @@
       localStorage.removeItem(key);
     });
     window.location.reload();
+  }
+
+  function bindCookieSettingsLinks() {
+    document.querySelectorAll('[data-cookie-settings-link]').forEach(function (link) {
+      if (link.dataset.cookieSettingsBound === 'true') return;
+      link.dataset.cookieSettingsBound = 'true';
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        resetCookiePreferencesAndOpenBanner();
+      });
+    });
+  }
+
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!(target instanceof Element)) return;
+    var cookieLink = target.closest('[data-cookie-settings-link]');
+    if (!cookieLink) return;
+    event.preventDefault();
+    resetCookiePreferencesAndOpenBanner();
   });
 
   // ===== COMPONENT LOADER =====
@@ -570,8 +587,12 @@
       loadComponent('header-container', '/components/header' + suffix + '.html'),
       loadComponent('footer-container', '/components/footer' + suffix + '.html'),
       loadComponent('floating-cta-container', '/components/floating-cta' + suffix + '.html')
-    ]).then(initV2);
+    ]).then(function () {
+      bindCookieSettingsLinks();
+      initV2();
+    });
   } else {
+    bindCookieSettingsLinks();
     initV2();
   }
 
