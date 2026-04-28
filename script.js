@@ -73,10 +73,18 @@
     }
 
     function showCookieBanner() {
+      function forceBannerVisible(el) {
+        if (!el) return;
+        el.style.display = 'flex';
+        el.classList.add('cookie-visible');
+        // Hard fallback for browsers/extensions that interfere with transitions.
+        el.style.transform = 'translateY(0)';
+        el.style.opacity = '1';
+      }
+
       var existing = document.getElementById('cookie-banner');
       if (existing) {
-        existing.style.display = 'flex';
-        requestAnimationFrame(function () { requestAnimationFrame(function () { existing.classList.add('cookie-visible'); }); });
+        forceBannerVisible(existing);
         return;
       }
       var banner = document.createElement('div');
@@ -101,7 +109,7 @@
         '<button class="btn btn-primary cookie-accept">' + cookieAccept + '</button>' +
         '</div></div>';
       document.body.appendChild(banner);
-      requestAnimationFrame(function () { requestAnimationFrame(function () { banner.classList.add('cookie-visible'); }); });
+      forceBannerVisible(banner);
 
       banner.querySelector('.cookie-accept').addEventListener('click', function () {
         safeSetCookieConsent('all');
@@ -120,6 +128,14 @@
       clearStoredCookiePreferences();
       showCookieBanner();
     };
+
+    // Extra recovery path for strict browser shields/extensions:
+    // if consent is missing but no banner exists after initial script work, recreate it.
+    setTimeout(function () {
+      if (!safeGetCookieConsent() && !document.getElementById('cookie-banner')) {
+        showCookieBanner();
+      }
+    }, 350);
   })();
 
   function resetCookiePreferencesAndOpenBanner() {
