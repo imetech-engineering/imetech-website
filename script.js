@@ -466,30 +466,75 @@
     }
 
     var scrollStopTimer = null;
+    var dragScrollStart = 0;
+
+    function getNearestCardIndex() {
+      var nearest = 0;
+      var smallest = Number.POSITIVE_INFINITY;
+      cards.forEach(function (card, idx) {
+        var distance = Math.abs(card.offsetLeft - viewport.scrollLeft);
+        if (distance < smallest) {
+          smallest = distance;
+          nearest = idx;
+        }
+      });
+      return nearest;
+    }
+
+    function getLoopWidth() {
+      return cards[cloneCount + originalCards.length].offsetLeft - cards[cloneCount].offsetLeft;
+    }
+
+    function loopMetricsReady() {
+      if (originalCards.length <= 1) return true;
+      var loopWidth = getLoopWidth();
+      var realStart = cards[cloneCount].offsetLeft;
+      var headStart = cards[cloneCount + originalCards.length].offsetLeft;
+      return loopWidth > 0 && headStart > realStart;
+    }
+
+    function getRealIndex(index) {
+      if (originalCards.length <= 1) return index;
+      if (index < cloneCount) return originalCards.length + index;
+      if (index >= cards.length - cloneCount) {
+        return cloneCount + (index - (cards.length - cloneCount));
+      }
+      return index;
+    }
+
+    function normalizeScrollPosition(adjustDragAnchor) {
+      if (originalCards.length <= 1) return;
+      if (!loopMetricsReady()) return;
+      var loopWidth = getLoopWidth();
+      var realStart = cards[cloneCount].offsetLeft;
+      var headStart = cards[cloneCount + originalCards.length].offsetLeft;
+      var adjusted = false;
+      var guard = 0;
+
+      while (viewport.scrollLeft < realStart - 1 && guard++ < 50) {
+        viewport.scrollLeft += loopWidth;
+        if (adjustDragAnchor) dragScrollStart += loopWidth;
+        adjusted = true;
+      }
+      guard = 0;
+      while (viewport.scrollLeft >= headStart && guard++ < 50) {
+        viewport.scrollLeft -= loopWidth;
+        if (adjustDragAnchor) dragScrollStart -= loopWidth;
+        adjusted = true;
+      }
+
+      if (adjusted) {
+        currentIndex = getRealIndex(getNearestCardIndex());
+      }
+    }
+
     viewport.addEventListener('scroll', function () {
+      if (viewport.classList.contains('is-dragging')) return;
+      if (!scrollingByCode) normalizeScrollPosition(false);
       if (scrollingByCode) return;
       if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
       scrollStopTimer = window.setTimeout(function () {
-        var nearest = 0;
-        var smallest = Number.POSITIVE_INFINITY;
-        cards.forEach(function (card, idx) {
-          var distance = Math.abs(card.offsetLeft - viewport.scrollLeft);
-          if (distance < smallest) {
-            smallest = distance;
-            nearest = idx;
-          }
-        });
-        currentIndex = nearest;
-        if (originalCards.length > 1) {
-          if (nearest < cloneCount) {
-            jumpWithoutAnimation(originalCards.length + nearest);
-            return;
-          }
-          if (nearest >= cards.length - cloneCount) {
-            jumpWithoutAnimation(cloneCount + (nearest - (cards.length - cloneCount)));
-            return;
-          }
-        }
+        currentIndex = getRealIndex(getNearestCardIndex());
       }, 120);
     }, { passive: true });
 
@@ -499,15 +544,84 @@
     viewport.addEventListener('focusout', restart);
     viewport.addEventListener('touchstart', function () { if (timer) window.clearInterval(timer); }, { passive: true });
     viewport.addEventListener('touchend', restart, { passive: true });
+
+    if (!viewport.dataset.dragScrollAttached && window.matchMedia('(min-width: 768px)').matches) {
+      viewport.dataset.dragScrollAttached = '1';
+      var dragActive = false;
+      var dragStartX = 0;
+      var dragMoved = false;
+      var dragThreshold = 5;
+
+      viewport.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        dragActive = true;
+        dragMoved = false;
+        dragStartX = e.pageX;
+        dragScrollStart = viewport.scrollLeft;
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+        viewport.classList.add('is-dragging');
+        if (timer) window.clearInterval(timer);
+        e.preventDefault();
+      });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!dragActive) return;
+        var dx = e.pageX - dragStartX;
+        if (Math.abs(dx) > dragThreshold) dragMoved = true;
+        viewport.scrollLeft = dragScrollStart - dx;
+        normalizeScrollPosition(true);
+      });
+
+      function endDragScroll() {
+        if (!dragActive) return;
+        dragActive = false;
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+
+        if (dragMoved) {
+          normalizeScrollPosition(true);
+          var realIndex = getRealIndex(getNearestCardIndex());
+          currentIndex = realIndex;
+          goTo(realIndex, true);
+          window.setTimeout(function () {
+            viewport.classList.remove('is-dragging');
+            restart();
+          }, 450);
+        } else {
+          viewport.classList.remove('is-dragging');
+          restart();
+        }
+      }
+
+      window.addEventListener('mouseup', endDragScroll);
+      viewport.addEventListener('click', function (e) {
+        if (!dragMoved) return;
+        e.preventDefault();
+        e.stopPropagation();
+        dragMoved = false;
+      }, true);
+    }
+
     window.addEventListener('resize', initReviewsCarousel, { passive: true, once: true });
 
-    jumpWithoutAnimation(cloneCount);
-    restart();
+    function startReviewsCarousel(attempt) {
+      if (!loopMetricsReady()) {
+        if ((attempt || 0) < 40) {
+          requestAnimationFrame(function () { startReviewsCarousel((attempt || 0) + 1); });
+        }
+        return;
+      }
+      jumpWithoutAnimation(cloneCount);
+      restart();
+    }
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { startReviewsCarousel(0); });
+    });
   }
 
   function initProjectsMobileCarousel() {
     if (!window.matchMedia('(max-width: 640px)').matches) return;
-    var grid = document.querySelector('.projects-grid');
+    var grid = document.querySelector('.projects-grid--carousel');
     if (!grid) return;
     grid.querySelectorAll('.project-clone').forEach(function (el) { el.remove(); });
     var baseCards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
@@ -1263,26 +1377,89 @@
     // ===== GALLERY LIGHTBOX =====
     var galleryItems = document.querySelectorAll('.gallery-item');
     if (galleryItems.length) {
+      var isEnGallery = document.documentElement.lang === 'en';
       var lightbox = document.createElement('div');
       lightbox.className = 'lightbox';
-      lightbox.innerHTML = '<div class="lightbox-overlay"></div><img class="lightbox-img" alt="" /><button class="lightbox-close" aria-label="Close">&times;</button>';
+      lightbox.innerHTML =
+        '<div class="lightbox-overlay"></div>' +
+        '<button class="lightbox-prev" type="button" aria-label="' + (isEnGallery ? 'Previous image' : 'Vorige foto') + '">' +
+          '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
+        '</button>' +
+        '<img class="lightbox-img" alt="" />' +
+        '<button class="lightbox-next" type="button" aria-label="' + (isEnGallery ? 'Next image' : 'Volgende foto') + '">' +
+          '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+        '</button>' +
+        '<button class="lightbox-close" type="button" aria-label="' + (isEnGallery ? 'Close' : 'Sluiten') + '">&times;</button>';
       document.body.appendChild(lightbox);
+
       var lbImg = lightbox.querySelector('.lightbox-img');
+      var lbPrev = lightbox.querySelector('.lightbox-prev');
+      var lbNext = lightbox.querySelector('.lightbox-next');
+      var lbClose = lightbox.querySelector('.lightbox-close');
+      var lbOverlay = lightbox.querySelector('.lightbox-overlay');
+      var currentItems = [];
+      var currentIndex = 0;
+
+      function showImage(index) {
+        if (!currentItems.length) return;
+        currentIndex = (index + currentItems.length) % currentItems.length;
+        var img = currentItems[currentIndex].querySelector('img');
+        lbImg.src = img.getAttribute('src');
+        lbImg.alt = img.getAttribute('alt') || '';
+        var hideNav = currentItems.length <= 1;
+        lbPrev.hidden = hideNav;
+        lbNext.hidden = hideNav;
+      }
+
+      function openLightbox(items, index) {
+        currentItems = items;
+        showImage(index);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
 
       galleryItems.forEach(function (item) {
         item.addEventListener('click', function () {
-          var src = item.querySelector('img').getAttribute('src');
-          var alt = item.querySelector('img').getAttribute('alt') || '';
-          lbImg.src = src;
-          lbImg.alt = alt;
-          lightbox.classList.add('open');
-          document.body.style.overflow = 'hidden';
+          var gallery = item.closest('.gallery');
+          var items = gallery
+            ? Array.prototype.slice.call(gallery.querySelectorAll('.gallery-item'))
+            : [item];
+          var index = items.indexOf(item);
+          openLightbox(items, index >= 0 ? index : 0);
         });
       });
 
-      lightbox.addEventListener('click', function () {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
+      lbPrev.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+      });
+
+      lbNext.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+      });
+
+      lbClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeLightbox();
+      });
+
+      lbOverlay.addEventListener('click', closeLightbox);
+
+      lbImg.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        else if (e.key === 'ArrowRight') showImage(currentIndex + 1);
       });
     }
   }

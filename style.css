@@ -1143,6 +1143,9 @@ p {
 .service-card h3 {
   font-size: 1.0625rem;
   margin-bottom: .5rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 .service-card p {
@@ -1305,6 +1308,10 @@ p {
 
 @media (max-width: 640px) {
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid--carousel {
     display: flex;
     grid-template-columns: none;
     gap: 1rem;
@@ -1314,10 +1321,10 @@ p {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .projects-grid::-webkit-scrollbar {
+  .projects-grid--carousel::-webkit-scrollbar {
     display: none;
   }
-  .projects-grid .project-card {
+  .projects-grid--carousel .project-card {
     flex: 0 0 100%;
     scroll-snap-align: start;
   }
@@ -1431,6 +1438,27 @@ p {
 
 .testimonials-viewport::-webkit-scrollbar {
   display: none;
+}
+
+@media (min-width: 768px) {
+  .testimonials-viewport {
+    cursor: grab;
+  }
+
+  .testimonials-viewport.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+    scroll-snap-type: none;
+  }
+
+  .testimonials-viewport.is-dragging .testimonial {
+    scroll-snap-align: none;
+  }
+
+  .testimonials-viewport.is-dragging * {
+    user-select: none;
+    pointer-events: none;
+  }
 }
 
 .testimonials-track {
@@ -2579,7 +2607,7 @@ p {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 500;
+  z-index: 3000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2608,10 +2636,10 @@ p {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+.lightbox-prev,
+.lightbox-next,
 .lightbox-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
   z-index: 2;
   width: 48px;
   height: 48px;
@@ -2620,7 +2648,6 @@ p {
   backdrop-filter: blur(8px);
   border: none;
   color: #fff;
-  font-size: 1.75rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2628,8 +2655,57 @@ p {
   transition: background .3s ease;
 }
 
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
+}
+
+.lightbox-prev[hidden],
+.lightbox-next[hidden] {
+  display: none;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover,
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-close {
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .lightbox-prev {
+    left: 0.75rem;
+  }
+
+  .lightbox-next {
+    right: 0.75rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-prev svg,
+  .lightbox-next svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 /* ========== PROJECT NAVIGATION ========== */
