@@ -756,7 +756,82 @@
     initV2();
   }
 
+  function initWeb3ContactForm(form, resultEl, messages) {
+    if (!form || !resultEl) return;
+    var isSubmitting = false;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (isSubmitting) return;
+      isSubmitting = true;
+      var fromPageInput = form.querySelector('input[name="from_page"]');
+      if (fromPageInput) {
+        fromPageInput.value = window.location.pathname + window.location.search;
+      }
+      var formData = new FormData(form);
+      var object = Object.fromEntries(formData);
+      var json = JSON.stringify(object);
+      resultEl.innerHTML = messages.waiting;
+      resultEl.style.display = 'block';
+      resultEl.className = 'form-result';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: json
+      })
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          if (data.success) {
+            resultEl.innerHTML = messages.success;
+            resultEl.className = 'form-result form-success';
+            resultEl.style.display = 'block';
+            form.reset();
+          } else {
+            resultEl.innerHTML = data.message || messages.error;
+            resultEl.className = 'form-result form-error';
+            resultEl.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          resultEl.innerHTML = messages.errorFallback;
+          resultEl.className = 'form-result form-error';
+          resultEl.style.display = 'block';
+        })
+        .then(function () {
+          isSubmitting = false;
+          setTimeout(function () { resultEl.style.display = 'none'; }, 4000);
+        })
+        .catch(function () {
+          isSubmitting = false;
+        });
+    });
+  }
+
   function initV2() {
+    var isEn = document.documentElement.lang === 'en';
+    var contactMessages = isEn
+      ? {
+          waiting: 'Please wait...',
+          success: 'Message sent successfully! I\u2019ll respond within 24 hours.',
+          error: 'Something went wrong.',
+          errorFallback: 'Something went wrong. Please try again or email info@imetech.nl.'
+        }
+      : {
+          waiting: 'Even geduld...',
+          success: 'Bericht succesvol verzonden! Ik reageer binnen 24 uur.',
+          error: 'Er is iets misgegaan.',
+          errorFallback: 'Er is iets misgegaan. Probeer het opnieuw of mail me direct.'
+        };
+
+    initWeb3ContactForm(
+      document.getElementById('contactForm'),
+      document.getElementById('contactResult'),
+      contactMessages
+    );
+    initWeb3ContactForm(
+      document.getElementById('floatingContactForm'),
+      document.getElementById('floatingContactResult'),
+      contactMessages
+    );
 
     // ===== LANGUAGE SWITCHER: map current page to equivalent in other language =====
     (function () {
@@ -1007,29 +1082,61 @@
       }
     }
 
-    // ===== COUNTER ANIMATION =====
-    var counters = document.querySelectorAll('[data-count]');
-    if (counters.length && !prefersReduced) {
-      var counterObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var el = entry.target;
-            var target = parseInt(el.getAttribute('data-count'), 10);
-            var suffix = el.getAttribute('data-suffix') || '';
-            var duration = 2800;
-            var start = performance.now();
-            function tick(now) {
-              var progress = Math.min((now - start) / duration, 1);
-              var eased = 1 - Math.pow(1 - progress, 3);
-              el.textContent = Math.round(target * eased) + suffix;
-              if (progress < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-            counterObserver.unobserve(el);
-          }
+    // ===== HERO STATS COUNTER (rAF after CSS fade-in; avoids IO/timer batching in Brave) =====
+    var HERO_STATS_REVEAL_MS = 1500;
+    var heroCountersStarted = false;
+
+    function animateHeroCounter(el, target, suffix) {
+      var duration = 2800;
+      var startTime = null;
+
+      function renderFrame(now) {
+        if (startTime === null) startTime = now;
+        var progress = Math.min((now - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(target * eased) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(renderFrame);
+        } else {
+          el.textContent = target + suffix;
+          el.dataset.animating = '0';
+        }
+      }
+
+      el.dataset.animating = '1';
+      requestAnimationFrame(renderFrame);
+    }
+
+    function runHeroCounter(el) {
+      if (el.dataset.counted === '1') return;
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      if (isNaN(target)) return;
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.dataset.counted = '1';
+      el.textContent = '0' + suffix;
+      if (prefersReduced) {
+        el.textContent = target + suffix;
+        return;
+      }
+      animateHeroCounter(el, target, suffix);
+    }
+
+    function startHeroCounters() {
+      if (heroCountersStarted) return;
+      var counters = document.querySelectorAll('.hero-stat-num[data-count]');
+      if (!counters.length) return;
+      heroCountersStarted = true;
+      counters.forEach(runHeroCounter);
+    }
+
+    function scheduleHeroCounters() {
+      if (heroCountersStarted) return;
+      var delay = prefersReduced ? 0 : HERO_STATS_REVEAL_MS;
+      window.setTimeout(function () {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(startHeroCounters);
         });
-      }, { threshold: 0.5 });
-      counters.forEach(function (el) { counterObserver.observe(el); });
+      }, delay);
     }
 
     // ===== SCROLL PROGRESS BAR =====
@@ -1181,29 +1288,148 @@
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           heroContent.classList.add('hero-entered');
+          scheduleHeroCounters();
         });
       });
+    } else {
+      scheduleHeroCounters();
     }
 
-    // ===== FLOATING CTA =====
-    var floatingBtn = document.querySelector('.floating-btn');
-    var floatingOpts = document.querySelector('.floating-options');
+    // ===== FLOATING CTA (contact hub panel) =====
     var floatingCta = document.querySelector('.floating-cta');
-    if (floatingBtn && floatingOpts) {
-      floatingBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        floatingOpts.classList.toggle('open');
-      });
-      document.addEventListener('click', function () {
-        floatingOpts.classList.remove('open');
-      });
+    if (floatingCta && /contact\.html$/i.test(window.location.pathname)) {
+      floatingCta.remove();
+      floatingCta = null;
     }
     if (floatingCta) {
+      var floatingBtn = floatingCta.querySelector('.floating-btn');
+      var floatingPanel = floatingCta.querySelector('.floating-panel');
+      var floatingBackdrop = floatingCta.querySelector('.floating-backdrop');
+      var floatingClose = floatingCta.querySelector('.floating-panel__close');
+      var floatingFields = floatingPanel && floatingPanel.querySelector('.floating-panel__fields');
+      var panelOpen = false;
+      var panelCloseTimer = null;
+      var panelAnimMs = prefersReduced ? 0 : 400;
+      var scrollCloseActive = false;
+      var panelScrollGrace = false;
+      var lastPageScrollY = window.scrollY;
+
+      function isPanelFieldsScrollTarget(target) {
+        return !!(floatingFields && target && floatingFields.contains(target));
+      }
+
+      function setPanelOpen(open) {
+        if (!floatingPanel || !floatingBtn) return;
+        if (panelOpen === open) return;
+        panelOpen = open;
+
+        if (panelCloseTimer) {
+          clearTimeout(panelCloseTimer);
+          panelCloseTimer = null;
+        }
+
+        floatingBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        floatingCta.classList.toggle('has-panel-open', open);
+
+        if (floatingBackdrop) {
+          if (open) {
+            floatingBackdrop.removeAttribute('hidden');
+            floatingBackdrop.setAttribute('aria-hidden', 'false');
+          } else {
+            floatingBackdrop.setAttribute('aria-hidden', 'true');
+          }
+        }
+
+        if (open) {
+          lastPageScrollY = window.scrollY;
+          scrollCloseActive = true;
+          panelScrollGrace = true;
+          window.setTimeout(function () {
+            lastPageScrollY = window.scrollY;
+            panelScrollGrace = false;
+          }, panelAnimMs + 80);
+          floatingPanel.removeAttribute('hidden');
+          floatingPanel.setAttribute('aria-hidden', 'false');
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              floatingPanel.classList.add('open');
+              if (floatingBackdrop) floatingBackdrop.classList.add('open');
+            });
+          });
+          window.setTimeout(function () {
+            if (!panelOpen) return;
+            var firstInput = floatingPanel.querySelector('input:not([type="hidden"]):not([type="checkbox"])');
+            if (firstInput) firstInput.focus();
+          }, panelAnimMs);
+        } else {
+          scrollCloseActive = false;
+          floatingPanel.classList.remove('open');
+          if (floatingBackdrop) floatingBackdrop.classList.remove('open');
+          floatingPanel.setAttribute('aria-hidden', 'true');
+          panelCloseTimer = window.setTimeout(function () {
+            panelCloseTimer = null;
+            if (!panelOpen) {
+              floatingPanel.setAttribute('hidden', '');
+              if (floatingBackdrop) floatingBackdrop.setAttribute('hidden', '');
+            }
+            floatingBtn.focus();
+          }, panelAnimMs);
+        }
+      }
+
+      if (floatingBtn && floatingPanel) {
+        floatingBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setPanelOpen(!panelOpen);
+        });
+        floatingPanel.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+        if (floatingBackdrop) {
+          floatingBackdrop.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setPanelOpen(false);
+          });
+        }
+        if (floatingClose) {
+          floatingClose.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setPanelOpen(false);
+          });
+        }
+        document.addEventListener('click', function () {
+          if (panelOpen) setPanelOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && panelOpen) setPanelOpen(false);
+        });
+
+        window.addEventListener('scroll', function () {
+          if (!panelOpen || !scrollCloseActive || panelScrollGrace) return;
+          if (Math.abs(window.scrollY - lastPageScrollY) > 2) {
+            setPanelOpen(false);
+          }
+        }, { passive: true });
+
+        document.addEventListener('wheel', function (e) {
+          if (!panelOpen) return;
+          if (isPanelFieldsScrollTarget(e.target)) return;
+          setPanelOpen(false);
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function (e) {
+          if (!panelOpen) return;
+          if (isPanelFieldsScrollTarget(e.target)) return;
+          setPanelOpen(false);
+        }, { passive: true });
+      }
+
       var footerEl = document.querySelector('.footer');
       if (footerEl && 'IntersectionObserver' in window) {
         var footerObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             floatingCta.classList.toggle('is-hidden-near-footer', entry.isIntersecting);
+            if (entry.isIntersecting && panelOpen) setPanelOpen(false);
           });
         }, { root: null, threshold: 0.1 });
         footerObserver.observe(footerEl);
