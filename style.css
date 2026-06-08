@@ -606,8 +606,27 @@ p {
 
 .hero-stats {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin-top: 2.5rem;
+}
+
+.hero-stat {
+  text-decoration: none;
+  color: inherit;
+  padding: .5rem .75rem;
+  margin: -.5rem -.75rem;
+  border-radius: 12px;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.hero-stat:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-stat:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
 }
 
 .hero-stat-num {
@@ -615,12 +634,39 @@ p {
   font-weight: 800;
   color: #fff;
   line-height: 1;
+  transition: color .25s ease, transform .25s ease, text-shadow .25s ease;
+}
+
+.hero-stat:hover .hero-stat-num {
+  color: #60a5fa;
+  transform: scale(1.06);
+  text-shadow: 0 0 24px rgba(96, 165, 250, 0.35);
 }
 
 .hero-stat-label {
   font-size: .8125rem;
   color: rgba(255, 255, 255, 0.6);
   margin-top: .25rem;
+  transition: color .25s ease;
+}
+
+.hero-stat:hover .hero-stat-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stat,
+  .hero-stat-num {
+    transition: none;
+  }
+
+  .hero-stat:hover {
+    transform: none;
+  }
+
+  .hero-stat:hover .hero-stat-num {
+    transform: none;
+  }
 }
 
 .hero-visual {
@@ -1409,6 +1455,7 @@ p {
 .section-testimonials {
   background: linear-gradient(160deg, #334155 0%, #3b4d66 50%, #334155 100%);
   color: #fff;
+  scroll-margin-top: 5rem;
 }
 
 .section-testimonials h2,
