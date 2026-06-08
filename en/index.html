@@ -45,18 +45,103 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "IMeTech Engineering",
-    "url": "https://imetech.nl/en/",
-    "logo": "https://imetech.nl/images/Logo%20blauw.webp",
-    "description": "Complete product development from idea to prototype. Mechanics, electronics, embedded systems and software.",
-    "telephone": "+31612385439",
-    "email": "info@imetech.nl",
-    "geo": { "@type": "GeoCoordinates", "latitude": "51.9175", "longitude": "6.4000" },
-    "address": { "@type": "PostalAddress", "streetAddress": "Vierde Broekdijk 1", "addressLocality": "Aalten", "postalCode": "7122JD", "addressRegion": "Gelderland", "addressCountry": "NL" },
-    "areaServed": [ { "@type": "Place", "name": "Achterhoek" }, { "@type": "City", "name": "Aalten" }, { "@type": "City", "name": "Doetinchem" } ],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3" },
-    "founder": { "@type": "Person", "name": "Ivo Mengerink", "jobTitle": "Senior Engineer & Founder", "alumniOf": "HAN University of Applied Sciences", "hasCredential": "Certified SolidWorks Professional (CSWP)" }
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://imetech.nl/#business",
+        "name": "IMeTech Engineering",
+        "url": "https://imetech.nl/en/",
+        "logo": "https://imetech.nl/images/Logo%20blauw.webp",
+        "image": "https://imetech.nl/images/og-default.webp",
+        "description": "Complete product development from idea to prototype. Mechanics, electronics, embedded systems and software.",
+        "telephone": "+31612385439",
+        "email": "info@imetech.nl",
+        "priceRange": "EUR",
+        "geo": { "@type": "GeoCoordinates", "latitude": "51.9107245", "longitude": "6.57443" },
+        "address": { "@type": "PostalAddress", "streetAddress": "Vierde Broekdijk 1", "addressLocality": "Aalten", "postalCode": "7122JD", "addressRegion": "Gelderland", "addressCountry": "NL" },
+        "areaServed": [
+          { "@type": "Place", "name": "Achterhoek" },
+          { "@type": "City", "name": "Aalten" },
+          { "@type": "City", "name": "Doetinchem" },
+          { "@type": "City", "name": "Winterswijk" }
+        ],
+        "sameAs": [
+          "https://g.page/r/CV9KoNq0t1d-EBM",
+          "https://www.linkedin.com/in/ivo-mengerink-30789b200/",
+          "https://www.instagram.com/imetech_engineering/"
+        ],
+        "hasMap": "https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z/data=!3m1!4b1!4m6!3m5!1s0x4eab831916edc06f:0x7e57b7b4daa04a5f!8m2!3d51.9107245!4d6.57443!16s%2Fg%2F11v0qj5q0j?entry=ttu",
+        "knowsAbout": [
+          "Product development",
+          "PCB design",
+          "Embedded systems",
+          "Mechanical design",
+          "Machine learning",
+          "Software development"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Engineering services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Development", "url": "https://imetech.nl/en/services/software-development/" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electronics & PCB Design", "url": "https://imetech.nl/en/services/electronics-pcb-design/" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mechanical Design & CAD", "url": "https://imetech.nl/en/services/mechanical-cad-drawings/" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Science & Machine Learning", "url": "https://imetech.nl/en/services/data-science-machine-learning/" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Development", "url": "https://imetech.nl/en/services/product-development/" } }
+          ]
+        },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3" },
+        "founder": { "@id": "https://imetech.nl/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://imetech.nl/#person",
+        "name": "Ivo Mengerink",
+        "jobTitle": "Senior Engineer & Founder",
+        "url": "https://imetech.nl/en/about/",
+        "image": "https://imetech.nl/images/WieBenIk.webp",
+        "alumniOf": "HAN University of Applied Sciences",
+        "hasCredential": "Certified SolidWorks Professional (CSWP)",
+        "worksFor": { "@id": "https://imetech.nl/#business" },
+        "sameAs": [
+          "https://www.linkedin.com/in/ivo-mengerink-30789b200/",
+          "https://www.instagram.com/imetech_engineering/"
+        ],
+        "address": { "@type": "PostalAddress", "streetAddress": "Vierde Broekdijk 1", "addressLocality": "Aalten", "postalCode": "7122JD", "addressRegion": "Gelderland", "addressCountry": "NL" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://imetech.nl/#website",
+        "name": "IMeTech Engineering",
+        "url": "https://imetech.nl/en/",
+        "publisher": { "@id": "https://imetech.nl/#business" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Nando Kolk" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "I had a very positive collaboration with Ivo. He took time to answer my questions clearly, thought along throughout the process, and delivered exactly what I had in mind.",
+        "datePublished": "2025-09-26",
+        "itemReviewed": { "@id": "https://imetech.nl/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Nico Provoost" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "Great discipline and clear communication - absolutely recommended.",
+        "datePublished": "2026-03-25",
+        "itemReviewed": { "@id": "https://imetech.nl/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Max van der A" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "Ivo helped me very well with developing a custom PCB, provided clear documentation, and remained available for follow-up questions.",
+        "datePublished": "2025-12-26",
+        "itemReviewed": { "@id": "https://imetech.nl/#business" }
+      }
+    ]
   }
   </script>
 </head>
@@ -67,11 +152,11 @@
   <noscript>
   <nav aria-label="Main navigation (noscript)">
     <a href="/en/">Home</a> |
-    <a href="/en/services.html">Services</a> |
+    <a href="/en/services/">Services</a> |
     <a href="/en/projects/">Projects</a> |
     <a href="/en/blog/">Blog</a> |
-    <a href="/en/about.html">About</a> |
-    <a href="/en/contact.html">Contact</a>
+    <a href="/en/about/">About</a> |
+    <a href="/en/contact/">Contact</a>
   </nav>
 </noscript>
 
@@ -94,7 +179,7 @@
           <p class="hero-sub">Full-stack product development in the Achterhoek. From PCB design and embedded firmware
             to mechanical engineering and prototyping &mdash; one engineer, every discipline.</p>
           <div class="hero-btns">
-            <a href="/en/contact.html" class="btn btn-primary">
+            <a href="/en/contact/" class="btn btn-primary">
               Discuss your project
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -113,7 +198,7 @@
               <div class="hero-stat-num" data-count="19" data-suffix="+">0</div>
               <div class="hero-stat-label">Projects delivered</div>
             </a>
-            <a href="/en/services.html" class="hero-stat">
+            <a href="/en/services/" class="hero-stat">
               <div class="hero-stat-num" data-count="5">0</div>
               <div class="hero-stat-label">Disciplines</div>
             </a>
@@ -174,7 +259,7 @@
           <p>Every project gets the full picture &mdash; no handoffs, no communication gaps.</p>
         </div>
         <div class="services-grid">
-          <a href="/en/services.html#software" class="service-card reveal stagger-1">
+          <a href="/en/services/#software" class="service-card reveal stagger-1">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -185,7 +270,7 @@
             <h3>Software</h3>
             <p>C++ &middot; Python &middot; PLC</p>
           </a>
-          <a href="/en/services.html#electronics" class="service-card reveal stagger-2">
+          <a href="/en/services/#electronics" class="service-card reveal stagger-2">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -194,7 +279,7 @@
             <h3>Electronics & PCB</h3>
             <p>Schematic &middot; Layout &middot; IoT</p>
           </a>
-          <a href="/en/services.html#mechanics" class="service-card reveal stagger-3">
+          <a href="/en/services/#mechanics" class="service-card reveal stagger-3">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="3" />
@@ -205,7 +290,7 @@
             <h3>Mechanics</h3>
             <p>SolidWorks &middot; 3D Print &middot; CNC</p>
           </a>
-          <a href="/en/services.html#datascience" class="service-card reveal stagger-4">
+          <a href="/en/services/#datascience" class="service-card reveal stagger-4">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="20" x2="18" y2="10" />
@@ -216,7 +301,7 @@
             <h3>Data Science</h3>
             <p>ML &middot; Analytics &middot; AI</p>
           </a>
-          <a href="/en/services.html#product" class="service-card reveal stagger-5">
+          <a href="/en/services/#product" class="service-card reveal stagger-5">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -247,7 +332,7 @@
               hands-on experience at R2R Engineering, and currently pursuing an MSc in Engineering Systems at HAN. I
               help businesses in the Achterhoek turn technical challenges into working solutions.</p>
             <p>One point of contact for mechanics, electronics, software, and everything in between.</p>
-            <a href="/en/about.html" class="btn btn-primary">More about me <svg width="18" height="18"
+            <a href="/en/about/" class="btn btn-primary">More about me <svg width="18" height="18"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg></a>
@@ -278,7 +363,7 @@
           <p>From concept to delivered product &mdash; click any project for full technical details.</p>
         </div>
         <div class="projects-grid projects-grid--carousel">
-          <a href="/en/projects/carryvision-plant-camera-system.html" class="project-card reveal stagger-1"
+          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-1"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/CarryVision01.webp"
                 alt="CarryVision plant camera system with ESP32-CAM and Raspberry Pi" loading="lazy"
@@ -289,7 +374,7 @@
               <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/rollator-control.html" class="project-card reveal stagger-2"
+          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-2"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/rollatorBesturing01.webp"
                 alt="Rollator control unit with PCB and embedded firmware" loading="lazy"
@@ -300,7 +385,7 @@
               <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/scd30-address-board.html" class="project-card reveal stagger-3"
+          <a href="/en/projects/scd30-address-board/" class="project-card reveal stagger-3"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/SCD30_PCB02.webp"
                 alt="SCD30 Address Board PCB for CO2 sensors" loading="lazy" data-parallax="project-image" /></div>
@@ -310,7 +395,7 @@
               <div class="project-tags"><span>Modbus</span><span>RS-485</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/en/projects/sketch-to-render.html" class="project-card reveal stagger-4"
+          <a href="/en/projects/sketch-to-render/" class="project-card reveal stagger-4"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/SketchToRender04.webp"
                 alt="Product development from sketch to 3D render" loading="lazy" data-parallax="project-image" /></div>
@@ -320,7 +405,7 @@
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Render</span></div>
             </div>
           </a>
-          <a href="/en/projects/control-panels.html" class="project-card reveal stagger-5"
+          <a href="/en/projects/control-panels/" class="project-card reveal stagger-5"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/Besturingskast01.webp"
                 alt="Control cabinet for air quality monitoring with PLC" loading="lazy"
@@ -331,7 +416,7 @@
               <div class="project-tags"><span>PLC</span><span>Sensors</span><span>Web</span></div>
             </div>
           </a>
-          <a href="/en/projects/self-balancing-cube.html" class="project-card reveal stagger-6"
+          <a href="/en/projects/self-balancing-cube/" class="project-card reveal stagger-6"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/SelfBalancingCube01.webp"
                 alt="Self-balancing cube prototype with flywheels" loading="lazy" data-parallax="project-image" /></div>
@@ -426,7 +511,7 @@
       <div class="wrap reveal-blur heading-animate">
         <h2>Ready to bring your idea to life?</h2>
         <p>Let's discuss your technical challenge. Free discovery call, no obligations.</p>
-        <a href="/en/contact.html" class="btn btn-primary"
+        <a href="/en/contact/" class="btn btn-primary"
           style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />

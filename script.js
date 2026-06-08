@@ -93,8 +93,8 @@
       var isEn = document.documentElement.lang === 'en';
       var cookieTitle = isEn ? 'Cookie preferences' : 'Cookievoorkeuren';
       var cookieText = isEn
-        ? 'This website uses cookies for analytics and functionality. Read our <a href="/en/privacy-policy.html">privacy policy</a>.'
-        : 'Deze website gebruikt cookies voor analyse en functionaliteit. Lees ons <a href="/privacyverklaring.html">privacybeleid</a>.';
+        ? 'This website uses cookies for analytics and functionality. Read our <a href="/en/privacy-policy/">privacy policy</a>.'
+        : 'Deze website gebruikt cookies voor analyse en functionaliteit. Lees ons <a href="/privacyverklaring/">privacybeleid</a>.';
       var cookieNecessary = isEn ? 'Necessary only' : 'Alleen noodzakelijk';
       var cookieAccept = isEn ? 'Accept all' : 'Alles accepteren';
       banner.innerHTML = '<div class="consent-inner">' +
@@ -837,59 +837,109 @@
     (function () {
       var nlToEn = {
         '/': '/en/',
-        '/index.html': '/en/index.html',
-        '/over-mij.html': '/en/about.html',
-        '/diensten.html': '/en/services.html',
-        '/contact.html': '/en/contact.html',
-        '/review.html': '/en/review.html',
-        '/disclaimer.html': '/en/disclaimer.html',
-        '/algemenevoorwaarden.html': '/en/termsandconditions.html',
-        '/privacyverklaring.html': '/en/privacy-policy.html',
-        '/404.html': '/en/404.html',
-        '/diensten/softwareontwikkeling.html': '/en/services/software-development.html',
-        '/diensten/elektronica-pcb-ontwerp.html': '/en/services/electronics-pcb-design.html',
-        '/diensten/mechanica-cad-tekeningen.html': '/en/services/mechanical-cad-drawings.html',
-        '/diensten/data-science-machine-learning.html': '/en/services/data-science-machine-learning.html',
-        '/diensten/productontwikkeling.html': '/en/services/product-development.html',
+        '/index.html': '/en/',
+        '/over-mij/': '/en/about/',
+        '/over-mij.html': '/en/about/',
+        '/diensten/': '/en/services/',
+        '/diensten.html': '/en/services/',
+        '/contact/': '/en/contact/',
+        '/contact.html': '/en/contact/',
+        '/review/': '/en/review/',
+        '/review.html': '/en/review/',
+        '/disclaimer/': '/en/disclaimer/',
+        '/disclaimer.html': '/en/disclaimer/',
+        '/algemenevoorwaarden/': '/en/termsandconditions/',
+        '/algemenevoorwaarden.html': '/en/termsandconditions/',
+        '/privacyverklaring/': '/en/privacy-policy/',
+        '/privacyverklaring.html': '/en/privacy-policy/',
+        '/404/': '/en/404/',
+        '/404.html': '/en/404/',
+        '/diensten/softwareontwikkeling/': '/en/services/software-development/',
+        '/diensten/softwareontwikkeling.html': '/en/services/software-development/',
+        '/diensten/elektronica-pcb-ontwerp/': '/en/services/electronics-pcb-design/',
+        '/diensten/elektronica-pcb-ontwerp.html': '/en/services/electronics-pcb-design/',
+        '/diensten/mechanica-cad-tekeningen/': '/en/services/mechanical-cad-drawings/',
+        '/diensten/mechanica-cad-tekeningen.html': '/en/services/mechanical-cad-drawings/',
+        '/diensten/data-science-machine-learning/': '/en/services/data-science-machine-learning/',
+        '/diensten/data-science-machine-learning.html': '/en/services/data-science-machine-learning/',
+        '/diensten/productontwikkeling/': '/en/services/product-development/',
+        '/diensten/productontwikkeling.html': '/en/services/product-development/',
         '/projecten/': '/en/projects/',
-        '/projecten/index.html': '/en/projects/index.html',
-        '/projecten/besturing-rollator.html': '/en/projects/rollator-control.html',
-        '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube.html',
-        '/projecten/besturingskasten.html': '/en/projects/control-panels.html',
-        '/projecten/6-dof-spacemouse.html': '/en/projects/6-dof-spacemouse.html',
-        '/projecten/letterklok.html': '/en/projects/letter-clock.html',
-        '/projecten/laptop-stand.html': '/en/projects/laptop-stand.html',
-        '/projecten/smartlamp-pcb.html': '/en/projects/smartlamp-pcb.html',
-        '/projecten/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb.html',
-        '/projecten/magnetische-levitatie-plantenpot.html': '/en/projects/magnetic-levitation-planter.html',
-        '/projecten/dubbele-labvoeding.html': '/en/projects/dual-lab-power-supply.html',
-        '/projecten/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station.html',
-        '/projecten/fume-extractor.html': '/en/projects/fume-extractor.html',
-        '/projecten/plantsappers-3d-productietekeningen.html': '/en/projects/plant-juice-press-3d-production-drawings.html',
-        '/projecten/adresprint-scd30-pcb.html': '/en/projects/scd30-address-board.html',
-        '/projecten/keypad-controller-pcb.html': '/en/projects/keypad-controller-pcb.html',
-        '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render.html',
-        '/projecten/2x2-steering-robot.html': '/en/projects/2x2-steering-robot.html',
-        '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat.html',
-        '/projecten/carryvision-plantcamerasysteem.html': '/en/projects/carryvision-plant-camera-system.html',
+        '/projecten/index.html': '/en/projects/',
+        '/projecten/besturing-rollator/': '/en/projects/rollator-control/',
+        '/projecten/besturing-rollator.html': '/en/projects/rollator-control/',
+        '/projecten/zelfbalancerende-kubus/': '/en/projects/self-balancing-cube/',
+        '/projecten/zelfbalancerende-kubus.html': '/en/projects/self-balancing-cube/',
+        '/projecten/besturingskasten/': '/en/projects/control-panels/',
+        '/projecten/besturingskasten.html': '/en/projects/control-panels/',
+        '/projecten/6-dof-spacemouse/': '/en/projects/6-dof-spacemouse/',
+        '/projecten/6-dof-spacemouse.html': '/en/projects/6-dof-spacemouse/',
+        '/projecten/letterklok/': '/en/projects/letter-clock/',
+        '/projecten/letterklok.html': '/en/projects/letter-clock/',
+        '/projecten/laptop-stand/': '/en/projects/laptop-stand/',
+        '/projecten/laptop-stand.html': '/en/projects/laptop-stand/',
+        '/projecten/smartlamp-pcb/': '/en/projects/smartlamp-pcb/',
+        '/projecten/smartlamp-pcb.html': '/en/projects/smartlamp-pcb/',
+        '/projecten/usb-c-laad-pcb/': '/en/projects/usb-c-charging-pcb/',
+        '/projecten/usb-c-laad-pcb.html': '/en/projects/usb-c-charging-pcb/',
+        '/projecten/magnetische-levitatie-plantenpot/': '/en/projects/magnetic-levitation-planter/',
+        '/projecten/magnetische-levitatie-plantenpot.html': '/en/projects/magnetic-levitation-planter/',
+        '/projecten/dubbele-labvoeding/': '/en/projects/dual-lab-power-supply/',
+        '/projecten/dubbele-labvoeding.html': '/en/projects/dual-lab-power-supply/',
+        '/projecten/multifunctioneel-soldeerstation/': '/en/projects/multifunctional-soldering-station/',
+        '/projecten/multifunctioneel-soldeerstation.html': '/en/projects/multifunctional-soldering-station/',
+        '/projecten/fume-extractor/': '/en/projects/fume-extractor/',
+        '/projecten/fume-extractor.html': '/en/projects/fume-extractor/',
+        '/projecten/plantsappers-3d-productietekeningen/': '/en/projects/plant-juice-press-3d-production-drawings/',
+        '/projecten/plantsappers-3d-productietekeningen.html': '/en/projects/plant-juice-press-3d-production-drawings/',
+        '/projecten/adresprint-scd30-pcb/': '/en/projects/scd30-address-board/',
+        '/projecten/adresprint-scd30-pcb.html': '/en/projects/scd30-address-board/',
+        '/projecten/keypad-controller-pcb/': '/en/projects/keypad-controller-pcb/',
+        '/projecten/keypad-controller-pcb.html': '/en/projects/keypad-controller-pcb/',
+        '/projecten/schets-tot-render/': '/en/projects/sketch-to-render/',
+        '/projecten/schets-tot-render.html': '/en/projects/sketch-to-render/',
+        '/projecten/2x2-steering-robot/': '/en/projects/2x2-steering-robot/',
+        '/projecten/2x2-steering-robot.html': '/en/projects/2x2-steering-robot/',
+        '/projecten/poc-proximity-chat/': '/en/projects/poc-proximity-chat/',
+        '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat/',
+        '/projecten/carryvision-plantcamerasysteem/': '/en/projects/carryvision-plant-camera-system/',
+        '/projecten/carryvision-plantcamerasysteem.html': '/en/projects/carryvision-plant-camera-system/',
         '/blog/': '/en/blog/',
-        '/blog/index.html': '/en/blog/index.html',
-        '/blog/machine-learning-productontwikkeling.html': '/en/blog/machine-learning-product-development.html',
-        '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems.html',
-        '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow.html',
-        '/blog/concept-ontwikkeling-iteratief-ontwerp.html': '/en/blog/concept-development-iterative-design.html',
-        '/blog/embedded-systemen.html': '/en/blog/embedded-systems.html',
-        '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design.html',
-        '/blog/esp32-vs-stm32.html': '/en/blog/esp32-vs-stm32.html',
-        '/blog/prototype-naar-productie.html': '/en/blog/prototype-to-production.html',
-        '/blog/python-industriele-plc-integratie.html': '/en/blog/python-industrial-plc-integration.html',
-        '/blog/datagedreven-productie.html': '/en/blog/data-driven-manufacturing.html',
-        '/blog/effectieve-dashboards-niet-technisch.html': '/en/blog/effective-dashboards-non-technical.html',
-        '/blog/automatiseren-sensordata-annotatie.html': '/en/blog/automating-sensor-data-annotation.html'
+        '/blog/index.html': '/en/blog/',
+        '/blog/machine-learning-productontwikkeling/': '/en/blog/machine-learning-product-development/',
+        '/blog/machine-learning-productontwikkeling.html': '/en/blog/machine-learning-product-development/',
+        '/blog/softwareontwikkeling-embedded-systemen/': '/en/blog/software-development-embedded-systems/',
+        '/blog/softwareontwikkeling-embedded-systemen.html': '/en/blog/software-development-embedded-systems/',
+        '/blog/van-idee-tot-prototype-workflow/': '/en/blog/from-idea-to-prototype-workflow/',
+        '/blog/van-idee-tot-prototype-workflow.html': '/en/blog/from-idea-to-prototype-workflow/',
+        '/blog/concept-ontwikkeling-iteratief-ontwerp/': '/en/blog/concept-development-iterative-design/',
+        '/blog/concept-ontwikkeling-iteratief-ontwerp.html': '/en/blog/concept-development-iterative-design/',
+        '/blog/embedded-systemen/': '/en/blog/embedded-systems/',
+        '/blog/embedded-systemen.html': '/en/blog/embedded-systems/',
+        '/blog/betrouwbare-printplaten-ontwerpen/': '/en/blog/reliable-pcb-design/',
+        '/blog/betrouwbare-printplaten-ontwerpen.html': '/en/blog/reliable-pcb-design/',
+        '/blog/esp32-vs-stm32/': '/en/blog/esp32-vs-stm32/',
+        '/blog/esp32-vs-stm32.html': '/en/blog/esp32-vs-stm32/',
+        '/blog/prototype-naar-productie/': '/en/blog/prototype-to-production/',
+        '/blog/prototype-naar-productie.html': '/en/blog/prototype-to-production/',
+        '/blog/python-industriele-plc-integratie/': '/en/blog/python-industrial-plc-integration/',
+        '/blog/python-industriele-plc-integratie.html': '/en/blog/python-industrial-plc-integration/',
+        '/blog/datagedreven-productie/': '/en/blog/data-driven-manufacturing/',
+        '/blog/datagedreven-productie.html': '/en/blog/data-driven-manufacturing/',
+        '/blog/effectieve-dashboards-niet-technisch/': '/en/blog/effective-dashboards-non-technical/',
+        '/blog/effectieve-dashboards-niet-technisch.html': '/en/blog/effective-dashboards-non-technical/',
+        '/blog/automatiseren-sensordata-annotatie/': '/en/blog/automating-sensor-data-annotation/',
+        '/blog/automatiseren-sensordata-annotatie.html': '/en/blog/automating-sensor-data-annotation/'
       };
 
       var enToNl = {};
       Object.keys(nlToEn).forEach(function (k) { enToNl[nlToEn[k]] = k; });
+      Object.keys(nlToEn).forEach(function (k) {
+        if (k.indexOf('.html') !== -1) {
+          var enHtml = nlToEn[k].replace(/\/$/, '.html');
+          enToNl[enHtml] = k.replace(/\.html$/, '/');
+        }
+      });
 
       var path = window.location.pathname.replace(/\/$/, '') || '/';
       if (path === '') path = '/';
@@ -911,7 +961,7 @@
         } else if (!isEn && title === 'English') {
           a.setAttribute('href', otherUrl);
         } else if (!isEn && title === 'Nederlands') {
-          a.setAttribute('href', path === '/index.html' ? '/' : path);
+          a.setAttribute('href', path === '/' ? '/' : path);
         }
       });
     })();
@@ -955,10 +1005,10 @@
         var lp = linkPath(link.getAttribute('href'));
         if (!lp) return false;
         if (lp === '/en' || lp === '/en/') {
-          return path === '/en' || path === '/en/index.html';
+          return path === '/en' || path === '/en/';
         }
         if (lp === '' || lp === '/') {
-          return path === '' || path === '/' || path === '/index.html';
+          return path === '' || path === '/' || path === '/';
         }
         var base = lp.replace(/\.html$/, '');
         return path === lp || path === base || path.indexOf(base + '/') === 0;
@@ -1297,7 +1347,7 @@
 
     // ===== FLOATING CTA (contact hub panel) =====
     var floatingCta = document.querySelector('.floating-cta');
-    if (floatingCta && /contact\.html$/i.test(window.location.pathname)) {
+    if (floatingCta && /\/contact\/?$/i.test(window.location.pathname)) {
       floatingCta.remove();
       floatingCta = null;
     }
@@ -1581,17 +1631,24 @@
       var contactFormSection = document.getElementById('contact-form');
       if (!contactFormSection) return;
       var isContactPage = window.location.pathname.indexOf('contact') !== -1;
+      var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
       document.addEventListener('click', function (e) {
         var link = e.target.closest('a[href]');
-        if (!link) return;
+        if (!link || link.closest('.lang, .mobile-lang')) return;
         var href = link.getAttribute('href');
-        if (href === '#contact-form' || href.indexOf('contact.html#contact-form') !== -1) {
+        if (href === '#contact-form' || href.indexOf('contact#contact-form') !== -1 || href.indexOf('contact/#contact-form') !== -1) {
           e.preventDefault();
           contactFormSection.scrollIntoView({ behavior: 'smooth' });
           var nameInput = contactFormSection.querySelector('input[name="name"]');
           if (nameInput) setTimeout(function () { nameInput.focus(); }, 600);
+          return;
         }
-        if (isContactPage && href.indexOf('contact.html') !== -1) {
+        if (!isContactPage) return;
+        var linkPath = '';
+        try {
+          linkPath = new URL(href, window.location.origin).pathname.replace(/\/$/, '') || '/';
+        } catch (err) { return; }
+        if (linkPath === currentPath) {
           e.preventDefault();
           contactFormSection.scrollIntoView({ behavior: 'smooth' });
           var ni = contactFormSection.querySelector('input[name="name"]');

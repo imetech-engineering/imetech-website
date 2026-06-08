@@ -18,7 +18,7 @@
 
   <!-- Project Images - Adresprint SCD30 PCB -->
   <url>
-    <loc>https://imetech.nl/projecten/adresprint-scd30-pcb.html</loc>
+    <loc>https://imetech.nl/projecten/adresprint-scd30-pcb/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/SCD30_PCB01.webp</image:loc>
       <image:title>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren</image:title>
@@ -43,7 +43,7 @@
 
   <!-- Project Images - Keypad Controller PCB -->
   <url>
-    <loc>https://imetech.nl/projecten/keypad-controller-pcb.html</loc>
+    <loc>https://imetech.nl/projecten/keypad-controller-pcb/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/KeypadControllerPCB01.webp</image:loc>
       <image:title>Keypad Controller PCB - ESP32 DevKit detail</image:title>
@@ -58,7 +58,7 @@
 
   <!-- Project Images - SmartLamp PCB -->
   <url>
-    <loc>https://imetech.nl/projecten/smartlamp-pcb.html</loc>
+    <loc>https://imetech.nl/projecten/smartlamp-pcb/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/3D_SmartLamp PCB_RB.webp</image:loc>
       <image:title>SmartLamp PCB - RGBW LED driver</image:title>
@@ -73,7 +73,7 @@
 
   <!-- Project Images - Schets tot Render -->
   <url>
-    <loc>https://imetech.nl/projecten/schets-tot-render.html</loc>
+    <loc>https://imetech.nl/projecten/schets-tot-render/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/SketchToRender01.webp</image:loc>
       <image:title>Schets tot Render - Eerste schets</image:title>
@@ -88,7 +88,7 @@
 
   <!-- Project Images - Plantsappers -->
   <url>
-    <loc>https://imetech.nl/projecten/plantsappers-3d-productietekeningen.html</loc>
+    <loc>https://imetech.nl/projecten/plantsappers-3d-productietekeningen/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/plantsappersHero.webp</image:loc>
       <image:title>Plantsappers 3D Productietekeningen</image:title>
@@ -98,7 +98,7 @@
 
   <!-- Blog Images - Embedded Systemen -->
   <url>
-    <loc>https://imetech.nl/blog/embedded-systemen.html</loc>
+    <loc>https://imetech.nl/blog/embedded-systemen/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/EmbeddedSysteemArchitectuur.webp</image:loc>
       <image:title>Embedded Systemen Architectuur</image:title>
@@ -108,7 +108,7 @@
 
   <!-- Blog Images - Machine Learning productontwikkeling -->
   <url>
-    <loc>https://imetech.nl/blog/machine-learning-productontwikkeling.html</loc>
+    <loc>https://imetech.nl/blog/machine-learning-productontwikkeling/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/machineLearningHero.webp</image:loc>
       <image:title>Machine Learning in productontwikkeling: van data tot slimme producten</image:title>
@@ -123,7 +123,7 @@
 
   <!-- Blog Images - Betrouwbare Printplaten -->
   <url>
-    <loc>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html</loc>
+    <loc>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/DesignStepsPCB.webp</image:loc>
       <image:title>Ontwerpstappen voor Betrouwbare PCB's</image:title>
@@ -138,7 +138,7 @@
 
   <!-- About Page Images -->
   <url>
-    <loc>https://imetech.nl/over-mij.html</loc>
+    <loc>https://imetech.nl/over-mij/</loc>
     <image:image>
       <image:loc>https://imetech.nl/images/WieBenIk.webp</image:loc>
       <image:title>Ivo Mengerink - Engineer Aalten</image:title>

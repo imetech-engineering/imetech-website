@@ -6,31 +6,31 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 
 ## Services
 
-- Software Development: https://imetech.nl/diensten/softwareontwikkeling.html
-- Electronics & PCB Design: https://imetech.nl/diensten/elektronica-pcb-ontwerp.html
-- Mechanical Design & CAD: https://imetech.nl/diensten/mechanica-cad-tekeningen.html
-- Data Science & Machine Learning: https://imetech.nl/diensten/data-science-machine-learning.html
-- Product Development: https://imetech.nl/diensten/productontwikkeling.html
+- Software Development: https://imetech.nl/diensten/softwareontwikkeling/
+- Electronics & PCB Design: https://imetech.nl/diensten/elektronica-pcb-ontwerp/
+- Mechanical Design & CAD: https://imetech.nl/diensten/mechanica-cad-tekeningen/
+- Data Science & Machine Learning: https://imetech.nl/diensten/data-science-machine-learning/
+- Product Development: https://imetech.nl/diensten/productontwikkeling/
 
 ## Selected Projects
 
-- CarryVision Plant Camera System (ESP32-CAM, Raspberry Pi, IoT): https://imetech.nl/projecten/carryvision-plantcamerasysteem.html
-- Rollator Control Unit for Parkinson's patients (ESP32-C3, PCB, embedded): https://imetech.nl/projecten/besturing-rollator.html
-- SCD30 Address Board PCB (Modbus RTU, RS-485, CO2 sensors): https://imetech.nl/projecten/adresprint-scd30-pcb.html
-- Air Quality Control Panels (PLC, sensors, web dashboard): https://imetech.nl/projecten/besturingskasten.html
-- Self-Balancing Cube (robotics, control engineering, flywheels): https://imetech.nl/projecten/zelfbalancerende-kubus.html
-- 6-DOF SpaceMouse (3D input device, embedded): https://imetech.nl/projecten/6-dof-spacemouse.html
-- Sketch to Render (SolidWorks, 3D CAD, photorealistic rendering): https://imetech.nl/projecten/schets-tot-render.html
+- CarryVision Plant Camera System (ESP32-CAM, Raspberry Pi, IoT): https://imetech.nl/projecten/carryvision-plantcamerasysteem/
+- Rollator Control Unit for Parkinson's patients (ESP32-C3, PCB, embedded): https://imetech.nl/projecten/besturing-rollator/
+- SCD30 Address Board PCB (Modbus RTU, RS-485, CO2 sensors): https://imetech.nl/projecten/adresprint-scd30-pcb/
+- Air Quality Control Panels (PLC, sensors, web dashboard): https://imetech.nl/projecten/besturingskasten/
+- Self-Balancing Cube (robotics, control engineering, flywheels): https://imetech.nl/projecten/zelfbalancerende-kubus/
+- 6-DOF SpaceMouse (3D input device, embedded): https://imetech.nl/projecten/6-dof-spacemouse/
+- Sketch to Render (SolidWorks, 3D CAD, photorealistic rendering): https://imetech.nl/projecten/schets-tot-render/
 - All projects: https://imetech.nl/projecten/
 
 ## Blog (Technical Articles)
 
-- Machine Learning in Product Development: https://imetech.nl/blog/machine-learning-productontwikkeling.html
-- ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32.html
-- Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen.html
-- Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen.html
-- From Prototype to Production: https://imetech.nl/blog/prototype-naar-productie.html
-- Python Industrial PLC Integration: https://imetech.nl/blog/python-industriele-plc-integratie.html
+- Machine Learning in Product Development: https://imetech.nl/blog/machine-learning-productontwikkeling/
+- ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32/
+- Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/
+- Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen/
+- From Prototype to Production: https://imetech.nl/blog/prototype-naar-productie/
+- Python Industrial PLC Integration: https://imetech.nl/blog/python-industriele-plc-integratie/
 - All blog posts: https://imetech.nl/blog/
 
 ## About
@@ -38,14 +38,14 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 - Founder: Ivo Mengerink, BSc Mechatronics (Saxion/HAN), CSWP Certified
 - Location: Aalten, Achterhoek, Gelderland, Netherlands
 - Client rating: 5.0/5.0
-- About page: https://imetech.nl/over-mij.html
+- About page: https://imetech.nl/over-mij/
 
 ## Contact
 
 - Email: info@imetech.nl
 - Phone: +31 6 12385439
 - Address: Vierde Broekdijk 1, 7122JD Aalten, Netherlands
-- Contact page: https://imetech.nl/contact.html
+- Contact page: https://imetech.nl/contact/
 
 ## Languages
 
