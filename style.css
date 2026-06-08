@@ -2855,7 +2855,7 @@ body:has(#contact-form) .page-hero {
   }
 
   #contact-form .contact-card--stacked .contact-card-body {
-    align-items: start;
+    align-items: center;
   }
 
   #contact-form .contact-card h3 {
