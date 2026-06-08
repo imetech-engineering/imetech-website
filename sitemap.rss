@@ -90,9 +90,34 @@
       <description>Projectpagina voor Besturingskasten</description>
     </item>
     <item>
+      <title>CarryVision Plantcamerasysteem</title>
+      <link>https://imetech.nl/projecten/carryvision-plantcamerasysteem/</link>
+      <description>ESP32-CAM timelapse systeem voor kwekerijen met Raspberry Pi hub en webdashboard.</description>
+    </item>
+    <item>
+      <title>SmartLamp PCB</title>
+      <link>https://imetech.nl/projecten/smartlamp-pcb/</link>
+      <description>RGBW LED driver PCB met ESP32, Li-Ion accu en USB-C opladen.</description>
+    </item>
+    <item>
+      <title>Automatiseren van sensordata-annotatie</title>
+      <link>https://imetech.nl/blog/automatiseren-sensordata-annotatie/</link>
+      <description>Hoe je annotatie van sensordata voor machine learning automatiseert met rule-based labeling, active learning en weak supervision.</description>
+    </item>
+    <item>
       <title>Machine Learning in productontwikkeling</title>
       <link>https://imetech.nl/blog/machine-learning-productontwikkeling/</link>
       <description>Blog over machine learning in productontwikkeling: trainingsdata, toepassingen in ouderenzorg en navigatie.</description>
+    </item>
+    <item>
+      <title>Datagedreven besluitvorming voor kleine productiebedrijven</title>
+      <link>https://imetech.nl/blog/datagedreven-productie/</link>
+      <description>Praktische gids voor datagedreven productie bij kleine en middelgrote bedrijven: OEE, dashboards en betere beslissingen.</description>
+    </item>
+    <item>
+      <title>Dashboards bouwen die niet-technische mensen gebruiken</title>
+      <link>https://imetech.nl/blog/effectieve-dashboards-niet-technisch/</link>
+      <description>Ontwerpprincipes voor dashboards die niet-technische stakeholders daadwerkelijk gebruiken.</description>
     </item>
     <item>
       <title>Softwareontwikkeling voor embedded systemen</title>
@@ -108,6 +133,21 @@
       <title>Conceptontwikkeling en iteratief ontwerp</title>
       <link>https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/</link>
       <description>Conceptontwikkeling en iteratief ontwerp: van idee tot werkend product.</description>
+    </item>
+    <item>
+      <title>Van prototype naar kleine serie productie</title>
+      <link>https://imetech.nl/blog/prototype-naar-productie/</link>
+      <description>Praktische gids over de overgang van werkend prototype naar kleine serie productie: PCB, behuizingen en DFM.</description>
+    </item>
+    <item>
+      <title>Python koppelen aan industriële PLC's</title>
+      <link>https://imetech.nl/blog/python-industriele-plc-integratie/</link>
+      <description>Hoe je Python verbindt met industriële PLC's via OPC UA en Modbus voor datapipelines en dashboards.</description>
+    </item>
+    <item>
+      <title>ESP32 vs STM32</title>
+      <link>https://imetech.nl/blog/esp32-vs-stm32/</link>
+      <description>Praktische vergelijking van ESP32 en STM32 microcontrollers voor IoT, industriële en embedded projecten.</description>
     </item>
     <item>
       <title>Embedded Systemen Blog</title>

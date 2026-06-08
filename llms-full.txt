@@ -1,0 +1,111 @@
+# IMeTech Engineering — Full Site Index
+
+> Complete product development from idea to working prototype. One engineer, every discipline.
+
+Short index: https://imetech.nl/llms.txt
+RSS feed: https://imetech.nl/sitemap.rss
+Sitemap: https://imetech.nl/sitemap.xml
+
+IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, based in Aalten, Achterhoek, Gelderland, the Netherlands. Full-stack product development: mechanical design (SolidWorks, CSWP certified), electronics and PCB design, embedded software (C++, Python, PLC), data science and machine learning, from concept through prototype to production.
+
+## Company
+
+- Founder: Ivo Mengerink, BSc Mechatronics (Saxion/HAN), CSWP Certified SolidWorks Professional
+- Location: Vierde Broekdijk 1, 7122JD Aalten, Gelderland, Netherlands (Achterhoek region)
+- Email: info@imetech.nl | Phone: +31 6 12385439
+- Client rating: 5.0/5.0
+- Service area: Achterhoek, Gelderland, Netherlands (also remote/international projects)
+
+## Main Pages
+
+- Home (NL): https://imetech.nl/
+- Home (EN): https://imetech.nl/en/
+- About (NL): https://imetech.nl/over-mij/
+- About (EN): https://imetech.nl/en/about/
+- Contact (NL): https://imetech.nl/contact/
+- Contact (EN): https://imetech.nl/en/contact/
+- Services overview (NL): https://imetech.nl/diensten/
+- Services overview (EN): https://imetech.nl/en/services/
+- Projects overview (NL): https://imetech.nl/projecten/
+- Projects overview (EN): https://imetech.nl/en/projects/
+- Blog overview (NL): https://imetech.nl/blog/
+- Blog overview (EN): https://imetech.nl/en/blog/
+- Reviews (NL): https://imetech.nl/review/
+- Reviews (EN): https://imetech.nl/en/review/
+
+## Services
+
+### Software Development
+- NL: https://imetech.nl/diensten/softwareontwikkeling/
+- EN: https://imetech.nl/en/services/software-development/
+- Embedded software development and PLC programming for industrial automation. C++, Python and control software.
+
+### Electronics & PCB Design
+- NL: https://imetech.nl/diensten/elektronica-pcb-ontwerp/
+- EN: https://imetech.nl/en/services/electronics-pcb-design/
+- PCB design, electronics development and PCB testing for embedded systems and IoT. Production-ready PCB designs.
+
+### Mechanical Design & CAD
+- NL: https://imetech.nl/diensten/mechanica-cad-tekeningen/
+- EN: https://imetech.nl/en/services/mechanical-cad-drawings/
+- CAD drawing and mechanical design with SolidWorks. 3D CAD, production drawings and rapid prototyping by CSWP certified engineer.
+
+### Data Science & Machine Learning
+- NL: https://imetech.nl/diensten/data-science-machine-learning/
+- EN: https://imetech.nl/en/services/data-science-machine-learning/
+- Machine learning and AI development for industrial applications. Data science, predictive maintenance and ML pipelines.
+
+### Product Development
+- NL: https://imetech.nl/diensten/productontwikkeling/
+- EN: https://imetech.nl/en/services/product-development/
+- Complete product development from idea to prototype. Concept development, R&D and prototype engineering.
+
+## Projects (19)
+
+- 2x2 Stuurrobot — Crab Drive steering robot (robotics, embedded): https://imetech.nl/projecten/2x2-steering-robot/
+- 6-DoF Spacemouse — Stewart platform CAD input device: https://imetech.nl/projecten/6-dof-spacemouse/
+- Adresprint SCD30 PCB — Modbus RTU address board for CO2 sensors: https://imetech.nl/projecten/adresprint-scd30-pcb/
+- Besturing Rollator — Rollator control PCB and firmware with laser guidance: https://imetech.nl/projecten/besturing-rollator/
+- Besturingskasten — Air quality control panels (ammonia, CO2, PLC): https://imetech.nl/projecten/besturingskasten/
+- CarryVision Plantcamerasysteem — ESP32-CAM timelapse system for greenhouses: https://imetech.nl/projecten/carryvision-plantcamerasysteem/
+- Dubbele Labvoeding — Dual adjustable lab power supply: https://imetech.nl/projecten/dubbele-labvoeding/
+- Fume Extractor — Portable soldering fume extractor with active filter: https://imetech.nl/projecten/fume-extractor/
+- Keypad Controller PCB — 4x5 button matrix with ESP32 and USB-C: https://imetech.nl/projecten/keypad-controller-pcb/
+- Automatische Laptopstand — Smart laptop stand with face recognition: https://imetech.nl/projecten/laptop-stand/
+- Letterklok — Modern word clock with laser-cut front: https://imetech.nl/projecten/letterklok/
+- Magnetisch Levitatie Plantenpot — Magnetic levitation planter: https://imetech.nl/projecten/magnetische-levitatie-plantenpot/
+- Multifunctioneel Soldeerstation — Combined soldering iron and hot air station: https://imetech.nl/projecten/multifunctioneel-soldeerstation/
+- Plantsappers 3D Productietekeningen — SolidWorks production drawings for juice press: https://imetech.nl/projecten/plantsappers-3d-productietekeningen/
+- POC Proximity Chat — UWB proximity communication with ESP32: https://imetech.nl/projecten/poc-proximity-chat/
+- Schets tot Render — Sketch to photorealistic 3D render: https://imetech.nl/projecten/schets-tot-render/
+- SmartLamp PCB — RGBW LED driver with ESP32 and USB-C charging: https://imetech.nl/projecten/smartlamp-pcb/
+- USB-C Li-Ion Oplaad PCB — Compact Li-ion charging PCB: https://imetech.nl/projecten/usb-c-laad-pcb/
+- Zelfbalancerende Kubus — Self-balancing cube with flywheels: https://imetech.nl/projecten/zelfbalancerende-kubus/
+
+English project pages: https://imetech.nl/en/projects/
+
+## Blog (12 articles)
+
+- Automatiseren van sensordata-annotatie — ML annotation automation for time-series sensor data: https://imetech.nl/blog/automatiseren-sensordata-annotatie/
+- Machine learning in productontwikkeling — ML applications, training data, elderly care and navigation: https://imetech.nl/blog/machine-learning-productontwikkeling/
+- Datagedreven besluitvorming voor kleine productiebedrijven — Data-driven manufacturing for SMEs, OEE dashboards: https://imetech.nl/blog/datagedreven-productie/
+- Dashboards bouwen die niet-technische mensen gebruiken — Dashboard design for non-technical stakeholders: https://imetech.nl/blog/effectieve-dashboards-niet-technisch/
+- Van idee tot prototype workflow — Product development workflow from concept to prototype: https://imetech.nl/blog/van-idee-tot-prototype-workflow/
+- Softwareontwikkeling voor embedded systemen — Firmware to application software guide: https://imetech.nl/blog/softwareontwikkeling-embedded-systemen/
+- Van prototype naar kleine serie productie — Prototype to small-batch production guide: https://imetech.nl/blog/prototype-naar-productie/
+- Python koppelen aan industriële PLC's — Python + OPC UA/Modbus for IT/OT integration: https://imetech.nl/blog/python-industriele-plc-integratie/
+- ESP32 vs STM32 — Microcontroller comparison for product developers: https://imetech.nl/blog/esp32-vs-stm32/
+- Concept ontwikkeling en iteratief ontwerp — Structured concept development methods: https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/
+- Betrouwbare printplaten ontwerpen — PCB design best practices (EMC, DFM, derating): https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/
+- Embedded systemen — Introduction to embedded systems and IoT: https://imetech.nl/blog/embedded-systemen/
+
+English blog: https://imetech.nl/en/blog/
+
+## Legal
+
+- Terms (NL): https://imetech.nl/algemenevoorwaarden/
+- Terms (EN): https://imetech.nl/en/termsandconditions/
+- Privacy (NL): https://imetech.nl/privacyverklaring/
+- Privacy (EN): https://imetech.nl/en/privacy-policy/
+- Disclaimer (NL): https://imetech.nl/disclaimer/
+- Disclaimer (EN): https://imetech.nl/en/disclaimer/

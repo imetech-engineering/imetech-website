@@ -13,6 +13,7 @@ Allow: /diensten/
 Allow: /blog/
 Allow: /en/
 Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: GPTBot
 Allow: /

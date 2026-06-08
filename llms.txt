@@ -4,6 +4,10 @@
 
 IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, based in Aalten, Achterhoek, Gelderland, the Netherlands. We offer full-stack product development: mechanical design (SolidWorks, CSWP certified), electronics and PCB design, embedded software (C++, Python, PLC), data science and machine learning, and end-to-end product development from concept through prototype to production.
 
+Extended index: https://imetech.nl/llms-full.txt
+RSS feed: https://imetech.nl/sitemap.rss
+Sitemap: https://imetech.nl/sitemap.xml
+
 ## Services
 
 - Software Development: https://imetech.nl/diensten/softwareontwikkeling/
@@ -11,6 +15,7 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 - Mechanical Design & CAD: https://imetech.nl/diensten/mechanica-cad-tekeningen/
 - Data Science & Machine Learning: https://imetech.nl/diensten/data-science-machine-learning/
 - Product Development: https://imetech.nl/diensten/productontwikkeling/
+- All services: https://imetech.nl/diensten/
 
 ## Selected Projects
 
@@ -25,12 +30,18 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 
 ## Blog (Technical Articles)
 
+- Automating Sensor Data Annotation for ML: https://imetech.nl/blog/automatiseren-sensordata-annotatie/
 - Machine Learning in Product Development: https://imetech.nl/blog/machine-learning-productontwikkeling/
-- ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32/
-- Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/
-- Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen/
+- Data-Driven Manufacturing for SMEs: https://imetech.nl/blog/datagedreven-productie/
+- Effective Dashboards for Non-Technical Users: https://imetech.nl/blog/effectieve-dashboards-niet-technisch/
+- From Idea to Prototype Workflow: https://imetech.nl/blog/van-idee-tot-prototype-workflow/
+- Embedded Software Development Guide: https://imetech.nl/blog/softwareontwikkeling-embedded-systemen/
 - From Prototype to Production: https://imetech.nl/blog/prototype-naar-productie/
 - Python Industrial PLC Integration: https://imetech.nl/blog/python-industriele-plc-integratie/
+- ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32/
+- Concept Development & Iterative Design: https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/
+- Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/
+- Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen/
 - All blog posts: https://imetech.nl/blog/
 
 ## About

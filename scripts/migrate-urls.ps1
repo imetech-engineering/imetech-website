@@ -68,7 +68,7 @@ $textFiles += Get-ChildItem -Path (Join-Path $root 'components') -Filter '*.html
 $textFiles += Get-ChildItem -Path $root -Filter 'script.js' -File
 $textFiles += Get-ChildItem -Path $root -Filter 'sitemap*.xml' -File
 $textFiles += Get-ChildItem -Path $root -Filter 'sitemap.rss' -File
-$textFiles += Get-ChildItem -Path $root -Filter 'llms.txt' -File
+$textFiles += Get-ChildItem -Path $root -Filter 'llms*.txt' -File
 $textFiles += Get-ChildItem -Path $root -Filter 'robots.txt' -File
 $textFiles = $textFiles | Sort-Object FullName -Unique
 
