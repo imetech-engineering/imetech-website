@@ -40,7 +40,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Machine Learning in Product Development", "description": "How machine learning adds real value in product development. Practical applications, the critical role of training data, and lessons from care and navigation projects.", "url": "https://imetech.nl/en/blog/machine-learning-product-development/", "datePublished": "2026-02-23", "author": {"@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about/"}, "publisher": {"@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": {"@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://imetech.nl/en/blog/machine-learning-product-development/"}, "dateModified": "2026-02-23", "image": "https://imetech.nl/images/machineLearningHero.webp"}
@@ -178,7 +178,7 @@
           <section >
             <h2>Training data: the foundation of every good model</h2>
             <p>
-              The main lesson I encounter project after project: <strong>training data is decisive</strong>. A clever algorithm with poor or biased data produces poor results. Good, annotated, representative data is what separates a prototype that “sometimes works” from a product that performs reliably in the real world.
+              The main lesson I encounter project after project: <strong>training data is decisive</strong>. A clever algorithm with poor or biased data produces poor results. Good, annotated, representative data is what separates a prototype that "sometimes works" from a product that performs reliably in the real world.
             </p>
             <p>
               That means thinking early about what data you need, how you collect it (in the field, with real users or conditions), and how you structure labels or feedback. Sometimes collecting and cleaning data is the heaviest part of the project—but it is also the most decisive. Invest time there; it pays off in model quality and less corrective work later.
@@ -200,7 +200,7 @@
                   </svg>
                 </div>
                 <h4>Representativeness</h4>
-                <p>Data must reflect the variation in the real world. Narrow datasets lead to models that only work in “ideal” conditions and fail in edge cases.</p>
+                <p>Data must reflect the variation in the real world. Narrow datasets lead to models that only work in "ideal" conditions and fail in edge cases.</p>
               </div>
               
               <div class="challenge-item">
@@ -232,7 +232,7 @@
               In a project for <strong>elderly care</strong>, I worked on a robot-style companion that supports older adults. The product already offered features such as reminders, simple games, and sensors for heart rate and movement patterns. The main challenge was not the hardware or sensors, but <strong>how</strong> the companion communicates with the user: in a way that feels natural and builds empathy, rather than rigid answers or scripted dialogues.
             </p>
             <p>
-              For that I designed and trained an <strong>interaction model</strong> with machine learning. The model learns from behaviour, context, and feedback when which tone, pace, and content are most appropriate. The goal was not to build “a chatbot”, but to align the companion’s communication with the user—so that the interaction becomes more human and supportive. Sensor data (heart rate, patterns, unusual behaviour) acts as extra input: the model can respond by communicating more calmly or by encouraging more activity, for example.
+              For that I designed and trained an <strong>interaction model</strong> with machine learning. The model learns from behaviour, context, and feedback when which tone, pace, and content are most appropriate. The goal was not to build "a chatbot", but to align the companion's communication with the user—so that the interaction becomes more human and supportive. Sensor data (heart rate, patterns, unusual behaviour) acts as extra input: the model can respond by communicating more calmly or by encouraging more activity, for example.
             </p>
             <p>
               Here, the quality of the <strong>training data</strong> was crucial: examples of human conversations and desired responses in different situations, combined with domain knowledge of care and communication. Without that foundation the model would feel generic and less empathetic; with the right data, the interaction became noticeably more natural and better tailored to the end user.
@@ -249,7 +249,7 @@
               The system combines computer vision and machine learning: it detects roundabouts in imagery, extracts geometric features, and links them to vehicle specifications. Navigation routing can then be adapted—so drivers only get routes that are actually passable. Here too <strong>training data</strong> was essential: enough examples of roundabouts in different environments, with correct dimensions and labels, so the model generalises to new locations.
             </p>
             <p>
-              This example shows that ML in product development is not only about “talking” or “behaviour”: it can also solve very concrete spatial and logistical problems, as long as the data and the definition of success are clear.
+              This example shows that ML in product development is not only about "talking" or "behaviour": it can also solve very concrete spatial and logistical problems, as long as the data and the definition of success are clear.
             </p>
           </section>
 
@@ -268,7 +268,7 @@
                   </svg>
                 </div>
                 <h4>Start with the problem and the data</h4>
-                <p>Define what “good” behaviour is and what data you need for it. Only then choose architecture and tools.</p>
+                <p>Define what "good" behaviour is and what data you need for it. Only then choose architecture and tools.</p>
               </div>
               <div class="challenge-item">
                 <div class="challenge-icon">
@@ -332,20 +332,34 @@
 </div>
         </section>
 
+        
+        <section class="section section-alt related-articles">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">Blog</span>
+                    <h2>Related articles</h2>
+                </div>
+                <div class="related-grid reveal">
+                    <a href="/en/blog/data-driven-manufacturing/" class="related-card"><h3>Data-Driven Decision Making for Small Manufacturers</h3><span class="related-arrow">&rarr;</span></a>
+                    <a href="/en/blog/automating-sensor-data-annotation/" class="related-card"><h3>Automating Sensor Data Annotation for Machine Learning</h3><span class="related-arrow">&rarr;</span></a>
+                </div>
+            </div>
+        </section>
         <section class="cta-section">
             <div class="wrap reveal-blur heading-animate">
-                <h2>Ready to bring your idea to life?</h2>
-                <p>Let's discuss your technical challenge. Free discovery call, no obligations.</p>
-                <a href="/en/contact/" class="btn btn-primary" style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">
-                    Start your project <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+                <h2>Ready to discuss your project?</h2>
+                <p>Explore relevant services or get in touch for a free consultation.</p>
+                <div class="cta-dual">
+                    <a href="/en/contact/" class="btn btn-primary">Get in touch</a>
+                    <a href="/en/services/data-science-machine-learning/" class="btn btn-outline">Machine learning services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
             </div>
         </section>
     </main>
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>
