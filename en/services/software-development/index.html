@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -77,6 +77,19 @@
         "name": "Embedded Software & PLC Programming",
         "item": "https://imetech.nl/en/services/software-development/"
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you work with existing embedded firmware?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, that is a common assignment. I work with existing codebases on ESP32, STM32 and Arduino: adding features, refactoring for maintainability or debugging stubborn issues. I can also take over or improve PLC programs in Structured Text." } },
+      { "@type": "Question", "name": "Which platforms and programming languages do you support?", "acceptedAnswer": { "@type": "Answer", "text": "I develop embedded software in C/C++ for ESP32, STM32 and Arduino, plus Python for backends and data processing. For industrial automation I write PLC logic for WAGO and Beckhoff, including Modbus and Profinet integrations." } },
+      { "@type": "Question", "name": "What does a software project with IMeTech look like?", "acceptedAnswer": { "@type": "Answer", "text": "We start with a discovery call and requirements check. Then comes a proof-of-concept or prototype, followed by iterative delivery with clear milestones. This keeps scope, timeline and budget under control throughout the project." } },
+      { "@type": "Question", "name": "Do you write PLC logic for industrial automation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I develop control logic in Structured Text for WAGO and Beckhoff PLCs, including process automation, fieldbus communication and integration with existing machinery. I often combine this with embedded firmware and Python scripts for data processing." } },
+      { "@type": "Question", "name": "Do you work remotely on embedded projects?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, most software and embedded projects run partly or fully remote via video calls, shared repositories and clear documentation. Based in Aalten in the Achterhoek, I work with clients across the Netherlands; on-site visits are possible when needed." } }
     ]
   }
   </script>
@@ -214,14 +227,32 @@
                 </div>
             </div>
         </section>
+        <section class="section section-alt">
+            <div class="wrap">
+                <div class="project-nav reveal">
+                    <a href="/en/services/product-development/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Product Development</a>
+                    <a href="/en/services/" class="project-nav-all">All services</a>
+                    <a href="/en/services/electronics-pcb-design/" class="project-nav-next">Electronics & PCB <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
 
-        <div class="wrap" style="text-align:center;padding:2rem 0">
-            <a href="/en/services/" class="back-link reveal"><svg width="18" height="18" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                </svg> Back to services</a>
-        </div>
-
+        
+        <section class="section section-alt faq-section" id="faq">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">FAQ</span>
+                    <h2>Frequently asked questions</h2>
+                </div>
+                <div class="faq-list reveal">
+          <details class="faq-item"><summary>Do you work with existing embedded firmware?</summary><p>Yes, that is a common assignment. I work with existing codebases on ESP32, STM32 and Arduino: adding features, refactoring for maintainability or debugging stubborn issues. I can also take over or improve PLC programs in Structured Text.</p></details>
+          <details class="faq-item"><summary>Which platforms and programming languages do you support?</summary><p>I develop embedded software in C/C++ for ESP32, STM32 and Arduino, plus Python for backends and data processing. For industrial automation I write PLC logic for WAGO and Beckhoff, including Modbus and Profinet integrations.</p></details>
+          <details class="faq-item"><summary>What does a software project with IMeTech look like?</summary><p>We start with a discovery call and requirements check. Then comes a proof-of-concept or prototype, followed by iterative delivery with clear milestones. This keeps scope, timeline and budget under control throughout the project.</p></details>
+          <details class="faq-item"><summary>Do you write PLC logic for industrial automation?</summary><p>Yes. I develop control logic in Structured Text for WAGO and Beckhoff PLCs, including process automation, fieldbus communication and integration with existing machinery. I often combine this with embedded firmware and Python scripts for data processing.</p></details>
+          <details class="faq-item"><summary>Do you work remotely on embedded projects?</summary><p>Yes, most software and embedded projects run partly or fully remote via video calls, shared repositories and clear documentation. Based in Aalten in the Achterhoek, I work with clients across the Netherlands; on-site visits are possible when needed.</p></details>
+                </div>
+            </div>
+        </section>
         <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
@@ -239,7 +270,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

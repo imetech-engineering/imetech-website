@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -77,6 +77,19 @@
         "name": "Machine Learning & Data Science",
         "item": "https://imetech.nl/en/services/data-science-machine-learning/"
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you choose edge ML or cloud solutions?", "acceptedAnswer": { "@type": "Answer", "text": "That depends on your use case. Edge ML on embedded hardware is ideal for low latency, offline operation or privacy-sensitive data. Cloud pipelines scale better with large datasets and complex models. I advise which approach fits best and can implement both." } },
+      { "@type": "Question", "name": "What data do I need to start with machine learning?", "acceptedAnswer": { "@type": "Answer", "text": "It varies by goal. I help with a data inventory, setting up annotation workflows and determining minimum dataset size. Sometimes a small, well-labelled dataset is enough for a proof-of-concept." } },
+      { "@type": "Question", "name": "Do you integrate ML models with existing industrial systems?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I connect models to existing infrastructure via APIs, MQTT, databases or direct PLC/MES integration. This makes predictions and insights part of your daily process, not a standalone experiment." } },
+      { "@type": "Question", "name": "Do you build dashboards for non-technical users?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Besides training models I design clear dashboards that give operators and managers direct insight into process data, predictions and anomalies. No data science background required to use them." } },
+      { "@type": "Question", "name": "Do you work remotely on data science projects?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, data science and ML projects are typically fully remote. Based in Aalten in the Achterhoek, I work with manufacturing companies and tech businesses across the Netherlands, with regular alignment via video calls." } }
     ]
   }
   </script>
@@ -214,14 +227,32 @@
                 </div>
             </div>
         </section>
+        <section class="section section-alt">
+            <div class="wrap">
+                <div class="project-nav reveal">
+                    <a href="/en/services/mechanical-cad-drawings/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Mechanical & CAD</a>
+                    <a href="/en/services/" class="project-nav-all">All services</a>
+                    <a href="/en/services/product-development/" class="project-nav-next">Product Development <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
 
-        <div class="wrap" style="text-align:center;padding:2rem 0">
-            <a href="/en/services/" class="back-link reveal"><svg width="18" height="18" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                </svg> Back to services</a>
-        </div>
-
+        
+        <section class="section section-alt faq-section" id="faq">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">FAQ</span>
+                    <h2>Frequently asked questions</h2>
+                </div>
+                <div class="faq-list reveal">
+          <details class="faq-item"><summary>Do you choose edge ML or cloud solutions?</summary><p>That depends on your use case. Edge ML on embedded hardware is ideal for low latency, offline operation or privacy-sensitive data. Cloud pipelines scale better with large datasets and complex models. I advise which approach fits best and can implement both.</p></details>
+          <details class="faq-item"><summary>What data do I need to start with machine learning?</summary><p>It varies by goal. I help with a data inventory, setting up annotation workflows and determining minimum dataset size. Sometimes a small, well-labelled dataset is enough for a proof-of-concept.</p></details>
+          <details class="faq-item"><summary>Do you integrate ML models with existing industrial systems?</summary><p>Yes. I connect models to existing infrastructure via APIs, MQTT, databases or direct PLC/MES integration. This makes predictions and insights part of your daily process, not a standalone experiment.</p></details>
+          <details class="faq-item"><summary>Do you build dashboards for non-technical users?</summary><p>Yes. Besides training models I design clear dashboards that give operators and managers direct insight into process data, predictions and anomalies. No data science background required to use them.</p></details>
+          <details class="faq-item"><summary>Do you work remotely on data science projects?</summary><p>Yes, data science and ML projects are typically fully remote. Based in Aalten in the Achterhoek, I work with manufacturing companies and tech businesses across the Netherlands, with regular alignment via video calls.</p></details>
+                </div>
+            </div>
+        </section>
         <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
@@ -239,7 +270,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

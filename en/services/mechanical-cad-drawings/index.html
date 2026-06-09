@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -77,6 +77,19 @@
         "name": "Mechanical Design & CAD Drawings",
         "item": "https://imetech.nl/en/services/mechanical-cad-drawings/"
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which CAD software do you use for mechanical design?", "acceptedAnswer": { "@type": "Answer", "text": "I work with SolidWorks (CSWP certified) for 3D modelling, assemblies and production drawings. This is the standard in many manufacturing industries, making files easy to share with suppliers and production partners." } },
+      { "@type": "Question", "name": "Do you deliver production drawings for manufacturing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I create detailed 2D production drawings with dimensions, tolerances, material specifications and GD&amp;T where needed. Exports in STEP, DXF and PDF are standard, so your supplier can get started immediately." } },
+      { "@type": "Question", "name": "Can you design and 3D print functional prototypes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I design and print functional prototypes in-house for rapid validation of fit, ergonomics and mechanical function. This lets you test a concept before investing in expensive production tooling." } },
+      { "@type": "Question", "name": "Do you apply Design for Manufacturing (DFM)?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. With every design I consider production method, material choice and ease of assembly. This prevents surprises with CNC milling, injection moulding or sheet metal and keeps unit costs manageable." } },
+      { "@type": "Question", "name": "Do you work remotely on CAD projects?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, CAD work and design reviews run excellently remotely via shared models and video calls. Based in Aalten in the Achterhoek, I work with clients across the Netherlands; on-site measurements are possible by appointment." } }
     ]
   }
   </script>
@@ -217,14 +230,32 @@
                 </div>
             </div>
         </section>
+        <section class="section section-alt">
+            <div class="wrap">
+                <div class="project-nav reveal">
+                    <a href="/en/services/electronics-pcb-design/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Electronics & PCB</a>
+                    <a href="/en/services/" class="project-nav-all">All services</a>
+                    <a href="/en/services/data-science-machine-learning/" class="project-nav-next">Data Science & ML <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
 
-        <div class="wrap" style="text-align:center;padding:2rem 0">
-            <a href="/en/services/" class="back-link reveal"><svg width="18" height="18" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                </svg> Back to services</a>
-        </div>
-
+        
+        <section class="section section-alt faq-section" id="faq">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">FAQ</span>
+                    <h2>Frequently asked questions</h2>
+                </div>
+                <div class="faq-list reveal">
+          <details class="faq-item"><summary>Which CAD software do you use for mechanical design?</summary><p>I work with SolidWorks (CSWP certified) for 3D modelling, assemblies and production drawings. This is the standard in many manufacturing industries, making files easy to share with suppliers and production partners.</p></details>
+          <details class="faq-item"><summary>Do you deliver production drawings for manufacturing?</summary><p>Yes. I create detailed 2D production drawings with dimensions, tolerances, material specifications and GD&amp;T where needed. Exports in STEP, DXF and PDF are standard, so your supplier can get started immediately.</p></details>
+          <details class="faq-item"><summary>Can you design and 3D print functional prototypes?</summary><p>Yes. I design and print functional prototypes in-house for rapid validation of fit, ergonomics and mechanical function. This lets you test a concept before investing in expensive production tooling.</p></details>
+          <details class="faq-item"><summary>Do you apply Design for Manufacturing (DFM)?</summary><p>Absolutely. With every design I consider production method, material choice and ease of assembly. This prevents surprises with CNC milling, injection moulding or sheet metal and keeps unit costs manageable.</p></details>
+          <details class="faq-item"><summary>Do you work remotely on CAD projects?</summary><p>Yes, CAD work and design reviews run excellently remotely via shared models and video calls. Based in Aalten in the Achterhoek, I work with clients across the Netherlands; on-site measurements are possible by appointment.</p></details>
+                </div>
+            </div>
+        </section>
         <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
@@ -242,7 +273,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

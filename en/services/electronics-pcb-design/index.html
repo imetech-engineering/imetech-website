@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -77,6 +77,19 @@
         "name": "PCB Design & Electronics Development",
         "item": "https://imetech.nl/en/services/electronics-pcb-design/"
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you design PCBs that are ready for production?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I deliver complete PCB designs including schematics, layout, BOM and production documentation, aligned with your assembly partner or EMS manufacturer. Design for Manufacturing (DFM) and design rule checks ensure boards can be produced reliably and cost-effectively." } },
+      { "@type": "Question", "name": "Which tools do you use for electronics and PCB design?", "acceptedAnswer": { "@type": "Answer", "text": "I design PCBs in KiCad, with simulation and DRC checks for reliable results. For more complex circuits I use additional tools for signal integrity and thermal analysis, so the design remains stable under load." } },
+      { "@type": "Question", "name": "Can I hire you for schematic design or PCB layout only?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, I also deliver standalone deliverables: schematic design, PCB layout or a review of existing designs. Useful when you develop firmware yourself but need professional hardware design, or when you want a second opinion on an existing board." } },
+      { "@type": "Question", "name": "Do you test and validate prototypes before production?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I build and test prototypes locally in Aalten: functional tests, debugging and where needed EMC and thermal optimisation. This prevents costly rework in a later production phase." } },
+      { "@type": "Question", "name": "Do you work with companies in the Achterhoek and across the Netherlands?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Based in Aalten in the Achterhoek, I work with SMEs and scale-ups across the Netherlands. Electronics design works excellently remotely; physical prototypes can be tested locally and shipped." } }
     ]
   }
   </script>
@@ -210,14 +223,32 @@
                 </div>
             </div>
         </section>
+        <section class="section section-alt">
+            <div class="wrap">
+                <div class="project-nav reveal">
+                    <a href="/en/services/software-development/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Software Development</a>
+                    <a href="/en/services/" class="project-nav-all">All services</a>
+                    <a href="/en/services/mechanical-cad-drawings/" class="project-nav-next">Mechanical & CAD <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
 
-        <div class="wrap" style="text-align:center;padding:2rem 0">
-            <a href="/en/services/" class="back-link reveal"><svg width="18" height="18" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                </svg> Back to services</a>
-        </div>
-
+        
+        <section class="section section-alt faq-section" id="faq">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">FAQ</span>
+                    <h2>Frequently asked questions</h2>
+                </div>
+                <div class="faq-list reveal">
+          <details class="faq-item"><summary>Do you design PCBs that are ready for production?</summary><p>Yes. I deliver complete PCB designs including schematics, layout, BOM and production documentation, aligned with your assembly partner or EMS manufacturer. Design for Manufacturing (DFM) and design rule checks ensure boards can be produced reliably and cost-effectively.</p></details>
+          <details class="faq-item"><summary>Which tools do you use for electronics and PCB design?</summary><p>I design PCBs in KiCad, with simulation and DRC checks for reliable results. For more complex circuits I use additional tools for signal integrity and thermal analysis, so the design remains stable under load.</p></details>
+          <details class="faq-item"><summary>Can I hire you for schematic design or PCB layout only?</summary><p>Yes, I also deliver standalone deliverables: schematic design, PCB layout or a review of existing designs. Useful when you develop firmware yourself but need professional hardware design, or when you want a second opinion on an existing board.</p></details>
+          <details class="faq-item"><summary>Do you test and validate prototypes before production?</summary><p>Yes. I build and test prototypes locally in Aalten: functional tests, debugging and where needed EMC and thermal optimisation. This prevents costly rework in a later production phase.</p></details>
+          <details class="faq-item"><summary>Do you work with companies in the Achterhoek and across the Netherlands?</summary><p>Absolutely. Based in Aalten in the Achterhoek, I work with SMEs and scale-ups across the Netherlands. Electronics design works excellently remotely; physical prototypes can be tested locally and shipped.</p></details>
+                </div>
+            </div>
+        </section>
         <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
@@ -235,7 +266,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

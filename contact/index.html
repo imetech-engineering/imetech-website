@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 
 <head>
@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=20260608l">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,6 +66,18 @@
         "name": "Contact",
         "item": "https://imetech.nl/contact/"
       }
+    ]
+  }
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Werkt u ook op afstand?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Veel projecten verlopen deels of volledig remote via videobel, e-mail en gedeelde documentatie. Ik werk voor opdrachtgevers door heel Nederland. Op locatie bezoek is mogelijk op afspraak wanneer dat nodig is. IMeTech Engineering is gevestigd in Aalten, Achterhoek." } },
+      { "@type": "Question", "name": "Wat heb ik nodig voor een offerte?", "acceptedAnswer": { "@type": "Answer", "text": "Een korte beschrijving van je doel, eventuele tekeningen of specificaties, en gewenste planning. Geen perfect dossier nodig — een schets of idee is genoeg om te starten. Na het eerste gesprek ontvang je een heldere offerte." } },
+      { "@type": "Question", "name": "Hoe snel reageert u op contactverzoeken?", "acceptedAnswer": { "@type": "Answer", "text": "Doorgaans binnen 24 uur op werkdagen via e-mail of het contactformulier. Voor dringende vragen kun je direct bellen naar +31 6 12 38 54 39." } },
+      { "@type": "Question", "name": "Welke disciplines dekt IMeTech?", "acceptedAnswer": { "@type": "Answer", "text": "Software (embedded en PLC), elektronica en PCB-ontwerp, mechanisch ontwerp en CAD, data science / machine learning en complete productontwikkeling. Eén aanspreekpunt voor het totaalplaatje, van idee tot prototype." } },
+      { "@type": "Question", "name": "Is het eerste gesprek gratis?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, het kennismakingsgesprek is altijd gratis en vrijblijvend. We bespreken je technische uitdaging, mogelijke aanpak en planning. Pas daarna ontvang je eventueel een offerte — zonder verplichtingen." } }
     ]
   }
   </script>
@@ -121,6 +133,22 @@
                 <label for="contact-email">E-mail</label>
                 <input type="email" id="contact-email" name="email" required class="input"
                   placeholder="jouw@email.nl" />
+              </div>
+              <div class="form-group">
+                <label for="contact-company">Bedrijfsnaam <span class="optional">(optioneel)</span></label>
+                <input type="text" id="contact-company" name="company" class="input" placeholder="Je bedrijf" />
+              </div>
+              <div class="form-group">
+                <label for="contact-project-type">Type project <span class="optional">(optioneel)</span></label>
+                <select id="contact-project-type" name="project_type" class="input">
+                  <option value="">Selecteer...</option>
+                  <option value="PCB/Electronics">PCB / Elektronica</option>
+                  <option value="Embedded/Software">Embedded / Software</option>
+                  <option value="Mechanical/CAD">Mechanica / CAD</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Product Development">Productontwikkeling</option>
+                  <option value="Other">Anders</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="contact-message">Bericht</label>
@@ -236,6 +264,37 @@
       </div>
     </section>
 
+    <section class="section section-alt faq-section" id="faq">
+      <div class="wrap">
+        <div class="section-header reveal heading-animate">
+          <span class="label">FAQ</span>
+          <h2>Veelgestelde vragen</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Werkt u ook op afstand?</summary>
+            <p>Ja. Veel projecten verlopen deels of volledig remote via videobel, e-mail en gedeelde documentatie. Ik werk voor opdrachtgevers door heel Nederland. Op locatie bezoek is mogelijk op afspraak wanneer dat nodig is. IMeTech Engineering is gevestigd in Aalten, Achterhoek.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Wat heb ik nodig voor een offerte?</summary>
+            <p>Een korte beschrijving van je doel, eventuele tekeningen of specificaties, en gewenste planning. Geen perfect dossier nodig — een schets of idee is genoeg om te starten. Na het eerste gesprek ontvang je een heldere offerte.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Hoe snel reageert u op contactverzoeken?</summary>
+            <p>Doorgaans binnen 24 uur op werkdagen via e-mail of het contactformulier. Voor dringende vragen kun je direct bellen naar +31 6 12 38 54 39.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Welke disciplines dekt IMeTech?</summary>
+            <p>Software (embedded &amp; PLC), elektronica &amp; PCB-ontwerp, mechanisch ontwerp en CAD, data science / machine learning en complete productontwikkeling — één aanspreekpunt voor het totaalplaatje, van idee tot prototype.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is het eerste gesprek gratis?</summary>
+            <p>Ja, het kennismakingsgesprek is altijd gratis en vrijblijvend. We bespreken je technische uitdaging, mogelijke aanpak en planning. Pas daarna ontvang je eventueel een offerte — zonder verplichtingen.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section">
       <div class="deco deco-blob deco-blob-2" style="width:300px;height:300px;top:-60px;right:-80px"
         data-speed="0.1" data-drift="-0.015"></div>
@@ -255,7 +314,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js" defer></script>
+  <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -69,6 +69,18 @@
       }
     ]
   }
+  </script>  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you work remotely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek." } },
+      { "@type": "Question", "name": "What do I need for a quote?", "acceptedAnswer": { "@type": "Answer", "text": "A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed — a sketch or idea is enough to get started. After the first call you receive a clear quote." } },
+      { "@type": "Question", "name": "How quickly do you respond to contact requests?", "acceptedAnswer": { "@type": "Answer", "text": "Usually within 24 hours on business days via email or the contact form. For urgent questions you can call directly at +31 6 12 38 54 39." } },
+      { "@type": "Question", "name": "Which disciplines does IMeTech cover?", "acceptedAnswer": { "@type": "Answer", "text": "Software (embedded and PLC), electronics and PCB design, mechanical design and CAD, data science / machine learning and complete product development. One point of contact for the full picture, from idea to prototype." } },
+      { "@type": "Question", "name": "Is the first consultation free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the discovery call is always free and non-binding. We discuss your technical challenge, possible approach and timeline. Only after that you may receive a quote — with no obligations." } }
+    ]
+  }
   </script>
 </head>
 
@@ -77,8 +89,8 @@
 
 <noscript>
   <nav aria-label="Navigation without JavaScript">
-    <a href="/en/">Home</a> � <a href="/en/services/">Services</a> � <a href="/en/projects/">Projects</a> �
-    <a href="/en/blog/">Blog</a> � <a href="/en/about/">About</a> � <a href="/en/contact/">Contact</a>
+    <a href="/en/">Home</a> · <a href="/en/services/">Services</a> · <a href="/en/projects/">Projects</a> ·
+    <a href="/en/blog/">Blog</a> ï¿½ <a href="/en/about/">About</a> ï¿½ <a href="/en/contact/">Contact</a>
   </nav>
 </noscript>
 
@@ -122,6 +134,22 @@
                 <label for="contact-email">Email</label>
                 <input type="email" id="contact-email" name="email" required class="input"
                   placeholder="your@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="contact-company">Company name <span class="optional">(optional)</span></label>
+                <input type="text" id="contact-company" name="company" class="input" placeholder="Your company" />
+              </div>
+              <div class="form-group">
+                <label for="contact-project-type">Project type <span class="optional">(optional)</span></label>
+                <select id="contact-project-type" name="project_type" class="input">
+                  <option value="">Select...</option>
+                  <option value="PCB/Electronics">PCB / Electronics</option>
+                  <option value="Embedded/Software">Embedded / Software</option>
+                  <option value="Mechanical/CAD">Mechanical / CAD</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Product Development">Product Development</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="contact-message">Message</label>
@@ -237,6 +265,37 @@
       </div>
     </section>
 
+    <section class="section section-alt faq-section" id="faq">
+      <div class="wrap">
+        <div class="section-header reveal heading-animate">
+          <span class="label">FAQ</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Do you work remotely?</summary>
+            <p>Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What do I need for a quote?</summary>
+            <p>A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed — a sketch or idea is enough to get started. After the first call you receive a clear quote.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How quickly do you respond to contact requests?</summary>
+            <p>Usually within 24 hours on business days via email or the contact form. For urgent questions you can call directly at +31 6 12 38 54 39.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which disciplines does IMeTech cover?</summary>
+            <p>Software (embedded &amp; PLC), electronics &amp; PCB design, mechanical design and CAD, data science / machine learning and complete product development — one point of contact for the full picture, from idea to prototype.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is the first consultation free?</summary>
+            <p>Yes, the discovery call is always free and non-binding. We discuss your technical challenge, possible approach and timeline. Only after that you may receive a quote — with no obligations.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section">
       <div class="deco deco-blob deco-blob-2" style="width:300px;height:300px;top:-60px;right:-80px"
         data-speed="0.1" data-drift="-0.015"></div>
@@ -256,7 +315,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js" defer></script>
+  <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>

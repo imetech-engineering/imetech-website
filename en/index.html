@@ -40,7 +40,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260602a">
+  <link rel="preload" as="image" href="/images/CarryVision01.webp" fetchpriority="high">
+  <link rel="stylesheet" href="/style.css?v=20260608l">
 
   <script type="application/ld+json">
   {
@@ -90,7 +91,7 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Development", "url": "https://imetech.nl/en/services/product-development/" } }
           ]
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "4" },
         "founder": { "@id": "https://imetech.nl/#person" }
       },
       {
@@ -139,6 +140,14 @@
         "reviewRating": { "@type": "Rating", "ratingValue": "5" },
         "reviewBody": "Ivo helped me very well with developing a custom PCB, provided clear documentation, and remained available for follow-up questions.",
         "datePublished": "2025-12-26",
+        "itemReviewed": { "@id": "https://imetech.nl/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rutger de Vries" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "I had a great collaboration with Ivo. He developed a custom PCB in a short timeframe and proactively suggested practical optimizations.",
+        "datePublished": "2025-11-11",
         "itemReviewed": { "@id": "https://imetech.nl/#business" }
       }
     ]
@@ -259,7 +268,7 @@
           <p>Every project gets the full picture &mdash; no handoffs, no communication gaps.</p>
         </div>
         <div class="services-grid">
-          <a href="/en/services/#software" class="service-card reveal stagger-1">
+          <a href="/en/services/software-development/" class="service-card reveal stagger-1">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -270,7 +279,7 @@
             <h3>Software</h3>
             <p>C++ &middot; Python &middot; PLC</p>
           </a>
-          <a href="/en/services/#electronics" class="service-card reveal stagger-2">
+          <a href="/en/services/electronics-pcb-design/" class="service-card reveal stagger-2">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -279,7 +288,7 @@
             <h3>Electronics & PCB</h3>
             <p>Schematic &middot; Layout &middot; IoT</p>
           </a>
-          <a href="/en/services/#mechanics" class="service-card reveal stagger-3">
+          <a href="/en/services/mechanical-cad-drawings/" class="service-card reveal stagger-3">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="3" />
@@ -290,7 +299,7 @@
             <h3>Mechanics</h3>
             <p>SolidWorks &middot; 3D Print &middot; CNC</p>
           </a>
-          <a href="/en/services/#datascience" class="service-card reveal stagger-4">
+          <a href="/en/services/data-science-machine-learning/" class="service-card reveal stagger-4">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="20" x2="18" y2="10" />
@@ -301,7 +310,7 @@
             <h3>Data Science</h3>
             <p>ML &middot; Analytics &middot; AI</p>
           </a>
-          <a href="/en/services/#product" class="service-card reveal stagger-5">
+          <a href="/en/services/product-development/" class="service-card reveal stagger-5">
             <div class="service-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -340,7 +349,7 @@
           <div class="about-facts reveal">
             <div class="fact stagger-1"><strong>HAN</strong><span>BSc Mechatronics</span></div>
             <div class="fact stagger-2"><strong>CSWP</strong><span>SolidWorks Certified</span></div>
-            <div class="fact stagger-3"><strong>18+</strong><span>Projects delivered</span></div>
+            <div class="fact stagger-3"><strong>19+</strong><span>Projects delivered</span></div>
             <div class="fact stagger-4"><strong>5.0</strong><span>Client rating</span></div>
           </div>
         </div>
@@ -490,7 +499,50 @@
         <div class="testimonials-carousel" id="google-reviews-grid" aria-live="polite">
           <div class="testimonials-viewport" id="google-reviews-viewport">
             <div class="testimonials-track" id="google-reviews-track">
-              <!-- Filled dynamically from script.js -->
+              <div class="testimonial reveal stagger-1">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>&ldquo;Great discipline and clear communication - absolutely recommended.&rdquo;</blockquote>
+                <div class="testimonial-footer">
+                  <div class="testimonial-author">
+                    <div class="initials">N</div>
+                    <div><div class="name">Nico Provoost</div><div class="date">Recently</div></div>
+                  </div>
+                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
+                </div>
+              </div>
+              <div class="testimonial reveal stagger-2">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>&ldquo;Ivo helped me very well with developing a custom PCB, provided clear documentation, and remained available for follow-up questions.&rdquo;</blockquote>
+                <div class="testimonial-footer">
+                  <div class="testimonial-author">
+                    <div class="initials">M</div>
+                    <div><div class="name">Max van der A</div><div class="date">Recently</div></div>
+                  </div>
+                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
+                </div>
+              </div>
+              <div class="testimonial reveal stagger-3">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>&ldquo;I had a great collaboration with Ivo. He developed a custom PCB in a short timeframe and proactively suggested practical optimizations.&rdquo;</blockquote>
+                <div class="testimonial-footer">
+                  <div class="testimonial-author">
+                    <div class="initials">R</div>
+                    <div><div class="name">Rutger de Vries</div><div class="date">Recently</div></div>
+                  </div>
+                  <div class="testimonial-source"><span class="imetech-icon" aria-hidden="true"></span><span>Source: Client review</span></div>
+                </div>
+              </div>
+              <div class="testimonial reveal stagger-4">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>&ldquo;I had a very positive collaboration with Ivo. He took time to answer my questions clearly, thought along throughout the process, and delivered exactly what I had in mind.&rdquo;</blockquote>
+                <div class="testimonial-footer">
+                  <div class="testimonial-author">
+                    <div class="initials">N</div>
+                    <div><div class="name">Nando Kolk</div><div class="date">Recently</div></div>
+                  </div>
+                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -526,7 +578,7 @@
   <!-- v2 SHARED FLOATING CTA (loaded via JS) -->
   <div id="floating-cta-container"></div>
 
-  <script src="/script.js?v=20260604b" defer></script>
+  <script src="/script.js?v=20260608l" defer></script>
 </body>
 
 </html>
