@@ -49,6 +49,22 @@
             placeholder="your@email.com" autocomplete="email" />
         </div>
         <div class="form-group">
+          <label for="floating-contact-company">Company name <span class="optional">(optional)</span></label>
+          <input type="text" id="floating-contact-company" name="company" class="input" placeholder="Your company" autocomplete="organization" />
+        </div>
+        <div class="form-group">
+          <label for="floating-contact-project-type">Project type <span class="optional">(optional)</span></label>
+          <select id="floating-contact-project-type" name="project_type" class="input">
+            <option value="">Select...</option>
+            <option value="PCB/Electronics">PCB / Electronics</option>
+            <option value="Embedded/Software">Embedded / Software</option>
+            <option value="Mechanical/CAD">Mechanical / CAD</option>
+            <option value="Machine Learning">Machine Learning</option>
+            <option value="Product Development">Product Development</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="floating-contact-message">Message</label>
           <textarea id="floating-contact-message" name="message" required rows="2" class="input textarea"
             placeholder="Tell me about your project..."></textarea>

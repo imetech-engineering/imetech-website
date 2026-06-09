@@ -1,7 +1,7 @@
 <!-- Gedeelde Header Component — geladen via JS in #header-container -->
 <div class="scroll-progress" aria-hidden="true"></div>
 
-<header class="header" role="banner">
+<header class="header at-top" role="banner">
   <div class="wrap header-inner">
     <a href="/" class="logo">
       <img src="/images/Logo wit.webp" alt="IMeTech Engineering" class="logo-light" />
@@ -9,7 +9,18 @@
     </a>
     <nav class="nav" aria-label="Hoofdnavigatie">
       <a href="/">Home</a>
-      <a href="/diensten/">Diensten</a>
+      <div class="nav-dropdown">
+        <a href="/diensten/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Diensten
+          <svg class="nav-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="/diensten/softwareontwikkeling/" role="menuitem">Softwareontwikkeling</a>
+          <a href="/diensten/elektronica-pcb-ontwerp/" role="menuitem">Elektronica &amp; PCB</a>
+          <a href="/diensten/mechanica-cad-tekeningen/" role="menuitem">Mechanica &amp; CAD</a>
+          <a href="/diensten/data-science-machine-learning/" role="menuitem">Data Science &amp; ML</a>
+          <a href="/diensten/productontwikkeling/" role="menuitem">Productontwikkeling</a>
+        </div>
+      </div>
       <a href="/projecten/">Projecten</a>
       <a href="/blog/">Blog</a>
       <a href="/over-mij/">Over mij</a>
@@ -28,7 +39,20 @@
 
 <div class="mobile-nav" role="dialog" aria-label="Mobiele navigatie">
   <a href="/">Home</a>
-  <a href="/diensten/">Diensten</a>
+  <div class="mobile-nav-group">
+    <button type="button" class="mobile-nav-dropdown-toggle" aria-expanded="false" aria-controls="mobile-nav-services-nl">
+      Diensten
+      <svg class="mobile-nav-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub" id="mobile-nav-services-nl">
+      <a href="/diensten/">Alle diensten</a>
+      <a href="/diensten/softwareontwikkeling/">Softwareontwikkeling</a>
+      <a href="/diensten/elektronica-pcb-ontwerp/">Elektronica &amp; PCB</a>
+      <a href="/diensten/mechanica-cad-tekeningen/">Mechanica &amp; CAD</a>
+      <a href="/diensten/data-science-machine-learning/">Data Science &amp; ML</a>
+      <a href="/diensten/productontwikkeling/">Productontwikkeling</a>
+    </div>
+  </div>
   <a href="/projecten/">Projecten</a>
   <a href="/blog/">Blog</a>
   <a href="/over-mij/">Over mij</a>

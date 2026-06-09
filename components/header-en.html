@@ -1,7 +1,7 @@
 <!-- v2 Shared Header Component — loaded via JS into #header-container -->
 <div class="scroll-progress" aria-hidden="true"></div>
 
-<header class="header" role="banner">
+<header class="header at-top" role="banner">
   <div class="wrap header-inner">
     <a href="/en/" class="logo">
       <img src="/images/Logo wit.webp" alt="IMeTech Engineering" class="logo-light" />
@@ -9,7 +9,18 @@
     </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="/en/">Home</a>
-      <a href="/en/services/">Services</a>
+      <div class="nav-dropdown">
+        <a href="/en/services/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services
+          <svg class="nav-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="/en/services/software-development/" role="menuitem">Software Development</a>
+          <a href="/en/services/electronics-pcb-design/" role="menuitem">Electronics &amp; PCB</a>
+          <a href="/en/services/mechanical-cad-drawings/" role="menuitem">Mechanical &amp; CAD</a>
+          <a href="/en/services/data-science-machine-learning/" role="menuitem">Data Science &amp; ML</a>
+          <a href="/en/services/product-development/" role="menuitem">Product Development</a>
+        </div>
+      </div>
       <a href="/en/projects/">Projects</a>
       <a href="/en/blog/">Blog</a>
       <a href="/en/about/">About</a>
@@ -28,7 +39,20 @@
 
 <div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
   <a href="/en/">Home</a>
-  <a href="/en/services/">Services</a>
+  <div class="mobile-nav-group">
+    <button type="button" class="mobile-nav-dropdown-toggle" aria-expanded="false" aria-controls="mobile-nav-services-en">
+      Services
+      <svg class="mobile-nav-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub" id="mobile-nav-services-en">
+      <a href="/en/services/">All services</a>
+      <a href="/en/services/software-development/">Software Development</a>
+      <a href="/en/services/electronics-pcb-design/">Electronics &amp; PCB</a>
+      <a href="/en/services/mechanical-cad-drawings/">Mechanical &amp; CAD</a>
+      <a href="/en/services/data-science-machine-learning/">Data Science &amp; ML</a>
+      <a href="/en/services/product-development/">Product Development</a>
+    </div>
+  </div>
   <a href="/en/projects/">Projects</a>
   <a href="/en/blog/">Blog</a>
   <a href="/en/about/">About</a>
