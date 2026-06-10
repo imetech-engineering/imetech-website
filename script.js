@@ -761,13 +761,250 @@
     initV2();
   }
 
-  function initWeb3ContactForm(form, resultEl, messages, eventName) {
-    if (!form || !resultEl) return;
+  var FORM_FEEDBACK_MS = prefersReduced ? 0 : 350;
+  var FORM_FEEDBACK_AUTO_HIDE = 5000;
+  var FORM_SUCCESS_ICON =
+    '<svg class="form-feedback-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="10"/>' +
+    '<path d="M9 12l2 2 4-4"/>' +
+    '</svg>';
+  var FORM_ERROR_ICON =
+    '<svg class="form-feedback-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="10"/>' +
+    '<path d="M15 9l-6 6M9 9l6 6"/>' +
+    '</svg>';
+
+  function setOverlayMode(overlay, mode, payload) {
+    if (!overlay) return;
+    overlay.classList.remove('form-feedback-overlay--success', 'form-feedback-overlay--error', 'form-feedback-overlay--loading');
+    if (mode) overlay.classList.add('form-feedback-overlay--' + mode);
+    var iconWrap = overlay.querySelector('.form-feedback-overlay__icon');
+    var titleEl = overlay.querySelector('.form-feedback-overlay__title');
+    var subEl = overlay.querySelector('.form-feedback-overlay__subtitle');
+    if (mode === 'loading') {
+      if (iconWrap) iconWrap.innerHTML = '';
+      if (titleEl) titleEl.textContent = payload.waiting || '';
+      if (subEl) subEl.textContent = '';
+    } else if (mode === 'success') {
+      if (iconWrap) iconWrap.innerHTML = FORM_SUCCESS_ICON;
+      if (titleEl) titleEl.textContent = payload.successTitle || payload.success || '';
+      if (subEl) subEl.textContent = payload.successSubtitle || '';
+    } else if (mode === 'error') {
+      if (iconWrap) iconWrap.innerHTML = FORM_ERROR_ICON;
+      if (titleEl) titleEl.textContent = payload.errorText || payload.error || '';
+      if (subEl) subEl.textContent = '';
+    }
+  }
+
+  function revealOverlay(overlay) {
+    if (!overlay) return;
+    overlay.setAttribute('aria-hidden', 'false');
+    if (FORM_FEEDBACK_MS === 0) {
+      overlay.classList.add('is-visible');
+      return;
+    }
+    overlay.classList.remove('is-visible');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { overlay.classList.add('is-visible'); });
+    });
+  }
+
+  function hideOverlay(overlay) {
+    if (!overlay) return;
+    overlay.classList.remove('is-visible', 'form-feedback-overlay--success', 'form-feedback-overlay--error', 'form-feedback-overlay--loading');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function initFormFeedback(form, bannerEl, opts) {
+    opts = opts || {};
+    if (!form) return null;
+
+    var state = {
+      wrap: null,
+      formBody: null,
+      overlay: null,
+      banner: null,
+      submitBtn: null,
+      hideTimer: null,
+      compact: !!opts.compact
+    };
+
+    if (!form.parentElement || !form.parentElement.classList.contains('form-feedback-wrap')) {
+      var wrap = document.createElement('div');
+      wrap.className = 'form-feedback-wrap' + (opts.compact ? ' form-feedback-wrap--compact' : '');
+      form.parentNode.insertBefore(wrap, form);
+      wrap.appendChild(form);
+      state.wrap = wrap;
+    } else {
+      state.wrap = form.parentElement;
+      if (opts.compact) state.wrap.classList.add('form-feedback-wrap--compact');
+    }
+
+    state.formBody = form.querySelector('.form-body');
+    if (!state.formBody) {
+      state.formBody = document.createElement('div');
+      state.formBody.className = 'form-body';
+      var toMove = [];
+      Array.prototype.forEach.call(form.childNodes, function (node) {
+        if (node.nodeType !== 1) return;
+        var el = node;
+        if (el.tagName === 'INPUT' && (el.type === 'hidden' || el.name === 'botcheck')) return;
+        if (el.classList && (el.classList.contains('form-feedback-banner') || el.classList.contains('form-result'))) return;
+        toMove.push(el);
+      });
+      toMove.forEach(function (node) { state.formBody.appendChild(node); });
+      form.appendChild(state.formBody);
+    }
+
+    state.banner = bannerEl;
+    if (state.banner) {
+      state.banner.classList.remove('form-result', 'form-success', 'form-error');
+      state.banner.classList.add('form-feedback-banner');
+      state.banner.removeAttribute('style');
+      if (!state.banner.getAttribute('role')) state.banner.setAttribute('role', 'status');
+      if (!state.banner.getAttribute('aria-live')) state.banner.setAttribute('aria-live', 'polite');
+      if (!opts.compact && state.banner.parentNode !== form) form.appendChild(state.banner);
+    } else {
+      state.banner = document.createElement('div');
+      state.banner.className = 'form-feedback-banner';
+      state.banner.setAttribute('role', 'status');
+      state.banner.setAttribute('aria-live', 'polite');
+      form.appendChild(state.banner);
+    }
+
+    state.overlay = state.wrap.querySelector('.form-feedback-overlay');
+    if (!state.overlay) {
+      state.overlay = document.createElement('div');
+      state.overlay.className = 'form-feedback-overlay';
+      state.overlay.setAttribute('aria-hidden', 'true');
+      state.overlay.innerHTML =
+        '<div class="form-feedback-overlay__icon">' + FORM_SUCCESS_ICON + '</div>' +
+        '<p class="form-feedback-overlay__title"></p>' +
+        '<p class="form-feedback-overlay__subtitle"></p>';
+      state.wrap.appendChild(state.overlay);
+    }
+
+    state.submitBtn = form.querySelector('button[type="submit"]');
+    return state;
+  }
+
+  function clearFormFeedbackTimer(state) {
+    if (!state || !state.hideTimer) return;
+    clearTimeout(state.hideTimer);
+    state.hideTimer = null;
+  }
+
+  function setSubmitLoading(state, loading, waitingText) {
+    if (!state || !state.submitBtn) return;
+    state.submitBtn.disabled = loading;
+    if (loading) {
+      state.submitBtn.classList.add('is-loading');
+      state.submitBtn.setAttribute('aria-busy', 'true');
+      if (waitingText && !state.submitBtn.dataset.originalHtml) {
+        state.submitBtn.dataset.originalHtml = state.submitBtn.innerHTML;
+        state.submitBtn.innerHTML = waitingText;
+      }
+    } else {
+      state.submitBtn.classList.remove('is-loading');
+      state.submitBtn.removeAttribute('aria-busy');
+      if (state.submitBtn.dataset.originalHtml) {
+        state.submitBtn.innerHTML = state.submitBtn.dataset.originalHtml;
+        delete state.submitBtn.dataset.originalHtml;
+      }
+    }
+  }
+
+  function showFormFeedbackState(state, type, payload) {
+    if (!state || !state.wrap) return;
+    payload = payload || {};
+    clearFormFeedbackTimer(state);
+
+    var wrap = state.wrap;
+    var banner = state.banner;
+    var overlay = state.overlay;
+
+    wrap.classList.remove('is-loading', 'is-success', 'is-error');
+
+    if (type === 'hide') {
+      if (banner) {
+        banner.classList.remove('is-visible', 'is-error', 'is-loading');
+        banner.textContent = '';
+      }
+      hideOverlay(overlay);
+      setSubmitLoading(state, false);
+      return;
+    }
+
+    if (type === 'loading') {
+      wrap.classList.add('is-loading');
+      setSubmitLoading(state, true, payload.waiting);
+      if (state.compact) {
+        setOverlayMode(overlay, 'loading', payload);
+        revealOverlay(overlay);
+      } else if (banner) {
+        banner.classList.remove('is-error');
+        banner.classList.add('is-loading');
+        banner.textContent = payload.waiting || '';
+        if (FORM_FEEDBACK_MS === 0) {
+          banner.classList.add('is-visible');
+        } else {
+          banner.classList.remove('is-visible');
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { banner.classList.add('is-visible'); });
+          });
+        }
+      }
+      return;
+    }
+
+    setSubmitLoading(state, false);
+
+    if (type === 'success') {
+      wrap.classList.add('is-success');
+      if (banner) {
+        banner.classList.remove('is-visible', 'is-loading', 'is-error');
+        banner.textContent = '';
+      }
+      setOverlayMode(overlay, 'success', payload);
+      revealOverlay(overlay);
+      state.hideTimer = setTimeout(function () { showFormFeedbackState(state, 'hide'); }, FORM_FEEDBACK_AUTO_HIDE);
+      return;
+    }
+
+    if (type === 'error') {
+      wrap.classList.add('is-error');
+      if (state.compact) {
+        setOverlayMode(overlay, 'error', payload);
+        revealOverlay(overlay);
+      } else {
+        hideOverlay(overlay);
+        if (banner) {
+          banner.classList.remove('is-loading');
+          banner.classList.add('is-error');
+          banner.textContent = payload.errorText || payload.error || '';
+          if (FORM_FEEDBACK_MS === 0) {
+            banner.classList.add('is-visible');
+          } else {
+            banner.classList.remove('is-visible');
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () { banner.classList.add('is-visible'); });
+            });
+          }
+        }
+      }
+      state.hideTimer = setTimeout(function () { showFormFeedbackState(state, 'hide'); }, FORM_FEEDBACK_AUTO_HIDE);
+    }
+  }
+
+  function initWeb3ContactForm(form, resultEl, messages, eventName, opts) {
+    if (!form) return;
+    var feedback = initFormFeedback(form, resultEl, opts);
     var isSubmitting = false;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (isSubmitting) return;
       isSubmitting = true;
+      showFormFeedbackState(feedback, 'loading', { waiting: messages.waiting });
       var fromPageInput = form.querySelector('input[name="from_page"]');
       if (fromPageInput) {
         fromPageInput.value = window.location.pathname + window.location.search;
@@ -775,9 +1012,6 @@
       var formData = new FormData(form);
       var object = Object.fromEntries(formData);
       var json = JSON.stringify(object);
-      resultEl.innerHTML = messages.waiting;
-      resultEl.style.display = 'block';
-      resultEl.className = 'form-result';
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -790,43 +1024,60 @@
               form_id: form.id || 'unknown',
               page_path: window.location.pathname
             });
-            resultEl.innerHTML = messages.success;
-            resultEl.className = 'form-result form-success';
-            resultEl.style.display = 'block';
             form.reset();
+            showFormFeedbackState(feedback, 'success', {
+              successTitle: messages.successTitle,
+              successSubtitle: messages.successSubtitle
+            });
           } else {
-            resultEl.innerHTML = data.message || messages.error;
-            resultEl.className = 'form-result form-error';
-            resultEl.style.display = 'block';
+            showFormFeedbackState(feedback, 'error', {
+              errorText: data.message || messages.error
+            });
           }
         })
         .catch(function () {
-          resultEl.innerHTML = messages.errorFallback;
-          resultEl.className = 'form-result form-error';
-          resultEl.style.display = 'block';
+          showFormFeedbackState(feedback, 'error', { errorText: messages.errorFallback });
         })
         .then(function () {
           isSubmitting = false;
-          setTimeout(function () { resultEl.style.display = 'none'; }, 4000);
         })
         .catch(function () {
           isSubmitting = false;
         });
     });
+    return feedback;
   }
 
   function initV2() {
     var isEn = document.documentElement.lang === 'en';
     var contactMessages = isEn
       ? {
-          waiting: 'Please wait...',
-          success: 'Message sent successfully! I\u2019ll respond within 24 hours.',
+          waiting: 'Sending...',
+          successTitle: 'Message sent!',
+          successSubtitle: 'I\u2019ll respond within 24 hours.',
           error: 'Something went wrong.',
           errorFallback: 'Something went wrong. Please try again or email info@imetech.nl.'
         }
       : {
-          waiting: 'Even geduld...',
-          success: 'Bericht succesvol verzonden! Ik reageer binnen 24 uur.',
+          waiting: 'Verzenden...',
+          successTitle: 'Bericht verzonden!',
+          successSubtitle: 'Ik reageer binnen 24 uur.',
+          error: 'Er is iets misgegaan.',
+          errorFallback: 'Er is iets misgegaan. Probeer het opnieuw of mail me direct.'
+        };
+
+    var reviewMessages = isEn
+      ? {
+          waiting: 'Sending...',
+          successTitle: 'Review submitted!',
+          successSubtitle: 'Thank you for your feedback.',
+          error: 'Something went wrong.',
+          errorFallback: 'Something went wrong. Please try again or email info@imetech.nl.'
+        }
+      : {
+          waiting: 'Verzenden...',
+          successTitle: 'Review verzonden!',
+          successSubtitle: 'Bedankt voor je feedback.',
           error: 'Er is iets misgegaan.',
           errorFallback: 'Er is iets misgegaan. Probeer het opnieuw of mail me direct.'
         };
@@ -841,7 +1092,8 @@
       document.getElementById('floatingContactForm'),
       document.getElementById('floatingContactResult'),
       contactMessages,
-      'floating_contact_form_submit'
+      'floating_contact_form_submit',
+      { compact: true }
     );
 
     document.addEventListener('click', function (e) {
@@ -1748,13 +2000,33 @@
     }
 
     if (reviewForm) {
+      var reviewFeedback = initFormFeedback(reviewForm, reviewResult);
+      var pendingReviewSuccess = null;
+
+      function shouldShowGoogleModal() {
+        return !googleReviewClicked && selectedRating >= 4 && googleModal;
+      }
+
+      function closeGoogleModalAndShowSuccess() {
+        if (googleModal) googleModal.style.display = 'none';
+        if (pendingReviewSuccess) {
+          showFormFeedbackState(reviewFeedback, 'success', pendingReviewSuccess);
+          pendingReviewSuccess = null;
+        }
+      }
+
       function sendReview() {
         if (isSubmittingReview) return;
         isSubmittingReview = true;
+        var deferSuccessFeedback = shouldShowGoogleModal();
+        if (!deferSuccessFeedback) {
+          showFormFeedbackState(reviewFeedback, 'loading', { waiting: reviewMessages.waiting });
+        } else {
+          setSubmitLoading(reviewFeedback, true, reviewMessages.waiting);
+        }
         var formData = new FormData(reviewForm);
         var object = Object.fromEntries(formData);
         var json = JSON.stringify(object);
-        if (reviewResult) { reviewResult.innerHTML = 'Please wait...'; reviewResult.style.display = 'block'; reviewResult.className = 'form-result'; }
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -1763,21 +2035,36 @@
           .then(function (response) { return response.json(); })
           .then(function (data) {
             if (data.success) {
-              if (reviewResult) { reviewResult.innerHTML = 'Review submitted successfully! Thank you.'; reviewResult.className = 'form-result form-success'; reviewResult.style.display = 'block'; }
               reviewForm.reset();
               selectedRating = 0;
               if (starContainer) starContainer.querySelectorAll('.star').forEach(function (s) { s.classList.remove('active'); });
+              var successPayload = {
+                successTitle: reviewMessages.successTitle,
+                successSubtitle: reviewMessages.successSubtitle
+              };
+              if (deferSuccessFeedback) {
+                pendingReviewSuccess = successPayload;
+                setSubmitLoading(reviewFeedback, false);
+                googleModal.style.display = 'flex';
+              } else {
+                showFormFeedbackState(reviewFeedback, 'success', successPayload);
+              }
             } else {
-              if (reviewResult) { reviewResult.innerHTML = data.message || 'Something went wrong.'; reviewResult.className = 'form-result form-error'; reviewResult.style.display = 'block'; }
+              if (googleModal) googleModal.style.display = 'none';
+              pendingReviewSuccess = null;
+              showFormFeedbackState(reviewFeedback, 'error', {
+                errorText: data.message || reviewMessages.error
+              });
             }
           })
           .catch(function () {
-            if (reviewResult) { reviewResult.innerHTML = 'Something went wrong. Please try again or email info@imetech.nl.'; reviewResult.className = 'form-result form-error'; reviewResult.style.display = 'block'; }
+            if (googleModal) googleModal.style.display = 'none';
+            pendingReviewSuccess = null;
+            showFormFeedbackState(reviewFeedback, 'error', { errorText: reviewMessages.errorFallback });
           })
           .then(function () {
             reviewForm.dataset.submitted = 'true';
             isSubmittingReview = false;
-            setTimeout(function () { if (reviewResult) reviewResult.style.display = 'none'; }, 4000);
           })
           .catch(function () {
             isSubmittingReview = false;
@@ -1788,9 +2075,6 @@
         if (!reviewForm.dataset.submitted) {
           e.preventDefault();
           sendReview();
-          if (!googleReviewClicked && selectedRating >= 4 && googleModal) {
-            googleModal.style.display = 'flex';
-          }
         }
       });
 
@@ -1798,13 +2082,10 @@
         btnGoogle.addEventListener('click', function () {
           window.open('https://g.page/r/CV9KoNq0t1d-EAE/review', '_blank');
           googleReviewClicked = true;
-          // Keep modal open so user can click 'Skip' to submit locally
         });
       }
       if (btnSkip) {
-        btnSkip.addEventListener('click', function () {
-          if (googleModal) googleModal.style.display = 'none';
-        });
+        btnSkip.addEventListener('click', closeGoogleModalAndShowSuccess);
       }
     }
 
