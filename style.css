@@ -4281,6 +4281,63 @@ button[type="submit"].is-loading {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
+.autoannotate-brand {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  border-radius: 16px;
+  padding: 2rem 2rem 1.75rem;
+  margin: 2rem 0 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+}
+
+.autoannotate-brand a {
+  display: inline-flex;
+  line-height: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.autoannotate-brand a:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.autoannotate-brand img {
+  height: 52px;
+  width: auto;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.autoannotate-brand p {
+  color: #94a3b8;
+  font-size: 0.8125rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.autoannotate-media-frame {
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18);
+}
+
+.autoannotate-media-frame img {
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+}
+
 
 /* ========== BACK LINK & BUTTONS ========== */
 .back-link {

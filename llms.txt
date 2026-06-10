@@ -39,6 +39,7 @@ Sitemap: https://imetech.nl/sitemap.xml
 - From Prototype to Production: https://imetech.nl/blog/prototype-naar-productie/
 - Python Industrial PLC Integration: https://imetech.nl/blog/python-industriele-plc-integratie/
 - ESP32 vs STM32 Comparison: https://imetech.nl/blog/esp32-vs-stm32/
+- AutoAnnotate Sensor Data Labeling: https://imetech.nl/blog/autoannotate-sensordata-labelen/
 - Concept Development & Iterative Design: https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/
 - Reliable PCB Design: https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/
 - Embedded Systems Overview: https://imetech.nl/blog/embedded-systemen/

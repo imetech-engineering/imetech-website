@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="language" content="en">
+  <meta name="geo.region" content="NL-GE">
+  <meta name="geo.placename" content="Aalten, Achterhoek">
+  <meta name="geo.position" content="51.8996;6.5670">
+  <meta name="ICBM" content="51.8996, 6.5670">
+  <meta property="og:title" content="AutoAnnotate: label sensor data without weeks of manual work - IMeTech Engineering">
+  <meta property="og:description" content="AutoAnnotate labels sensor data automatically by linking cameras to measurements. An initiative by IMeTech Engineering and R2R Engineering, proven with the Maatje Pop care robot.">
+  <meta property="og:image" content="https://imetech.nl/images/autoannotate-photo-solution.webp">
+  <meta property="og:url" content="https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="IMeTech Engineering">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AutoAnnotate: label sensor data without weeks of manual work">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AutoAnnotate: label sensor data without weeks of manual work - IMeTech Engineering">
+  <meta name="twitter:description" content="AutoAnnotate labels sensor data automatically by linking cameras to measurements. An initiative by IMeTech Engineering and R2R Engineering, proven with the Maatje Pop care robot.">
+  <meta name="twitter:image" content="https://imetech.nl/images/autoannotate-photo-solution.webp">
+  <meta property="article:author" content="https://imetech.nl/en/about/">
+  <meta name="twitter:creator" content="@imetech_engineering">
+  <title>AutoAnnotate: label sensor data without weeks of manual work - IMeTech Engineering</title>
+  <meta name="description"
+    content="AutoAnnotate labels sensor data automatically by linking cameras to measurements. An initiative by IMeTech Engineering and R2R Engineering, born from ML development for the Maatje Pop care robot." />
+  <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="IMeTech Engineering" href="https://imetech.nl/sitemap.rss">
+  <link rel="canonical" href="https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/">
+  <link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/autoannotate-sensordata-labelen/" />
+  <link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" />
+  <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/autoannotate-sensordata-labelen/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20260608l">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AutoAnnotate: label sensor data without weeks of manual work", "description": "AutoAnnotate labels sensor data automatically by linking cameras to measurements. An initiative by IMeTech Engineering and R2R Engineering, born from ML development for the Maatje Pop care robot.", "url": "https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/", "inLanguage": "en", "author": {"@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about/"}, "publisher": {"@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": {"@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/"}, "image": "https://imetech.nl/images/autoannotate-photo-solution.webp"}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://imetech.nl/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://imetech.nl/en/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AutoAnnotate: label sensor data without weeks of manual work",
+        "item": "https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+<noscript>
+  <nav aria-label="Navigation without JavaScript">
+    <a href="/en/">Home</a> · <a href="/en/services/">Services</a> · <a href="/en/projects/">Projects</a> ·
+    <a href="/en/blog/">Blog</a> · <a href="/en/about/">About</a> · <a href="/en/contact/">Contact</a>
+  </nav>
+</noscript>
+
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-slides" aria-roledescription="slideshow">
+        <div class="page-hero-slide active" style="background-image:url('/images/autoannotate-photo-solution.webp')"></div>
+        <div class="page-hero-slide" style="background-image:url('/images/autoannotate-photo-applications.webp')"></div>
+      </div>
+      <div class="page-hero-overlay"></div>
+      <div class="wrap reveal-blur">
+        <span class="label" style="color:#60a5fa">Blog</span>
+        <h1>AutoAnnotate: label sensor data without weeks of manual work</h1>
+        <p>How cameras and sensors together produce ML training data — born from a real project, proven with the Maatje Pop care robot.</p>
+      </div>
+    </section>
+
+    <section class="section" data-parallax="focus">
+      <div class="deco deco-blob deco-blob-1" style="width:400px;height:400px;top:-80px;right:-140px"
+        data-speed="0.09" data-drift="-0.025"></div>
+      <div class="wrap">
+        <div class="article-meta reveal">
+          <span>Planned</span>
+          <span>Ivo Mengerink</span>
+          <span>13 min read</span>
+        </div>
+
+        <article class="article-content reveal">
+          <div class="lead">
+            <p class="lead">
+              The bottleneck in machine learning is rarely the model. It is <strong>labeled data</strong>. In computer vision you draw bounding boxes. In NLP you tag entities. But with <strong>sensor data</strong> — microphone, radar, touch, IMU — labeling time series is slow, expensive, and error-prone. You scroll through hours of measurements and need domain expertise to know what happened at each moment.
+            </p>
+            <p>
+              During my master's project at <a href="https://r2r.nl" target="_blank" rel="noopener noreferrer">R2R Engineering</a>, I ran into this head-on. We wanted to make a care robot smarter with machine learning, but got stuck labeling tens of thousands of sensor readings. That experience led to an approach we developed together — now available as <a href="https://autoannotate.nl" target="_blank" rel="noopener noreferrer"><strong>AutoAnnotate</strong></a>, an initiative by IMeTech Engineering and R2R Engineering. In this article I explain how it works and why it matters. For a deeper dive into the underlying strategies, see also <a href="/en/blog/automating-sensor-data-annotation/">Automating Sensor Data Annotation for Machine Learning</a>.
+            </p>
+          </div>
+
+          <div class="autoannotate-brand reveal">
+            <a href="https://autoannotate.nl" target="_blank" rel="noopener noreferrer" title="Visit AutoAnnotate">
+              <img src="/images/autoannotate-logo-sm.webp" alt="AutoAnnotate" width="280" height="172" />
+            </a>
+            <p>An initiative by IMeTech Engineering &amp; R2R Engineering</p>
+          </div>
+
+          <section>
+            <h2>The project: from static robot to context-aware interaction</h2>
+            <p>
+              R2R Engineering develops socially assistive robots, including <strong>Maatje Pop</strong> — a humanoid doll for elderly users and people with cognitive impairments. The robot provides support through daily reminders, caregiver messages, and simple interactions. The existing behaviour was predictable: a sensor trigger led to a fixed response, without context or memory.
+            </p>
+            <p>
+              The project goal was an <strong>adaptive interaction model</strong>: the robot should learn when to respond and which interaction type is appropriate, based on multi-modal sensor data (microphone, radar, touch, IMU, ambient light). That required two ML models: a binary model deciding whether the robot should interact, and a multi-label model choosing the interaction type from ten defined categories.
+            </p>
+            <p>
+              Both models need <strong>thousands of labeled examples</strong> to generalize reliably. We built a web interface for observers to label in real time while watching the robot and user. It worked — but it did not scale. Manual labeling took weeks and kept the team stuck in repetitive work instead of moving forward.
+            </p>
+            <p>
+              Maatje Pop is the <strong>use case</strong> here, not the subject of this article. The pattern is familiar for any ML project with sensor data: you need labels, manual labeling is the bottleneck, and you need a way to scale without sacrificing quality.
+            </p>
+          </section>
+
+          <section>
+            <h2>The insight: sensors do not see everything</h2>
+            <p>
+              Embedded sensors register <em>that</em> something happens — sound, movement, touch — but not always <em>what</em> happens. A microphone records that there is sound, but not whether someone picks up the doll, comforts it, or walks past passively. Radar detects movement, but not whether that movement means a greeting or physical activity.
+            </p>
+            <p>
+              The breakthrough was a <strong>camera as an external observation source</strong>, alongside the sensors. The camera streams in parallel and records visual events: a person entering, a hand grabbing the doll, someone sitting still for a long time. Those events are linked to the sensor data at the same timestamp. That produces labeled training examples without someone manually annotating every second.
+            </p>
+            <p>
+              Technically this is <strong>weak supervision</strong>: heuristics and vision models generate labels programmatically instead of manually per sample. We built a two-tier pipeline:
+            </p>
+
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <img src="/images/autoannotate-photo-problem.webp" alt="Raw sensor data without context: numbers on a timeline without clear meaning" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+                <h4>Tier 1: network camera analytics</h4>
+                <p>Built-in detections from the network camera: person detected → greeting; speech activity → conversation starter; loitering → physical activity. No extra infrastructure needed — the camera sends events via webhooks to the annotation server.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h4>Tier 2: custom vision model</h4>
+                <p>For fine-grained interactions Tier 1 cannot see: hand + doll overlap → picking up or comforting; person + doll proximity without contact → passive feedback. A custom-trained object detection model recognizes doll, hand, and person in the camera feed.</p>
+              </div>
+            </div>
+
+            <p>
+              Both tiers write timestamped labels to the same database, synchronized with sensor measurements. The result: a supervised learning dataset where each sensor snapshot is linked to the correct interaction label — generated by the camera, not by a human scrolling through time series for hours.
+            </p>
+          </section>
+
+          <section>
+            <h2>How AutoAnnotate works</h2>
+            <p>
+              From that collaboration came <a href="https://autoannotate.nl" target="_blank" rel="noopener noreferrer"><strong>AutoAnnotate</strong></a> — set up together by <strong>IMeTech Engineering and R2R Engineering</strong> to make this approach available to other teams with the same problem. The platform translates the technical pipeline into four steps:
+            </p>
+
+            <div class="process-flow">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Record</h3>
+                  <p>Cameras alongside your sensors capture image and measurements simultaneously, on one synchronized timeline.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Recognize</h3>
+                  <p>The software recognizes what happens in the image: a person, a gesture, an action.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Link</h3>
+                  <p>What the camera sees is automatically linked to the sensor data from that same moment.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Export</h3>
+                  <p>Labeled data in standard formats, ready to train your model — without extra conversion steps.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <img src="/images/autoannotate-photo-solution.webp" alt="AutoAnnotate links camera footage and sensor data on one timeline into labeled training data" fetchpriority="high" />
+              </div>
+            </div>
+
+            <p>
+              Three things make AutoAnnotate different from generic annotation tools:
+            </p>
+            <p>
+              <strong>Privacy by design.</strong> Image and measurement data stay with you. AutoAnnotate is built to run locally — you are not required to send anything to a third-party cloud. Critical in environments where personal data and GDPR matter, such as healthcare.
+            </p>
+            <p>
+              <strong>Consistency.</strong> Manual labeling leads to varying quality: everyone writes things slightly differently. An automated pipeline generates repeatable labels with the same rules, every time.
+            </p>
+            <p>
+              <strong>Scale.</strong> Collect more data without proportionally more people. Where manual labeling takes weeks, the same period with AutoAnnotate produces a much larger, consistent dataset.
+            </p>
+          </section>
+
+          <section>
+            <h2>Manual vs. AutoAnnotate</h2>
+
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                </div>
+                <h3>Manual labeling</h3>
+                <ul>
+                  <li>Weeks to months for a usable dataset</li>
+                  <li>Domain expertise required per annotation</li>
+                  <li>Varying quality between annotators</li>
+                  <li>Costs grow linearly with each project</li>
+                  <li>Hard to scale without extra people</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card">
+                <div class="comparison-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <h3>With AutoAnnotate</h3>
+                <ul>
+                  <li>Labels in hours instead of weeks</li>
+                  <li>Camera + AI does the heavy lifting</li>
+                  <li>Consistent, repeatable annotations</li>
+                  <li>Runs locally, privacy by design</li>
+                  <li>More data without equally more capacity</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Proven with Maatje Pop</h2>
+            <div class="autoannotate-media-frame">
+              <img src="/images/autoannotate-maatje-pop.webp" alt="Maatje Pop care robot with sensor and camera setup for AutoAnnotate" loading="lazy" decoding="async" />
+            </div>
+            <p>
+              AutoAnnotate is not a theoretical concept — it was tested and validated in practice at SAR Maatje Pop. Together with R2R Engineering, we deployed the auto-annotation pipeline alongside the existing sensors and robot. The result:
+            </p>
+            <p>
+              More than <strong>160,000 labeled samples</strong> collected, with manual review confirming <strong>96% accuracy</strong> of auto-generated labels. Labeling went up to <strong>100× faster</strong> than fully manual work. The exported data fit directly into the existing training process — no extra conversion steps needed.
+            </p>
+            <p>
+              The ML models trained on this data now run on the robot's embedded hardware. From raw sensor data to a working on-device model — the full chain is proven.
+            </p>
+            <p>
+              To be honest: not every interaction type was equally easy to label automatically. Simpler events such as greetings and physical activity scored highest. More complex types — such as starting a conversation with partial camera occlusion — required refined detection rules or manual review of edge cases. That is normal with weak supervision and exactly why we recommend a hybrid approach: automate where you can, review manually where you must.
+            </p>
+            <p>
+              The Maatje Pop team noticed the difference immediately. As the project coordinator put it: <em>"Since we started using AutoAnnotate, we need to label much less manually. We get usable data faster and annotation quality stays stable."</em>
+            </p>
+          </section>
+
+          <section>
+            <h2>Where else AutoAnnotate works</h2>
+            <p>
+              The approach is not limited to care robots. Wherever sensor data feeds an ML model and context is visually observable, AutoAnnotate can speed up labeling:
+            </p>
+
+            <div class="service-detail-visual">
+              <div class="gallery">
+                <img src="/images/autoannotate-photo-applications.webp" alt="AutoAnnotate application areas: healthcare, retail, agriculture, and wearables" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="challenges-grid">
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+                <h4>Care robots</h4>
+                <p>Sensors on the robot or in the room, with cameras: automatic clear examples of gestures, postures, and interactions.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h4>Wearable sensors &amp; fall detection</h4>
+                <p>Body-worn sensors with cameras: automatic annotations to make fall alarms smarter.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  </svg>
+                </div>
+                <h4>Retail &amp; behaviour</h4>
+                <p>In-store sensors with cameras: automatic insight into footfall and movement patterns, useful for planning.</p>
+              </div>
+
+              <div class="challenge-item">
+                <div class="challenge-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                  </svg>
+                </div>
+                <h4>Agriculture</h4>
+                <p>Livestock sensors with cameras: behaviour and health signals automatically combined.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Why we made AutoAnnotate available</h2>
+            <p>
+              The annotation problem is universal. Every engineer building an ML model on sensor data hits the same wall: the model is feasible, the data is available, but the labels are missing. Our solution did not come from a product idea on paper, but from necessity during the Maatje Pop project.
+            </p>
+            <p>
+              Together with R2R Engineering, we built and validated the pipeline: IMeTech on the technical side (data pipeline, computer vision, ML), R2R on the care robot and practice environment. Because we saw the same bottleneck in other projects, we set up AutoAnnotate <strong>together as a platform</strong> — an initiative by both companies.
+            </p>
+            <p>
+              AutoAnnotate now makes this approach accessible to teams with the same problem. Whether you are developing a care robot, an IoT product, or an industrial sensor setup: if you want to train ML models on sensor data, labeled data is your bottleneck. AutoAnnotate helps remove it.
+            </p>
+            <p>
+              Curious how this works for your project? Book a free demo at <a href="https://autoannotate.nl" target="_blank" rel="noopener noreferrer">autoannotate.nl</a>. You can also <a href="/en/contact/">contact IMeTech</a> to discuss your ML or sensor data challenge.
+            </p>
+          </section>
+
+        </article>
+        <div class="article-tags reveal">
+          <a href="/en/services/data-science-machine-learning/" class="tag-link"><span>Machine Learning</span></a>
+          <a href="/en/services/data-science-machine-learning/" class="tag-link"><span>Sensor Data</span></a>
+          <span>AutoAnnotate</span>
+          <span>Care Robot</span>
+          <span>Data Annotation</span>
+          <span>AI</span>
+        </div>
+
+        <div class="share-buttons reveal">
+          <a href="https://twitter.com/intent/tweet?text=AutoAnnotate%3A%20label%20sensor%20data%20without%20weeks%20of%20manual%20work&url=https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.74 7.71L22 22h-6.828l-5.34-6.457L3.66 22H1l7.18-8.21L2 2h6.914l4.807 5.93L18.244 2zm-1.197 18h1.884L7.04 4h-1.9l11.907 16z"/></svg></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://wa.me/?text=AutoAnnotate%3A%20label%20sensor%20data%20without%20weeks%20of%20manual%20work%20https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" target="_blank" rel="noopener noreferrer" class="share-whatsapp" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <button data-share="copy" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+        <section class="section section-alt related-articles">
+            <div class="wrap">
+                <div class="section-header reveal heading-animate">
+                    <span class="label">Blog</span>
+                    <h2>Related articles</h2>
+                </div>
+                <div class="related-grid reveal">
+                    <a href="/en/blog/automating-sensor-data-annotation/" class="related-card"><h3>Automating Sensor Data Annotation for Machine Learning</h3><span class="related-arrow">&rarr;</span></a>
+                    <a href="/en/blog/machine-learning-product-development/" class="related-card"><h3>Machine Learning: From Data to Smart Products</h3><span class="related-arrow">&rarr;</span></a>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="wrap reveal-blur heading-animate">
+                <h2>ML project with sensor data?</h2>
+                <p>Explore AutoAnnotate or get in touch for a no-obligation conversation.</p>
+                <div class="cta-dual">
+                    <a href="https://autoannotate.nl" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit AutoAnnotate</a>
+                    <a href="/en/services/data-science-machine-learning/" class="btn btn-outline">ML &amp; data services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
+  </main>
+
+  <div id="footer-container"></div>
+  <div id="floating-cta-container"></div>
+  <script src="/script.js?v=20260608l" defer></script>
+</body>
+
+</html>

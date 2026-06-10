@@ -150,6 +150,11 @@
       <description>Praktische vergelijking van ESP32 en STM32 microcontrollers voor IoT, industriële en embedded projecten.</description>
     </item>
     <item>
+      <title>AutoAnnotate: sensordata labelen zonder weken handwerk</title>
+      <link>https://imetech.nl/blog/autoannotate-sensordata-labelen/</link>
+      <description>AutoAnnotate labelt sensordata automatisch door camera's te koppelen aan meetgegevens. Een initiatief van IMeTech Engineering en R2R Engineering, bewezen bij de Maatje Pop zorgrobot.</description>
+    </item>
+    <item>
       <title>Embedded Systemen Blog</title>
       <link>https://imetech.nl/blog/embedded-systemen/</link>
       <description>Blog post over embedded systemen en hun rol in moderne technologie</description>

@@ -163,8 +163,14 @@ $blogNl = @{
     'automatiseren-sensordata-annotatie' = @{
         service = '/diensten/data-science-machine-learning/'
         serviceLabel = 'ML & data diensten'
-        related = @('machine-learning-productontwikkeling', 'datagedreven-productie')
+        related = @('autoannotate-sensordata-labelen', 'machine-learning-productontwikkeling')
         tagMap = @{ 'Machine Learning' = '/diensten/data-science-machine-learning/'; 'Sensordata' = '/diensten/data-science-machine-learning/' }
+    }
+    'autoannotate-sensordata-labelen' = @{
+        service = '/diensten/data-science-machine-learning/'
+        serviceLabel = 'ML & data diensten'
+        related = @('automatiseren-sensordata-annotatie', 'machine-learning-productontwikkeling')
+        tagMap = @{ 'Machine Learning' = '/diensten/data-science-machine-learning/'; 'Sensordata' = '/diensten/data-science-machine-learning/'; 'AutoAnnotate' = 'https://autoannotate.nl' }
     }
     'effectieve-dashboards-niet-technisch' = @{
         service = '/diensten/data-science-machine-learning/'
@@ -200,7 +206,8 @@ $blogEn = @{
     'python-industrial-plc-integration' = @{ service = '/en/services/software-development/'; serviceLabel = 'PLC & software services'; related = @('software-development-embedded-systems', 'data-driven-manufacturing') }
     'machine-learning-product-development' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'Machine learning services'; related = @('data-driven-manufacturing', 'automating-sensor-data-annotation') }
     'data-driven-manufacturing' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'Data science services'; related = @('machine-learning-product-development', 'effective-dashboards-non-technical') }
-    'automating-sensor-data-annotation' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'ML & data services'; related = @('machine-learning-product-development', 'data-driven-manufacturing') }
+    'automating-sensor-data-annotation' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'ML & data services'; related = @('autoannotate-sensor-data-labeling', 'machine-learning-product-development') }
+    'autoannotate-sensor-data-labeling' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'ML & data services'; related = @('automating-sensor-data-annotation', 'machine-learning-product-development') }
     'effective-dashboards-non-technical' = @{ service = '/en/services/data-science-machine-learning/'; serviceLabel = 'Data & analytics services'; related = @('data-driven-manufacturing', 'python-industrial-plc-integration') }
     'from-idea-to-prototype-workflow' = @{ service = '/en/services/product-development/'; serviceLabel = 'Product development'; related = @('concept-development-iterative-design', 'prototype-to-production') }
     'concept-development-iterative-design' = @{ service = '/en/services/product-development/'; serviceLabel = 'Product development'; related = @('from-idea-to-prototype-workflow', 'prototype-to-production') }
