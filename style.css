@@ -500,10 +500,110 @@ p {
   background-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+  overflow: hidden;
+  transform: scale(1);
+  will-change: transform, opacity;
 }
 
 .hero-slide.active {
   opacity: 1;
+  animation: hero-ken-burns 5s ease-out forwards;
+}
+
+.hero-slide.slide-exiting {
+  animation: none;
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.hero-bg-video,
+.hero-motion-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-motion-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-motion-orbs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-motion-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.45;
+  animation: hero-orb-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-motion-orb--1 {
+  width: 420px;
+  height: 420px;
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, transparent 70%);
+  animation-duration: 22s;
+}
+
+.hero-motion-orb--2 {
+  width: 360px;
+  height: 360px;
+  bottom: -15%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  animation-duration: 26s;
+  animation-delay: -4s;
+}
+
+.hero-motion-orb--3 {
+  width: 280px;
+  height: 280px;
+  top: 35%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.35) 0%, transparent 70%);
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+@keyframes hero-orb-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(3%, -4%) scale(1.08);
+  }
+}
+
+.page-hero .hero-motion-orb {
+  opacity: 0.28;
+}
+
+.page-hero .hero-motion-canvas {
+  opacity: 0.65;
 }
 
 .hero-overlay {
@@ -692,6 +792,18 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+  .hero-slide.active,
+  .page-hero-slide.active {
+    animation: none;
+    transform: none;
+  }
+
+  .hero-motion-layer,
+  .hero-bg-video {
+    display: none;
+  }
+
   .hero-stat,
   .hero-stat-num {
     transition: none;
@@ -1988,10 +2100,28 @@ p {
   background-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+  overflow: hidden;
+  transform: scale(1);
+  will-change: transform, opacity;
 }
 
 .page-hero-slide.active {
   opacity: 0.35;
+  animation: page-hero-ken-burns 5s ease-out forwards;
+}
+
+.page-hero-slide.slide-exiting {
+  animation: none;
+}
+
+@keyframes page-hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
 
 .page-hero-overlay {

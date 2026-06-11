@@ -1423,7 +1423,11 @@
     initFaqAccordion();
 
     // ===== HERO CAROUSEL =====
-    (function initHeroCarousel() {
+    (function () {
+      function initKenBurnsCarousel(slideSelector, endScale) {
+      var fadeMs = 1500;
+      var interval = 5000;
+
       function deferSlideBackground(slide) {
         var bg = slide.style.backgroundImage;
         if (!bg) return;
@@ -1441,7 +1445,12 @@
         }
       }
 
-      var slideEls = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+      function resetSlide(slide) {
+        slide.classList.remove('active', 'slide-exiting');
+        slide.style.transform = '';
+      }
+
+      var slideEls = Array.prototype.slice.call(document.querySelectorAll(slideSelector));
       if (slideEls.length <= 1 || prefersReduced) return;
 
       slideEls.forEach(function (slide, index) {
@@ -1449,75 +1458,249 @@
       });
 
       var parent = slideEls[0].parentNode;
-      for (var hi = slideEls.length - 1; hi > 0; hi--) {
-        var hj = Math.floor(Math.random() * (hi + 1));
-        var htmp = slideEls[hi];
-        slideEls[hi] = slideEls[hj];
-        slideEls[hj] = htmp;
+      for (var i = slideEls.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = slideEls[i];
+        slideEls[i] = slideEls[j];
+        slideEls[j] = tmp;
       }
       slideEls.forEach(function (s) { parent.appendChild(s); });
-      slideEls.forEach(function (s) { s.classList.remove('active'); });
+      slideEls.forEach(resetSlide);
       slideEls[0].classList.add('active');
       loadSlideBackground(slideEls[0]);
 
       var current = 0;
-      var interval = 5000;
       function nextSlide() {
-        slideEls[current].classList.remove('active');
+        var outgoing = slideEls[current];
+        outgoing.style.transform = 'scale(' + endScale + ')';
+        outgoing.classList.remove('active');
+        outgoing.classList.add('slide-exiting');
+
         current = (current + 1) % slideEls.length;
-        loadSlideBackground(slideEls[current]);
-        slideEls[current].classList.add('active');
+        var incoming = slideEls[current];
+        resetSlide(incoming);
+        loadSlideBackground(incoming);
+        void incoming.offsetWidth;
+        incoming.classList.add('active');
+
+        window.setTimeout(function () {
+          outgoing.style.transform = '';
+          outgoing.classList.remove('slide-exiting');
+        }, fadeMs);
       }
+
       setInterval(nextSlide, interval);
+      }
+
+      initKenBurnsCarousel('.hero-slide', 1.1);
+      initKenBurnsCarousel('.page-hero-slide', 1.08);
     })();
 
-    // ===== PAGE HERO CAROUSEL =====
-    (function initPageHeroCarousel() {
-      function deferSlideBackground(slide) {
-        var bg = slide.style.backgroundImage;
-        if (!bg) return;
-        var match = bg.match(/url\(['"]?([^'")]+)/);
-        if (match) {
-          slide.setAttribute('data-bg', match[1]);
-          slide.style.backgroundImage = '';
+    // ===== HERO MOTION BACKGROUND =====
+    (function initHeroMotionBackground() {
+      if (prefersReduced) return;
+
+      var heroes = document.querySelectorAll('.hero, .page-hero');
+      if (!heroes.length) return;
+
+      function debounce(fn, wait) {
+        var timer;
+        return function () {
+          clearTimeout(timer);
+          timer = setTimeout(fn, wait);
+        };
+      }
+
+      function insertMotionLayer(hero) {
+        var overlay = hero.querySelector('.hero-overlay, .page-hero-overlay');
+        var isPageHero = hero.classList.contains('page-hero');
+        var videoSrc = hero.getAttribute('data-hero-video');
+
+        if (videoSrc) {
+          var video = document.createElement('video');
+          video.className = 'hero-bg-video';
+          video.muted = true;
+          video.loop = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.setAttribute('aria-hidden', 'true');
+          video.setAttribute('preload', 'metadata');
+
+          var webmSrc = hero.getAttribute('data-hero-video-webm');
+          if (webmSrc) {
+            var webmSource = document.createElement('source');
+            webmSource.src = webmSrc;
+            webmSource.type = 'video/webm';
+            video.appendChild(webmSource);
+          }
+
+          var mp4Source = document.createElement('source');
+          mp4Source.src = videoSrc;
+          mp4Source.type = 'video/mp4';
+          video.appendChild(mp4Source);
+
+          if (overlay) hero.insertBefore(video, overlay);
+          else hero.insertBefore(video, hero.firstChild);
+
+          video.play().catch(function () { });
         }
-      }
 
-      function loadSlideBackground(slide) {
-        var bg = slide.getAttribute('data-bg');
-        if (bg && !slide.style.backgroundImage) {
-          slide.style.backgroundImage = "url('" + bg + "')";
+        var layer = document.createElement('div');
+        layer.className = 'hero-motion-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        layer.innerHTML =
+          '<div class="hero-motion-orbs">' +
+          '<span class="hero-motion-orb hero-motion-orb--1"></span>' +
+          '<span class="hero-motion-orb hero-motion-orb--2"></span>' +
+          '<span class="hero-motion-orb hero-motion-orb--3"></span>' +
+          '</div>';
+
+        var canvas = document.createElement('canvas');
+        canvas.className = 'hero-motion-canvas';
+        layer.appendChild(canvas);
+
+        if (overlay) hero.insertBefore(layer, overlay);
+        else hero.insertBefore(layer, hero.firstChild);
+
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var nodes = [];
+        var running = false;
+        var rafId = null;
+        var nodeCount = window.innerWidth < 768 ? (isPageHero ? 16 : 24) : (isPageHero ? 24 : 36);
+        var lineBase = isPageHero ? 0.035 : 0.06;
+        var dotBase = isPageHero ? 0.12 : 0.22;
+        var gridBase = isPageHero ? 0.025 : 0.045;
+        var connectDist = isPageHero ? 110 : 150;
+
+        function initNodes(w, h) {
+          nodes = [];
+          var cols = Math.max(3, Math.ceil(Math.sqrt(nodeCount * (w / Math.max(h, 1)))));
+          var rows = Math.ceil(nodeCount / cols);
+          var spacingX = w / (cols + 1);
+          var spacingY = h / (rows + 1);
+          var index = 0;
+
+          for (var row = 0; row < rows && index < nodeCount; row++) {
+            for (var col = 0; col < cols && index < nodeCount; col++) {
+              nodes.push({
+                x: spacingX * (col + 1) + (Math.random() - 0.5) * spacingX * 0.35,
+                y: spacingY * (row + 1) + (Math.random() - 0.5) * spacingY * 0.35,
+                phase: Math.random() * Math.PI * 2,
+                radius: 1 + Math.random() * 1.4
+              });
+              index++;
+            }
+          }
         }
+
+        function resize() {
+          var rect = hero.getBoundingClientRect();
+          if (!rect.width || !rect.height) return;
+          canvas.width = Math.round(rect.width * dpr);
+          canvas.height = Math.round(rect.height * dpr);
+          canvas.style.width = rect.width + 'px';
+          canvas.style.height = rect.height + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          initNodes(rect.width, rect.height);
+        }
+
+        function draw(time) {
+          if (!running) return;
+          var rect = hero.getBoundingClientRect();
+          var w = rect.width;
+          var h = rect.height;
+          if (!w || !h) {
+            rafId = requestAnimationFrame(draw);
+            return;
+          }
+
+          var t = time * 0.001;
+          ctx.clearRect(0, 0, w, h);
+
+          var gridSize = 52;
+          ctx.strokeStyle = 'rgba(96, 165, 250, ' + gridBase + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          for (var gx = gridSize; gx < w; gx += gridSize) {
+            ctx.moveTo(gx, 0);
+            ctx.lineTo(gx, h);
+          }
+          for (var gy = gridSize; gy < h; gy += gridSize) {
+            ctx.moveTo(0, gy);
+            ctx.lineTo(w, gy);
+          }
+          ctx.stroke();
+
+          for (var a = 0; a < nodes.length; a++) {
+            for (var b = a + 1; b < nodes.length; b++) {
+              var dx = nodes[a].x - nodes[b].x;
+              var dy = nodes[a].y - nodes[b].y;
+              var dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < connectDist) {
+                var alpha = (1 - dist / connectDist) * lineBase;
+                ctx.strokeStyle = 'rgba(59, 130, 246, ' + alpha + ')';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(nodes[a].x, nodes[a].y);
+                ctx.lineTo(nodes[b].x, nodes[b].y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          nodes.forEach(function (node) {
+            var pulse = 0.55 + 0.45 * Math.sin(t * 1.15 + node.phase);
+            var driftX = Math.sin(t * 0.35 + node.phase) * 6;
+            var driftY = Math.cos(t * 0.28 + node.phase) * 5;
+            var x = node.x + driftX;
+            var y = node.y + driftY;
+            var r = node.radius * (0.85 + pulse * 0.35);
+
+            ctx.fillStyle = 'rgba(147, 197, 253, ' + (dotBase * pulse) + ')';
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fill();
+          });
+
+          rafId = requestAnimationFrame(draw);
+        }
+
+        function start() {
+          if (running) return;
+          running = true;
+          rafId = requestAnimationFrame(draw);
+        }
+
+        function stop() {
+          running = false;
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        }
+
+        var visibilityObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) start();
+            else stop();
+          });
+        }, { threshold: 0.05 });
+
+        visibilityObserver.observe(hero);
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stop();
+          else start();
+        });
+
+        resize();
+        window.addEventListener('resize', debounce(resize, 200));
+        start();
       }
 
-      var pageHeroSlides = Array.prototype.slice.call(document.querySelectorAll('.page-hero-slide'));
-      if (pageHeroSlides.length <= 1 || prefersReduced) return;
-
-      pageHeroSlides.forEach(function (slide, index) {
-        if (index > 0) deferSlideBackground(slide);
-      });
-
-      var pParent = pageHeroSlides[0].parentNode;
-      for (var pi = pageHeroSlides.length - 1; pi > 0; pi--) {
-        var pj = Math.floor(Math.random() * (pi + 1));
-        var ptmp = pageHeroSlides[pi];
-        pageHeroSlides[pi] = pageHeroSlides[pj];
-        pageHeroSlides[pj] = ptmp;
-      }
-      pageHeroSlides.forEach(function (s) { pParent.appendChild(s); });
-      pageHeroSlides.forEach(function (s) { s.classList.remove('active'); });
-      pageHeroSlides[0].classList.add('active');
-      loadSlideBackground(pageHeroSlides[0]);
-
-      var pageCurrent = 0;
-      var pageInterval = 5000;
-      function nextPageSlide() {
-        pageHeroSlides[pageCurrent].classList.remove('active');
-        pageCurrent = (pageCurrent + 1) % pageHeroSlides.length;
-        loadSlideBackground(pageHeroSlides[pageCurrent]);
-        pageHeroSlides[pageCurrent].classList.add('active');
-      }
-      setInterval(nextPageSlide, pageInterval);
+      heroes.forEach(insertMotionLayer);
     })();
 
     // ===== SCROLL REVEAL =====
