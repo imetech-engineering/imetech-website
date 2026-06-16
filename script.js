@@ -1278,6 +1278,8 @@
         '/projecten/carryvision-plantcamerasysteem.html': '/en/projects/carryvision-plant-camera-system/',
         '/projecten/photobooth-beheerdashboard/': '/en/projects/photobooth-management-dashboard/',
         '/projecten/photobooth-beheerdashboard.html': '/en/projects/photobooth-management-dashboard/',
+        '/projecten/maquette-led-installatie/': '/en/projects/model-led-installation/',
+        '/projecten/maquette-led-installatie.html': '/en/projects/model-led-installation/',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/',
         '/blog/machine-learning-productontwikkeling/': '/en/blog/machine-learning-product-development/',
