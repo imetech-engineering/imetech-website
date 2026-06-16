@@ -1276,6 +1276,8 @@
         '/projecten/poc-proximity-chat.html': '/en/projects/poc-proximity-chat/',
         '/projecten/carryvision-plantcamerasysteem/': '/en/projects/carryvision-plant-camera-system/',
         '/projecten/carryvision-plantcamerasysteem.html': '/en/projects/carryvision-plant-camera-system/',
+        '/projecten/photobooth-beheerdashboard/': '/en/projects/photobooth-management-dashboard/',
+        '/projecten/photobooth-beheerdashboard.html': '/en/projects/photobooth-management-dashboard/',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/',
         '/blog/machine-learning-productontwikkeling/': '/en/blog/machine-learning-product-development/',
