@@ -1280,6 +1280,8 @@
         '/projecten/photobooth-beheerdashboard.html': '/en/projects/photobooth-management-dashboard/',
         '/projecten/maquette-led-installatie/': '/en/projects/model-led-installation/',
         '/projecten/maquette-led-installatie.html': '/en/projects/model-led-installation/',
+        '/projecten/vlakkelichtkoepel-besturing/': '/en/projects/flat-skylight-control/',
+        '/projecten/vlakkelichtkoepel-besturing.html': '/en/projects/flat-skylight-control/',
         '/blog/': '/en/blog/',
         '/blog/index.html': '/en/blog/',
         '/blog/machine-learning-productontwikkeling/': '/en/blog/machine-learning-product-development/',

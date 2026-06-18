@@ -95,6 +95,21 @@
       <description>ESP32-CAM timelapse systeem voor kwekerijen met Raspberry Pi hub en webdashboard.</description>
     </item>
     <item>
+      <title>Vlakkelichtkoepel besturing</title>
+      <link>https://imetech.nl/projecten/vlakkelichtkoepel-besturing/</link>
+      <description>Energiezuinige besturingsprint voor vlakke lichtkoepels met regenbeveiliging, accubewaking en RF-afstandsbediening.</description>
+    </item>
+    <item>
+      <title>Maquette LED-installatie</title>
+      <link>https://imetech.nl/projecten/maquette-led-installatie/</link>
+      <description>Embedded LED-systeem met webportal in architectuurmaquette voor visualisatie van energiestromen.</description>
+    </item>
+    <item>
+      <title>Photobooth Beheerdashboard</title>
+      <link>https://imetech.nl/projecten/photobooth-beheerdashboard/</link>
+      <description>Centraal dashboard en lokale agent voor monitoring en remote control van photobooths.</description>
+    </item>
+    <item>
       <title>SmartLamp PCB</title>
       <link>https://imetech.nl/projecten/smartlamp-pcb/</link>
       <description>RGBW LED driver PCB met ESP32, Li-Ion accu en USB-C opladen.</description>

@@ -71,6 +71,26 @@
     </image:image>
   </url>
 
+  <!-- Project Images - Vlakkelichtkoepel besturing -->
+  <url>
+    <loc>https://imetech.nl/projecten/vlakkelichtkoepel-besturing/</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/VlakkelichtkoepelHero.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - Besturingsprint</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Geassembleerde besturingsprint voor vlakke lichtkoepelmotoren, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/Vlakkelichtkoepel01.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - Motoraansluitingen</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Close-up van motoraansluitingen en DIP-schakelaars op besturingsprint</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/Vlakkelichtkoepel02.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - RF-antenne</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Besturingsprint met RF-antenne en voedingsaansluitingen</image:caption>
+    </image:image>
+  </url>
+
   <!-- Project Images - Schets tot Render -->
   <url>
     <loc>https://imetech.nl/projecten/schets-tot-render/</loc>
