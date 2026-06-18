@@ -370,6 +370,9 @@ p {
   justify-content: center;
   gap: 1.75rem;
   display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .mobile-nav::before {
@@ -398,7 +401,32 @@ p {
 
 .mobile-nav.open {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
+
+.mobile-nav > * {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0s;
+}
+
+.mobile-nav.open > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-nav.open > *:nth-child(1) { transition-delay: 0.05s; }
+.mobile-nav.open > *:nth-child(2) { transition-delay: 0.1s; }
+.mobile-nav.open > *:nth-child(3) { transition-delay: 0.14s; }
+.mobile-nav.open > *:nth-child(4) { transition-delay: 0.18s; }
+.mobile-nav.open > *:nth-child(5) { transition-delay: 0.22s; }
+.mobile-nav.open > *:nth-child(6) { transition-delay: 0.26s; }
+.mobile-nav.open > *:nth-child(7) { transition-delay: 0.3s; }
 
 .mobile-nav a {
   font-size: 1.375rem;
@@ -406,7 +434,10 @@ p {
   color: rgba(255, 255, 255, 0.85);
   position: relative;
   z-index: 1;
-  transition: color .3s ease;
+  transition:
+    color .3s ease,
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mobile-nav a:hover {
@@ -437,6 +468,12 @@ p {
 .mobile-nav .btn {
   margin-top: 1rem;
   z-index: 1;
+  transition:
+    background .3s ease,
+    color .3s ease,
+    box-shadow .3s ease,
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mobile-lang {
@@ -474,6 +511,19 @@ p {
     display: block !important;
     z-index: 2000;
     /* Ensure it stays above everything on mobile */
+  }
+
+  .mobile-nav {
+    display: flex;
+    transition:
+      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .mobile-nav:not(.open) {
+    transition:
+      opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.3s;
   }
 }
 
@@ -912,19 +962,60 @@ p {
 @media (max-width: 900px) {
   .hero-content {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "badge"
+      "visual"
+      "title"
+      "sub"
+      "btns"
+      "stats";
+    gap: 0;
     text-align: center;
     padding-top: 8rem;
   }
 
+  .hero-content > div:first-child {
+    display: contents;
+  }
+
+  .hero-badge {
+    grid-area: badge;
+    justify-self: center;
+  }
+
+  .hero-content > div:first-child > h1 {
+    grid-area: title;
+  }
+
+  .hero-sub {
+    grid-area: sub;
+  }
+
   .hero-btns {
+    grid-area: btns;
     justify-content: center;
   }
 
   .hero-stats {
+    grid-area: stats;
     justify-content: center;
   }
 
   .hero-visual {
+    grid-area: visual;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1rem;
+  }
+
+  .hero-img-wrap {
+    width: 192px;
+    height: 192px;
+    border-width: 2px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-tags {
     display: none;
   }
 }
@@ -994,6 +1085,33 @@ p {
   transform: translateY(0);
   transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform .9s cubic-bezier(.22, 1, .36, 1);
   transition-delay: .45s;
+}
+
+@media (max-width: 900px) {
+  /* Entrance order: badge → photo → title → sub → btns → stats */
+  .hero-entered .hero-badge {
+    transition-delay: .1s;
+  }
+
+  .hero-entered .hero-visual {
+    transition-delay: .25s;
+  }
+
+  .hero-entered > div:first-child > h1 {
+    transition-delay: .4s;
+  }
+
+  .hero-entered .hero-sub {
+    transition-delay: .55s;
+  }
+
+  .hero-entered .hero-btns {
+    transition-delay: .7s;
+  }
+
+  .hero-entered .hero-stats {
+    transition-delay: .85s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5383,8 +5501,17 @@ main > .breadcrumbs-wrap:first-child:not(.breadcrumbs-wrap--in-section) {
   .faq-answer-wrap,
   .faq-item p,
   .custom-select-options,
-  .mobile-nav-sub {
+  .mobile-nav-sub,
+  .mobile-nav,
+  .mobile-nav > *,
+  .mobile-nav a,
+  .mobile-nav .btn {
     transition: none;
+  }
+
+  .mobile-nav > * {
+    opacity: 1;
+    transform: none;
   }
 }
 

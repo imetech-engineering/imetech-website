@@ -1408,17 +1408,28 @@
     var burger = document.querySelector('.burger');
     var mobileNav = document.querySelector('.mobile-nav');
     if (burger && mobileNav) {
+      var burgerLabelOpen = burger.getAttribute('aria-label') || 'Open menu';
+      var burgerLabelClose = burger.getAttribute('data-close-label') || 'Sluit menu';
+
+      function setMobileNavOpen(isOpen) {
+        mobileNav.classList.toggle('open', isOpen);
+        burger.classList.toggle('open', isOpen);
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        burger.setAttribute('aria-label', isOpen ? burgerLabelClose : burgerLabelOpen);
+        mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      mobileNav.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+
       burger.addEventListener('click', function (e) {
         e.stopPropagation();
-        var isOpen = mobileNav.classList.toggle('open');
-        burger.classList.toggle('open', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        setMobileNavOpen(!mobileNav.classList.contains('open'));
       });
       mobileNav.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
-          burger.classList.remove('open');
-          mobileNav.classList.remove('open');
-          document.body.style.overflow = '';
+          setMobileNavOpen(false);
         });
       });
     }
@@ -1745,14 +1756,15 @@
     var heroCountersStarted = false;
 
     function animateHeroCounter(el, target, suffix) {
-      var duration = 2800;
+      var duration = 2200;
       var startTime = null;
 
       function renderFrame(now) {
         if (startTime === null) startTime = now;
         var progress = Math.min((now - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(target * eased) + suffix;
+        var eased = 1 - Math.pow(1 - progress, 2);
+        var value = Math.min(target, Math.round(target * eased));
+        el.textContent = value + suffix;
         if (progress < 1) {
           requestAnimationFrame(renderFrame);
         } else {
