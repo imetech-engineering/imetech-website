@@ -998,7 +998,9 @@
       track._reviewsRaf = null;
     }
 
-    var useTrackTransform = !!window.__imetechPerfLite;
+    var isMobileReviews = window.matchMedia('(max-width: 767px)').matches;
+    // Mobiel: altijd native scroll (zelfde patroon als projecten-carousel)
+    var useTrackTransform = !!window.__imetechPerfLite && !isMobileReviews;
     track.style.transition = 'none';
     track.style.transform = '';
     track._reviewsOffset = 0;
@@ -1090,10 +1092,8 @@
     var dragScrollStart = 0;
     var trackGap = 24;
     var userTouching = false;
-    var mobileSettleTimer = null;
     var userCooldownTimer = null;
     var snapLocked = false;
-    var MOBILE_SETTLE_MS = 180;
     var MOBILE_COOLDOWN_MS = 5000;
 
     function getCurrentOffset() {
@@ -1109,8 +1109,6 @@
       }
       viewport.scrollLeft = offset;
     }
-
-    var isMobileReviews = window.matchMedia('(max-width: 767px)').matches;
 
     function syncSlideWidths() {
       if (isMobileReviews && !useTrackTransform) {
@@ -1202,26 +1200,19 @@
       userCooldownTimer = window.setTimeout(restart, MOBILE_COOLDOWN_MS);
     }
 
-    function settleMobileScroll() {
-      if (userTouching || scrollingByCode || snapLocked) return;
+    function handleMobileScrollStop() {
+      if (userTouching || scrollingByCode) return;
       if (!loopMetricsReady()) return;
       normalizeScrollPosition(false);
-      var realIndex = getRealIndex(getNearestCardIndex());
-      currentIndex = realIndex;
-      var target = cards[currentIndex];
-      if (!target) return;
-      var drift = Math.abs(getCurrentOffset() - target.offsetLeft);
-      if (drift > 4) {
-        snapLocked = true;
-        goTo(currentIndex, true, function () {
-          snapLocked = false;
-        });
+      var nearest = getNearestCardIndex();
+      currentIndex = getRealIndex(nearest);
+      if (nearest < cloneCount) {
+        jumpWithoutAnimation(nearest + originalCards.length);
+        currentIndex = getRealIndex(nearest + originalCards.length);
+      } else if (nearest >= cards.length - cloneCount) {
+        jumpWithoutAnimation(nearest - originalCards.length);
+        currentIndex = getRealIndex(nearest - originalCards.length);
       }
-    }
-
-    function scheduleMobileSettle() {
-      if (mobileSettleTimer) window.clearTimeout(mobileSettleTimer);
-      mobileSettleTimer = window.setTimeout(settleMobileScroll, MOBILE_SETTLE_MS);
     }
 
     if (viewport._reviewsScrollHandler) {
@@ -1233,9 +1224,10 @@
     viewport._reviewsScrollHandler = function () {
       if (useTrackTransform) return;
       if (viewport.classList.contains('is-dragging')) return;
-      if (isMobileReviews && !useTrackTransform) {
+      if (isMobileReviews) {
         if (userTouching || scrollingByCode) return;
-        scheduleMobileSettle();
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+        scrollStopTimer = window.setTimeout(handleMobileScrollStop, 120);
         return;
       }
       if (!scrollingByCode) normalizeScrollPosition(false);
@@ -1246,13 +1238,6 @@
       }, 120);
     };
     viewport.addEventListener('scroll', viewport._reviewsScrollHandler, { passive: true });
-    if (isMobileReviews && !useTrackTransform && 'onscrollend' in window) {
-      viewport._reviewsScrollEndHandler = function () {
-        if (userTouching || scrollingByCode) return;
-        settleMobileScroll();
-      };
-      viewport.addEventListener('scrollend', viewport._reviewsScrollEndHandler, { passive: true });
-    }
 
     viewport.addEventListener('mouseenter', stopTimer);
     viewport.addEventListener('mouseleave', restart);
@@ -1379,93 +1364,15 @@
       })();
     }
 
-    function attachMobileTouchPan() {
-      var touchActive = false;
-      var touchStartX = 0;
-      var touchStartY = 0;
-      var touchMoved = false;
-      var touchThreshold = 10;
-      var axisLock = null;
-
-      function onTouchStart(e) {
-        if (e.touches.length !== 1) return;
-        touchActive = true;
-        userTouching = true;
-        touchMoved = false;
-        axisLock = null;
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        dragScrollStart = getCurrentOffset();
-        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
-        if (mobileSettleTimer) window.clearTimeout(mobileSettleTimer);
-        stopTimer();
-      }
-
-      function onTouchMove(e) {
-        if (!touchActive || e.touches.length !== 1) return;
-        var dx = e.touches[0].clientX - touchStartX;
-        var dy = e.touches[0].clientY - touchStartY;
-        if (!axisLock) {
-          if (Math.abs(dx) < touchThreshold && Math.abs(dy) < touchThreshold) return;
-          axisLock = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
-        }
-        if (axisLock === 'y') return;
-        touchMoved = true;
-        if (e.cancelable) e.preventDefault();
-        if (!viewport.classList.contains('is-dragging')) {
-          viewport.classList.add('is-dragging');
-        }
-        setCurrentOffset(dragScrollStart - dx);
-        normalizeScrollPosition(true);
-      }
-
-      function onTouchEnd() {
-        if (!touchActive) return;
-        touchActive = false;
-        userTouching = false;
-        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
-        if (axisLock === 'y') {
-          axisLock = null;
-          scheduleUserCooldown();
-          return;
-        }
-        axisLock = null;
-        if (touchMoved) {
-          snapToNearestReview(true);
-          window.setTimeout(function () {
-            viewport.classList.remove('is-dragging');
-            scheduleUserCooldown();
-          }, 450);
-        } else {
-          viewport.classList.remove('is-dragging');
-          scheduleUserCooldown();
-        }
-        touchMoved = false;
-      }
-
-      viewport.addEventListener('touchstart', onTouchStart, { passive: true });
-      viewport.addEventListener('touchmove', onTouchMove, { passive: false });
-      viewport.addEventListener('touchend', onTouchEnd, { passive: true });
-      viewport.addEventListener('touchcancel', onTouchEnd, { passive: true });
-
-      viewport._reviewsTouchPanCleanup = function () {
-        viewport.removeEventListener('touchstart', onTouchStart);
-        viewport.removeEventListener('touchmove', onTouchMove);
-        viewport.removeEventListener('touchend', onTouchEnd);
-        viewport.removeEventListener('touchcancel', onTouchEnd);
-      };
-    }
-
     function attachMobileNativeScroll() {
       viewport._reviewsTouchStartHandler = function () {
         userTouching = true;
         stopTimer();
-        if (mobileSettleTimer) window.clearTimeout(mobileSettleTimer);
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
         if (userCooldownTimer) window.clearTimeout(userCooldownTimer);
       };
       viewport._reviewsTouchEndHandler = function () {
         userTouching = false;
-        scheduleMobileSettle();
         scheduleUserCooldown();
       };
       viewport.addEventListener('touchstart', viewport._reviewsTouchStartHandler, { passive: true });
@@ -1473,9 +1380,7 @@
       viewport.addEventListener('touchcancel', viewport._reviewsTouchEndHandler, { passive: true });
     }
 
-    if (isMobileReviews && useTrackTransform) {
-      attachMobileTouchPan();
-    } else if (isMobileReviews) {
+    if (isMobileReviews) {
       attachMobileNativeScroll();
     } else {
       attachDesktopPointerPan();

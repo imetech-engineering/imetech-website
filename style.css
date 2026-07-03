@@ -942,18 +942,21 @@ html.perf-lite .project-card:hover .project-img img[data-parallax="project-image
   transform: scale(1.08);
 }
 
-html.perf-lite .testimonials-viewport {
-  overflow: hidden;
-  scroll-behavior: auto;
-  scroll-snap-type: none;
-}
+@media (min-width: 768px) {
+  html.perf-lite .testimonials-viewport {
+    overflow: hidden;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+    touch-action: pan-y pinch-zoom;
+  }
 
-html.perf-lite .testimonial {
-  scroll-snap-align: none;
-}
+  html.perf-lite .testimonials-track {
+    will-change: transform;
+  }
 
-html.perf-lite .testimonials-track {
-  will-change: transform;
+  html.perf-lite .testimonial {
+    scroll-snap-align: none;
+  }
 }
 
 html.perf-lite .lightbox-prev,
@@ -1980,10 +1983,6 @@ html.perf-lite .modal {
   overscroll-behavior-x: contain;
 }
 
-html.perf-lite .testimonials-viewport {
-  touch-action: pan-y pinch-zoom;
-}
-
 .testimonials-viewport::-webkit-scrollbar {
   display: none;
 }
@@ -2141,14 +2140,16 @@ html.perf-lite .testimonials-viewport {
 }
 
 @media (max-width: 768px) {
-  html:not(.perf-lite) .testimonials-viewport {
+  html:not(.perf-lite) .testimonials-viewport,
+  html.perf-lite .testimonials-viewport {
     display: flex;
     touch-action: auto;
     overflow-y: visible;
     overscroll-behavior-y: auto;
   }
 
-  html:not(.perf-lite) .testimonials-track {
+  html:not(.perf-lite) .testimonials-track,
+  html.perf-lite .testimonials-track {
     display: contents;
   }
 
