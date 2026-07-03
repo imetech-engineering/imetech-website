@@ -558,6 +558,8 @@ html.is-scrolling .header::before {
 .hero-slide {
   position: absolute;
   inset: 0;
+  background-size: cover;
+  background-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   overflow: hidden;
@@ -1116,15 +1118,10 @@ html.perf-lite .modal {
 }
 
 @media (max-width: 900px) {
-  .hero {
-    align-items: center;
-    justify-content: center;
-    min-height: var(--app-height, 100svh);
-    padding-top: 5.5rem;
-    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
-    overflow-x: hidden;
-    overflow-y: visible;
-    box-sizing: border-box;
+  @supports (min-height: 100dvh) {
+    .hero {
+      min-height: 100svh;
+    }
   }
 
   .hero-content {
@@ -1138,8 +1135,8 @@ html.perf-lite .modal {
       "stats";
     gap: 0;
     text-align: center;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
     width: 100%;
   }
 
@@ -1234,9 +1231,9 @@ html.perf-lite .modal {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding-top: 5rem;
-    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  .hero-content {
+    padding-top: 4.75rem;
+    padding-bottom: 1.75rem;
   }
 
   .hero-content > div:first-child > h1 {
@@ -2487,6 +2484,8 @@ html.perf-lite .modal {
 .page-hero-slide {
   position: absolute;
   inset: 0;
+  background-size: cover;
+  background-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   overflow: hidden;
@@ -3158,7 +3157,7 @@ html.perf-lite .modal {
   z-index: 1;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 641px) {
   .timeline {
     grid-template-columns: repeat(2, 1fr);
   }

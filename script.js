@@ -10,21 +10,21 @@
     }
   })();
 
-  // ===== MOBILE VIEWPORT HEIGHT (browser chrome shows/hides on scroll) =====
-  (function initAppHeight() {
-    function updateAppHeight() {
-      var height = window.visualViewport
-        ? window.visualViewport.height
-        : window.innerHeight;
-      document.documentElement.style.setProperty('--app-height', Math.round(height) + 'px');
+  // ===== SCROLL TOP ON LOAD (mobile viewport units can offset initial position) =====
+  (function ensureTopOnLoad() {
+    if (window.location.hash) return;
+
+    function scrollTop() {
+      window.scrollTo(0, 0);
     }
-    updateAppHeight();
-    window.addEventListener('resize', updateAppHeight, { passive: true });
-    window.addEventListener('scroll', updateAppHeight, { passive: true });
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', updateAppHeight);
-      window.visualViewport.addEventListener('scroll', updateAppHeight);
-    }
+
+    scrollTop();
+    window.addEventListener('DOMContentLoaded', scrollTop, { once: true });
+    window.addEventListener('load', scrollTop, { once: true });
+    window.addEventListener('pageshow', function (e) {
+      if (window.location.hash || e.persisted) return;
+      scrollTop();
+    });
   })();
 
   // ===== SCROLL PERF: pause heavy effects while the user scrolls =====
@@ -59,142 +59,39 @@
       }
     }
 
-    function initKenBurnsCarousel(slideSelector, endScale, activeOpacity) {
+    function initKenBurnsCarousel(slideSelector, endScale) {
       var fadeMs = 1500;
       var interval = 5000;
-      var mediaClass = slideSelector === '.page-hero-slide' ? 'page-hero-slide-media' : 'hero-slide-media';
-      var imgClass = mediaClass + '-img';
-
-      function parseBgUrl(slide) {
-        var bg = slide.style.backgroundImage;
-        if (!bg) return slide.getAttribute('data-bg') || '';
-        var match = bg.match(/url\(['"]?([^'")]+)/);
-        return match ? match[1] : '';
-      }
-
-      function ensureSlideMedia(slide) {
-        var media = slide.querySelector('.' + mediaClass);
-        if (media) return media;
-
-        media = document.createElement('div');
-        media.className = mediaClass;
-        media.setAttribute('aria-hidden', 'true');
-
-        var img = document.createElement('img');
-        img.className = imgClass;
-        img.alt = '';
-        img.decoding = 'async';
-        img.setAttribute('aria-hidden', 'true');
-
-        var src = parseBgUrl(slide);
-        if (src) {
-          img.src = src;
-          slide.style.backgroundImage = '';
-        }
-
-        media.appendChild(img);
-        slide.appendChild(media);
-        return media;
-      }
-
-      function getSlideImg(slide) {
-        return ensureSlideMedia(slide).querySelector('.' + imgClass);
-      }
 
       function deferSlideBackground(slide) {
-        var src = parseBgUrl(slide);
-        if (!src) return;
-        slide.setAttribute('data-bg', src);
-        var img = getSlideImg(slide);
-        if (img) img.removeAttribute('src');
-        slide.style.backgroundImage = '';
+        var bg = slide.style.backgroundImage;
+        if (!bg) return;
+        var match = bg.match(/url\(['"]?([^'")]+)/);
+        if (match) {
+          slide.setAttribute('data-bg', match[1]);
+          slide.style.backgroundImage = '';
+        }
       }
 
       function loadSlideBackground(slide) {
-        var src = slide.getAttribute('data-bg');
-        if (!src) return;
-        var img = getSlideImg(slide);
-        if (img && !img.getAttribute('src')) img.src = src;
-      }
-
-      function stopKenBurns(slide) {
-        if (slide._kenBurnsTimer) {
-          clearTimeout(slide._kenBurnsTimer);
-          slide._kenBurnsTimer = null;
+        var bg = slide.getAttribute('data-bg');
+        if (bg && !slide.style.backgroundImage) {
+          slide.style.backgroundImage = "url('" + bg + "')";
         }
-      }
-
-      function stopFade(slide) {
-        if (slide._fadeTimer) {
-          clearTimeout(slide._fadeTimer);
-          slide._fadeTimer = null;
-        }
-      }
-
-      function setSlideOpacity(slide, opacity) {
-        slide.style.opacity = String(opacity);
-      }
-
-      function fadeSlide(slide, from, to, duration, done) {
-        stopFade(slide);
-        if (duration <= 0 || from === to) {
-          setSlideOpacity(slide, to);
-          if (done) done();
-          return;
-        }
-        var start = Date.now();
-        function tick() {
-          var progress = Math.min((Date.now() - start) / duration, 1);
-          setSlideOpacity(slide, from + (to - from) * progress);
-          if (progress >= 1) {
-            stopFade(slide);
-            if (done) done();
-          } else {
-            slide._fadeTimer = window.setTimeout(tick, 16);
-          }
-        }
-        tick();
-      }
-
-      function startKenBurns(slide, duration) {
-        stopKenBurns(slide);
-        var img = getSlideImg(slide);
-        if (!img) return;
-        img.style.removeProperty('transform');
-        var start = Date.now();
-        function tick() {
-          var progress = Math.min((Date.now() - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          var scale = 1 + (endScale - 1) * eased;
-          img.style.transform = 'scale(' + scale + ') translateZ(0)';
-          if (progress >= 1) {
-            stopKenBurns(slide);
-          } else {
-            slide._kenBurnsTimer = window.setTimeout(tick, 16);
-          }
-        }
-        tick();
       }
 
       function resetSlide(slide) {
         slide.classList.remove('active', 'slide-exiting');
-        stopKenBurns(slide);
-        stopFade(slide);
-        var img = slide.querySelector('.' + imgClass);
-        if (img) img.style.removeProperty('transform');
-        setSlideOpacity(slide, 0);
-        slide.style.zIndex = '0';
+        slide.style.transform = '';
+        slide.style.opacity = '';
+        slide.style.zIndex = '';
       }
 
       var slideEls = Array.prototype.slice.call(document.querySelectorAll(slideSelector));
-      if (slideEls.length <= 1) return;
+      if (slideEls.length <= 1 || prefersReduced || heroReduceMotion()) return;
 
       var slidesRoot = slideEls[0].parentNode;
       if (slidesRoot) slidesRoot.setAttribute('data-hero-slideshow', 'js');
-
-      slideEls.forEach(function (slide) {
-        ensureSlideMedia(slide);
-      });
 
       slideEls.forEach(function (slide, index) {
         if (index > 0) deferSlideBackground(slide);
@@ -210,26 +107,12 @@
       slideEls.forEach(function (s) { parent.appendChild(s); });
       slideEls.forEach(resetSlide);
       slideEls[0].classList.add('active');
-      setSlideOpacity(slideEls[0], activeOpacity);
-      slideEls[0].style.zIndex = '1';
       loadSlideBackground(slideEls[0]);
-      startKenBurns(slideEls[0], interval);
 
       var current = 0;
-      var slideTimer = null;
-
-      function scheduleNextSlide() {
-        slideTimer = window.setTimeout(nextSlide, interval);
-      }
-
       function nextSlide() {
-        slideTimer = null;
         var outgoing = slideEls[current];
-        var outgoingImg = getSlideImg(outgoing);
-        stopKenBurns(outgoing);
-        if (outgoingImg) {
-          outgoingImg.style.transform = 'scale(' + endScale + ') translateZ(0)';
-        }
+        outgoing.style.transform = 'scale(' + endScale + ')';
         outgoing.classList.remove('active');
         outgoing.classList.add('slide-exiting');
 
@@ -237,33 +120,16 @@
         var incoming = slideEls[current];
         resetSlide(incoming);
         loadSlideBackground(incoming);
+        void incoming.offsetWidth;
         incoming.classList.add('active');
-        incoming.style.zIndex = '2';
-        setSlideOpacity(incoming, 0);
-        startKenBurns(incoming, interval);
 
-        fadeSlide(outgoing, activeOpacity, 0, fadeMs, function () {
-          if (outgoingImg) outgoingImg.style.removeProperty('transform');
+        window.setTimeout(function () {
+          outgoing.style.transform = '';
           outgoing.classList.remove('slide-exiting');
-          outgoing.style.zIndex = '0';
-        });
-        fadeSlide(incoming, 0, activeOpacity, fadeMs);
-
-        scheduleNextSlide();
+        }, fadeMs);
       }
 
-      scheduleNextSlide();
-
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) {
-          if (slideTimer) {
-            window.clearTimeout(slideTimer);
-            slideTimer = null;
-          }
-        } else if (!slideTimer) {
-          scheduleNextSlide();
-        }
-      });
+      setInterval(nextSlide, interval);
     }
 
     function initHeroMotionBackground() {
@@ -516,8 +382,8 @@
       heroes.forEach(insertMotionLayer);
     }
 
-    initKenBurnsCarousel('.hero-slide', 1.1, 1);
-    initKenBurnsCarousel('.page-hero-slide', 1.08, 0.35);
+    initKenBurnsCarousel('.hero-slide', 1.1);
+    initKenBurnsCarousel('.page-hero-slide', 1.08);
     initHeroMotionBackground();
     document.documentElement.classList.add('hero-js-ready');
     window.__imetechHeroAnimationsReady = true;
@@ -2247,287 +2113,6 @@
 
     initCustomSelects();
     initFaqAccordion();
-
-    // ===== HERO CAROUSEL =====
-    (function () {
-      function initKenBurnsCarousel(slideSelector, endScale) {
-      var fadeMs = 1500;
-      var interval = 5000;
-
-      function deferSlideBackground(slide) {
-        var bg = slide.style.backgroundImage;
-        if (!bg) return;
-        var match = bg.match(/url\(['"]?([^'")]+)/);
-        if (match) {
-          slide.setAttribute('data-bg', match[1]);
-          slide.style.backgroundImage = '';
-        }
-      }
-
-      function loadSlideBackground(slide) {
-        var bg = slide.getAttribute('data-bg');
-        if (bg && !slide.style.backgroundImage) {
-          slide.style.backgroundImage = "url('" + bg + "')";
-        }
-      }
-
-      function resetSlide(slide) {
-        slide.classList.remove('active', 'slide-exiting');
-        slide.style.transform = '';
-      }
-
-      var slideEls = Array.prototype.slice.call(document.querySelectorAll(slideSelector));
-      if (slideEls.length <= 1 || prefersReduced) return;
-
-      slideEls.forEach(function (slide, index) {
-        if (index > 0) deferSlideBackground(slide);
-      });
-
-      var parent = slideEls[0].parentNode;
-      for (var i = slideEls.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = slideEls[i];
-        slideEls[i] = slideEls[j];
-        slideEls[j] = tmp;
-      }
-      slideEls.forEach(function (s) { parent.appendChild(s); });
-      slideEls.forEach(resetSlide);
-      slideEls[0].classList.add('active');
-      loadSlideBackground(slideEls[0]);
-
-      var current = 0;
-      function nextSlide() {
-        var outgoing = slideEls[current];
-        outgoing.style.transform = 'scale(' + endScale + ')';
-        outgoing.classList.remove('active');
-        outgoing.classList.add('slide-exiting');
-
-        current = (current + 1) % slideEls.length;
-        var incoming = slideEls[current];
-        resetSlide(incoming);
-        loadSlideBackground(incoming);
-        void incoming.offsetWidth;
-        incoming.classList.add('active');
-
-        window.setTimeout(function () {
-          outgoing.style.transform = '';
-          outgoing.classList.remove('slide-exiting');
-        }, fadeMs);
-      }
-
-      setInterval(nextSlide, interval);
-      }
-
-      initKenBurnsCarousel('.hero-slide', 1.1);
-      initKenBurnsCarousel('.page-hero-slide', 1.08);
-    })();
-
-    // ===== HERO MOTION BACKGROUND =====
-    (function initHeroMotionBackground() {
-      if (prefersReduced) return;
-
-      var heroes = document.querySelectorAll('.hero, .page-hero');
-      if (!heroes.length) return;
-
-      function debounce(fn, wait) {
-        var timer;
-        return function () {
-          clearTimeout(timer);
-          timer = setTimeout(fn, wait);
-        };
-      }
-
-      function insertMotionLayer(hero) {
-        var overlay = hero.querySelector('.hero-overlay, .page-hero-overlay');
-        var isPageHero = hero.classList.contains('page-hero');
-        var videoSrc = hero.getAttribute('data-hero-video');
-
-        if (videoSrc) {
-          var video = document.createElement('video');
-          video.className = 'hero-bg-video';
-          video.muted = true;
-          video.loop = true;
-          video.autoplay = true;
-          video.playsInline = true;
-          video.setAttribute('aria-hidden', 'true');
-          video.setAttribute('preload', 'metadata');
-
-          var webmSrc = hero.getAttribute('data-hero-video-webm');
-          if (webmSrc) {
-            var webmSource = document.createElement('source');
-            webmSource.src = webmSrc;
-            webmSource.type = 'video/webm';
-            video.appendChild(webmSource);
-          }
-
-          var mp4Source = document.createElement('source');
-          mp4Source.src = videoSrc;
-          mp4Source.type = 'video/mp4';
-          video.appendChild(mp4Source);
-
-          if (overlay) hero.insertBefore(video, overlay);
-          else hero.insertBefore(video, hero.firstChild);
-
-          video.play().catch(function () { });
-        }
-
-        var layer = document.createElement('div');
-        layer.className = 'hero-motion-layer';
-        layer.setAttribute('aria-hidden', 'true');
-        layer.innerHTML =
-          '<div class="hero-motion-orbs">' +
-          '<span class="hero-motion-orb hero-motion-orb--1"></span>' +
-          '<span class="hero-motion-orb hero-motion-orb--2"></span>' +
-          '<span class="hero-motion-orb hero-motion-orb--3"></span>' +
-          '</div>';
-
-        var canvas = document.createElement('canvas');
-        canvas.className = 'hero-motion-canvas';
-        layer.appendChild(canvas);
-
-        if (overlay) hero.insertBefore(layer, overlay);
-        else hero.insertBefore(layer, hero.firstChild);
-
-        var ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        var nodes = [];
-        var running = false;
-        var rafId = null;
-        var nodeCount = window.innerWidth < 768 ? (isPageHero ? 16 : 24) : (isPageHero ? 24 : 36);
-        var lineBase = isPageHero ? 0.035 : 0.06;
-        var dotBase = isPageHero ? 0.12 : 0.22;
-        var gridBase = isPageHero ? 0.025 : 0.045;
-        var connectDist = isPageHero ? 110 : 150;
-
-        function initNodes(w, h) {
-          nodes = [];
-          var cols = Math.max(3, Math.ceil(Math.sqrt(nodeCount * (w / Math.max(h, 1)))));
-          var rows = Math.ceil(nodeCount / cols);
-          var spacingX = w / (cols + 1);
-          var spacingY = h / (rows + 1);
-          var index = 0;
-
-          for (var row = 0; row < rows && index < nodeCount; row++) {
-            for (var col = 0; col < cols && index < nodeCount; col++) {
-              nodes.push({
-                x: spacingX * (col + 1) + (Math.random() - 0.5) * spacingX * 0.35,
-                y: spacingY * (row + 1) + (Math.random() - 0.5) * spacingY * 0.35,
-                phase: Math.random() * Math.PI * 2,
-                radius: 1 + Math.random() * 1.4
-              });
-              index++;
-            }
-          }
-        }
-
-        function resize() {
-          var rect = hero.getBoundingClientRect();
-          if (!rect.width || !rect.height) return;
-          canvas.width = Math.round(rect.width * dpr);
-          canvas.height = Math.round(rect.height * dpr);
-          canvas.style.width = rect.width + 'px';
-          canvas.style.height = rect.height + 'px';
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          initNodes(rect.width, rect.height);
-        }
-
-        function draw(time) {
-          if (!running) return;
-          var rect = hero.getBoundingClientRect();
-          var w = rect.width;
-          var h = rect.height;
-          if (!w || !h) {
-            rafId = requestAnimationFrame(draw);
-            return;
-          }
-
-          var t = time * 0.001;
-          ctx.clearRect(0, 0, w, h);
-
-          var gridSize = 52;
-          ctx.strokeStyle = 'rgba(96, 165, 250, ' + gridBase + ')';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          for (var gx = gridSize; gx < w; gx += gridSize) {
-            ctx.moveTo(gx, 0);
-            ctx.lineTo(gx, h);
-          }
-          for (var gy = gridSize; gy < h; gy += gridSize) {
-            ctx.moveTo(0, gy);
-            ctx.lineTo(w, gy);
-          }
-          ctx.stroke();
-
-          for (var a = 0; a < nodes.length; a++) {
-            for (var b = a + 1; b < nodes.length; b++) {
-              var dx = nodes[a].x - nodes[b].x;
-              var dy = nodes[a].y - nodes[b].y;
-              var dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < connectDist) {
-                var alpha = (1 - dist / connectDist) * lineBase;
-                ctx.strokeStyle = 'rgba(59, 130, 246, ' + alpha + ')';
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(nodes[a].x, nodes[a].y);
-                ctx.lineTo(nodes[b].x, nodes[b].y);
-                ctx.stroke();
-              }
-            }
-          }
-
-          nodes.forEach(function (node) {
-            var pulse = 0.55 + 0.45 * Math.sin(t * 1.15 + node.phase);
-            var driftX = Math.sin(t * 0.35 + node.phase) * 6;
-            var driftY = Math.cos(t * 0.28 + node.phase) * 5;
-            var x = node.x + driftX;
-            var y = node.y + driftY;
-            var r = node.radius * (0.85 + pulse * 0.35);
-
-            ctx.fillStyle = 'rgba(147, 197, 253, ' + (dotBase * pulse) + ')';
-            ctx.beginPath();
-            ctx.arc(x, y, r, 0, Math.PI * 2);
-            ctx.fill();
-          });
-
-          rafId = requestAnimationFrame(draw);
-        }
-
-        function start() {
-          if (running) return;
-          running = true;
-          rafId = requestAnimationFrame(draw);
-        }
-
-        function stop() {
-          running = false;
-          if (rafId) {
-            cancelAnimationFrame(rafId);
-            rafId = null;
-          }
-        }
-
-        var visibilityObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) start();
-            else stop();
-          });
-        }, { threshold: 0.05 });
-
-        visibilityObserver.observe(hero);
-        document.addEventListener('visibilitychange', function () {
-          if (document.hidden) stop();
-          else start();
-        });
-
-        resize();
-        window.addEventListener('resize', debounce(resize, 200));
-        start();
-      }
-
-      heroes.forEach(insertMotionLayer);
-    })();
 
     // ===== SCROLL REVEAL =====
     var revealSelector = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate';
