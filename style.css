@@ -1981,7 +1981,7 @@ html.perf-lite .modal {
 }
 
 html.perf-lite .testimonials-viewport {
-  touch-action: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .testimonials-viewport::-webkit-scrollbar {
@@ -2143,8 +2143,9 @@ html.perf-lite .testimonials-viewport {
 @media (max-width: 768px) {
   html:not(.perf-lite) .testimonials-viewport {
     display: flex;
-    user-select: none;
-    -webkit-user-select: none;
+    touch-action: auto;
+    overflow-y: visible;
+    overscroll-behavior-y: auto;
   }
 
   html:not(.perf-lite) .testimonials-track {
@@ -2155,7 +2156,6 @@ html.perf-lite .testimonials-viewport {
     flex: 0 0 100%;
     min-height: 300px;
     scroll-snap-align: center;
-    scroll-snap-stop: always;
   }
 }
 
