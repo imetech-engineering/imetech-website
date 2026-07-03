@@ -1089,6 +1089,17 @@ html.perf-lite .modal {
 }
 
 @media (max-width: 900px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+    min-height: var(--app-height, 100svh);
+    padding-top: 5.5rem;
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
+    overflow-x: hidden;
+    overflow-y: visible;
+    box-sizing: border-box;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1100,8 +1111,9 @@ html.perf-lite .modal {
       "stats";
     gap: 0;
     text-align: center;
-    padding-top: 8rem;
-    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px) + 1.25rem);
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
   }
 
   .hero-content > div:first-child {
@@ -1111,25 +1123,68 @@ html.perf-lite .modal {
   .hero-badge {
     grid-area: badge;
     justify-self: center;
+    margin-bottom: 1.25rem;
   }
 
   .hero-content > div:first-child > h1 {
     grid-area: title;
+    font-size: clamp(1.875rem, 6.5vw, 2.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   .hero-sub {
     grid-area: sub;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
   }
 
   .hero-btns {
     grid-area: btns;
     justify-content: center;
+    flex-wrap: nowrap;
+    gap: .75rem;
+    width: 100%;
+  }
+
+  .hero-btns .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    padding: .7rem 1rem;
+    font-size: .875rem;
+    min-height: 44px;
+    border-radius: 9px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .hero-btns .btn svg {
+    width: 15px;
+    height: 15px;
   }
 
   .hero-stats {
     grid-area: stats;
     justify-content: center;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-stat {
+    padding: .4rem .6rem;
+    margin: -.4rem -.6rem;
+  }
+
+  .hero-stat-num {
+    font-size: 1.625rem;
+  }
+
+  .hero-stat-label {
+    font-size: .75rem;
+    margin-top: .2rem;
   }
 
   .hero-visual {
@@ -1140,14 +1195,50 @@ html.perf-lite .modal {
   }
 
   .hero-img-wrap {
-    width: 192px;
-    height: 192px;
+    width: 176px;
+    height: 176px;
     border-width: 2px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   }
 
   .hero-tags {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 5rem;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .hero-content > div:first-child > h1 {
+    font-size: clamp(1.75rem, 7vw, 2.125rem);
+  }
+
+  .hero-sub {
+    font-size: .9375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-btns {
+    gap: .625rem;
+  }
+
+  .hero-btns .btn {
+    padding: .625rem .75rem;
+    font-size: .8125rem;
+    min-height: 42px;
+  }
+
+  .hero-img-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-stats {
+    gap: .75rem;
+    margin-top: 1.5rem;
   }
 }
 
@@ -1884,8 +1975,13 @@ html.perf-lite .modal {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  touch-action: pan-x;
+  touch-action: pan-x pinch-zoom;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+html.perf-lite .testimonials-viewport {
+  touch-action: none;
 }
 
 .testimonials-viewport::-webkit-scrollbar {
@@ -1896,17 +1992,19 @@ html.perf-lite .modal {
   .testimonials-viewport {
     cursor: grab;
   }
+}
 
-  .testimonials-viewport.is-dragging {
-    cursor: grabbing;
-    user-select: none;
-    scroll-snap-type: none;
-  }
+.testimonials-viewport.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-snap-type: none;
+}
 
-  .testimonials-viewport.is-dragging .testimonial {
-    scroll-snap-align: none;
-  }
+.testimonials-viewport.is-dragging .testimonial {
+  scroll-snap-align: none;
+}
 
+@media (min-width: 768px) {
   .testimonials-viewport.is-dragging * {
     user-select: none;
     pointer-events: none;
@@ -2043,9 +2141,20 @@ html.perf-lite .modal {
 }
 
 @media (max-width: 768px) {
+  html:not(.perf-lite) .testimonials-viewport {
+    display: flex;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  html:not(.perf-lite) .testimonials-track {
+    display: contents;
+  }
+
   .testimonial {
     flex: 0 0 100%;
     min-height: 300px;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
   }
 }

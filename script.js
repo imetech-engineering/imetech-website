@@ -10,6 +10,23 @@
     }
   })();
 
+  // ===== MOBILE VIEWPORT HEIGHT (browser chrome shows/hides on scroll) =====
+  (function initAppHeight() {
+    function updateAppHeight() {
+      var height = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+      document.documentElement.style.setProperty('--app-height', Math.round(height) + 'px');
+    }
+    updateAppHeight();
+    window.addEventListener('resize', updateAppHeight, { passive: true });
+    window.addEventListener('scroll', updateAppHeight, { passive: true });
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateAppHeight);
+      window.visualViewport.addEventListener('scroll', updateAppHeight);
+    }
+  })();
+
   // ===== SCROLL PERF: pause heavy effects while the user scrolls =====
   (function initScrollPerf() {
     var scrollEndTimer = null;
@@ -1086,7 +1103,17 @@
       viewport.scrollLeft = offset;
     }
 
+    var isMobileReviews = window.matchMedia('(max-width: 767px)').matches;
+
     function syncSlideWidths() {
+      if (isMobileReviews && !useTrackTransform) {
+        cards.forEach(function (card) {
+          card.style.flex = '';
+          card.style.width = '';
+          card.style.maxWidth = '';
+        });
+        return;
+      }
       var viewportWidth = viewport.clientWidth;
       if (!viewportWidth) return;
       var perViewCount = getCardsPerView();
@@ -1187,12 +1214,25 @@
       viewport._reviewsPanCleanup();
       viewport._reviewsPanCleanup = null;
     }
+    if (viewport._reviewsTouchPanCleanup) {
+      viewport._reviewsTouchPanCleanup();
+      viewport._reviewsTouchPanCleanup = null;
+    }
+    if (viewport._reviewsTouchEndHandler) {
+      viewport.removeEventListener('touchstart', stopTimer);
+      viewport.removeEventListener('touchend', viewport._reviewsTouchEndHandler);
+      viewport._reviewsTouchEndHandler = null;
+    }
 
-    var usePointerPan = useTrackTransform
-      || window.matchMedia('(min-width: 768px)').matches
-      || 'ontouchstart' in window;
+    function snapToNearestReview(smooth) {
+      if (!loopMetricsReady()) return;
+      normalizeScrollPosition(false);
+      var realIndex = getRealIndex(getNearestCardIndex());
+      currentIndex = realIndex;
+      goTo(realIndex, smooth !== false);
+    }
 
-    if (usePointerPan) {
+    function attachDesktopPointerPan() {
       (function attachPanHandlers() {
         var panActive = false;
         var panStartX = 0;
@@ -1226,10 +1266,7 @@
           if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
 
           if (panMoved) {
-            normalizeScrollPosition(true);
-            var realIndex = getRealIndex(getNearestCardIndex());
-            currentIndex = realIndex;
-            goTo(realIndex, true);
+            snapToNearestReview(true);
             window.setTimeout(function () {
               viewport.classList.remove('is-dragging');
               restart();
@@ -1281,20 +1318,83 @@
           viewport.removeEventListener('pointercancel', onPointerUp);
         };
       })();
-    } else {
-      if (viewport._reviewsTouchEndHandler) {
-        viewport.removeEventListener('touchstart', stopTimer);
-        viewport.removeEventListener('touchend', viewport._reviewsTouchEndHandler);
+    }
+
+    function attachMobileTouchPan() {
+      var touchActive = false;
+      var touchStartX = 0;
+      var touchMoved = false;
+      var touchThreshold = 8;
+
+      function onTouchStart(e) {
+        if (e.touches.length !== 1) return;
+        touchActive = true;
+        touchMoved = false;
+        touchStartX = e.touches[0].clientX;
+        dragScrollStart = getCurrentOffset();
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+        viewport.classList.add('is-dragging');
+        stopTimer();
       }
+
+      function onTouchMove(e) {
+        if (!touchActive || e.touches.length !== 1) return;
+        var dx = e.touches[0].clientX - touchStartX;
+        if (Math.abs(dx) < touchThreshold) return;
+        touchMoved = true;
+        if (e.cancelable) e.preventDefault();
+        setCurrentOffset(dragScrollStart - dx);
+        normalizeScrollPosition(true);
+      }
+
+      function onTouchEnd() {
+        if (!touchActive) return;
+        touchActive = false;
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+        if (touchMoved) {
+          snapToNearestReview(true);
+          window.setTimeout(function () {
+            viewport.classList.remove('is-dragging');
+            restart();
+          }, 450);
+        } else {
+          viewport.classList.remove('is-dragging');
+          restart();
+        }
+        touchMoved = false;
+      }
+
+      viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+      viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+      viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+      viewport.addEventListener('touchcancel', onTouchEnd, { passive: true });
+
+      viewport._reviewsTouchPanCleanup = function () {
+        viewport.removeEventListener('touchstart', onTouchStart);
+        viewport.removeEventListener('touchmove', onTouchMove);
+        viewport.removeEventListener('touchend', onTouchEnd);
+        viewport.removeEventListener('touchcancel', onTouchEnd);
+      };
+    }
+
+    function attachMobileNativeScroll() {
+      viewport.addEventListener('touchstart', stopTimer, { passive: true });
       viewport._reviewsTouchEndHandler = function () {
         if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
         scrollStopTimer = window.setTimeout(function () {
-          currentIndex = getRealIndex(getNearestCardIndex());
-        }, 120);
-        restart();
+          snapToNearestReview(true);
+          restart();
+        }, 80);
       };
-      viewport.addEventListener('touchstart', stopTimer, { passive: true });
       viewport.addEventListener('touchend', viewport._reviewsTouchEndHandler, { passive: true });
+    }
+
+    if (isMobileReviews && useTrackTransform) {
+      attachMobileTouchPan();
+    } else if (isMobileReviews) {
+      attachMobileNativeScroll();
+    } else {
+      attachDesktopPointerPan();
     }
 
     if (!window.__imetechReviewsResizeAttached) {
