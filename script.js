@@ -465,19 +465,60 @@
       showCookieBanner();
     }
 
-    function showCookieBanner() {
-      function forceBannerVisible(el) {
-        if (!el) return;
-        el.style.display = 'flex';
-        el.classList.add('consent-visible');
-        // Hard fallback for browsers/extensions that interfere with transitions.
-        el.style.transform = 'translateY(0)';
-        el.style.opacity = '1';
-      }
+    function getOrCreateConsentBackdrop() {
+      var backdrop = document.getElementById('consent-backdrop');
+      if (backdrop) return backdrop;
+      backdrop = document.createElement('div');
+      backdrop.id = 'consent-backdrop';
+      backdrop.className = 'consent-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(backdrop);
+      return backdrop;
+    }
 
+    function hideCookieBanner(banner) {
+      if (!banner) return;
+      var backdrop = document.getElementById('consent-backdrop');
+      banner.classList.remove('consent-visible');
+      if (backdrop) backdrop.classList.remove('consent-backdrop-visible');
+      var finished = false;
+      function finishHide() {
+        if (finished) return;
+        finished = true;
+        banner.style.display = 'none';
+        if (backdrop) backdrop.style.display = 'none';
+      }
+      banner.addEventListener('transitionend', function onHideEnd(event) {
+        if (event.target !== banner || event.propertyName !== 'opacity') return;
+        banner.removeEventListener('transitionend', onHideEnd);
+        finishHide();
+      });
+      setTimeout(finishHide, 500);
+    }
+
+    function animateBannerIn(el) {
+      if (!el) return;
+      var backdrop = getOrCreateConsentBackdrop();
+      el.style.transform = '';
+      el.style.opacity = '';
+      backdrop.style.opacity = '';
+      backdrop.style.display = 'block';
+      el.style.display = 'flex';
+      el.classList.remove('consent-visible');
+      backdrop.classList.remove('consent-backdrop-visible');
+      void el.offsetHeight;
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('consent-visible');
+          backdrop.classList.add('consent-backdrop-visible');
+        });
+      });
+    }
+
+    function showCookieBanner() {
       var existing = document.getElementById('consent-panel');
       if (existing) {
-        forceBannerVisible(existing);
+        animateBannerIn(existing);
         return;
       }
       var banner = document.createElement('div');
@@ -502,18 +543,16 @@
         '<button class="btn btn-primary consent-accept">' + cookieAccept + '</button>' +
         '</div></div>';
       document.body.appendChild(banner);
-      forceBannerVisible(banner);
+      animateBannerIn(banner);
 
       banner.querySelector('.consent-accept').addEventListener('click', function () {
         safeSetCookieConsent('all');
         loadGoogleAnalyticsIfConsented();
-        banner.classList.remove('consent-visible');
-        setTimeout(function () { banner.style.display = 'none'; }, 400);
+        hideCookieBanner(banner);
       });
       banner.querySelector('.consent-necessary').addEventListener('click', function () {
         safeSetCookieConsent('necessary');
-        banner.classList.remove('consent-visible');
-        setTimeout(function () { banner.style.display = 'none'; }, 400);
+        hideCookieBanner(banner);
       });
     }
 
@@ -958,9 +997,7 @@
     var dragScrollStart = 0;
     var trackGap = 24;
     var userTouching = false;
-    var userCooldownTimer = null;
     var snapLocked = false;
-    var MOBILE_COOLDOWN_MS = 5000;
 
     function getCurrentOffset() {
       if (useTrackTransform) return track._reviewsOffset || 0;
@@ -1061,23 +1098,18 @@
       }
     }
 
-    function scheduleUserCooldown() {
-      if (userCooldownTimer) window.clearTimeout(userCooldownTimer);
-      userCooldownTimer = window.setTimeout(restart, MOBILE_COOLDOWN_MS);
-    }
-
     function handleMobileScrollStop() {
       if (userTouching || scrollingByCode) return;
-      if (!loopMetricsReady()) return;
-      normalizeScrollPosition(false);
       var nearest = getNearestCardIndex();
-      currentIndex = getRealIndex(nearest);
-      if (nearest < cloneCount) {
-        jumpWithoutAnimation(nearest + originalCards.length);
-        currentIndex = getRealIndex(nearest + originalCards.length);
-      } else if (nearest >= cards.length - cloneCount) {
-        jumpWithoutAnimation(nearest - originalCards.length);
-        currentIndex = getRealIndex(nearest - originalCards.length);
+      currentIndex = nearest;
+      if (nearest === 0) {
+        jumpWithoutAnimation(cards.length - 2);
+        currentIndex = cards.length - 2;
+        return;
+      }
+      if (nearest === cards.length - 1) {
+        jumpWithoutAnimation(1);
+        currentIndex = 1;
       }
     }
 
@@ -1235,11 +1267,10 @@
         userTouching = true;
         stopTimer();
         if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
-        if (userCooldownTimer) window.clearTimeout(userCooldownTimer);
       };
       viewport._reviewsTouchEndHandler = function () {
         userTouching = false;
-        scheduleUserCooldown();
+        restart();
       };
       viewport.addEventListener('touchstart', viewport._reviewsTouchStartHandler, { passive: true });
       viewport.addEventListener('touchend', viewport._reviewsTouchEndHandler, { passive: true });

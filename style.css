@@ -991,6 +991,24 @@ html.perf-lite .consent-inner {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   background: rgba(15, 23, 42, 0.98);
+  transform: none;
+  transition: opacity .25s ease;
+}
+
+html.perf-lite .consent-backdrop {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html.perf-lite .consent-panel .consent-icon-wrap,
+html.perf-lite .consent-panel .consent-text,
+html.perf-lite .consent-panel .consent-actions .btn,
+html.perf-lite .cookie-banner .cookie-icon-wrap,
+html.perf-lite .cookie-banner .cookie-text,
+html.perf-lite .cookie-banner .cookie-actions .btn {
+  transform: none;
+  transition: opacity .2s ease;
+  transition-delay: 0s !important;
 }
 
 html.perf-lite .modal {
@@ -1023,6 +1041,18 @@ html.perf-lite .modal {
 
   .hero-stat:hover .hero-stat-num {
     transform: none;
+  }
+
+  .consent-backdrop,
+  .consent-panel,
+  .consent-inner,
+  .cookie-banner,
+  .cookie-inner,
+  .consent-panel .consent-icon-wrap,
+  .consent-panel .consent-text,
+  .consent-panel .consent-actions .btn {
+    transition: none !important;
+    transform: none !important;
   }
 }
 
@@ -2190,13 +2220,12 @@ html.perf-lite .modal {
 
   .testimonial {
     flex: 0 0 100%;
-    min-height: auto;
+    min-height: 280px;
     scroll-snap-align: start;
   }
 
   .testimonial blockquote {
-    flex: initial;
-    display: block;
+    margin-bottom: 0;
   }
 
   .testimonial[data-parallax="testimonial"] {
@@ -4217,6 +4246,23 @@ body:has(#contact-form) .page-hero {
 }
 
 /* ========== COOKIE CONSENT BANNER ========== */
+.consent-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 499;
+  background: rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.consent-backdrop.consent-backdrop-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .cookie-banner,
 .consent-panel {
   position: fixed;
@@ -4227,9 +4273,11 @@ body:has(#contact-form) .page-hero {
   display: flex;
   justify-content: center;
   padding: 1rem;
-  transform: translateY(100%);
+  transform: translateY(calc(100% + 1rem));
   opacity: 0;
-  transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .4s cubic-bezier(.22, 1, .36, 1);
+  transition:
+    transform .55s cubic-bezier(.22, 1, .36, 1),
+    opacity .4s cubic-bezier(.22, 1, .36, 1);
 }
 
 .cookie-banner.cookie-visible,
@@ -4249,6 +4297,67 @@ body:has(#contact-form) .page-hero {
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 1.75rem 2.25rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transform: translateY(28px) scale(0.94);
+  opacity: 0;
+  transition:
+    transform .6s cubic-bezier(.22, 1, .36, 1) .08s,
+    opacity .45s ease .08s,
+    box-shadow .6s ease;
+}
+
+.cookie-banner.cookie-visible .cookie-inner,
+.consent-panel.consent-visible .consent-inner {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+}
+
+.consent-panel .consent-icon-wrap,
+.consent-panel .consent-text,
+.cookie-banner .cookie-icon-wrap,
+.cookie-banner .cookie-text {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    transform .5s cubic-bezier(.22, 1, .36, 1),
+    opacity .45s ease;
+}
+
+.consent-panel .consent-actions .btn,
+.cookie-banner .cookie-actions .btn {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+    opacity .4s ease;
+}
+
+.consent-panel.consent-visible .consent-icon-wrap,
+.cookie-banner.cookie-visible .cookie-icon-wrap {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .18s;
+}
+
+.consent-panel.consent-visible .consent-text,
+.cookie-banner.cookie-visible .cookie-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .26s;
+}
+
+.consent-panel.consent-visible .consent-actions .btn:nth-child(1),
+.cookie-banner.cookie-visible .cookie-actions .btn:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .36s;
+}
+
+.consent-panel.consent-visible .consent-actions .btn:nth-child(2),
+.cookie-banner.cookie-visible .cookie-actions .btn:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .44s;
 }
 
 .cookie-content,
