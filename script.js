@@ -2104,7 +2104,9 @@
         '/blog/effectieve-dashboards-niet-technisch/': '/en/blog/effective-dashboards-non-technical/',
         '/blog/effectieve-dashboards-niet-technisch.html': '/en/blog/effective-dashboards-non-technical/',
         '/blog/automatiseren-sensordata-annotatie/': '/en/blog/automating-sensor-data-annotation/',
-        '/blog/automatiseren-sensordata-annotatie.html': '/en/blog/automating-sensor-data-annotation/'
+        '/blog/automatiseren-sensordata-annotatie.html': '/en/blog/automating-sensor-data-annotation/',
+        '/blog/autoannotate-sensordata-labelen/': '/en/blog/autoannotate-sensor-data-labeling/',
+        '/blog/autoannotate-sensordata-labelen.html': '/en/blog/autoannotate-sensor-data-labeling/'
       };
 
       var enToNl = {};
@@ -2116,15 +2118,25 @@
         }
       });
 
+      function getHreflangPath(targetLang) {
+        var link = document.querySelector('link[rel="alternate"][hreflang="' + targetLang + '"]');
+        if (!link) return null;
+        try {
+          return new URL(link.getAttribute('href'), window.location.origin).pathname;
+        } catch (e) {
+          return null;
+        }
+      }
+
       var path = window.location.pathname.replace(/\/$/, '') || '/';
       if (path === '') path = '/';
       var isEn = lang === 'en';
 
       var otherUrl;
       if (isEn) {
-        otherUrl = enToNl[path] || enToNl[path + '/'] || '/';
+        otherUrl = enToNl[path] || enToNl[path + '/'] || getHreflangPath('nl') || '/';
       } else {
-        otherUrl = nlToEn[path] || nlToEn[path + '/'] || '/en/';
+        otherUrl = nlToEn[path] || nlToEn[path + '/'] || getHreflangPath('en') || '/en/';
       }
 
       document.querySelectorAll('.lang a, .mobile-lang a').forEach(function (a) {

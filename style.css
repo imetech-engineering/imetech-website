@@ -3088,7 +3088,7 @@ html.perf-lite .modal {
 /* ========== TIMELINE (About) ========== */
 .timeline {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
 }
 
@@ -3161,6 +3161,12 @@ html.perf-lite .modal {
 @media (max-width: 1024px) {
   .timeline {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-item:last-child:nth-child(odd):not(:nth-child(2)) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1rem);
   }
 }
 
