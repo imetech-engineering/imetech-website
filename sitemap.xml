@@ -794,6 +794,60 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://imetech.nl/projecten/vlakkelichtkoepel-besturing/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/vlakkelichtkoepel-besturing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/flat-skylight-control/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/vlakkelichtkoepel-besturing/" />
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/flat-skylight-control/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/vlakkelichtkoepel-besturing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/flat-skylight-control/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/vlakkelichtkoepel-besturing/" />
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/maquette-led-installatie/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/maquette-led-installatie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/model-led-installation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/maquette-led-installatie/" />
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/model-led-installation/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/maquette-led-installatie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/model-led-installation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/maquette-led-installatie/" />
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/projecten/photobooth-beheerdashboard/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/photobooth-beheerdashboard/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/photobooth-management-dashboard/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/photobooth-beheerdashboard/" />
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://imetech.nl/en/projects/photobooth-management-dashboard/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/photobooth-beheerdashboard/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/photobooth-management-dashboard/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/photobooth-beheerdashboard/" />
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://imetech.nl/projecten/carryvision-plantcamerasysteem/</loc>
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/projecten/carryvision-plantcamerasysteem/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/projects/carryvision-plant-camera-system/" />

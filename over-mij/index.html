@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -35,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260608l">
+  <link rel="stylesheet" href="/style.css?v=20260703k">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,13 +45,16 @@
     "name": "Ivo Mengerink",
     "jobTitle": "Senior Engineer & Oprichter",
     "url": "https://imetech.nl/over-mij/",
-    "image": "https://imetech.nl/images/WieBenIk.webp",
+    "image": "https://imetech.nl/images/Profiel.webp",
     "worksFor": { "@id": "https://imetech.nl/#business" },
     "sameAs": [
       "https://www.linkedin.com/in/ivo-mengerink-30789b200/",
       "https://www.instagram.com/imetech_engineering/"
     ],
-    "alumniOf": "HAN University of Applied Sciences",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Saxion University of Applied Sciences" },
+      { "@type": "CollegeOrUniversity", "name": "HAN University of Applied Sciences" }
+    ],
     "hasCredential": "Certified SolidWorks Professional (CSWP)",
     "address": { "@type": "PostalAddress", "streetAddress": "Vierde Broekdijk 1", "addressLocality": "Aalten", "postalCode": "7122JD", "addressRegion": "Gelderland", "addressCountry": "NL" }
   }
@@ -118,7 +122,10 @@
             <blockquote style="border-left:3px solid #60a5fa;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#94a3b8">&ldquo;Techniek begrijpelijk, praktisch en doeltreffend maken voor elk bedrijf.&rdquo;</blockquote>
           </div>
           <div class="service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <img src="/images/WieBenIk.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering" fetchpriority="high" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/Profiel-boven.webp" />
+              <img src="/images/Profiel-links.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering" fetchpriority="high" />
+            </picture>
           </div>
         </div>
       </div>
@@ -146,13 +153,18 @@
           </div>
           <div class="timeline-item reveal-rotate stagger-3">
             <div class="timeline-year">2023</div>
-            <h3>BSc Mechatronica & MSc</h3>
-            <p>Afgestudeerd als BSc aan Saxion, gestart bij R2R Engineering en begonnen aan MSc Engineering Systems aan de HAN.</p>
+            <h3>BSc Mechatronica</h3>
+            <p>Afgestudeerd als BSc aan Saxion en gestart bij R2R Engineering.</p>
           </div>
           <div class="timeline-item reveal-rotate stagger-4">
             <div class="timeline-year">2025</div>
             <h3>Oprichting IMeTech Engineering</h3>
             <p>Eigen engineeringbedrijf gestart, alle disciplines gecombineerd onder één dak.</p>
+          </div>
+          <div class="timeline-item reveal-rotate stagger-5">
+            <div class="timeline-year">2026</div>
+            <h3>MSc Engineering Systems</h3>
+            <p>Afgestudeerd als MSc Engineering Systems aan de HAN.</p>
           </div>
         </div>
       </div>
@@ -220,6 +232,6 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260608l" defer></script>
+  <script src="/script.js?v=20260703k" defer></script>
 </body>
 </html>

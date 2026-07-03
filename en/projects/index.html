@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -38,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260608l">
+  <link rel="stylesheet" href="/style.css?v=20260703k">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,7 +76,8 @@
   <main>
     <section class="page-hero">
       <div class="page-hero-slides" aria-roledescription="slideshow">
-        <div class="page-hero-slide active" style="background-image:url('/images/CarryVision01.webp')"></div>
+        <div class="page-hero-slide active" style="background-image:url('/images/SCD30Hero.webp')"></div>
+        <div class="page-hero-slide" style="background-image:url('/images/VlakkelichtkoepelHero.webp')"></div>
         <div class="page-hero-slide" style="background-image:url('/images/Besturingskast01.webp')"></div>
         <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
         <div class="page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
@@ -107,17 +109,47 @@
           <button class="filter-btn" data-filter="productdev">Product Dev</button>
         </div>
         <div class="projects-grid">
-          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-1"
+          <a href="/en/projects/flat-skylight-control/" class="project-card reveal stagger-1"
+            data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/VlakkelichtkoepelHero.webp" alt="Flat Skylight Control"
+                fetchpriority="high" /></div>
+            <div class="project-body">
+              <h3>Flat Skylight Control</h3>
+              <p>Energy-efficient control board with rain protection, battery monitoring and RF remote control.</p>
+              <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/model-led-installation/" class="project-card reveal stagger-2"
+            data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/MaquetteLedHero.webp" alt="Architectural Model LED Installation"
+                fetchpriority="high" /></div>
+            <div class="project-body">
+              <h3>Architectural Model LED Installation</h3>
+              <p>Embedded LED lighting and web portal in architectural model for visualising energy flows.</p>
+              <div class="project-tags"><span>ESP32</span><span>LED</span><span>Embedded</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/photobooth-management-dashboard/" class="project-card reveal stagger-2"
+            data-categories="software,productdev">
+            <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Management Dashboard"
+                loading="lazy" /></div>
+            <div class="project-body">
+              <h3>Photobooth Management Dashboard</h3>
+              <p>Central dashboard and local agent for monitoring and remote control of photobooths.</p>
+              <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-3"
             data-categories="electronics,software,productdev">
             <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plant camera system"
-                fetchpriority="high" /></div>
+                loading="lazy" /></div>
             <div class="project-body">
               <h3>CarryVision</h3>
               <p>Timelapse and monitoring for nurseries with ESP32-CAM and Raspberry Pi.</p>
               <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-2"
+          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-4"
             data-categories="electronics,software,productdev">
             <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control"
                 loading="lazy" /></div>
@@ -127,7 +159,7 @@
               <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/poc-proximity-chat/" class="project-card reveal stagger-3"
+          <a href="/en/projects/poc-proximity-chat/" class="project-card reveal stagger-5"
             data-categories="electronics,software,productdev">
             <div class="project-img"><img src="/images/ProximityChat.webp" alt="POC Proximity Chat" loading="lazy" />
             </div>
@@ -137,7 +169,7 @@
               <div class="project-tags"><span>UWB</span><span>ESP32</span><span>RPi</span></div>
             </div>
           </a>
-          <a href="/en/projects/sketch-to-render/" class="project-card reveal stagger-4"
+          <a href="/en/projects/sketch-to-render/" class="project-card reveal stagger-6"
             data-categories="productdev,mechanics">
             <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Sketch to Render"
                 loading="lazy" /></div>
@@ -147,9 +179,9 @@
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Rendering</span></div>
             </div>
           </a>
-          <a href="/en/projects/scd30-address-board/" class="project-card reveal stagger-5"
+          <a href="/en/projects/scd30-address-board/" class="project-card reveal"
             data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/SCD30_PCB02.webp" alt="SCD30 Address Board" loading="lazy" />
+            <div class="project-img"><img src="/images/SCD30Hero.webp" alt="SCD30 Address Board installation" loading="lazy" />
             </div>
             <div class="project-body">
               <h3>SCD30 Address Board</h3>
@@ -157,7 +189,7 @@
               <div class="project-tags"><span>Modbus</span><span>RS-485</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/en/projects/keypad-controller-pcb/" class="project-card reveal stagger-6"
+          <a href="/en/projects/keypad-controller-pcb/" class="project-card reveal"
             data-categories="electronics,productdev">
             <div class="project-img"><img src="/images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB"
                 loading="lazy" /></div>
@@ -318,7 +350,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260608l" defer></script>
+  <script src="/script.js?v=20260703k" defer></script>
 </body>
 
 </html>

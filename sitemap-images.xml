@@ -20,6 +20,11 @@
   <url>
     <loc>https://imetech.nl/projecten/adresprint-scd30-pcb/</loc>
     <image:image>
+      <image:loc>https://imetech.nl/images/SCD30Hero.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - Installatie in de praktijk</image:title>
+      <image:caption>Adresprint SCD30 PCB - CO₂-sensorinstallatie met Modbus RTU adresbord, embedded hardware door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://imetech.nl/images/SCD30_PCB01.webp</image:loc>
       <image:title>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren</image:title>
       <image:caption>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>
@@ -68,6 +73,26 @@
       <image:loc>https://imetech.nl/images/3D_SmartLamp02_RB.webp</image:loc>
       <image:title>SmartLamp PCB - 3D render</image:title>
       <image:caption>SmartLamp PCB - 3D render van PCB ontwerp, embedded systemen Aalten</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Project Images - Vlakkelichtkoepel besturing -->
+  <url>
+    <loc>https://imetech.nl/projecten/vlakkelichtkoepel-besturing/</loc>
+    <image:image>
+      <image:loc>https://imetech.nl/images/VlakkelichtkoepelHero.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - Besturingsprint</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Geassembleerde besturingsprint voor vlakke lichtkoepelmotoren, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/Vlakkelichtkoepel01.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - Motoraansluitingen</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Close-up van motoraansluitingen en DIP-schakelaars op besturingsprint</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://imetech.nl/images/Vlakkelichtkoepel02.webp</image:loc>
+      <image:title>Vlakkelichtkoepel besturing - RF-antenne</image:title>
+      <image:caption>Vlakkelichtkoepel besturing - Besturingsprint met RF-antenne en voedingsaansluitingen</image:caption>
     </image:image>
   </url>
 
@@ -140,7 +165,7 @@
   <url>
     <loc>https://imetech.nl/over-mij/</loc>
     <image:image>
-      <image:loc>https://imetech.nl/images/WieBenIk.webp</image:loc>
+      <image:loc>https://imetech.nl/images/Profiel.webp</image:loc>
       <image:title>Ivo Mengerink - Engineer Aalten</image:title>
       <image:caption>Ivo Mengerink, engineer en oprichter van IMeTech Engineering - Productontwikkeling specialist Aalten</image:caption>
     </image:image>

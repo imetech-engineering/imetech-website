@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -40,8 +41,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="preload" as="image" href="/images/CarryVision01.webp" fetchpriority="high">
-  <link rel="stylesheet" href="/style.css?v=20260608l">
+  <link rel="preload" as="image" href="/images/VlakkelichtkoepelHero.webp" fetchpriority="high">
+  <link rel="stylesheet" href="/style.css?v=20260703k">
 
   <script type="application/ld+json">
   {
@@ -100,8 +101,11 @@
         "name": "Ivo Mengerink",
         "jobTitle": "Senior Engineer & Founder",
         "url": "https://imetech.nl/en/about/",
-        "image": "https://imetech.nl/images/WieBenIk.webp",
-        "alumniOf": "HAN University of Applied Sciences",
+        "image": "https://imetech.nl/images/Profiel.webp",
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Saxion University of Applied Sciences" },
+          { "@type": "CollegeOrUniversity", "name": "HAN University of Applied Sciences" }
+        ],
         "hasCredential": "Certified SolidWorks Professional (CSWP)",
         "worksFor": { "@id": "https://imetech.nl/#business" },
         "sameAs": [
@@ -173,12 +177,13 @@
     <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="hero-slides" aria-roledescription="slideshow">
-        <div class="hero-slide active" style="background-image:url('/images/CarryVision01.webp')"></div>
+        <div class="hero-slide active" style="background-image:url('/images/VlakkelichtkoepelHero.webp')"></div>
+        <div class="hero-slide" style="background-image:url('/images/SCD30Hero.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/Besturingskast01.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
-        <div class="hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
+        <div class="hero-slide" style="background-image:url('/images/MaquetteLedHero.webp')"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="wrap hero-content">
@@ -204,7 +209,7 @@
           </div>
           <div class="hero-stats">
             <a href="/en/projects/" class="hero-stat">
-              <div class="hero-stat-num" data-count="19" data-suffix="+">0</div>
+              <div class="hero-stat-num" data-count="22" data-suffix="+">0</div>
               <div class="hero-stat-label">Projects delivered</div>
             </a>
             <a href="/en/services/" class="hero-stat">
@@ -219,7 +224,7 @@
         </div>
         <div class="hero-visual">
           <div class="hero-img-wrap" data-parallax="hero-image">
-            <img fetchpriority="high" src="/images/WieBenIk.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering"
+            <img fetchpriority="high" src="/images/Profiel.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering"
               width="320" height="320" />
           </div>
           <div class="hero-tags">
@@ -235,7 +240,7 @@
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                 <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
               </svg>
-              BSc Mechatronics HAN
+              MSc Engineering Systems
             </div>
             <div class="hero-tag hero-tag-3" data-parallax="hero-tag" data-speed="0.03">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -338,7 +343,7 @@
             <span class="label">About</span>
             <h2>Meet Ivo Mengerink</h2>
             <p>Engineer and founder of IMeTech Engineering, based in Aalten. BSc Mechatronics from Saxion University,
-              hands-on experience at R2R Engineering, and currently pursuing an MSc in Engineering Systems at HAN. I
+              hands-on experience at R2R Engineering, and MSc in Engineering Systems from HAN. I
               help businesses in the Achterhoek turn technical challenges into working solutions.</p>
             <p>One point of contact for mechanics, electronics, software, and everything in between.</p>
             <a href="/en/about/" class="btn btn-primary">More about me <svg width="18" height="18"
@@ -347,9 +352,9 @@
               </svg></a>
           </div>
           <div class="about-facts reveal">
-            <div class="fact stagger-1"><strong>HAN</strong><span>BSc Mechatronics</span></div>
+            <div class="fact stagger-1"><strong>MSc</strong><span>Engineering Systems</span></div>
             <div class="fact stagger-2"><strong>CSWP</strong><span>SolidWorks Certified</span></div>
-            <div class="fact stagger-3"><strong>19+</strong><span>Projects delivered</span></div>
+            <div class="fact stagger-3"><strong>22+</strong><span>Projects delivered</span></div>
             <div class="fact stagger-4"><strong>5.0</strong><span>Client rating</span></div>
           </div>
         </div>
@@ -372,7 +377,40 @@
           <p>From concept to delivered product &mdash; click any project for full technical details.</p>
         </div>
         <div class="projects-grid projects-grid--carousel">
-          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-1"
+          <a href="/en/projects/flat-skylight-control/" class="project-card reveal stagger-1"
+            data-parallax="card-focus">
+            <div class="project-img"><img src="/images/VlakkelichtkoepelHero.webp"
+                alt="Flat Skylight Control" fetchpriority="high"
+                data-parallax="project-image" /></div>
+            <div class="project-body">
+              <h3>Flat Skylight Control</h3>
+              <p>Energy-efficient control board with rain protection, battery monitoring and RF remote control.</p>
+              <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/model-led-installation/" class="project-card reveal stagger-2"
+            data-parallax="card-focus">
+            <div class="project-img"><img src="/images/MaquetteLedHero.webp"
+                alt="Architectural Model LED Installation" fetchpriority="high"
+                data-parallax="project-image" /></div>
+            <div class="project-body">
+              <h3>Architectural Model LED Installation</h3>
+              <p>Embedded LED lighting and web portal in architectural model for visualising energy flows.</p>
+              <div class="project-tags"><span>ESP32</span><span>LED</span><span>Embedded</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/photobooth-management-dashboard/" class="project-card reveal stagger-2"
+            data-parallax="card-focus">
+            <div class="project-img"><img src="/images/photoboothHero.webp"
+                alt="Photobooth Management Dashboard" loading="lazy"
+                data-parallax="project-image" /></div>
+            <div class="project-body">
+              <h3>Photobooth Management Dashboard</h3>
+              <p>Central dashboard and local agent for monitoring and remote control of photobooths.</p>
+              <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
+            </div>
+          </a>
+          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-3"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/CarryVision01.webp"
                 alt="CarryVision plant camera system with ESP32-CAM and Raspberry Pi" loading="lazy"
@@ -383,7 +421,7 @@
               <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-2"
+          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-4"
             data-parallax="card-focus">
             <div class="project-img"><img src="/images/rollatorBesturing01.webp"
                 alt="Rollator control unit with PCB and embedded firmware" loading="lazy"
@@ -394,45 +432,14 @@
               <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/scd30-address-board/" class="project-card reveal stagger-3"
+          <a href="/en/projects/scd30-address-board/" class="project-card reveal stagger-5"
             data-parallax="card-focus">
-            <div class="project-img"><img src="/images/SCD30_PCB02.webp"
+            <div class="project-img"><img src="/images/SCD30Hero.webp"
                 alt="SCD30 Address Board PCB for CO2 sensors" loading="lazy" data-parallax="project-image" /></div>
             <div class="project-body">
               <h3>SCD30 Address Board</h3>
               <p>Modbus RTU address board for industrial CO&#x2082; sensor networks.</p>
               <div class="project-tags"><span>Modbus</span><span>RS-485</span><span>PCB</span></div>
-            </div>
-          </a>
-          <a href="/en/projects/sketch-to-render/" class="project-card reveal stagger-4"
-            data-parallax="card-focus">
-            <div class="project-img"><img src="/images/SketchToRender04.webp"
-                alt="Product development from sketch to 3D render" loading="lazy" data-parallax="project-image" /></div>
-            <div class="project-body">
-              <h3>Sketch to Render</h3>
-              <p>Full product development from rough sketch to photorealistic render.</p>
-              <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Render</span></div>
-            </div>
-          </a>
-          <a href="/en/projects/control-panels/" class="project-card reveal stagger-5"
-            data-parallax="card-focus">
-            <div class="project-img"><img src="/images/Besturingskast01.webp"
-                alt="Control cabinet for air quality monitoring with PLC" loading="lazy"
-                data-parallax="project-image" /></div>
-            <div class="project-body">
-              <h3>Air Quality Control Panels</h3>
-              <p>Five complete PLC panels for ammonia and CO&#x2082; monitoring.</p>
-              <div class="project-tags"><span>PLC</span><span>Sensors</span><span>Web</span></div>
-            </div>
-          </a>
-          <a href="/en/projects/self-balancing-cube/" class="project-card reveal stagger-6"
-            data-parallax="card-focus">
-            <div class="project-img"><img src="/images/SelfBalancingCube01.webp"
-                alt="Self-balancing cube prototype with flywheels" loading="lazy" data-parallax="project-image" /></div>
-            <div class="project-body">
-              <h3>Self-Balancing Cube</h3>
-              <p>Dynamic cube using flywheels and advanced control engineering.</p>
-              <div class="project-tags"><span>Robotics</span><span>Control</span><span>Embedded</span></div>
             </div>
           </a>
         </div>
@@ -578,7 +585,29 @@
   <!-- v2 SHARED FLOATING CTA (loaded via JS) -->
   <div id="floating-cta-container"></div>
 
-  <script src="/script.js?v=20260608l" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      window.setTimeout(function () {
+        if (window.__imetechHeroAnimationsReady) return;
+        var slides = document.querySelectorAll('.hero-slide');
+        if (slides.length < 2) return;
+        var current = 0;
+        slides.forEach(function (slide, index) {
+          slide.style.opacity = index === 0 ? '1' : '0';
+          slide.style.zIndex = index === 0 ? '1' : '0';
+        });
+        window.setInterval(function () {
+          slides[current].style.opacity = '0';
+          slides[current].style.zIndex = '0';
+          current = (current + 1) % slides.length;
+          slides[current].style.opacity = '1';
+          slides[current].style.zIndex = '1';
+        }, 5000);
+        document.documentElement.classList.add('hero-fallback-ready');
+      }, 200);
+    });
+  </script>
+  <script src="/script.js?v=20260703k" defer></script>
 </body>
 
 </html>
