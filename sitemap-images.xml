@@ -20,6 +20,11 @@
   <url>
     <loc>https://imetech.nl/projecten/adresprint-scd30-pcb/</loc>
     <image:image>
+      <image:loc>https://imetech.nl/images/SCD30Hero.webp</image:loc>
+      <image:title>Adresprint SCD30 PCB - Installatie in de praktijk</image:title>
+      <image:caption>Adresprint SCD30 PCB - CO₂-sensorinstallatie met Modbus RTU adresbord, embedded hardware door IMeTech Engineering Aalten</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://imetech.nl/images/SCD30_PCB01.webp</image:loc>
       <image:title>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren</image:title>
       <image:caption>Adresprint SCD30 PCB - Modbus RTU adresbord voor CO₂ sensoren, PCB ontwerp embedded systemen door IMeTech Engineering Aalten</image:caption>

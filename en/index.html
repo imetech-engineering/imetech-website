@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -41,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="preload" as="image" href="/images/VlakkelichtkoepelHero.webp" fetchpriority="high">
-  <link rel="stylesheet" href="/style.css?v=20260608l">
+  <link rel="stylesheet" href="/style.css?v=20260703k">
 
   <script type="application/ld+json">
   {
@@ -174,6 +175,7 @@
     <section class="hero">
       <div class="hero-slides" aria-roledescription="slideshow">
         <div class="hero-slide active" style="background-image:url('/images/VlakkelichtkoepelHero.webp')"></div>
+        <div class="hero-slide" style="background-image:url('/images/SCD30Hero.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/Besturingskast01.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
         <div class="hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
@@ -429,7 +431,7 @@
           </a>
           <a href="/en/projects/scd30-address-board/" class="project-card reveal stagger-5"
             data-parallax="card-focus">
-            <div class="project-img"><img src="/images/SCD30_PCB02.webp"
+            <div class="project-img"><img src="/images/SCD30Hero.webp"
                 alt="SCD30 Address Board PCB for CO2 sensors" loading="lazy" data-parallax="project-image" /></div>
             <div class="project-body">
               <h3>SCD30 Address Board</h3>
@@ -580,7 +582,29 @@
   <!-- v2 SHARED FLOATING CTA (loaded via JS) -->
   <div id="floating-cta-container"></div>
 
-  <script src="/script.js?v=20260608l" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      window.setTimeout(function () {
+        if (window.__imetechHeroAnimationsReady) return;
+        var slides = document.querySelectorAll('.hero-slide');
+        if (slides.length < 2) return;
+        var current = 0;
+        slides.forEach(function (slide, index) {
+          slide.style.opacity = index === 0 ? '1' : '0';
+          slide.style.zIndex = index === 0 ? '1' : '0';
+        });
+        window.setInterval(function () {
+          slides[current].style.opacity = '0';
+          slides[current].style.zIndex = '0';
+          current = (current + 1) % slides.length;
+          slides[current].style.opacity = '1';
+          slides[current].style.zIndex = '1';
+        }, 5000);
+        document.documentElement.classList.add('hero-fallback-ready');
+      }, 200);
+    });
+  </script>
+  <script src="/script.js?v=20260703k" defer></script>
 </body>
 
 </html>
