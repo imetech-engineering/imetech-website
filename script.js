@@ -865,7 +865,7 @@
     }
 
     var isMobileReviews = window.matchMedia('(max-width: 767px)').matches;
-    // Mobiel: altijd native scroll (zelfde patroon als projecten-carousel)
+    // Mobiel: native scroll (zelfde patroon als projecten-carousel)
     var useTrackTransform = !!window.__imetechPerfLite && !isMobileReviews;
     track.style.transition = 'none';
     track.style.transform = '';
@@ -2299,6 +2299,10 @@
           });
 
           pxTestimonials.forEach(function (el) {
+            if (window.matchMedia('(max-width: 767px)').matches) {
+              testimonialUpdates.push({ el: el, transform: '' });
+              return;
+            }
             var speed = parseFloat(el.getAttribute('data-speed') || '0');
             if (speed === 0) return;
             var rect = el.getBoundingClientRect();
