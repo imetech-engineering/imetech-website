@@ -536,10 +536,17 @@ html.is-scrolling .header::before {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   overflow: hidden;
   background: #0f172a;
+}
+
+@supports (min-height: 100dvh) {
+  .hero {
+    min-height: 100dvh;
+  }
 }
 
 .hero-slides {
@@ -1094,6 +1101,7 @@ html.perf-lite .modal {
     gap: 0;
     text-align: center;
     padding-top: 8rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px) + 1.25rem);
   }
 
   .hero-content > div:first-child {
@@ -1121,6 +1129,7 @@ html.perf-lite .modal {
   .hero-stats {
     grid-area: stats;
     justify-content: center;
+    margin-top: 2rem;
   }
 
   .hero-visual {
@@ -1875,6 +1884,8 @@ html.perf-lite .modal {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 
 .testimonials-viewport::-webkit-scrollbar {
@@ -2033,8 +2044,9 @@ html.perf-lite .modal {
 
 @media (max-width: 768px) {
   .testimonial {
-    flex-basis: 100%;
+    flex: 0 0 100%;
     min-height: 300px;
+    scroll-snap-stop: always;
   }
 }
 

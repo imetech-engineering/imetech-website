@@ -1070,12 +1070,42 @@
 
     var scrollStopTimer = null;
     var dragScrollStart = 0;
+    var trackGap = 24;
+
+    function getCurrentOffset() {
+      if (useTrackTransform) return track._reviewsOffset || 0;
+      return viewport.scrollLeft;
+    }
+
+    function setCurrentOffset(offset) {
+      if (useTrackTransform) {
+        track._reviewsOffset = offset;
+        track.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
+        return;
+      }
+      viewport.scrollLeft = offset;
+    }
+
+    function syncSlideWidths() {
+      var viewportWidth = viewport.clientWidth;
+      if (!viewportWidth) return;
+      var perViewCount = getCardsPerView();
+      var slideWidth = perViewCount === 1
+        ? viewportWidth
+        : (viewportWidth - trackGap * (perViewCount - 1)) / perViewCount;
+      cards.forEach(function (card) {
+        card.style.flex = '0 0 ' + slideWidth + 'px';
+        card.style.width = slideWidth + 'px';
+        card.style.maxWidth = slideWidth + 'px';
+      });
+    }
 
     function getNearestCardIndex() {
+      var offset = getCurrentOffset();
       var nearest = 0;
       var smallest = Number.POSITIVE_INFINITY;
       cards.forEach(function (card, idx) {
-        var distance = Math.abs(card.offsetLeft - viewport.scrollLeft);
+        var distance = Math.abs(card.offsetLeft - offset);
         if (distance < smallest) {
           smallest = distance;
           nearest = idx;
@@ -1113,25 +1143,30 @@
       var headStart = cards[cloneCount + originalCards.length].offsetLeft;
       var adjusted = false;
       var guard = 0;
+      var offset = getCurrentOffset();
 
-      while (viewport.scrollLeft < realStart - 1 && guard++ < 50) {
-        viewport.scrollLeft += loopWidth;
+      while (offset < realStart - 1 && guard++ < 50) {
+        offset += loopWidth;
         if (adjustDragAnchor) dragScrollStart += loopWidth;
         adjusted = true;
       }
       guard = 0;
-      while (viewport.scrollLeft >= headStart && guard++ < 50) {
-        viewport.scrollLeft -= loopWidth;
+      while (offset >= headStart && guard++ < 50) {
+        offset -= loopWidth;
         if (adjustDragAnchor) dragScrollStart -= loopWidth;
         adjusted = true;
       }
 
       if (adjusted) {
+        setCurrentOffset(offset);
         currentIndex = getRealIndex(getNearestCardIndex());
       }
     }
 
-    viewport.addEventListener('scroll', function () {
+    if (viewport._reviewsScrollHandler) {
+      viewport.removeEventListener('scroll', viewport._reviewsScrollHandler);
+    }
+    viewport._reviewsScrollHandler = function () {
       if (useTrackTransform) return;
       if (viewport.classList.contains('is-dragging')) return;
       if (!scrollingByCode) normalizeScrollPosition(false);
@@ -1140,74 +1175,139 @@
       scrollStopTimer = window.setTimeout(function () {
         currentIndex = getRealIndex(getNearestCardIndex());
       }, 120);
-    }, { passive: true });
+    };
+    viewport.addEventListener('scroll', viewport._reviewsScrollHandler, { passive: true });
 
     viewport.addEventListener('mouseenter', stopTimer);
     viewport.addEventListener('mouseleave', restart);
     viewport.addEventListener('focusin', stopTimer);
     viewport.addEventListener('focusout', restart);
-    viewport.addEventListener('touchstart', stopTimer, { passive: true });
-    viewport.addEventListener('touchend', restart, { passive: true });
 
-    if (!useTrackTransform && !viewport.dataset.dragScrollAttached && window.matchMedia('(min-width: 768px)').matches) {
-      viewport.dataset.dragScrollAttached = '1';
-      var dragActive = false;
-      var dragStartX = 0;
-      var dragMoved = false;
-      var dragThreshold = 5;
-
-      viewport.addEventListener('mousedown', function (e) {
-        if (e.button !== 0) return;
-        dragActive = true;
-        dragMoved = false;
-        dragStartX = e.pageX;
-        dragScrollStart = viewport.scrollLeft;
-        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
-        viewport.classList.add('is-dragging');
-        stopTimer();
-        e.preventDefault();
-      });
-
-      window.addEventListener('mousemove', function (e) {
-        if (!dragActive) return;
-        var dx = e.pageX - dragStartX;
-        if (Math.abs(dx) > dragThreshold) dragMoved = true;
-        viewport.scrollLeft = dragScrollStart - dx;
-        normalizeScrollPosition(true);
-      });
-
-      function endDragScroll() {
-        if (!dragActive) return;
-        dragActive = false;
-        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
-
-        if (dragMoved) {
-          normalizeScrollPosition(true);
-          var realIndex = getRealIndex(getNearestCardIndex());
-          currentIndex = realIndex;
-          goTo(realIndex, true);
-          window.setTimeout(function () {
-            viewport.classList.remove('is-dragging');
-            restart();
-          }, 450);
-        } else {
-          viewport.classList.remove('is-dragging');
-          restart();
-        }
-      }
-
-      window.addEventListener('mouseup', endDragScroll);
-      viewport.addEventListener('click', function (e) {
-        if (!dragMoved) return;
-        e.preventDefault();
-        e.stopPropagation();
-        dragMoved = false;
-      }, true);
+    if (viewport._reviewsPanCleanup) {
+      viewport._reviewsPanCleanup();
+      viewport._reviewsPanCleanup = null;
     }
 
-    window.addEventListener('resize', initReviewsCarousel, { passive: true, once: true });
+    var usePointerPan = useTrackTransform
+      || window.matchMedia('(min-width: 768px)').matches
+      || 'ontouchstart' in window;
+
+    if (usePointerPan) {
+      (function attachPanHandlers() {
+        var panActive = false;
+        var panStartX = 0;
+        var panMoved = false;
+        var panThreshold = 6;
+        var activePointerId = null;
+
+        function onPanStart(clientX, pointerId) {
+          panActive = true;
+          panMoved = false;
+          panStartX = clientX;
+          activePointerId = pointerId;
+          dragScrollStart = getCurrentOffset();
+          if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+          viewport.classList.add('is-dragging');
+          stopTimer();
+        }
+
+        function onPanMove(clientX) {
+          if (!panActive) return;
+          var dx = clientX - panStartX;
+          if (Math.abs(dx) > panThreshold) panMoved = true;
+          setCurrentOffset(dragScrollStart - dx);
+          normalizeScrollPosition(true);
+        }
+
+        function onPanEnd() {
+          if (!panActive) return;
+          panActive = false;
+          activePointerId = null;
+          if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+
+          if (panMoved) {
+            normalizeScrollPosition(true);
+            var realIndex = getRealIndex(getNearestCardIndex());
+            currentIndex = realIndex;
+            goTo(realIndex, true);
+            window.setTimeout(function () {
+              viewport.classList.remove('is-dragging');
+              restart();
+            }, 450);
+          } else {
+            viewport.classList.remove('is-dragging');
+            restart();
+          }
+          panMoved = false;
+        }
+
+        function onPointerDown(e) {
+          if (e.pointerType === 'mouse' && e.button !== 0) return;
+          if (activePointerId !== null) return;
+          viewport.setPointerCapture(e.pointerId);
+          onPanStart(e.clientX, e.pointerId);
+        }
+
+        function onPointerMove(e) {
+          if (!panActive || e.pointerId !== activePointerId) return;
+          onPanMove(e.clientX);
+        }
+
+        function onPointerUp(e) {
+          if (e.pointerId !== activePointerId) return;
+          try { viewport.releasePointerCapture(e.pointerId); } catch (err) { /* noop */ }
+          onPanEnd();
+        }
+
+        viewport.addEventListener('pointerdown', onPointerDown);
+        viewport.addEventListener('pointermove', onPointerMove);
+        viewport.addEventListener('pointerup', onPointerUp);
+        viewport.addEventListener('pointercancel', onPointerUp);
+        viewport.addEventListener('lostpointercapture', function (e) {
+          if (e.pointerId === activePointerId) onPanEnd();
+        });
+
+        viewport.addEventListener('click', function (e) {
+          if (!panMoved) return;
+          e.preventDefault();
+          e.stopPropagation();
+          panMoved = false;
+        }, true);
+
+        viewport._reviewsPanCleanup = function () {
+          viewport.removeEventListener('pointerdown', onPointerDown);
+          viewport.removeEventListener('pointermove', onPointerMove);
+          viewport.removeEventListener('pointerup', onPointerUp);
+          viewport.removeEventListener('pointercancel', onPointerUp);
+        };
+      })();
+    } else {
+      if (viewport._reviewsTouchEndHandler) {
+        viewport.removeEventListener('touchstart', stopTimer);
+        viewport.removeEventListener('touchend', viewport._reviewsTouchEndHandler);
+      }
+      viewport._reviewsTouchEndHandler = function () {
+        if (scrollStopTimer) window.clearTimeout(scrollStopTimer);
+        scrollStopTimer = window.setTimeout(function () {
+          currentIndex = getRealIndex(getNearestCardIndex());
+        }, 120);
+        restart();
+      };
+      viewport.addEventListener('touchstart', stopTimer, { passive: true });
+      viewport.addEventListener('touchend', viewport._reviewsTouchEndHandler, { passive: true });
+    }
+
+    if (!window.__imetechReviewsResizeAttached) {
+      window.__imetechReviewsResizeAttached = true;
+      var resizeTimer = null;
+      window.addEventListener('resize', function () {
+        if (resizeTimer) window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(initReviewsCarousel, 150);
+      }, { passive: true });
+    }
 
     function startReviewsCarousel(attempt) {
+      syncSlideWidths();
       if (!loopMetricsReady()) {
         if ((attempt || 0) < 40) {
           requestAnimationFrame(function () { startReviewsCarousel((attempt || 0) + 1); });
