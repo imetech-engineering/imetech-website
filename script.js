@@ -2834,6 +2834,19 @@
   }
 
   function initFaqAccordion() {
+    function closeFaqItem(item) {
+      var answer = item.querySelector('.faq-answer-wrap');
+      if (!answer || !item.classList.contains('faq-open')) return;
+
+      item.classList.remove('faq-open');
+      var onEnd = function (event) {
+        if (event.propertyName !== 'grid-template-rows') return;
+        answer.removeEventListener('transitionend', onEnd);
+        item.open = false;
+      };
+      answer.addEventListener('transitionend', onEnd);
+    }
+
     document.querySelectorAll('.faq-item').forEach(function (item) {
       if (item.dataset.faqBound === 'true') return;
       item.dataset.faqBound = 'true';
@@ -2856,16 +2869,16 @@
       summary.addEventListener('click', function (e) {
         e.preventDefault();
         var isOpen = item.classList.contains('faq-open');
+        var faqList = item.closest('.faq-list');
 
         if (isOpen) {
-          item.classList.remove('faq-open');
-          var onEnd = function (event) {
-            if (event.propertyName !== 'grid-template-rows') return;
-            answer.removeEventListener('transitionend', onEnd);
-            item.open = false;
-          };
-          answer.addEventListener('transitionend', onEnd);
+          closeFaqItem(item);
         } else {
+          if (faqList) {
+            faqList.querySelectorAll('.faq-item.faq-open').forEach(function (openItem) {
+              if (openItem !== item) closeFaqItem(openItem);
+            });
+          }
           item.open = true;
           requestAnimationFrame(function () {
             item.classList.add('faq-open');
