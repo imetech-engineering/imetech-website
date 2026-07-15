@@ -686,60 +686,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://imetech.nl/blog/datagedreven-productie/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/datagedreven-productie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/data-driven-manufacturing/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/datagedreven-productie/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/blog/data-driven-manufacturing/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/datagedreven-productie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/data-driven-manufacturing/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/datagedreven-productie/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/effectieve-dashboards-niet-technisch/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/effective-dashboards-non-technical/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/blog/effective-dashboards-non-technical/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/effective-dashboards-non-technical/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/effectieve-dashboards-niet-technisch/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/esp32-vs-stm32/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/esp32-vs-stm32/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/esp32-vs-stm32/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/esp32-vs-stm32/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/blog/esp32-vs-stm32/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/esp32-vs-stm32/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/esp32-vs-stm32/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/esp32-vs-stm32/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://imetech.nl/blog/autoannotate-sensordata-labelen/</loc>
     <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/autoannotate-sensordata-labelen/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" />
@@ -754,42 +700,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/autoannotate-sensor-data-labeling/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/autoannotate-sensordata-labelen/" />
     <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/prototype-naar-productie/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/prototype-naar-productie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/prototype-to-production/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/prototype-naar-productie/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/blog/prototype-to-production/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/prototype-naar-productie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/prototype-to-production/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/prototype-naar-productie/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/blog/python-industriele-plc-integratie/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/python-industriele-plc-integratie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/python-industrial-plc-integration/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/python-industriele-plc-integratie/" />
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imetech.nl/en/blog/python-industrial-plc-integration/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://imetech.nl/blog/python-industriele-plc-integratie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://imetech.nl/en/blog/python-industrial-plc-integration/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/python-industriele-plc-integratie/" />
-    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -88,13 +88,8 @@ English project pages: https://imetech.nl/en/projects/
 
 - Automatiseren van sensordata-annotatie — ML annotation automation for time-series sensor data: https://imetech.nl/blog/automatiseren-sensordata-annotatie/
 - Machine learning in productontwikkeling — ML applications, training data, elderly care and navigation: https://imetech.nl/blog/machine-learning-productontwikkeling/
-- Datagedreven besluitvorming voor kleine productiebedrijven — Data-driven manufacturing for SMEs, OEE dashboards: https://imetech.nl/blog/datagedreven-productie/
-- Dashboards bouwen die niet-technische mensen gebruiken — Dashboard design for non-technical stakeholders: https://imetech.nl/blog/effectieve-dashboards-niet-technisch/
 - Van idee tot prototype workflow — Product development workflow from concept to prototype: https://imetech.nl/blog/van-idee-tot-prototype-workflow/
 - Softwareontwikkeling voor embedded systemen — Firmware to application software guide: https://imetech.nl/blog/softwareontwikkeling-embedded-systemen/
-- Van prototype naar kleine serie productie — Prototype to small-batch production guide: https://imetech.nl/blog/prototype-naar-productie/
-- Python koppelen aan industriële PLC's — Python + OPC UA/Modbus for IT/OT integration: https://imetech.nl/blog/python-industriele-plc-integratie/
-- ESP32 vs STM32 — Microcontroller comparison for product developers: https://imetech.nl/blog/esp32-vs-stm32/
 - AutoAnnotate: sensordata labelen — Camera + sensor ML labeling platform by IMeTech and R2R Engineering: https://imetech.nl/blog/autoannotate-sensordata-labelen/
 - Concept ontwikkeling en iteratief ontwerp — Structured concept development methods: https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/
 - Betrouwbare printplaten ontwerpen — PCB design best practices (EMC, DFM, derating): https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/

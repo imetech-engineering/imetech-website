@@ -149,18 +149,8 @@
       <description>Blog over machine learning in productontwikkeling: trainingsdata, toepassingen in ouderenzorg en navigatie.</description>
       <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
     </item>
-    <item>
-      <title>Datagedreven besluitvorming voor kleine productiebedrijven</title>
-      <link>https://imetech.nl/blog/datagedreven-productie/</link>
-      <description>Praktische gids voor datagedreven productie bij kleine en middelgrote bedrijven: OEE, dashboards en betere beslissingen.</description>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dashboards bouwen die niet-technische mensen gebruiken</title>
-      <link>https://imetech.nl/blog/effectieve-dashboards-niet-technisch/</link>
-      <description>Ontwerpprincipes voor dashboards die niet-technische stakeholders daadwerkelijk gebruiken.</description>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
+    
+    
     <item>
       <title>Softwareontwikkeling voor embedded systemen</title>
       <link>https://imetech.nl/blog/softwareontwikkeling-embedded-systemen/</link>
@@ -179,24 +169,9 @@
       <description>Conceptontwikkeling en iteratief ontwerp: van idee tot werkend product.</description>
       <pubDate>Tue, 11 Nov 2025 00:00:00 GMT</pubDate>
     </item>
-    <item>
-      <title>Van prototype naar kleine serie productie</title>
-      <link>https://imetech.nl/blog/prototype-naar-productie/</link>
-      <description>Praktische gids over de overgang van werkend prototype naar kleine serie productie: PCB, behuizingen en DFM.</description>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Python koppelen aan industriële PLC's</title>
-      <link>https://imetech.nl/blog/python-industriele-plc-integratie/</link>
-      <description>Hoe je Python verbindt met industriële PLC's via OPC UA en Modbus voor datapipelines en dashboards.</description>
-      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ESP32 vs STM32</title>
-      <link>https://imetech.nl/blog/esp32-vs-stm32/</link>
-      <description>Praktische vergelijking van ESP32 en STM32 microcontrollers voor IoT, industriële en embedded projecten.</description>
-      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
+    
+    
+    
     <item>
       <title>AutoAnnotate: sensordata labelen zonder weken handwerk</title>
       <link>https://imetech.nl/blog/autoannotate-sensordata-labelen/</link>
