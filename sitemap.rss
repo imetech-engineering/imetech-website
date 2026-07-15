@@ -4,265 +4,318 @@
     <title>IMeTech Engineering RSS Feed</title>
     <link>https://imetech.nl/</link>
     <description>Laatste updates en pagina's van IMeTech Engineering</description>
+    <lastBuildDate>Wed, 15 Jul 2026 12:17:41 GMT</lastBuildDate>
     <item>
       <title>Home</title>
       <link>https://imetech.nl/</link>
       <description>IMeTech Engineering - Homepagina</description>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Algemene Voorwaarden</title>
       <link>https://imetech.nl/algemenevoorwaarden/</link>
       <description>Algemene Voorwaarden van IMeTech Engineering</description>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Disclaimer</title>
       <link>https://imetech.nl/disclaimer/</link>
       <description>Disclaimer van IMeTech Engineering</description>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Adresprint SCD30 PCB</title>
       <link>https://imetech.nl/projecten/adresprint-scd30-pcb/</link>
       <description>Projectpagina voor de Adresprint SCD30 PCB</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Keypad Controller PCB</title>
       <link>https://imetech.nl/projecten/keypad-controller-pcb/</link>
       <description>Projectpagina voor de Keypad Controller PCB</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>2x2 Steering Robot</title>
       <link>https://imetech.nl/projecten/2x2-steering-robot/</link>
       <description>Projectpagina voor de 2x2 Steering Robot</description>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>6 DOF SpaceMouse</title>
       <link>https://imetech.nl/projecten/6-dof-spacemouse/</link>
       <description>Projectpagina voor de 6 DOF SpaceMouse</description>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Dubbele Labvoeding</title>
       <link>https://imetech.nl/projecten/dubbele-labvoeding/</link>
       <description>Projectpagina voor de Dubbele Labvoeding</description>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fume Extractor</title>
       <link>https://imetech.nl/projecten/fume-extractor/</link>
       <description>Projectpagina voor de Fume Extractor</description>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Automatische Laptopstand</title>
       <link>https://imetech.nl/projecten/laptop-stand/</link>
       <description>Projectpagina voor de Automatische Laptopstand</description>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Letterklok</title>
       <link>https://imetech.nl/projecten/letterklok/</link>
       <description>Projectpagina voor de Letterklok</description>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Magnetisch Levitatie Plantenpot</title>
       <link>https://imetech.nl/projecten/magnetische-levitatie-plantenpot/</link>
       <description>Projectpagina voor de Magnetisch Levitatie Plantenpot</description>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Multifunctioneel Soldeerstation</title>
       <link>https://imetech.nl/projecten/multifunctioneel-soldeerstation/</link>
       <description>Projectpagina voor de Multifunctioneel Soldeerstation</description>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Plantsappers 3D Productietekeningen</title>
       <link>https://imetech.nl/projecten/plantsappers-3d-productietekeningen/</link>
       <description>Projectpagina voor Plantsappers 3D Productietekeningen - SolidWorks CAD ontwerp</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>USB-C Li-Ion Oplaad PCB</title>
       <link>https://imetech.nl/projecten/usb-c-laad-pcb/</link>
       <description>Projectpagina voor de USB-C Li-Ion Oplaad PCB</description>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Zelfbalancerende Kubus</title>
       <link>https://imetech.nl/projecten/zelfbalancerende-kubus/</link>
       <description>Projectpagina voor de Zelfbalancerende Kubus</description>
+      <pubDate>Wed, 15 Mar 2023 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Besturingskasten</title>
       <link>https://imetech.nl/projecten/besturingskasten/</link>
       <description>Projectpagina voor Besturingskasten</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>CarryVision Plantcamerasysteem</title>
       <link>https://imetech.nl/projecten/carryvision-plantcamerasysteem/</link>
       <description>ESP32-CAM timelapse systeem voor kwekerijen met Raspberry Pi hub en webdashboard.</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vlakkelichtkoepel besturing</title>
       <link>https://imetech.nl/projecten/vlakkelichtkoepel-besturing/</link>
       <description>Energiezuinige besturingsprint voor vlakke lichtkoepels met regenbeveiliging, accubewaking en RF-afstandsbediening.</description>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Maquette LED-installatie</title>
       <link>https://imetech.nl/projecten/maquette-led-installatie/</link>
       <description>Embedded LED-systeem met webportal in architectuurmaquette voor visualisatie van energiestromen.</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Photobooth Beheerdashboard</title>
       <link>https://imetech.nl/projecten/photobooth-beheerdashboard/</link>
       <description>Centraal dashboard en lokale agent voor monitoring en remote control van photobooths.</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>SmartLamp PCB</title>
       <link>https://imetech.nl/projecten/smartlamp-pcb/</link>
       <description>RGBW LED driver PCB met ESP32, Li-Ion accu en USB-C opladen.</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Automatiseren van sensordata-annotatie</title>
       <link>https://imetech.nl/blog/automatiseren-sensordata-annotatie/</link>
       <description>Hoe je annotatie van sensordata voor machine learning automatiseert met rule-based labeling, active learning en weak supervision.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Machine Learning in productontwikkeling</title>
       <link>https://imetech.nl/blog/machine-learning-productontwikkeling/</link>
       <description>Blog over machine learning in productontwikkeling: trainingsdata, toepassingen in ouderenzorg en navigatie.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Datagedreven besluitvorming voor kleine productiebedrijven</title>
       <link>https://imetech.nl/blog/datagedreven-productie/</link>
       <description>Praktische gids voor datagedreven productie bij kleine en middelgrote bedrijven: OEE, dashboards en betere beslissingen.</description>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Dashboards bouwen die niet-technische mensen gebruiken</title>
       <link>https://imetech.nl/blog/effectieve-dashboards-niet-technisch/</link>
       <description>Ontwerpprincipes voor dashboards die niet-technische stakeholders daadwerkelijk gebruiken.</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Softwareontwikkeling voor embedded systemen</title>
       <link>https://imetech.nl/blog/softwareontwikkeling-embedded-systemen/</link>
       <description>Praktische gids voor softwareontwikkeling in embedded systemen en IoT: van firmware tot applicatie.</description>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Van idee tot prototype workflow</title>
       <link>https://imetech.nl/blog/van-idee-tot-prototype-workflow/</link>
       <description>Workflow voor productontwikkeling van eerste concept tot werkend prototype.</description>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Conceptontwikkeling en iteratief ontwerp</title>
       <link>https://imetech.nl/blog/concept-ontwikkeling-iteratief-ontwerp/</link>
       <description>Conceptontwikkeling en iteratief ontwerp: van idee tot werkend product.</description>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Van prototype naar kleine serie productie</title>
       <link>https://imetech.nl/blog/prototype-naar-productie/</link>
       <description>Praktische gids over de overgang van werkend prototype naar kleine serie productie: PCB, behuizingen en DFM.</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Python koppelen aan industriële PLC's</title>
       <link>https://imetech.nl/blog/python-industriele-plc-integratie/</link>
       <description>Hoe je Python verbindt met industriële PLC's via OPC UA en Modbus voor datapipelines en dashboards.</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ESP32 vs STM32</title>
       <link>https://imetech.nl/blog/esp32-vs-stm32/</link>
       <description>Praktische vergelijking van ESP32 en STM32 microcontrollers voor IoT, industriële en embedded projecten.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>AutoAnnotate: sensordata labelen zonder weken handwerk</title>
       <link>https://imetech.nl/blog/autoannotate-sensordata-labelen/</link>
       <description>AutoAnnotate labelt sensordata automatisch door camera's te koppelen aan meetgegevens. Een initiatief van IMeTech Engineering en R2R Engineering, bewezen bij de Maatje Pop zorgrobot.</description>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Embedded Systemen Blog</title>
       <link>https://imetech.nl/blog/embedded-systemen/</link>
       <description>Blog post over embedded systemen en hun rol in moderne technologie</description>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Betrouwbare Printplaten Ontwerpen Blog</title>
       <link>https://imetech.nl/blog/betrouwbare-printplaten-ontwerpen/</link>
       <description>Blog post over betrouwbare printplaten ontwerpen en best practices</description>
+      <pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>POC Proximity Chat</title>
       <link>https://imetech.nl/projecten/poc-proximity-chat/</link>
       <description>Projectpagina voor POC Proximity Chat</description>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Besturing rollator</title>
       <link>https://imetech.nl/projecten/besturing-rollator/</link>
       <description>Projectpagina voor besturing rollator</description>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Schets tot Render</title>
       <link>https://imetech.nl/projecten/schets-tot-render/</link>
       <description>Projectpagina voor Schets tot Render - van schets tot fotorealistische 3D-render</description>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Privacyverklaring</title>
       <link>https://imetech.nl/privacyverklaring/</link>
       <description>Privacyverklaring van IMeTech Engineering</description>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Privacy Policy</title>
       <link>https://imetech.nl/en/privacy-policy/</link>
       <description>Privacy Policy of IMeTech Engineering</description>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Terms and Conditions</title>
       <link>https://imetech.nl/en/termsandconditions/</link>
       <description>Terms and Conditions of IMeTech Engineering</description>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Control Panels</title>
       <link>https://imetech.nl/en/projects/control-panels/</link>
       <description>Project page for Control Panels</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Embedded Systems Blog</title>
       <link>https://imetech.nl/en/blog/embedded-systems/</link>
       <description>Blog post about embedded systems and their role in modern technology</description>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Machine learning in product development</title>
       <link>https://imetech.nl/en/blog/machine-learning-product-development/</link>
       <description>Blog about machine learning in product development: training data, applications in elderly care and navigation.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Software development for embedded systems</title>
       <link>https://imetech.nl/en/blog/software-development-embedded-systems/</link>
       <description>Practical guide for software development in embedded systems and IoT: from firmware to application.</description>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>From idea to prototype workflow</title>
       <link>https://imetech.nl/en/blog/from-idea-to-prototype-workflow/</link>
       <description>Product development workflow from initial concept to working prototype.</description>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Concept development and iterative design</title>
       <link>https://imetech.nl/en/blog/concept-development-iterative-design/</link>
       <description>Concept development and iterative design: from idea to working product.</description>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Reliable PCB Design Blog</title>
       <link>https://imetech.nl/en/blog/reliable-pcb-design/</link>
       <description>Blog post about reliable PCB design and best practices</description>
+      <pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>POC Proximity Chat</title>
       <link>https://imetech.nl/en/projects/poc-proximity-chat/</link>
       <description>Project page for POC Proximity Chat</description>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Rollator control</title>
       <link>https://imetech.nl/en/projects/rollator-control/</link>
       <description>Project page for rollator control</description>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Sketch to Render</title>
       <link>https://imetech.nl/en/projects/sketch-to-render/</link>
       <description>Project page for Sketch to Render - from sketch to photorealistic 3D render</description>
+      <pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Plant Juice Press 3D Production Drawings</title>
       <link>https://imetech.nl/en/projects/plant-juice-press-3d-production-drawings/</link>
       <description>Project page for Plant Juice Press 3D Production Drawings - SolidWorks CAD design</description>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss> 
