@@ -4052,6 +4052,16 @@ body:has(#contact-form) .page-hero {
   margin-bottom: 1rem;
 }
 
+.article-content h3 {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+}
+
+.article-content h3:first-child {
+  margin-top: 0;
+}
+
 .article-content p {
   margin-bottom: 1rem;
 }
