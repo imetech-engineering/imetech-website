@@ -119,6 +119,7 @@ $stubNl = @'
 <html lang="nl">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://imetech.nl{0}">
   <meta http-equiv="refresh" content="0;url={0}">
   <script>location.replace('{0}');</script>
@@ -132,6 +133,7 @@ $stubEn = @'
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://imetech.nl{0}">
   <meta http-equiv="refresh" content="0;url={0}">
   <script>location.replace('{0}');</script>
