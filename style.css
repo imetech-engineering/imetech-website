@@ -6186,3 +6186,76 @@ main > .breadcrumbs-wrap:first-child:not(.breadcrumbs-wrap--in-section) {
     padding: 1rem 1.125rem;
   }
 }
+
+/* ========== PROJECT 3D VIDEOS ========== */
+.project-img {
+  position: relative;
+}
+
+.project-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .45s ease;
+  pointer-events: none;
+  background: #071a33;
+}
+
+.project-card.video-on .project-video {
+  opacity: 1;
+}
+
+.project-card.has-3d .project-img::after {
+  content: '3D';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(96, 165, 250, 0.5);
+  padding: 6px 8px;
+  border-radius: 999px;
+  transition: opacity .3s ease;
+}
+
+.project-card.video-on .project-img::after {
+  opacity: 0;
+}
+
+.gallery-video {
+  position: relative;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #071a33;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-video figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 4px 10px;
+  border-radius: 999px;
+}

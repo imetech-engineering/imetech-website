@@ -3088,3 +3088,107 @@
     });
   }
 })();
+
+/* ===== PROJECT 3D VIDEOS: hover op projectkaarten, inline op projectpagina ===== */
+(function () {
+  var MAP = {
+    'zelfbalancerende-kubus': 'kubus', 'self-balancing-cube': 'kubus',
+    'besturing-rollator': 'rollator', 'rollator-control': 'rollator',
+    'plantsappers-3d-productietekeningen': 'plantsappers', 'plant-juice-press-3d-production-drawings': 'plantsappers',
+    'dubbele-labvoeding': 'labvoeding', 'dual-lab-power-supply': 'labvoeding',
+    'fume-extractor': 'fume-extractor',
+    'letterklok': 'letterklok', 'letter-clock': 'letterklok',
+    'multifunctioneel-soldeerstation': 'soldeerstation', 'multifunctional-soldering-station': 'soldeerstation',
+    'schets-tot-render': 'twozero', 'sketch-to-render': 'twozero'
+  };
+  function slugOf(href) { var m = (href || '').match(/\/(?:projecten|projects)\/([^\/?#]+)/); return m ? m[1] : null; }
+  function allowed() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    if (navigator.connection && navigator.connection.saveData) return false;
+    return true;
+  }
+  function makeVideo(src, poster, preload) {
+    var v = document.createElement('video');
+    v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+    v.preload = preload || 'none'; if (poster) v.poster = poster; v.src = src;
+    return v;
+  }
+  function setupCard(card, key) {
+    var box = card.querySelector('.project-img');
+    if (!box) return null;
+    card.classList.add('has-3d');
+    var st = { v: null, hovering: false };
+    st.ensure = function (preload) {
+      if (st.v) return st.v;
+      st.v = makeVideo('/videos/' + key + '-card.mp4', null, preload || 'auto');
+      st.v.className = 'project-video';
+      st.v.addEventListener('playing', function () { if (st.hovering) card.classList.add('video-on'); });
+      box.appendChild(st.v);
+      return st.v;
+    };
+    card.addEventListener('pointerenter', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      st.hovering = true;
+      var v = st.ensure('auto');
+      var p = v.play();
+      if (p && p.then) p.then(function () { if (st.hovering && v.readyState >= 3) card.classList.add('video-on'); }).catch(function () { });
+    });
+    card.addEventListener('pointerleave', function () {
+      st.hovering = false;
+      card.classList.remove('video-on');
+      if (st.v) setTimeout(function () { if (!st.hovering && st.v) st.v.pause(); }, 450);
+    });
+    return st;
+  }
+  function init() {
+    if (!allowed()) return;
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (canHover) {
+      var cards = [];
+      document.querySelectorAll('a.project-card').forEach(function (card) {
+        var key = MAP[slugOf(card.getAttribute('href'))];
+        if (!key) return;
+        var st = setupCard(card, key);
+        if (st) cards.push({ card: card, st: st });
+      });
+      // Zodra de muis over een projectenraster beweegt: video's van zichtbare kaarten alvast laden,
+      // zodat de hover direct start (alleen desktop, alleen kaarten in beeld).
+      var warmed = false;
+      function warm() {
+        if (warmed) return; warmed = true;
+        var vh = window.innerHeight;
+        cards.forEach(function (c) {
+          var r = c.card.getBoundingClientRect();
+          if (r.bottom > -200 && r.top < vh + 200) c.st.ensure('auto');
+        });
+      }
+      var grids = new Set();
+      cards.forEach(function (c) { grids.add(c.card.parentElement); });
+      grids.forEach(function (g) { g.addEventListener('pointermove', warm, { once: true, passive: true }); });
+    }
+    // Projectpagina: 3D-loop als tweede item in de galerij, speelt alleen als hij in beeld is
+    var key = MAP[slugOf(location.pathname)];
+    var gal = document.querySelector('.project-detail-gallery .gallery');
+    if (key && gal) {
+      var en = document.documentElement.lang === 'en';
+      var fig = document.createElement('figure');
+      fig.className = 'gallery-video';
+      var v = makeVideo('/videos/' + key + '.mp4', '/videos/' + key + '-poster.webp', 'none');
+      fig.appendChild(v);
+      var cap = document.createElement('figcaption');
+      cap.textContent = en ? '3D model' : '3D-model';
+      fig.appendChild(cap);
+      var first = gal.querySelector('.gallery-item');
+      gal.insertBefore(fig, first ? first.nextSibling : gal.firstChild);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) v.play().catch(function () { }); else v.pause(); });
+        }, { threshold: 0.35 }).observe(fig);
+      } else {
+        v.play().catch(function () { });
+      }
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
