@@ -10,10 +10,13 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 
 ## Company
 
-- Founder: Ivo Mengerink, BSc Mechatronics (Saxion/HAN), CSWP Certified SolidWorks Professional
+- Founder: Ivo Mengerink, MSc Engineering Systems (HAN University of Applied Sciences), BSc Mechatronics (Saxion), CSWP Certified SolidWorks Professional
+- Member of Coopkracht Productontwerp (https://www.coopkracht-productontwerp.nl/)
 - Location: Vierde Broekdijk 1, 7122JD Aalten, Gelderland, Netherlands (Achterhoek region)
 - Email: info@imetech.nl | Phone: +31 6 12385439
-- Client rating: 5.0/5.0
+- Client rating: 5.0/5.0 (Google Reviews)
+- Projects delivered: 22+
+- Working method: 1) exploration (free discovery call), 2) concept with planning, costs and milestones, 3) realization (design, build, program, test), 4) delivery with full documentation and support
 - Service area: Achterhoek, Gelderland, Netherlands (also remote/international projects)
 
 ## Main Pages
@@ -60,8 +63,11 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 - EN: https://imetech.nl/en/services/product-development/
 - Complete product development from idea to prototype. Concept development, R&D and prototype engineering.
 
-## Projects (19)
+## Projects (22)
 
+- Vlakkelichtkoepel Besturing — Energy-efficient flat skylight control board with rain protection, battery monitoring and RF remote control (STM32, PCB, embedded): https://imetech.nl/projecten/vlakkelichtkoepel-besturing/
+- Maquette LED-installatie — Embedded LED lighting and web portal in an architectural model for visualising energy flows (ESP32): https://imetech.nl/projecten/maquette-led-installatie/
+- Photobooth Beheerdashboard — Central dashboard and local agent for monitoring and remote control of photobooths (Node.js, PostgreSQL): https://imetech.nl/projecten/photobooth-beheerdashboard/
 - 2x2 Stuurrobot — Crab Drive steering robot (robotics, embedded): https://imetech.nl/projecten/2x2-steering-robot/
 - 6-DoF Spacemouse — Stewart platform CAD input device: https://imetech.nl/projecten/6-dof-spacemouse/
 - Adresprint SCD30 PCB — Modbus RTU address board for CO2 sensors: https://imetech.nl/projecten/adresprint-scd30-pcb/
@@ -84,7 +90,7 @@ IMeTech Engineering is a freelance engineering firm founded by Ivo Mengerink, ba
 
 English project pages: https://imetech.nl/en/projects/
 
-## Blog (13 articles)
+## Blog (8 articles)
 
 - Automatiseren van sensordata-annotatie — ML annotation automation for time-series sensor data: https://imetech.nl/blog/automatiseren-sensordata-annotatie/
 - Machine learning in productontwikkeling — ML applications, training data, elderly care and navigation: https://imetech.nl/blog/machine-learning-productontwikkeling/
@@ -96,6 +102,14 @@ English project pages: https://imetech.nl/en/projects/
 - Embedded systemen — Introduction to embedded systems and IoT: https://imetech.nl/blog/embedded-systemen/
 
 English blog: https://imetech.nl/en/blog/
+
+## FAQ
+
+- **Do you work remotely?** Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.
+- **What do I need for a quote?** A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed — a sketch or idea is enough to get started. After the first call you receive a clear quote.
+- **How quickly do you respond to contact requests?** Usually within 24 hours on business days via email or the contact form. For urgent questions you can call directly at +31 6 12 38 54 39.
+- **Which disciplines does IMeTech cover?** Software (embedded & PLC), electronics & PCB design, mechanical design and CAD, data science / machine learning and complete product development — one point of contact for the full picture, from idea to prototype.
+- **Is the first consultation free?** Yes, the discovery call is always free and non-binding. We discuss your technical challenge, possible approach and timeline. Only after that you may receive a quote — with no obligations.
 
 ## Legal
 

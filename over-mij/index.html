@@ -35,8 +35,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/over-mij/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -91,19 +91,49 @@
 
 
   <main>
-    <section class="page-hero">
-      <div class="page-hero-slides" aria-roledescription="slideshow">
-        <div class="page-hero-slide active" style="background-image:url('/images/Besturingskast01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
+    <section class="page-hero case-hero case-hero--about">
+      <div class="wrap case-hero-grid">
+        <div class="case-hero-text reveal-blur">
+          <span class="label">Over mij</span>
+          <h1>Ivo Mengerink</h1>
+          <p>Engineer en oprichter van IMeTech Engineering in Aalten. Ik ontwerp mechanica, elektronica en software als één geheel, zodat je met één aanspreekpunt van idee naar werkend product gaat.</p>
+          <div class="page-hero-actions">
+            <a href="/contact/" class="btn btn-primary">Plan een gesprek <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+            <a href="/projecten/" class="btn btn-outline">Bekijk projecten</a>
+          </div>
+        </div>
+        <figure class="case-hero-media reveal">
+          <picture>
+            <source media="(max-width: 960px)" srcset="/images/Profiel-boven.webp" />
+            <img src="/images/Profiel-links.webp" alt="Ivo Mengerink, engineer en oprichter van IMeTech Engineering" fetchpriority="high" decoding="async" />
+          </picture>
+          <span class="case-tick case-tick--tl" aria-hidden="true"></span><span class="case-tick case-tick--tr" aria-hidden="true"></span><span class="case-tick case-tick--bl" aria-hidden="true"></span><span class="case-tick case-tick--br" aria-hidden="true"></span>
+        </figure>
       </div>
-      <div class="page-hero-overlay"></div>
-      <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Over mij</span>
-        <h1>Wie ben ik?</h1>
-        <p>Ontdek het verhaal, de achtergrond en de passie voor techniek achter IMeTech Engineering.</p>
+      <div class="wrap">
+        <dl class="case-facts case-facts--four reveal">
+          <div><dt>Opleiding</dt><dd>MSc Engineering Systems (HAN)<br>BSc Mechatronica (Saxion)</dd></div>
+          <div><dt>Certificering</dt><dd>Certified SolidWorks Professional</dd></div>
+          <div><dt>Locatie</dt><dd>Aalten, Achterhoek</dd></div>
+          <div><dt>IMeTech sinds</dt><dd>2025</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="clients clients--flush" aria-label="Werkte onder meer voor">
+      <div class="wrap clients-inner">
+        <span class="clients-label">Werkte onder meer voor</span>
+        <ul class="clients-list">
+            <li data-client="estede"><span class="client-mark">ESTEDE Scientific</span></li>
+            <li data-client="fieldguard"><span class="client-mark">Fieldguard</span></li>
+            <li data-client="vlakkelichtkoepel"><span class="client-mark">Vlakkelichtkoepel</span></li>
+            <li data-client="umotion"><span class="client-mark">uMotion</span></li>
+            <li data-client="twozero"><span class="client-mark">TWOZERO</span></li>
+            <li data-client="r2r"><span class="client-mark">R2R Engineering</span></li>
+            <li data-client="ronald"><span class="client-mark">Ronald Engineering</span></li>
+            <li data-client="archisign"><span class="client-mark">Archisign</span></li>
+            <li data-client="carryflor"><span class="client-mark">CarryFlor</span></li>
+        </ul>
       </div>
     </section>
 
@@ -112,21 +142,22 @@
       <div class="deco deco-ring" style="width:160px;height:160px;bottom:3rem;left:5rem" data-speed="0.15" data-rotate="0.035"></div>
       <div class="deco deco-dots" style="top:4rem;right:3rem" data-speed="0.125" data-rotate="-0.02"></div>
       <div class="wrap">
-        <div class="service-detail">
+        <div class="service-detail about-story">
           <div class="reveal-left">
-            <span class="label">Over mij</span>
-            <h2>Ivo Mengerink</h2>
+            <span class="label">Mijn verhaal</span>
+            <h2>Techniek die werkt, van idee tot product</h2>
             <p>Ik ben Ivo Mengerink, engineer en oprichter van IMeTech Engineering. Met een achtergrond in mechatronica en praktijkervaring in meerdere technische disciplines help ik bedrijven technische ideeën om te zetten in werkende producten.</p>
             <p>Mijn passie is techniek begrijpelijk, praktisch en doeltreffend maken. Of het nu gaat om productontwikkeling, embedded systemen, PCB-ontwerp, mechanisch ontwerp of maatwerk software &mdash; ik breng alles samen onder één dak.</p>
             <p>Gevestigd in Aalten, in het hart van de Achterhoek, werk ik nauw samen met bedrijven die waarde hechten aan direct contact en een hands-on aanpak.</p>
-            <blockquote style="border-left:3px solid #60a5fa;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#94a3b8">&ldquo;Techniek begrijpelijk, praktisch en doeltreffend maken voor elk bedrijf.&rdquo;</blockquote>
+            <blockquote class="about-quote">&ldquo;Techniek begrijpelijk, praktisch en doeltreffend maken voor elk bedrijf.&rdquo;</blockquote>
           </div>
-          <div class="service-detail-visual reveal-right" data-parallax="image" data-speed="0.12">
-            <picture>
-              <source media="(max-width: 768px)" srcset="/images/Profiel-boven.webp" />
-              <img src="/images/Profiel-links.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering" fetchpriority="high" />
-            </picture>
-          </div>
+          <aside class="about-stats reveal" aria-label="In cijfers">
+          <span class="label">In cijfers</span>
+          <div class="about-stat"><b>22+</b><span>projecten opgeleverd</span></div>
+          <div class="about-stat"><b>5.0</b><span>gemiddelde Google-review</span></div>
+          <div class="about-stat"><b>5</b><span>disciplines onder één dak</span></div>
+          <div class="about-stat"><b>2017</b><span>actief in de techniek</span></div>
+        </aside>
         </div>
       </div>
     </section>
@@ -232,6 +263,6 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 </html>

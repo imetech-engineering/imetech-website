@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,241 +85,200 @@
       </div>
       <div class="page-hero-overlay"></div>
       <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Portfolio</span>
-        <h1>Mijn projecten</h1>
-        <p>Een selectie van mijn werk: van slimme elektronica tot functioneel productontwerp. Elk project ontstaan vanuit een idee
-          en ontwikkeld tot een werkende oplossing.</p>
+        <span class="label">Portfolio</span>
+        <h1>Projecten</h1>
+        <p>Van besturingsprint en firmware tot 3D-ontwerp en fotorealistische render. Elk project ontstaan vanuit een idee en ontwikkeld tot een werkende oplossing.</p>
       </div>
     </section>
 
-    <section class="section" data-parallax="focus">
-      <div class="deco deco-blob deco-blob-1" style="width:500px;height:500px;top:-150px;right:-200px"
-        data-speed="0.1" data-drift="-0.02"></div>
-      <div class="deco deco-blob deco-blob-2" style="width:350px;height:350px;bottom:-100px;left:-120px"
-        data-speed="0.125" data-drift="0.04"></div>
-      <div class="deco deco-dots" style="bottom:3rem;right:4rem" data-speed="0.15" data-rotate="0.03"></div>
+    <section class="section section-projects">
       <div class="wrap">
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">Alles</button>
-          <button class="filter-btn" data-filter="software">Software</button>
-          <button class="filter-btn" data-filter="electronics">Elektronica</button>
-          <button class="filter-btn" data-filter="mechanics">Mechanica</button>
-          <button class="filter-btn" data-filter="datascience">Data Science</button>
-          <button class="filter-btn" data-filter="productdev">Productontwikkeling</button>
+        <a href="/projecten/vlakkelichtkoepel-besturing/" class="feature-card reveal" data-categories="electronics,software,productdev">
+          <div class="feature-media"><img src="/images/VlakkelichtkoepelHero.webp" alt="Vlakkelichtkoepel besturing" loading="lazy" decoding="async" /></div>
+          <div class="feature-body">
+            <span class="label">Uitgelicht</span>
+            <h2>Vlakkelichtkoepel besturing</h2>
+            <p>Energiezuinige besturingsprint met regenbeveiliging, accubewaking en RF-afstandsbediening.</p>
+            <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
+            <span class="text-link">Bekijk de case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+          </div>
+        </a>
+
+        <div class="proj-toolbar">
+          <div class="filter-bar" role="group" aria-label="Filter op discipline">
+          <button type="button" class="filter-btn active" data-filter="all">Alles</button>
+          <button type="button" class="filter-btn" data-filter="software">Software</button>
+          <button type="button" class="filter-btn" data-filter="electronics">Elektronica</button>
+          <button type="button" class="filter-btn" data-filter="mechanics">Mechanica</button>
+          <button type="button" class="filter-btn" data-filter="datascience">Data Science</button>
+          <button type="button" class="filter-btn" data-filter="productdev">Productontwikkeling</button>
+          </div>
+          <span class="proj-count" aria-live="polite"><b>22</b> projecten</span>
         </div>
+
         <div class="projects-grid">
-          <a href="/projecten/vlakkelichtkoepel-besturing/" class="project-card reveal stagger-1"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/VlakkelichtkoepelHero.webp" alt="Vlakkelichtkoepel besturing"
-                fetchpriority="high" /></div>
-            <div class="project-body">
-              <h3>Vlakkelichtkoepel besturing</h3>
-              <p>Energiezuinige besturingsprint met regenbeveiliging, accubewaking en RF-afstandsbediening.</p>
-              <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
-            </div>
-          </a>
-          <a href="/projecten/maquette-led-installatie/" class="project-card reveal stagger-2"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/MaquetteLedHero.webp" alt="Maquette LED-installatie"
-                fetchpriority="high" /></div>
+          <a href="/projecten/maquette-led-installatie/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/MaquetteLedHero.webp" alt="Maquette LED-installatie" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Maquette LED-installatie</h3>
               <p>Embedded LED-verlichting en webportal in architectuurmaquette voor visualisatie van energiestromen.</p>
               <div class="project-tags"><span>ESP32</span><span>LED</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/projecten/photobooth-beheerdashboard/" class="project-card reveal stagger-2"
-            data-categories="software,productdev">
-            <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Beheerdashboard"
-                loading="lazy" /></div>
+          <a href="/projecten/photobooth-beheerdashboard/" class="project-card reveal" data-categories="software,productdev">
+            <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Beheerdashboard" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Photobooth Beheerdashboard</h3>
               <p>Centraal dashboard en lokale agent voor monitoring en remote control van photobooths.</p>
               <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
             </div>
           </a>
-          <a href="/projecten/carryvision-plantcamerasysteem/" class="project-card reveal stagger-3"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plantcamerasysteem"
-                loading="lazy" /></div>
+          <a href="/projecten/carryvision-plantcamerasysteem/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>CarryVision</h3>
               <p>Timelapse en monitoring voor kwekerijen met ESP32-CAM en Raspberry Pi.</p>
               <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/projecten/besturing-rollator/" class="project-card reveal stagger-4"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control"
-                loading="lazy" /></div>
+          <a href="/projecten/besturing-rollator/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Besturing Rollator" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Besturing Rollator</h3>
               <p>Op maat gemaakte besturingseenheid met lasergeleiding voor parkinsonpatiënten.</p>
               <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/projecten/poc-proximity-chat/" class="project-card reveal stagger-5"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/ProximityChat.webp" alt="POC Proximity Chat" loading="lazy" />
-            </div>
+          <a href="/projecten/poc-proximity-chat/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/ProximityChat.webp" alt="POC Proximity Chat" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>POC Proximity Chat</h3>
               <p>Ultra-Wideband communicatie met realtime afstandsmeting.</p>
               <div class="project-tags"><span>UWB</span><span>ESP32</span><span>RPi</span></div>
             </div>
           </a>
-          <a href="/projecten/schets-tot-render/" class="project-card reveal stagger-6"
-            data-categories="productdev,mechanics">
-            <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Sketch to Render"
-                loading="lazy" /></div>
+          <a href="/projecten/schets-tot-render/" class="project-card reveal" data-categories="productdev,mechanics">
+            <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Schets tot Render" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Schets tot Render</h3>
               <p>Complete productontwikkeling van ruwe schets tot fotorealistische 3D-render.</p>
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Rendering</span></div>
             </div>
           </a>
-          <a href="/projecten/adresprint-scd30-pcb/" class="project-card reveal"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/SCD30Hero.webp" alt="SCD30 Adresprint installatie" loading="lazy" />
-            </div>
+          <a href="/projecten/adresprint-scd30-pcb/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/SCD30Hero.webp" alt="SCD30 Adresprint" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>SCD30 Adresprint</h3>
               <p>Adresprint voor SCD30 CO&#x2082;-sensoren met DIP-switch, RS-485 en Modbus RTU.</p>
               <div class="project-tags"><span>Modbus</span><span>RS-485</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/projecten/keypad-controller-pcb/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB"
-                loading="lazy" /></div>
+          <a href="/projecten/keypad-controller-pcb/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Keypad Controller PCB</h3>
               <p>4x5 knoppenmatrix controller met ESP32 en LiPo USB-C voeding.</p>
               <div class="project-tags"><span>ESP32</span><span>Keypad</span><span>USB-C</span></div>
             </div>
           </a>
-          <a href="/projecten/plantsappers-3d-productietekeningen/" class="project-card reveal"
-            data-categories="mechanics,productdev">
-            <div class="project-img"><img src="/images/plantsappersHero.webp" alt="Plant Juice Press 3D"
-                loading="lazy" /></div>
+          <a href="/projecten/plantsappers-3d-productietekeningen/" class="project-card reveal" data-categories="mechanics,productdev">
+            <div class="project-img"><img src="/images/plantsappersHero.webp" alt="Plantsappers 3D" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Plantsappers 3D</h3>
               <p>Complete 3D-modellering en productietekeningen in SolidWorks.</p>
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Tekeningen</span></div>
             </div>
           </a>
-          <a href="/projecten/smartlamp-pcb/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB"
-                loading="lazy" /></div>
+          <a href="/projecten/smartlamp-pcb/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>SmartLamp PCB</h3>
               <p>RGBW LED-driver met ESP32, Li-Ion batterij en USB-C opladen.</p>
               <div class="project-tags"><span>RGBW LED</span><span>ESP32</span><span>USB-C</span></div>
             </div>
           </a>
-          <a href="/projecten/besturingskasten/" class="project-card reveal"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/Besturingskast01.webp" alt="Control Panels" loading="lazy" />
-            </div>
+          <a href="/projecten/besturingskasten/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/Besturingskast01.webp" alt="Besturingskasten" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Besturingskasten</h3>
               <p>Vijf PLC-besturingskasten voor ammoniak- en CO&#x2082;-monitoring.</p>
               <div class="project-tags"><span>PLC</span><span>Sensors</span><span>Web</span></div>
             </div>
           </a>
-          <a href="/projecten/usb-c-laad-pcb/" class="project-card reveal"
-            data-categories="electronics">
-            <div class="project-img"><img src="/images/Li-IonPCB01.webp" alt="USB-C Charging PCB" loading="lazy" />
-            </div>
+          <a href="/projecten/usb-c-laad-pcb/" class="project-card reveal" data-categories="electronics">
+            <div class="project-img"><img src="/images/Li-IonPCB01.webp" alt="USB-C Laad-PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>USB-C Laad-PCB</h3>
               <p>efficiënte PCB voor Li-Ion batterijlading met USB-C ingang en 9V uitgang.</p>
               <div class="project-tags"><span>Batterij</span><span>USB-C</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/projecten/magnetische-levitatie-plantenpot/" class="project-card reveal"
-            data-categories="electronics,mechanics,software,productdev,datascience">
-            <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetic Levitation Planter"
-                loading="lazy" /></div>
+          <a href="/projecten/magnetische-levitatie-plantenpot/" class="project-card reveal" data-categories="electronics,mechanics,software,productdev,datascience">
+            <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetische Levitatie Plantenpot" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Magnetische Levitatie Plantenpot</h3>
               <p>Plantenpot zwevend door actieve elektromagnetische regeling.</p>
               <div class="project-tags"><span>Levitatie</span><span>PCB</span><span>Regeltechniek</span></div>
             </div>
           </a>
-          <a href="/projecten/fume-extractor/" class="project-card reveal"
-            data-categories="mechanics,electronics,productdev">
-            <div class="project-img"><img src="/images/FumeExtractor01.webp" alt="Fume Extractor" loading="lazy" />
-            </div>
+          <a href="/projecten/fume-extractor/" class="project-card reveal" data-categories="mechanics,electronics,productdev">
+            <div class="project-img"><img src="/images/FumeExtractor01.webp" alt="Fume Extractor" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Fume Extractor</h3>
               <p>Compacte, draagbare afzuiger voor soldeerrook. 3D-geprint, op batterij.</p>
               <div class="project-tags"><span>3D Print</span><span>Elektronica</span><span>Ontwerp</span></div>
             </div>
           </a>
-          <a href="/projecten/dubbele-labvoeding/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dual Lab Power Supply"
-                loading="lazy" /></div>
+          <a href="/projecten/dubbele-labvoeding/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dubbele Labvoeding" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Dubbele Labvoeding</h3>
               <p>Labvoeding met twee regelbare uitgangen en digitale meters.</p>
               <div class="project-tags"><span>Voeding</span><span>Ontwerp</span><span>Prototyping</span></div>
             </div>
           </a>
-          <a href="/projecten/laptop-stand/" class="project-card reveal"
-            data-categories="software,mechanics,electronics,productdev">
-            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Laptop Stand" loading="lazy" /></div>
+          <a href="/projecten/laptop-stand/" class="project-card reveal" data-categories="software,mechanics,electronics,productdev">
+            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Laptopstand" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Laptopstand</h3>
               <p>Intelligente stand die de hoogte aanpast op basis van gezichtsherkenning.</p>
               <div class="project-tags"><span>Computer Vision</span><span>Motoren</span><span>Smart</span></div>
             </div>
           </a>
-          <a href="/projecten/6-dof-spacemouse/" class="project-card reveal"
-            data-categories="software,electronics">
-            <div class="project-img"><img src="/images/SpaceMouse03.webp" alt="6-DoF Spacemouse" loading="lazy" />
-            </div>
+          <a href="/projecten/6-dof-spacemouse/" class="project-card reveal" data-categories="software,electronics">
+            <div class="project-img"><img src="/images/SpaceMouse03.webp" alt="6-DoF Spacemouse" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>6-DoF Spacemouse</h3>
               <p>Stewart-platform controller voor 3D CAD-navigatie via USB HID.</p>
               <div class="project-tags"><span>CAD</span><span>HID</span><span>Stewart</span></div>
             </div>
           </a>
-          <a href="/projecten/multifunctioneel-soldeerstation/" class="project-card reveal"
-            data-categories="electronics,software,productdev,datascience">
-            <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldering Station"
-                loading="lazy" /></div>
+          <a href="/projecten/multifunctioneel-soldeerstation/" class="project-card reveal" data-categories="electronics,software,productdev,datascience">
+            <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldeerstation" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Soldeerstation</h3>
               <p>Soldeerstation met bout en hetelucht, nauwkeurige temperatuurregeling.</p>
               <div class="project-tags"><span>Solderen</span><span>Embedded</span><span>UI</span></div>
             </div>
           </a>
-          <a href="/projecten/zelfbalancerende-kubus/" class="project-card reveal"
-            data-categories="electronics,mechanics,software,datascience">
-            <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Self-Balancing Cube"
-                loading="lazy" /></div>
+          <a href="/projecten/zelfbalancerende-kubus/" class="project-card reveal" data-categories="electronics,mechanics,software,datascience">
+            <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Zelfbalancerende Kubus" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Zelfbalancerende Kubus</h3>
               <p>Dynamische kubus die balanceert op rand of hoek met vliegwielen.</p>
               <div class="project-tags"><span>Robotica</span><span>Regeltechniek</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/projecten/letterklok/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/Letterklok01.webp" alt="Letter Clock" loading="lazy" /></div>
+          <a href="/projecten/letterklok/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/Letterklok01.webp" alt="Letterklok" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Letterklok</h3>
               <p>Woordklok met lasergesneden letterraster en CNC-gefreesd huis.</p>
               <div class="project-tags"><span>Woordklok</span><span>CNC</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/projecten/2x2-steering-robot/" class="project-card reveal"
-            data-categories="electronics,software,mechanics">
-            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot" loading="lazy" />
-            </div>
+          <a href="/projecten/2x2-steering-robot/" class="project-card reveal" data-categories="electronics,software,mechanics">
+            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Stuurrobot" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>2x2 Stuurrobot</h3>
               <p>Geavanceerd mobiel roboticaplatform met ontkoppelde stuur- en aandrijfbesturing.</p>
@@ -332,25 +290,17 @@
     </section>
 
     <section class="cta-section">
-      <div class="deco deco-blob deco-blob-2" style="width:350px;height:350px;top:-80px;left:-100px"
-        data-speed="0.1" data-drift="0.018"></div>
-      <div class="deco deco-ring" style="width:140px;height:140px;bottom:1rem;right:5rem" data-speed="0.125"
-        data-rotate="-0.04"></div>
-      <div class="wrap reveal-blur heading-animate">
+      <div class="wrap reveal">
         <h2>Geïnspireerd door deze projecten?</h2>
-        <p>Heb je een idee dat je wilt realiseren? Laten we samenwerken aan jouw volgende innovatie.</p>
-        <a href="/contact/" class="btn btn-primary"
-          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start jouw project <svg width="18" height="18"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
+        <p>Heb je een idee dat je wilt realiseren? Laten we samenwerken aan jouw volgende product.</p>
+        <a href="/contact/" class="btn btn-primary">Plan een kennismaking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
       </div>
     </section>
   </main>
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

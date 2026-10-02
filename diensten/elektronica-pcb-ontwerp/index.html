@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/elektronica-pcb-ontwerp/" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=20260928q">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,23 +106,33 @@
 
 
     <main>
-        <section class="page-hero">
-            <div class="page-hero-slides" aria-roledescription="slideshow">
-                <div class="page-hero-slide active" style="background-image:url('/images/SCD30Hero.webp')"></div>
-                <div class="page-hero-slide" style="background-image:url('/images/KeypadControllerPCB02.webp')">
+        <section class="page-hero case-hero case-hero--service">
+      <div class="wrap case-hero-grid">
+        <div class="case-hero-text reveal-blur">
+          <span class="label">Dienst <span class="case-hero-sep">/</span> 02 van 05</span>
+          <h1>PCB Ontwerp & Elektronica</h1>
+          <p>Van concept tot productieklare printplaat. Ik ontwerp betrouwbare elektronica voor industriële en consumententoepassingen.</p>
+          <div class="page-hero-actions">
+                  <a href="/contact/" class="btn btn-primary">Vraag een PCB-offerte aan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                  <a href="/projecten/" class="btn btn-outline">Bekijk projecten</a>
                 </div>
-                <div class="page-hero-slide" style="background-image:url('/images/SmartLampPCB01.webp')"></div>
-            </div>
-            <div class="page-hero-overlay"></div>
-            <div class="wrap reveal-blur">
-                <span class="label" style="color:#60a5fa">Dienst</span>
-                <h1>PCB Ontwerp & Elektronica</h1>
-                <p>Van concept tot productieklare printplaat. Ik ontwerp betrouwbare elektronica voor industriële en
-                    consumententoepassingen.</p>
-            </div>
-        </section>
+        </div>
+        <figure class="case-hero-media reveal">
+          <img src="/images/SCD30Hero.webp" alt="PCB Ontwerp & Elektronica" fetchpriority="high" decoding="async" />
+          <span class="case-tick case-tick--tl" aria-hidden="true"></span><span class="case-tick case-tick--tr" aria-hidden="true"></span><span class="case-tick case-tick--bl" aria-hidden="true"></span><span class="case-tick case-tick--br" aria-hidden="true"></span>
+        </figure>
+      </div>
+      <div class="wrap">
+        <nav class="case-index reveal" aria-label="Op deze pagina">
+          <a href="#expertise"><span>01</span>Expertise</a>
+          <a href="#aanpak"><span>02</span>Wat je krijgt</a>
+          <a href="#portfolio"><span>03</span>Projecten</a>
+          <a href="#faq"><span>04</span>Veelgestelde vragen</a>
+        </nav>
+      </div>
+    </section>
 
-        <section class="section" data-parallax="focus">
+        <section class="section" id="expertise" data-parallax="focus">
             <div class="deco deco-blob deco-blob-1" style="width:450px;height:450px;top:-120px;right:-180px"
                 data-speed="0.088" data-drift="-0.02"></div>
             <div class="wrap">
@@ -180,10 +189,22 @@
                         </ul>
                     </div>
                 </div>
+                <div class="deliver reveal" id="aanpak">
+                    <div class="deliver-head">
+                        <span class="label">Wat je krijgt</span>
+                        <h3>Een print die naar productie kan</h3>
+                    </div>
+                    <ul class="deliver-list">
+                        <li><strong>Schema, layout en BOM</strong><span>Compleet ontwerp met productiedocumentatie, afgestemd op jouw assemblagepartner of EMS-fabrikant.</span></li>
+                        <li><strong>Ontworpen in KiCad</strong><span>Met DRC-controles en Design for Manufacturing, zodat boards betrouwbaar en kostenefficiënt te produceren zijn.</span></li>
+                        <li><strong>Getest prototype</strong><span>Prototypes bouw en test ik in Aalten: functionele tests, debugging en waar nodig EMC- en thermische optimalisatie.</span></li>
+                        <li><strong>Ook losse onderdelen</strong><span>Alleen schema-ontwerp, alleen PCB-layout of een review van een bestaand ontwerp.</span></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="section section-alt" data-parallax="focus">
+        <section class="section section-alt" id="portfolio" data-parallax="focus">
             <div class="deco deco-blob deco-blob-2" style="width:400px;height:400px;top:-100px;left:-160px"
                 data-speed="0.075" data-drift="-0.012"></div>
             <div class="wrap">
@@ -193,7 +214,7 @@
                 </div>
                 <div class="projects-grid">
                     <a href="/projecten/besturing-rollator/" class="project-card reveal stagger-1">
-                        <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control"
+                        <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Besturing rollator"
                                 fetchpriority="high" />
                         </div>
                         <div class="project-body">
@@ -223,17 +244,6 @@
                 </div>
             </div>
         </section>
-        <section class="section section-alt">
-            <div class="wrap">
-                <div class="project-nav reveal">
-                    <a href="/diensten/softwareontwikkeling/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Softwareontwikkeling</a>
-                    <a href="/diensten/" class="project-nav-all">Alle diensten</a>
-                    <a href="/diensten/mechanica-cad-tekeningen/" class="project-nav-next">Mechanica & CAD <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-            </div>
-        </section>
-
-        
         <section class="section section-alt faq-section" id="faq">
             <div class="wrap">
                 <div class="section-header reveal heading-animate">
@@ -249,7 +259,24 @@
                 </div>
             </div>
         </section>
-        <section class="cta-section">
+        <section class="section section-others">
+      <div class="wrap">
+        <div class="section-header section-header--row reveal heading-animate">
+          <div>
+            <span class="label">Andere disciplines</span>
+            <h2>Vaak gecombineerd met</h2>
+          </div>
+          <a href="/diensten/" class="text-link">Alle diensten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+        <div class="other-svc-grid reveal">
+          <a href="/diensten/softwareontwikkeling/" class="other-svc"><span class="other-svc-num">01</span><span class="other-svc-name">Softwareontwikkeling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/mechanica-cad-tekeningen/" class="other-svc"><span class="other-svc-num">03</span><span class="other-svc-name">Mechanica & CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/data-science-machine-learning/" class="other-svc"><span class="other-svc-num">04</span><span class="other-svc-name">Data science & ML</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/productontwikkeling/" class="other-svc"><span class="other-svc-num">05</span><span class="other-svc-name">Productontwikkeling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
             <div class="wrap reveal-blur heading-animate">
@@ -266,7 +293,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js?v=20260928q" defer></script>
+    <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

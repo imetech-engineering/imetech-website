@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/productontwikkeling/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,24 +106,33 @@
 
 
   <main>
-    <section class="page-hero">
-      <div class="page-hero-slides" aria-roledescription="slideshow">
-        <div class="page-hero-slide active" style="background-image:url('/images/Besturingskast01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
+    <section class="page-hero case-hero case-hero--service">
+      <div class="wrap case-hero-grid">
+        <div class="case-hero-text reveal-blur">
+          <span class="label">Dienst <span class="case-hero-sep">/</span> 05 van 05</span>
+          <h1>Productontwikkeling &amp; Prototyping</h1>
+          <p>Van idee tot werkend prototype. Complete productontwikkeling die mechanica, elektronica, embedded systemen en software combineert.</p>
+          <div class="page-hero-actions">
+          <a href="/contact/" class="btn btn-primary">Start je productontwikkeling <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/projecten/" class="btn btn-outline">Bekijk projecten</a>
+        </div>
+        </div>
+        <figure class="case-hero-media reveal">
+          <img src="/images/VlakkelichtkoepelHero.webp" alt="Productontwikkeling &amp; Prototyping" fetchpriority="high" decoding="async" />
+          <span class="case-tick case-tick--tl" aria-hidden="true"></span><span class="case-tick case-tick--tr" aria-hidden="true"></span><span class="case-tick case-tick--bl" aria-hidden="true"></span><span class="case-tick case-tick--br" aria-hidden="true"></span>
+        </figure>
       </div>
-      <div class="page-hero-overlay"></div>
-      <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Dienst</span>
-        <h1>Productontwikkeling &amp; Prototyping</h1>
-        <p>Van idee tot werkend prototype. Complete productontwikkeling die mechanica, elektronica, embedded
-          systemen en software combineert.</p>
+      <div class="wrap">
+        <nav class="case-index reveal" aria-label="Op deze pagina">
+          <a href="#expertise"><span>01</span>Expertise</a>
+          <a href="#aanpak"><span>02</span>Wat je krijgt</a>
+          <a href="#portfolio"><span>03</span>Projecten</a>
+          <a href="#faq"><span>04</span>Veelgestelde vragen</a>
+        </nav>
       </div>
     </section>
 
-    <section class="section" data-parallax="focus">
+    <section class="section" id="expertise" data-parallax="focus">
       <div class="deco deco-blob deco-blob-1" style="width:450px;height:450px;top:-120px;right:-180px"
         data-speed="0.088" data-drift="-0.02"></div>
       <div class="deco deco-blob deco-blob-3" style="width:300px;height:300px;bottom:-80px;left:-100px"
@@ -186,10 +194,22 @@
             </ul>
           </div>
         </div>
+        <div class="deliver reveal" id="aanpak">
+            <div class="deliver-head">
+                <span class="label">Wat je krijgt</span>
+                <h3>Eén traject, één aanspreekpunt</h3>
+            </div>
+            <ul class="deliver-list">
+                <li><strong>Van concept tot prototype</strong><span>Mechanica, elektronica, embedded systemen en software in één traject.</span></li>
+                <li><strong>Heldere offerte</strong><span>Op basis van scope, planning en deliverables per fase, zodat je vooraf weet waar je aan toe bent.</span></li>
+                <li><strong>Eén lijn met leveranciers</strong><span>Ik coördineer met productiepartners voor PCB-fabricage, CNC-frezen of 3D-printen.</span></li>
+                <li><strong>Regelmatige updates</strong><span>Duidelijke deliverables per fase, ook wanneer we op afstand samenwerken.</span></li>
+            </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section section-alt" data-parallax="focus">
+    <section class="section section-alt" id="portfolio" data-parallax="focus">
       <div class="deco deco-blob deco-blob-2" style="width:400px;height:400px;top:-100px;left:-160px"
         data-speed="0.075" data-drift="-0.012"></div>
       <div class="deco deco-ring" style="width:150px;height:150px;bottom:2rem;right:5rem" data-speed="0.125"
@@ -202,7 +222,7 @@
         </div>
         <div class="projects-grid">
           <a href="/projecten/dubbele-labvoeding/" class="project-card reveal stagger-1">
-            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dual Lab Power Supply" fetchpriority="high" />
+            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dubbele labvoeding" fetchpriority="high" />
             </div>
             <div class="project-body">
               <h3>Dubbele Labvoeding</h3>
@@ -211,7 +231,7 @@
             </div>
           </a>
           <a href="/projecten/laptop-stand/" class="project-card reveal stagger-2">
-            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Laptop Stand"
+            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Automatische laptopstand"
                 loading="lazy" /></div>
             <div class="project-body">
               <h3>Laptopstand</h3>
@@ -220,7 +240,7 @@
             </div>
           </a>
           <a href="/projecten/2x2-steering-robot/" class="project-card reveal stagger-3">
-            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot"
+            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 stuurrobot"
                 loading="lazy" /></div>
             <div class="project-body">
               <h3>2x2 Stuurrobot</h3>
@@ -231,17 +251,6 @@
         </div>
       </div>
     </section>
-        <section class="section section-alt">
-            <div class="wrap">
-                <div class="project-nav reveal">
-                    <a href="/diensten/data-science-machine-learning/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Data Science & ML</a>
-                    <a href="/diensten/" class="project-nav-all">Alle diensten</a>
-                    <a href="/diensten/softwareontwikkeling/" class="project-nav-next">Softwareontwikkeling <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-            </div>
-        </section>
-
-    
         <section class="section section-alt faq-section" id="faq">
             <div class="wrap">
                 <div class="section-header reveal heading-animate">
@@ -257,7 +266,24 @@
                 </div>
             </div>
         </section>
-        <section class="cta-section">
+        <section class="section section-others">
+      <div class="wrap">
+        <div class="section-header section-header--row reveal heading-animate">
+          <div>
+            <span class="label">Andere disciplines</span>
+            <h2>Vaak gecombineerd met</h2>
+          </div>
+          <a href="/diensten/" class="text-link">Alle diensten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+        <div class="other-svc-grid reveal">
+          <a href="/diensten/softwareontwikkeling/" class="other-svc"><span class="other-svc-num">01</span><span class="other-svc-name">Softwareontwikkeling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/elektronica-pcb-ontwerp/" class="other-svc"><span class="other-svc-num">02</span><span class="other-svc-name">Elektronica & PCB</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/mechanica-cad-tekeningen/" class="other-svc"><span class="other-svc-num">03</span><span class="other-svc-name">Mechanica & CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/data-science-machine-learning/" class="other-svc"><span class="other-svc-num">04</span><span class="other-svc-name">Data science & ML</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
       <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
         data-speed="0.1" data-drift="0.015"></div>
       <div class="deco deco-ring" style="width:120px;height:120px;bottom:2rem;right:6rem" data-speed="0.125"
@@ -276,7 +302,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

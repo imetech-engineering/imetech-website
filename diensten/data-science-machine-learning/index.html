@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/data-science-machine-learning/" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=20260928q">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,23 +106,33 @@
 
 
     <main>
-        <section class="page-hero">
-            <div class="page-hero-slides" aria-roledescription="slideshow">
-                <div class="page-hero-slide active" style="background-image:url('/images/machineLearningHero.webp')">
+        <section class="page-hero case-hero case-hero--service">
+      <div class="wrap case-hero-grid">
+        <div class="case-hero-text reveal-blur">
+          <span class="label">Dienst <span class="case-hero-sep">/</span> 04 van 05</span>
+          <h1>Machine Learning & AI</h1>
+          <p>Complexe data omzetten naar bruikbare inzichten. Ik bouw intelligente modellen die processen optimaliseren en slimme automatisering mogelijk maken.</p>
+          <div class="page-hero-actions">
+                  <a href="/contact/" class="btn btn-primary">Start je AI-project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                  <a href="/projecten/" class="btn btn-outline">Bekijk projecten</a>
                 </div>
-                <div class="page-hero-slide" style="background-image:url('/images/Besturingskast01.webp')"></div>
-                <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
-            </div>
-            <div class="page-hero-overlay"></div>
-            <div class="wrap reveal-blur">
-                <span class="label" style="color:#60a5fa">Dienst</span>
-                <h1>Machine Learning & AI</h1>
-                <p>Complexe data omzetten naar bruikbare inzichten. Ik bouw intelligente modellen die processen
-                    optimaliseren en slimme automatisering mogelijk maken.</p>
-            </div>
-        </section>
+        </div>
+        <figure class="case-hero-media reveal">
+          <img src="/images/machineLearningHero.webp" alt="Machine Learning & AI" fetchpriority="high" decoding="async" />
+          <span class="case-tick case-tick--tl" aria-hidden="true"></span><span class="case-tick case-tick--tr" aria-hidden="true"></span><span class="case-tick case-tick--bl" aria-hidden="true"></span><span class="case-tick case-tick--br" aria-hidden="true"></span>
+        </figure>
+      </div>
+      <div class="wrap">
+        <nav class="case-index reveal" aria-label="Op deze pagina">
+          <a href="#expertise"><span>01</span>Expertise</a>
+          <a href="#aanpak"><span>02</span>Wat je krijgt</a>
+          <a href="#portfolio"><span>03</span>Projecten</a>
+          <a href="#faq"><span>04</span>Veelgestelde vragen</a>
+        </nav>
+      </div>
+    </section>
 
-        <section class="section" data-parallax="focus">
+        <section class="section" id="expertise" data-parallax="focus">
             <div class="deco deco-blob deco-blob-1" style="width:450px;height:450px;top:-120px;right:-180px"
                 data-speed="0.088" data-drift="-0.02"></div>
             <div class="wrap">
@@ -170,7 +179,9 @@
                         <div class="expertise-icon">
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <rect x="4" y="4" width="16" height="16" rx="2" />
+                                <rect x="9" y="9" width="6" height="6" />
+                                <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
                             </svg>
                         </div>
                         <h3>Edge AI</h3>
@@ -182,10 +193,22 @@
                         </ul>
                     </div>
                 </div>
+                <div class="deliver reveal" id="aanpak">
+                    <div class="deliver-head">
+                        <span class="label">Wat je krijgt</span>
+                        <h3>Van data naar een model dat in je proces draait</h3>
+                    </div>
+                    <ul class="deliver-list">
+                        <li><strong>Data-inventarisatie</strong><span>Hulp bij het in kaart brengen van je data, het opzetten van annotatie-workflows en het bepalen van de minimale datasetgrootte.</span></li>
+                        <li><strong>Proof-of-concept</strong><span>Soms is een kleine, goed gelabelde dataset al genoeg om te starten.</span></li>
+                        <li><strong>Edge of cloud</strong><span>Advies over de aanpak die bij je use case past; beide kan ik implementeren.</span></li>
+                        <li><strong>Integratie en dashboards</strong><span>Koppeling via API&rsquo;s, MQTT, databases of PLC/MES, met dashboards voor operators en managers.</span></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="section section-alt" data-parallax="focus">
+        <section class="section section-alt" id="portfolio" data-parallax="focus">
             <div class="deco deco-blob deco-blob-2" style="width:400px;height:400px;top:-100px;left:-160px"
                 data-speed="0.075" data-drift="-0.012"></div>
             <div class="wrap">
@@ -196,7 +219,7 @@
                 <div class="projects-grid">
                     <a href="/projecten/zelfbalancerende-kubus/" class="project-card reveal stagger-1">
                         <div class="project-img"><img src="/images/SelfBalancingCube01.webp"
-                                alt="Self-Balancing Cube" fetchpriority="high" /></div>
+                                alt="Zelfbalancerende kubus" fetchpriority="high" /></div>
                         <div class="project-body">
                             <h3>Zelfbalancerende Kubus</h3>
                             <p>Dynamische kubus die balanceert op rand of hoek met vliegwielen.</p>
@@ -205,7 +228,7 @@
                         </div>
                     </a>
                     <a href="/projecten/magnetische-levitatie-plantenpot/" class="project-card reveal stagger-2">
-                        <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetic Levitation Planter"
+                        <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetische levitatie plantenpot"
                                 loading="lazy" /></div>
                         <div class="project-body">
                             <h3>Magnetische Levitatie Plantenpot</h3>
@@ -227,17 +250,6 @@
                 </div>
             </div>
         </section>
-        <section class="section section-alt">
-            <div class="wrap">
-                <div class="project-nav reveal">
-                    <a href="/diensten/mechanica-cad-tekeningen/" class="project-nav-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Mechanica & CAD</a>
-                    <a href="/diensten/" class="project-nav-all">Alle diensten</a>
-                    <a href="/diensten/productontwikkeling/" class="project-nav-next">Productontwikkeling <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-            </div>
-        </section>
-
-        
         <section class="section section-alt faq-section" id="faq">
             <div class="wrap">
                 <div class="section-header reveal heading-animate">
@@ -253,7 +265,24 @@
                 </div>
             </div>
         </section>
-        <section class="cta-section">
+        <section class="section section-others">
+      <div class="wrap">
+        <div class="section-header section-header--row reveal heading-animate">
+          <div>
+            <span class="label">Andere disciplines</span>
+            <h2>Vaak gecombineerd met</h2>
+          </div>
+          <a href="/diensten/" class="text-link">Alle diensten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+        <div class="other-svc-grid reveal">
+          <a href="/diensten/softwareontwikkeling/" class="other-svc"><span class="other-svc-num">01</span><span class="other-svc-name">Softwareontwikkeling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/elektronica-pcb-ontwerp/" class="other-svc"><span class="other-svc-num">02</span><span class="other-svc-name">Elektronica & PCB</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/mechanica-cad-tekeningen/" class="other-svc"><span class="other-svc-num">03</span><span class="other-svc-name">Mechanica & CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="/diensten/productontwikkeling/" class="other-svc"><span class="other-svc-num">05</span><span class="other-svc-name">Productontwikkeling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
             <div class="deco deco-blob deco-blob-1" style="width:300px;height:300px;top:-60px;left:-80px"
                 data-speed="0.1" data-drift="0.015"></div>
             <div class="wrap reveal-blur heading-animate">
@@ -270,7 +299,7 @@
 
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
-    <script src="/script.js?v=20260928q" defer></script>
+    <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
   <meta name="geo.placename" content="Aalten, Achterhoek">
   <meta name="geo.position" content="51.8996;6.5670">
   <meta name="ICBM" content="51.8996, 6.5670">
-  <meta property="og:title" content="Projects - IMeTech Engineering">
+  <meta property="og:title" content="Projects - IMeTech Engineering | Engineering Portfolio">
   <meta property="og:description" content="A selection of my work: from smart electronics to functional product design. Each project born from an idea and developed into a working solution.">
   <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
   <meta property="og:url" content="https://imetech.nl/en/projects/">
@@ -22,11 +22,11 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Projects">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Projects - IMeTech Engineering">
+  <meta name="twitter:title" content="Projects - IMeTech Engineering | Engineering Portfolio">
   <meta name="twitter:description" content="A selection of my work: from smart electronics to functional product design. Each project born from an idea and developed into a working solution.">
   <meta name="twitter:image" content="https://imetech.nl/images/og-default.webp">
   <meta name="twitter:creator" content="@imetech_engineering">
-  <title>Projects - IMeTech Engineering</title>
+  <title>Projects - IMeTech Engineering | Engineering Portfolio</title>
   <meta name="description"
     content="A selection of my work: from smart electronics to functional product design. Each project born from an idea and developed into a working solution." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/projecten/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,241 +85,200 @@
       </div>
       <div class="page-hero-overlay"></div>
       <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Portfolio</span>
-        <h1>My projects</h1>
-        <p>A selection of my work: from smart electronics to functional product design. Each project born from an idea
-          and developed into a working solution.</p>
+        <span class="label">Portfolio</span>
+        <h1>Projects</h1>
+        <p>From control board and firmware to 3D design and photorealistic render. Every project started as an idea and was developed into a working solution.</p>
       </div>
     </section>
 
-    <section class="section" data-parallax="focus">
-      <div class="deco deco-blob deco-blob-1" style="width:500px;height:500px;top:-150px;right:-200px"
-        data-speed="0.1" data-drift="-0.02"></div>
-      <div class="deco deco-blob deco-blob-2" style="width:350px;height:350px;bottom:-100px;left:-120px"
-        data-speed="0.125" data-drift="0.04"></div>
-      <div class="deco deco-dots" style="bottom:3rem;right:4rem" data-speed="0.15" data-rotate="0.03"></div>
+    <section class="section section-projects">
       <div class="wrap">
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="software">Software</button>
-          <button class="filter-btn" data-filter="electronics">Electronics</button>
-          <button class="filter-btn" data-filter="mechanics">Mechanics</button>
-          <button class="filter-btn" data-filter="datascience">Data Science</button>
-          <button class="filter-btn" data-filter="productdev">Product Dev</button>
+        <a href="/en/projects/flat-skylight-control/" class="feature-card reveal" data-categories="electronics,software,productdev">
+          <div class="feature-media"><img src="/images/VlakkelichtkoepelHero.webp" alt="Flat Skylight Control" loading="lazy" decoding="async" /></div>
+          <div class="feature-body">
+            <span class="label">Featured</span>
+            <h2>Flat Skylight Control</h2>
+            <p>Energy-efficient control board with rain protection, battery monitoring and RF remote control.</p>
+            <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
+            <span class="text-link">Read the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+          </div>
+        </a>
+
+        <div class="proj-toolbar">
+          <div class="filter-bar" role="group" aria-label="Filter by discipline">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="software">Software</button>
+          <button type="button" class="filter-btn" data-filter="electronics">Electronics</button>
+          <button type="button" class="filter-btn" data-filter="mechanics">Mechanics</button>
+          <button type="button" class="filter-btn" data-filter="datascience">Data Science</button>
+          <button type="button" class="filter-btn" data-filter="productdev">Product Dev</button>
+          </div>
+          <span class="proj-count" aria-live="polite"><b>22</b> projects</span>
         </div>
+
         <div class="projects-grid">
-          <a href="/en/projects/flat-skylight-control/" class="project-card reveal stagger-1"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/VlakkelichtkoepelHero.webp" alt="Flat Skylight Control"
-                fetchpriority="high" /></div>
-            <div class="project-body">
-              <h3>Flat Skylight Control</h3>
-              <p>Energy-efficient control board with rain protection, battery monitoring and RF remote control.</p>
-              <div class="project-tags"><span>STM32</span><span>PCB</span><span>Embedded</span></div>
-            </div>
-          </a>
-          <a href="/en/projects/model-led-installation/" class="project-card reveal stagger-2"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/MaquetteLedHero.webp" alt="Architectural Model LED Installation"
-                fetchpriority="high" /></div>
+          <a href="/en/projects/model-led-installation/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/MaquetteLedHero.webp" alt="Architectural Model LED Installation" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Architectural Model LED Installation</h3>
               <p>Embedded LED lighting and web portal in architectural model for visualising energy flows.</p>
               <div class="project-tags"><span>ESP32</span><span>LED</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/photobooth-management-dashboard/" class="project-card reveal stagger-2"
-            data-categories="software,productdev">
-            <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Management Dashboard"
-                loading="lazy" /></div>
+          <a href="/en/projects/photobooth-management-dashboard/" class="project-card reveal" data-categories="software,productdev">
+            <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Management Dashboard" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Photobooth Management Dashboard</h3>
               <p>Central dashboard and local agent for monitoring and remote control of photobooths.</p>
               <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
             </div>
           </a>
-          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal stagger-3"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plant camera system"
-                loading="lazy" /></div>
+          <a href="/en/projects/carryvision-plant-camera-system/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plant camera system" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>CarryVision</h3>
               <p>Timelapse and monitoring for nurseries with ESP32-CAM and Raspberry Pi.</p>
               <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/rollator-control/" class="project-card reveal stagger-4"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control"
-                loading="lazy" /></div>
+          <a href="/en/projects/rollator-control/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Rollator Control</h3>
               <p>Custom control unit with laser guide for Parkinson's patients.</p>
               <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/poc-proximity-chat/" class="project-card reveal stagger-5"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/ProximityChat.webp" alt="POC Proximity Chat" loading="lazy" />
-            </div>
+          <a href="/en/projects/poc-proximity-chat/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/ProximityChat.webp" alt="POC Proximity Chat" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>POC Proximity Chat</h3>
               <p>Ultra-Wideband communication with real-time distance measurement.</p>
               <div class="project-tags"><span>UWB</span><span>ESP32</span><span>RPi</span></div>
             </div>
           </a>
-          <a href="/en/projects/sketch-to-render/" class="project-card reveal stagger-6"
-            data-categories="productdev,mechanics">
-            <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Sketch to Render"
-                loading="lazy" /></div>
+          <a href="/en/projects/sketch-to-render/" class="project-card reveal" data-categories="productdev,mechanics">
+            <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Sketch to Render" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Sketch to Render</h3>
               <p>Complete product development from rough sketch to photorealistic 3D render.</p>
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Rendering</span></div>
             </div>
           </a>
-          <a href="/en/projects/scd30-address-board/" class="project-card reveal"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/SCD30Hero.webp" alt="SCD30 Address Board installation" loading="lazy" />
-            </div>
+          <a href="/en/projects/scd30-address-board/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/SCD30Hero.webp" alt="SCD30 Address Board installation" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>SCD30 Address Board</h3>
               <p>Address board for SCD30 CO&#x2082; sensors with DIP-switch, RS-485 and Modbus RTU.</p>
               <div class="project-tags"><span>Modbus</span><span>RS-485</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/en/projects/keypad-controller-pcb/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB"
-                loading="lazy" /></div>
+          <a href="/en/projects/keypad-controller-pcb/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/KeypadControllerPCB02.webp" alt="Keypad Controller PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Keypad Controller PCB</h3>
               <p>4x5 button matrix controller with ESP32 and LiPo USB-C power.</p>
               <div class="project-tags"><span>ESP32</span><span>Keypad</span><span>USB-C</span></div>
             </div>
           </a>
-          <a href="/en/projects/plant-juice-press-3d-production-drawings/" class="project-card reveal"
-            data-categories="mechanics,productdev">
-            <div class="project-img"><img src="/images/plantsappersHero.webp" alt="Plant Juice Press 3D"
-                loading="lazy" /></div>
+          <a href="/en/projects/plant-juice-press-3d-production-drawings/" class="project-card reveal" data-categories="mechanics,productdev">
+            <div class="project-img"><img src="/images/plantsappersHero.webp" alt="Plant Juice Press 3D" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Plant Juice Press 3D</h3>
               <p>Complete 3D modeling and production drawings in SolidWorks.</p>
               <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Drawings</span></div>
             </div>
           </a>
-          <a href="/en/projects/smartlamp-pcb/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB"
-                loading="lazy" /></div>
+          <a href="/en/projects/smartlamp-pcb/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/3D_SmartLamp PCB_RB.webp" alt="SmartLamp PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>SmartLamp PCB</h3>
               <p>RGBW LED driver with ESP32, Li-Ion battery and USB-C charging.</p>
               <div class="project-tags"><span>RGBW LED</span><span>ESP32</span><span>USB-C</span></div>
             </div>
           </a>
-          <a href="/en/projects/control-panels/" class="project-card reveal"
-            data-categories="electronics,software,productdev">
-            <div class="project-img"><img src="/images/Besturingskast01.webp" alt="Control Panels" loading="lazy" />
-            </div>
+          <a href="/en/projects/control-panels/" class="project-card reveal" data-categories="electronics,software,productdev">
+            <div class="project-img"><img src="/images/Besturingskast01.webp" alt="Control Panels" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Control Panels</h3>
               <p>Five PLC control panels for ammonia and CO&#x2082; monitoring.</p>
               <div class="project-tags"><span>PLC</span><span>Sensors</span><span>Web</span></div>
             </div>
           </a>
-          <a href="/en/projects/usb-c-charging-pcb/" class="project-card reveal"
-            data-categories="electronics">
-            <div class="project-img"><img src="/images/Li-IonPCB01.webp" alt="USB-C Charging PCB" loading="lazy" />
-            </div>
+          <a href="/en/projects/usb-c-charging-pcb/" class="project-card reveal" data-categories="electronics">
+            <div class="project-img"><img src="/images/Li-IonPCB01.webp" alt="USB-C Charging PCB" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>USB-C Charging PCB</h3>
               <p>Efficient PCB for Li-Ion battery charging with USB-C input and 9V output.</p>
               <div class="project-tags"><span>Battery</span><span>USB-C</span><span>PCB</span></div>
             </div>
           </a>
-          <a href="/en/projects/magnetic-levitation-planter/" class="project-card reveal"
-            data-categories="electronics,mechanics,software,productdev,datascience">
-            <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetic Levitation Planter"
-                loading="lazy" /></div>
+          <a href="/en/projects/magnetic-levitation-planter/" class="project-card reveal" data-categories="electronics,mechanics,software,productdev,datascience">
+            <div class="project-img"><img src="/images/LevitatingPlant01.webp" alt="Magnetic Levitation Planter" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Magnetic Levitation Planter</h3>
               <p>Plant pot floating through active electromagnetic control.</p>
               <div class="project-tags"><span>Levitation</span><span>PCB</span><span>Control</span></div>
             </div>
           </a>
-          <a href="/en/projects/fume-extractor/" class="project-card reveal"
-            data-categories="mechanics,electronics,productdev">
-            <div class="project-img"><img src="/images/FumeExtractor01.webp" alt="Fume Extractor" loading="lazy" />
-            </div>
+          <a href="/en/projects/fume-extractor/" class="project-card reveal" data-categories="mechanics,electronics,productdev">
+            <div class="project-img"><img src="/images/FumeExtractor01.webp" alt="Fume Extractor" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Fume Extractor</h3>
               <p>Compact, portable extractor for soldering fumes. 3D-printed, battery-powered.</p>
               <div class="project-tags"><span>3D Print</span><span>Electronics</span><span>Design</span></div>
             </div>
           </a>
-          <a href="/en/projects/dual-lab-power-supply/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dual Lab Power Supply"
-                loading="lazy" /></div>
+          <a href="/en/projects/dual-lab-power-supply/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/PowerSupply02.webp" alt="Dual Lab Power Supply" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Dual Lab Power Supply</h3>
               <p>Lab power supply with two adjustable outputs and digital meters.</p>
               <div class="project-tags"><span>Power Supply</span><span>Design</span><span>Prototyping</span></div>
             </div>
           </a>
-          <a href="/en/projects/laptop-stand/" class="project-card reveal"
-            data-categories="software,mechanics,electronics,productdev">
-            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Laptop Stand" loading="lazy" /></div>
+          <a href="/en/projects/laptop-stand/" class="project-card reveal" data-categories="software,mechanics,electronics,productdev">
+            <div class="project-img"><img src="/images/LaptopStand02.webp" alt="Laptop Stand" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Laptop Stand</h3>
               <p>Intelligent stand that adjusts height based on face recognition.</p>
               <div class="project-tags"><span>Computer Vision</span><span>Motors</span><span>Smart</span></div>
             </div>
           </a>
-          <a href="/en/projects/6-dof-spacemouse/" class="project-card reveal"
-            data-categories="software,electronics">
-            <div class="project-img"><img src="/images/SpaceMouse03.webp" alt="6-DoF Spacemouse" loading="lazy" />
-            </div>
+          <a href="/en/projects/6-dof-spacemouse/" class="project-card reveal" data-categories="software,electronics">
+            <div class="project-img"><img src="/images/SpaceMouse03.webp" alt="6-DoF Spacemouse" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>6-DoF Spacemouse</h3>
               <p>Stewart-platform controller for 3D CAD navigation via USB HID.</p>
               <div class="project-tags"><span>CAD</span><span>HID</span><span>Stewart</span></div>
             </div>
           </a>
-          <a href="/en/projects/multifunctional-soldering-station/" class="project-card reveal"
-            data-categories="electronics,software,productdev,datascience">
-            <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldering Station"
-                loading="lazy" /></div>
+          <a href="/en/projects/multifunctional-soldering-station/" class="project-card reveal" data-categories="electronics,software,productdev,datascience">
+            <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldering Station" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Soldering Station</h3>
               <p>Soldering station with iron and hot air, precise temperature control.</p>
               <div class="project-tags"><span>Soldering</span><span>Embedded</span><span>UI</span></div>
             </div>
           </a>
-          <a href="/en/projects/self-balancing-cube/" class="project-card reveal"
-            data-categories="electronics,mechanics,software,datascience">
-            <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Self-Balancing Cube"
-                loading="lazy" /></div>
+          <a href="/en/projects/self-balancing-cube/" class="project-card reveal" data-categories="electronics,mechanics,software,datascience">
+            <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Self-Balancing Cube" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Self-Balancing Cube</h3>
               <p>Dynamic cube balancing on edge or corner using flywheels.</p>
               <div class="project-tags"><span>Robotics</span><span>Control</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/letter-clock/" class="project-card reveal"
-            data-categories="electronics,productdev">
-            <div class="project-img"><img src="/images/Letterklok01.webp" alt="Letter Clock" loading="lazy" /></div>
+          <a href="/en/projects/letter-clock/" class="project-card reveal" data-categories="electronics,productdev">
+            <div class="project-img"><img src="/images/Letterklok01.webp" alt="Letter Clock" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>Letter Clock</h3>
               <p>Word clock with laser-cut letter grid and CNC-milled housing.</p>
               <div class="project-tags"><span>Word Clock</span><span>CNC</span><span>Embedded</span></div>
             </div>
           </a>
-          <a href="/en/projects/2x2-steering-robot/" class="project-card reveal"
-            data-categories="electronics,software,mechanics">
-            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot" loading="lazy" />
-            </div>
+          <a href="/en/projects/2x2-steering-robot/" class="project-card reveal" data-categories="electronics,software,mechanics">
+            <div class="project-img"><img src="/images/2x2Steering02.webp" alt="2x2 Steering Robot" loading="lazy" decoding="async" /></div>
             <div class="project-body">
               <h3>2x2 Steering Robot</h3>
               <p>Advanced mobile robotics platform with decoupled steering and drive control.</p>
@@ -332,25 +290,17 @@
     </section>
 
     <section class="cta-section">
-      <div class="deco deco-blob deco-blob-2" style="width:350px;height:350px;top:-80px;left:-100px"
-        data-speed="0.1" data-drift="0.018"></div>
-      <div class="deco deco-ring" style="width:140px;height:140px;bottom:1rem;right:5rem" data-speed="0.125"
-        data-rotate="-0.04"></div>
-      <div class="wrap reveal-blur heading-animate">
+      <div class="wrap reveal">
         <h2>Inspired by these projects?</h2>
-        <p>Do you have an idea you'd like to realize? Let's work together on your next innovation.</p>
-        <a href="/en/contact/" class="btn btn-primary"
-          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start your project <svg width="18" height="18"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
+        <p>Have an idea you want to realize? Let's work together on your next product.</p>
+        <a href="/en/contact/" class="btn btn-primary">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
       </div>
     </section>
   </main>
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

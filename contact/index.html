@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/contact/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -96,178 +95,129 @@
 
 
   <main>
-    <section class="page-hero">
-      <div class="page-hero-slides" aria-roledescription="slideshow">
-        <div class="page-hero-slide active" style="background-image:url('/images/Besturingskast01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
-      </div>
+    <section class="page-hero page-hero--contact">
       <div class="page-hero-overlay"></div>
       <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Contact</span>
-        <h1>Laten we samenwerken</h1>
-        <p>Heb je een technische uitdaging, een idee dat ontwikkeld moet worden, of ben je benieuwd wat ik voor je kan
-          betekenen?</p>
+        <span class="label">Contact</span>
+        <h1>Vertel wat je <em>wilt maken.</em></h1>
+        <p>Een idee, een prototype dat naar productie moet of een technisch probleem: beschrijf het kort en ik denk met je mee. Het kennismakingsgesprek is gratis en ik reageer doorgaans binnen 24 uur op werkdagen.</p>
+        <div class="page-hero-actions">
+          <a href="#contact-form" class="btn btn-primary">Verstuur aanvraag <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+          <a href="tel:+31612385439" class="btn btn-outline">+31 6 12 38 54 39</a>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="contact-form" data-parallax="focus">
-      <div class="deco deco-blob deco-blob-1" style="width:420px;height:420px;top:-100px;right:-160px"
-        data-speed="0.088" data-drift="-0.02"></div>
-      <div class="deco deco-ring" style="width:160px;height:160px;bottom:4rem;left:5rem" data-speed="0.15"
-        data-rotate="0.035"></div>
-      <div class="deco deco-dots" style="top:5rem;left:2rem" data-speed="0.125" data-rotate="-0.025"></div>
-      <div class="wrap">
-        <div class="service-detail">
-          <div class="reveal-left">
-            <form class="form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="36fe41a3-1e8e-4282-a4d9-5d8ee89c7a64">
-              <input type="hidden" name="subject" value="Nieuw contact via IMeTech Website">
-              <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-              <div class="form-group">
-                <label for="contact-name">Naam</label>
-                <input type="text" id="contact-name" name="name" required class="input" placeholder="Je naam" />
-              </div>
-              <div class="form-group">
-                <label for="contact-email">E-mail</label>
-                <input type="email" id="contact-email" name="email" required class="input"
-                  placeholder="jouw@email.nl" />
-              </div>
-              <div class="form-group">
-                <label for="contact-company">Bedrijfsnaam <span class="optional">(optioneel)</span></label>
-                <input type="text" id="contact-company" name="company" class="input" placeholder="Je bedrijf" />
-              </div>
-              <div class="form-group">
-                <label for="contact-project-type">Type project <span class="optional">(optioneel)</span></label>
-                <select id="contact-project-type" name="project_type" class="input">
-                  <option value="">Selecteer...</option>
-                  <option value="PCB/Electronics">PCB / Elektronica</option>
-                  <option value="Embedded/Software">Embedded / Software</option>
-                  <option value="Mechanical/CAD">Mechanica / CAD</option>
-                  <option value="Machine Learning">Machine Learning</option>
-                  <option value="Product Development">Productontwikkeling</option>
-                  <option value="Other">Anders</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="contact-message">Bericht</label>
-                <textarea id="contact-message" name="message" required rows="4" class="input textarea"
-                  placeholder="Vertel me over je project..."></textarea>
-              </div>
-              <button class="btn btn-primary" type="submit">Verstuur bericht <svg width="18" height="18"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg></button>
-              <div id="contactResult" class="form-feedback-banner" role="status" aria-live="polite"></div>
-            </form>
+    <section class="section section-contact" id="contact-form">
+      <div class="wrap contact-layout">
+        <div class="config reveal">
+          <div class="config-progress" aria-hidden="true"><span></span></div>
+          <div class="config-head">
+            <span class="label">Projectaanvraag</span>
+            <h2>Waar kan ik je mee helpen?</h2>
           </div>
-          <div class="reveal-right">
-            <div class="contact-card">
-              <div class="contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-              </div>
-              <div class="contact-card-body">
-                <h3>Email</h3>
-                <a href="mailto:info@imetech.nl">info@imetech.nl</a>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </div>
-              <div class="contact-card-body">
-                <h3>Telefoon</h3>
-                <a href="tel:+31612385439">+31 6 12 38 54 39</a>
-              </div>
-            </div>
-            <div class="contact-card contact-card--stacked">
-              <div class="contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </div>
-              <div class="contact-card-body">
-                <h3>Locatie</h3>
-                <div class="contact-card-details">
-                  <p>Vierde Broekdijk 1, 7122JD Aalten</p>
-                  <span class="contact-card-note">Bezoek op afspraak</span>
+          <form class="form config-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="36fe41a3-1e8e-4282-a4d9-5d8ee89c7a64">
+            <input type="hidden" name="subject" value="Nieuw contact via IMeTech Website">
+            <input type="hidden" name="from_page" value="">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true">
+            <div class="form-body">
+              <fieldset class="config-step">
+                <legend><span class="step-no">01</span>Waar heb je hulp bij? <span class="optional">(meerdere mogelijk)</span></legend>
+                <div class="chips">
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Elektronica &amp; PCB"><span>Elektronica &amp; PCB</span></label>
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Firmware &amp; software"><span>Firmware &amp; software</span></label>
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Mechanica &amp; CAD"><span>Mechanica &amp; CAD</span></label>
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Data &amp; ML"><span>Data &amp; ML</span></label>
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Compleet product"><span>Compleet product</span></label>
+                    <label class="chip"><input type="checkbox" name="hulp_bij" value="Weet ik nog niet"><span>Weet ik nog niet</span></label>
                 </div>
+              </fieldset>
+              <fieldset class="config-step">
+                <legend><span class="step-no">02</span>In welke fase zit je?</legend>
+                <div class="chips">
+                    <label class="chip"><input type="radio" name="fase" value="Idee"><span>Idee</span></label>
+                    <label class="chip"><input type="radio" name="fase" value="Concept"><span>Concept</span></label>
+                    <label class="chip"><input type="radio" name="fase" value="Prototype"><span>Prototype</span></label>
+                    <label class="chip"><input type="radio" name="fase" value="Kleinserie / productie"><span>Kleinserie / productie</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="config-step">
+                <legend><span class="step-no">03</span>Jouw gegevens</legend>
+                <div class="config-fields">
+                  <div class="form-group">
+                    <label for="contact-name">Naam</label>
+                    <input type="text" id="contact-name" name="name" required class="input" placeholder="Je naam" autocomplete="name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email">E-mail</label>
+                    <input type="email" id="contact-email" name="email" required class="input" placeholder="jouw@email.nl" autocomplete="email" />
+                  </div>
+                  <div class="form-group form-group--wide">
+                    <label for="contact-company">Bedrijfsnaam <span class="optional">(optioneel)</span></label>
+                    <input type="text" id="contact-company" name="company" class="input" placeholder="Je bedrijf" autocomplete="organization" />
+                  </div>
+                  <div class="form-group form-group--wide">
+                    <label for="contact-message">Bericht</label>
+                    <textarea id="contact-message" name="message" required rows="4" class="input textarea" placeholder="Vertel kort over je project: wat moet het doen, wat heb je al en wanneer wil je het hebben?"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="config-foot">
+                <p class="config-summary" data-empty="Kies hierboven wat bij je project past." data-label="Je aanvraag" aria-live="polite">Kies hierboven wat bij je project past.</p>
+                <button class="btn btn-primary" type="submit">Verstuur aanvraag <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></button>
               </div>
+              <p class="config-privacy">Je gegevens gebruik ik alleen om op je aanvraag te reageren. <a href="/privacyverklaring/">Privacy</a></p>
+            </div>
+            <div id="contactResult" class="form-feedback-banner" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="contact-side reveal-right">
+          <div class="direct-card">
+            <span class="label">Direct contact</span>
+            <h3>Liever meteen schakelen?</h3>
+            <a href="mailto:info@imetech.nl" class="direct-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg><span><small>E-mail</small>info@imetech.nl</span></a>
+            <a href="tel:+31612385439" class="direct-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg><span><small>Telefoon</small>+31 6 12 38 54 39</span></a>
+            <div class="direct-meta">
+              <span class="direct-avail"><span class="dot"></span>Reactie binnen 24 uur op werkdagen</span>
+              <span class="direct-clock" data-tz="Europe/Amsterdam" data-lang="nl"><small>Lokale tijd Aalten</small><b>--:--</b></span>
+            </div>
+          </div>
+          <div class="next-card">
+            <span class="label">Wat gebeurt er daarna?</span>
+            <ol class="next-list">
+              <li><span class="next-num">01</span><div><strong>Reactie</strong><span>Binnen 24 uur op werkdagen een eerste reactie.</span></div></li>
+              <li><span class="next-num">02</span><div><strong>Kennismaking</strong><span>Een gratis, vrijblijvend gesprek over je uitdaging en aanpak.</span></div></li>
+              <li><span class="next-num">03</span><div><strong>Voorstel</strong><span>Een heldere offerte met scope, planning en kosten per fase.</span></div></li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-map" aria-labelledby="map-title">
+      <div class="map-stage">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2461.273306690894!2d6.571855157377803!3d51.91072453072166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4eab831916edc06f%3A0x7e57b7b4daa04a5f!2sIMeTech%20Engineering!5e0!3m2!1snl!2snl!4v1768503484421!5m2!1snl!2snl" title="Locatie van IMeTech Engineering aan de Vierde Broekdijk 1 in Aalten" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="wrap map-overlay">
+          <div class="map-card reveal">
+            <span class="label">Locatie</span>
+            <h2 id="map-title">Vierde Broekdijk 1, Aalten</h2>
+            <p>Bezoek op afspraak. Projecten verlopen ook prima op afstand, door heel Nederland.</p>
+            <div class="map-area"><span>Aalten</span><span>Winterswijk</span><span>Doetinchem</span><span>Achterhoek</span><span>Heel Nederland op afstand</span></div>
+            <div class="map-actions">
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=IMeTech+Engineering%2C+Vierde+Broekdijk+1%2C+7122JD+Aalten" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Plan route <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Open in Google Maps</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" data-parallax="focus">
-      <div class="deco deco-blob deco-blob-2" style="width:350px;height:350px;bottom:-80px;right:-120px"
-        data-speed="0.1" data-drift="0.018"></div>
-      <div class="deco deco-ring" style="width:130px;height:130px;top:3rem;left:6rem" data-speed="0.125"
-        data-rotate="-0.032"></div>
-      <div class="deco deco-dots" style="bottom:2rem;right:4rem" data-speed="0.15" data-rotate="0.022"></div>
+    <section class="section faq-section" id="faq">
       <div class="wrap">
-        <div class="info-grid">
-          <div class="info-card reveal stagger-1">
-            <span class="label">Werkdagen</span>
-            <h3>Reactie binnen 24 uur</h3>
-            <p>Reageert doorgaans binnen 24 uur op werkdagen. Voor dringende vragen kun je direct bellen.</p>
-          </div>
-          <div class="info-card reveal stagger-2">
-            <span class="label">Vrijblijvend</span>
-            <h3>Gratis kennismaking</h3>
-            <p>Het eerste gesprek is altijd gratis en vrijblijvend. Bespreek je uitdaging en kijk of het klikt.
-            </p>
-          </div>
-          <div class="info-card reveal stagger-3">
-            <span class="label">Op afstand</span>
-            <h3>Flexibele samenwerking</h3>
-            <p>Op afstand werken, past zich aan op jouw proces. Van eenmalige hulp tot langdurige samenwerking.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-parallax="focus">
-      <div class="deco deco-blob deco-blob-3" style="width:380px;height:380px;top:-80px;left:-140px"
-        data-speed="0.088" data-drift="-0.015"></div>
-      <div class="deco deco-ring" style="width:150px;height:150px;bottom:3rem;right:7rem" data-speed="0.14"
-        data-rotate="0.04"></div>
-      <div class="wrap">
-        <div class="section-header reveal heading-animate">
-          <span class="label">Locatie</span>
-          <h2>Vind ons</h2>
-        </div>
-        <div class="map-container reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2461.273306690894!2d6.571855157377803!3d51.91072453072166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4eab831916edc06f%3A0x7e57b7b4daa04a5f!2sIMeTech%20Engineering!5e0!3m2!1snl!2snl!4v1768503484421!5m2!1snl!2snl"
-            width="100%" height="450" style="border:0;border-radius:1rem" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Location of IMeTech Engineering at Vierde Broekdijk 1, 7122JD Aalten"></iframe>
-        </div>
-        <div class="reveal" style="text-align:center; padding-top: 1.5rem;">
-          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z/data=!3m1!4b1!4m6!3m5!1s0x4eab831916edc06f:0x7e57b7b4daa04a5f!8m2!3d51.9107245!4d6.57443!16s%2Fg%2F11v0qj5q0j?entry=ttu"
-            target="_blank" rel="noopener noreferrer" class="btn btn-outline">Open in Google Maps <svg width="18"
-              height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt faq-section" id="faq">
-      <div class="wrap">
-        <div class="section-header reveal heading-animate">
+        <div class="section-header reveal">
           <span class="label">FAQ</span>
           <h2>Veelgestelde vragen</h2>
         </div>
@@ -295,27 +245,11 @@
         </div>
       </div>
     </section>
-
-    <section class="cta-section">
-      <div class="deco deco-blob deco-blob-2" style="width:300px;height:300px;top:-60px;right:-80px"
-        data-speed="0.1" data-drift="-0.015"></div>
-      <div class="deco deco-ring" style="width:120px;height:120px;bottom:2rem;left:8rem" data-speed="0.125"
-        data-rotate="0.038"></div>
-      <div class="wrap reveal-blur heading-animate">
-        <h2>Klaar om je project te starten?</h2>
-        <p>Laten we je technische uitdaging bespreken. Vrijblijvend kennismakingsgesprek, geen verplichtingen.</p>
-        <a href="#contact-form" class="btn btn-primary"
-          style="font-size:1.0625rem;padding:1rem 2rem;margin:0 auto">Start je project <svg width="18" height="18"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
-      </div>
-    </section>
   </main>
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

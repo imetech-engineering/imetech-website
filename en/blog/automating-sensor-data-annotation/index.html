@@ -39,9 +39,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/automatiseren-sensordata-annotatie/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Automating Sensor Data Annotation for Machine Learning", "description": "How to automate annotation of sensor data for machine learning. Practical strategies including rule-based labeling, active learning, and weak supervision for time-series data.", "url": "https://imetech.nl/en/blog/automating-sensor-data-annotation/", "datePublished": "2026-04-07", "author": {"@type": "Person", "name": "Ivo Mengerink", "url": "https://imetech.nl/en/about/"}, "publisher": {"@type": "Organization", "name": "IMeTech Engineering", "url": "https://imetech.nl", "logo": {"@type": "ImageObject", "url": "https://imetech.nl/images/logo-blauw-1000x500.webp"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://imetech.nl/en/blog/automating-sensor-data-annotation/"}, "dateModified": "2026-04-07", "image": "https://imetech.nl/images/sensorAnnotationHero.webp"}
   </script>
@@ -85,15 +84,9 @@
 
 
   <main>
-    <section class="page-hero">
-      <div class="page-hero-slides" aria-roledescription="slideshow">
-        <!-- IMAGE PROMPT: Abstract visualization of a continuous stream of colorful time-series waveform data flowing through a funnel-like structure, with organized labeled segments emerging on the other side, dark background, glowing neon blue and green lines, technical illustration style, no text -->
-        <div class="page-hero-slide active" style="background-image:url('/images/sensorAnnotationHero.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/ElektronicaHardware01.webp')"></div>
-      </div>
-      <div class="page-hero-overlay"></div>
+    <section class="page-hero page-hero--plain">
       <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Blog</span>
+        <span class="label">Blog</span>
         <h1>Automating Sensor Data Annotation for Machine Learning</h1>
         <p>The bottleneck of ML is not the model — it is the labeled data. Here is how to speed up annotation without sacrificing quality.</p>
       </div>
@@ -109,7 +102,12 @@
           <span>18 min read</span>
         </div>
 
-        <article class="article-content reveal">
+        <figure class="article-cover reveal">
+            <img src="/images/sensorAnnotationHero.webp" alt="Automating Sensor Data Annotation for Machine Learning" fetchpriority="high" decoding="async" />
+            <span class="case-tick case-tick--tl" aria-hidden="true"></span><span class="case-tick case-tick--tr" aria-hidden="true"></span><span class="case-tick case-tick--bl" aria-hidden="true"></span><span class="case-tick case-tick--br" aria-hidden="true"></span>
+          </figure>
+
+          <article class="article-content reveal">
           <div class="lead">
             <p class="lead">
               Machine learning models are hungry for <strong>labeled data</strong>. In computer vision, labeling means drawing bounding boxes around objects. In NLP, it means tagging entities in text. But in the world of <strong>sensor data</strong> — accelerometers, temperature sensors, vibration monitors, current measurements — annotation is a different beast entirely. The data is continuous, high-dimensional, and often requires domain expertise to interpret correctly.
@@ -517,7 +515,7 @@
             </p>
           </section>
 
-        </div>
+        </article>
         <div class="article-tags reveal">
           <a href="/en/services/data-science-machine-learning/" class="tag-link"><span>Machine Learning</span></a>
           <span>Data Annotation</span>
@@ -565,7 +563,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>

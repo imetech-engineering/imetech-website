@@ -11,7 +11,7 @@
   <meta name="geo.placename" content="Aalten, Achterhoek">
   <meta name="geo.position" content="51.8996;6.5670">
   <meta name="ICBM" content="51.8996, 6.5670">
-  <meta property="og:title" content="Blog - IMeTech Engineering">
+  <meta property="og:title" content="Blog - IMeTech Engineering | Technical Articles">
   <meta property="og:description" content="Technical articles and insights about engineering, product development and embedded systems by IMeTech Engineering.">
   <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
   <meta property="og:url" content="https://imetech.nl/en/blog/">
@@ -22,11 +22,11 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Blog">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog - IMeTech Engineering">
+  <meta name="twitter:title" content="Blog - IMeTech Engineering | Technical Articles">
   <meta name="twitter:description" content="Technical articles and insights about engineering, product development and embedded systems by IMeTech Engineering.">
   <meta name="twitter:image" content="https://imetech.nl/images/og-default.webp">
   <meta name="twitter:creator" content="@imetech_engineering">
-  <title>Blog - IMeTech Engineering</title>
+  <title>Blog - IMeTech Engineering | Technical Articles</title>
   <meta name="description"
     content="Technical articles and insights about engineering, product development and embedded systems by IMeTech Engineering." />
   <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
@@ -37,9 +37,8 @@
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/blog/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260928q">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261002r">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,18 +73,10 @@
 
 
   <main>
-    <section class="page-hero">
-      <div class="page-hero-slides" aria-roledescription="slideshow">
-        <div class="page-hero-slide active" style="background-image:url('/images/Besturingskast01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SelfBalancingCube01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/rollatorBesturing01.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SpaceMouse03.webp')"></div>
-        <div class="page-hero-slide" style="background-image:url('/images/SketchToRender04.webp')"></div>
-      </div>
-      <div class="page-hero-overlay"></div>
+    <section class="page-hero page-hero--plain">
       <div class="wrap reveal-blur">
-        <span class="label" style="color:#60a5fa">Blog</span>
-        <h1>Blog</h1>
+        <span class="label">Insights &middot; Blog</span>
+        <h1>Insights from <em>practice.</em></h1>
         <p>Technical articles and insights about engineering, product development and embedded systems.</p>
       </div>
     </section>
@@ -102,20 +93,18 @@
           <h2>Latest posts</h2>
           <p>Technical deep dives, project insights, and engineering best practices.</p>
         </div>
+        <a href="/en/blog/autoannotate-sensor-data-labeling/" class="feature-card feature-card--blog reveal">
+          <div class="feature-media"><img src="/images/autoannotate-photo-solution.webp" alt="AutoAnnotate sensor data labeling" fetchpriority="high" decoding="async" /></div>
+          <div class="feature-body">
+            <span class="label">Latest article &middot; Jul 2026 &middot; 13 min</span>
+            <h2>AutoAnnotate: label sensor data without weeks of manual work</h2>
+            <p>How cameras and sensors together produce ML training data — proven with the Maatje Pop care robot.</p>
+            <div class="project-tags"><span>Machine Learning</span><span>Sensor Data</span><span>AutoAnnotate</span></div>
+            <span class="text-link">Read the article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
+          </div>
+        </a>
         <div class="blog-grid">
-          <a href="/en/blog/autoannotate-sensor-data-labeling/" class="blog-card reveal stagger-1">
-            <div class="blog-img">
-              <img src="/images/autoannotate-photo-solution.webp" alt="AutoAnnotate sensor data labeling"
-                fetchpriority="high" />
-              <span class="blog-badge">New</span>
-            </div>
-            <div class="blog-body">
-              <div class="blog-meta">Jul 2026 &middot; 13 min</div>
-              <h3>AutoAnnotate: label sensor data without weeks of manual work</h3>
-              <p>How cameras and sensors together produce ML training data — proven with the Maatje Pop care robot.</p>
-              <div class="project-tags"><span>Machine Learning</span><span>Sensor Data</span><span>AutoAnnotate</span></div>
-            </div>
-          </a>
+          
           <a href="/en/blog/automating-sensor-data-annotation/" class="blog-card reveal stagger-2">
             <div class="blog-img">
               <img src="/images/sensorAnnotationHero.webp" alt="Automating sensor data annotation for machine learning"
@@ -200,7 +189,7 @@
           </a>
           <div class="blog-card reveal stagger-9" style="cursor:default">
             <div class="blog-img">
-              <img src="/images/pythonPLCHero.png" alt="Python connecting to industrial PLCs" loading="lazy" />
+              <img src="/images/pythonPLCHero.webp" alt="Python connecting to industrial PLCs" loading="lazy" />
               <span class="blog-badge">Planned</span>
             </div>
             <div class="blog-body">
@@ -244,7 +233,7 @@
 
   <div id="footer-container"></div>
   <div id="floating-cta-container"></div>
-  <script src="/script.js?v=20260928q" defer></script>
+  <script src="/script.js?v=20261002r" defer></script>
 </body>
 
 </html>
