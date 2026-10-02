@@ -10008,3 +10008,142 @@ html.perf-lite .header.scrolled .header-inner {
     padding: 1.25rem;
   }
 }
+
+/* ==========================================================================
+   CURSOR-EFFECTEN (alleen muis; script zet de variabelen)
+   ========================================================================== */
+.insight-card:hover,
+.other-svc:hover,
+.audience-card:hover,
+.svc-panel:hover,
+.about-stat:hover,
+.project-card:hover,
+.blog-card:hover,
+.deliver:hover {
+  background-image: radial-gradient(300px circle at var(--mx, 50%) var(--my, 0%), rgba(34, 157, 216, 0.10), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+.feature-card:hover .feature-body::after,
+.audience-card--dark:hover::after {
+  opacity: 1;
+}
+
+.feature-body::after,
+.audience-card--dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(360px circle at var(--mx, 70%) var(--my, 30%), rgba(91, 188, 236, 0.16), transparent 70%);
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+
+.audience-card--dark:hover {
+  background-image: none;
+}
+
+/* Beeld in kader: lichte kanteling + meetkruis */
+.case-hero-media {
+  --pad: 14px;
+  perspective: 1200px;
+}
+
+.case-hero-media img {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .6s var(--ease);
+  will-change: transform;
+}
+
+.case-hero-media.is-probing img {
+  transition: transform .15s linear;
+}
+
+.case-cross,
+.case-readout {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.case-cross--x {
+  left: var(--pad);
+  right: var(--pad);
+  top: calc(var(--pad) + (100% - 2 * var(--pad)) * var(--cy, .5));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(91, 188, 236, 0.75) 15%, rgba(91, 188, 236, 0.75) 85%, transparent);
+}
+
+.case-cross--y {
+  top: var(--pad);
+  bottom: var(--pad);
+  left: calc(var(--pad) + (100% - 2 * var(--pad)) * var(--cx, .5));
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(91, 188, 236, 0.75) 15%, rgba(91, 188, 236, 0.75) 85%, transparent);
+}
+
+.case-readout {
+  left: calc(var(--pad) + .75rem);
+  bottom: calc(var(--pad) + .75rem);
+  padding: .3rem .55rem;
+  background: rgba(5, 17, 31, 0.78);
+  border: 1px solid rgba(91, 188, 236, 0.35);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  color: var(--cyan-300);
+  white-space: pre;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.case-hero-media.is-probing .case-cross,
+.case-hero-media.is-probing .case-readout {
+  opacity: 1;
+}
+
+.case-hero-media.is-probing {
+  cursor: crosshair;
+}
+
+.case-hero--about .case-hero-media.is-probing {
+  cursor: default;
+}
+
+/* Opdrachtgevers: oplichten op nabijheid */
+.client-mark {
+  color: rgba(214, 228, 243, calc(.55 + var(--near, 0) * .45));
+  transition: color .35s ease;
+}
+
+.client-logo {
+  opacity: calc(.6 + var(--near, 0) * .4);
+}
+
+@media (max-width: 640px) {
+  .case-hero-media {
+    --pad: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-hero-media img {
+    transform: none !important;
+  }
+}
+
+.case-cross,
+.case-readout {
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s;
+}
+
+.case-hero-media.is-probing .case-cross,
+.case-hero-media.is-probing .case-readout {
+  visibility: visible;
+}

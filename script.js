@@ -3271,7 +3271,8 @@
   });
 
   // ----- Kaarten: lichtvlek volgt de cursor -----
-  var CARDS = '.service-card, .expertise-panel, .info-card, .contact-card, .error-link, .comparison-card, .challenge-item, .related-card, .testimonial';
+  var CARDS = '.service-card, .expertise-panel, .info-card, .contact-card, .error-link, .comparison-card, .challenge-item, .related-card, .testimonial, ' +
+    '.insight-card, .other-svc, .audience-card, .svc-panel, .about-stat, .project-card, .blog-card, .feature-card, .deliver';
   document.addEventListener('pointermove', function (e) {
     var card = e.target instanceof Element ? e.target.closest(CARDS) : null;
     if (!card) return;
@@ -3281,7 +3282,7 @@
   }, { passive: true });
 
   // ----- Primaire knoppen trekken subtiel naar de cursor toe -----
-  all('.hero-btns .btn, .cta-section .btn-primary, .nav-cta').forEach(function (btn) {
+  all('.hero-btns .btn, .cta-section .btn-primary, .nav-cta, .page-hero-actions .btn-primary').forEach(function (btn) {
     btn.addEventListener('pointermove', function (e) {
       var r = btn.getBoundingClientRect();
       var x = (e.clientX - r.left - r.width / 2) * 0.18;
@@ -3318,4 +3319,72 @@
       readout.textContent = label;
     });
   })();
+
+  // ----- Beeld in kader (project/dienst/over mij): kantelt licht mee, met meetkruis -----
+  all('.case-hero-media').forEach(function (fig) {
+    var img = fig.querySelector('img');
+    if (!img) return;
+    var probe = !fig.closest('.case-hero--about');
+    var readout = null;
+    if (probe) {
+      ['x', 'y'].forEach(function (axis) {
+        var line = document.createElement('span');
+        line.className = 'case-cross case-cross--' + axis;
+        line.setAttribute('aria-hidden', 'true');
+        fig.appendChild(line);
+      });
+      readout = document.createElement('span');
+      readout.className = 'case-readout';
+      readout.setAttribute('aria-hidden', 'true');
+      fig.appendChild(readout);
+    }
+    var frame = null;
+    fig.addEventListener('pointermove', function (e) {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = null;
+        var r = img.getBoundingClientRect();
+        var x = clamp((e.clientX - r.left) / r.width, 0, 1);
+        var y = clamp((e.clientY - r.top) / r.height, 0, 1);
+        if (!reduce) {
+          fig.style.setProperty('--rx', ((0.5 - y) * 5).toFixed(2) + 'deg');
+          fig.style.setProperty('--ry', ((x - 0.5) * 6).toFixed(2) + 'deg');
+        }
+        if (probe) {
+          fig.style.setProperty('--cx', x.toFixed(4));
+          fig.style.setProperty('--cy', y.toFixed(4));
+          readout.textContent = 'X ' + x.toFixed(2) + '  Y ' + (1 - y).toFixed(2);
+        }
+        fig.classList.add('is-probing');
+      });
+    }, { passive: true });
+    fig.addEventListener('pointerleave', function () {
+      fig.classList.remove('is-probing');
+      fig.style.setProperty('--rx', '0deg');
+      fig.style.setProperty('--ry', '0deg');
+    });
+  });
+
+  // ----- Opdrachtgevers: namen lichten op naarmate de cursor nadert -----
+  all('.clients').forEach(function (strip) {
+    var items = all('.client-mark, .client-logo', strip);
+    if (!items.length) return;
+    var frame = null;
+    strip.addEventListener('pointermove', function (e) {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = null;
+        items.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          var dx = e.clientX - (r.left + r.width / 2);
+          var dy = e.clientY - (r.top + r.height / 2);
+          var near = clamp(1 - Math.sqrt(dx * dx + dy * dy) / 260, 0, 1);
+          el.style.setProperty('--near', near.toFixed(3));
+        });
+      });
+    }, { passive: true });
+    strip.addEventListener('pointerleave', function () {
+      items.forEach(function (el) { el.style.setProperty('--near', '0'); });
+    });
+  });
 })();
