@@ -10147,3 +10147,185 @@ html.perf-lite .header.scrolled .header-inner {
 .case-hero-media.is-probing .case-readout {
   visibility: visible;
 }
+
+/* ==========================================================================
+   CORRECTIES 2026-10-05
+   ========================================================================== */
+/* Over mij (home): hoofd nooit afsnijden, bijsnijden gebeurt onderaan */
+.about-photo img,
+.about-photo-img img {
+  object-position: center top;
+}
+
+/* Pijl rechtsboven op kaarten: ruimte tot de rechterrand, ook bij hover */
+a.project-card .project-body h3,
+.work-card h3 {
+  padding-right: .5rem;
+}
+
+a.project-card:hover .project-body h3::after,
+.work-card:hover h3::after {
+  transform: translate(1px, -2px);
+}
+
+/* Opdrachtgevers: witte logo-silhouetten, optisch gelijk van formaat */
+.client-logo {
+  display: block;
+  width: auto;
+  height: 28px;
+  max-width: 132px;
+  object-fit: contain;
+  filter: none;
+  opacity: calc(.55 + var(--near, 0) * .45);
+  transition: opacity .3s ease;
+}
+
+.clients-list li:hover .client-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.client-logo--archisign,
+.client-logo--umotion {
+  height: 40px;
+}
+
+.client-logo--vlakkelichtkoepel,
+.client-logo--estede,
+.client-logo--carryflor,
+.client-logo--ronald {
+  height: 34px;
+}
+
+.client-logo--twozero {
+  height: 18px;
+}
+
+.client-logo--r2r {
+  height: 22px;
+}
+
+.clients-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 960px) {
+  .clients-list {
+    gap: 1.25rem 1rem;
+    align-items: center;
+  }
+
+  .client-logo {
+    height: 24px;
+    max-width: 100%;
+  }
+
+  .client-logo--archisign,
+  .client-logo--umotion {
+    height: 34px;
+  }
+
+  .client-logo--vlakkelichtkoepel,
+  .client-logo--estede,
+  .client-logo--carryflor,
+  .client-logo--ronald {
+    height: 28px;
+  }
+
+  .client-logo--twozero {
+    height: 15px;
+  }
+
+  .client-logo--r2r {
+    height: 19px;
+  }
+}
+
+@media (min-width: 961px) {
+  .clients-list {
+    flex-wrap: nowrap;
+    gap: 1rem clamp(1rem, 2vw, 2rem);
+  }
+
+  .clients-label {
+    max-width: 9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Contact: locatie op desktop naast elkaar (adresblok links, kaart rechts) i.p.v. kaart over de map */
+@media (min-width: 961px) {
+  .section-map {
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    background:
+      radial-gradient(600px circle at 85% 20%, rgba(34, 157, 216, 0.14), transparent 60%),
+      var(--ink);
+  }
+
+  .map-stage {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr);
+    align-items: stretch;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    max-width: 1200px;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 clamp(1.125rem, 4vw, 2rem);
+    overflow: visible;
+  }
+
+  .map-stage iframe {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    grid-column: 2;
+    grid-row: 1;
+    height: clamp(420px, 52vh, 520px);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--r-lg);
+    filter: saturate(.85);
+  }
+
+  .map-overlay {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+  }
+
+  .map-card {
+    max-width: none;
+    padding: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .map-card h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  }
+}
+
+/* Footer: oplichtend raster rond de cursor, net als in de hero */
+.footer .hero-spot {
+  z-index: -1;
+}
+
+.footer:hover .hero-spot {
+  opacity: .8;
+}
+
+/* Portret (home): geen zoom/parallax, anders valt het haar bovenaan weg */
+.about-photo-img img,
+.about-photo-img img:hover {
+  transform: none !important;
+  will-change: auto;
+}

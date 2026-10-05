@@ -233,6 +233,9 @@
       }
       next.classList.add('is-active');
       current = index;
+      // elke video speelt één keer volledig vanaf het begin
+      try { if (previous !== next || next.ended) next.currentTime = 0; } catch (e) { }
+      stage.style.setProperty('--stage-ms', slideMs(next) + 'ms');
       playCurrent();
 
       var title = next.getAttribute('data-title') || '';
@@ -253,16 +256,35 @@
       loadSlide(slides[(index + 1) % slides.length], false);
     }
 
+    // duur per slide = lengte van de video (zodat het hele verhaal te zien is), anders 8 s
+    function slideMs(slide) {
+      var d = slide.duration;
+      return (d && isFinite(d) && d > 2) ? Math.round(d * 1000) : intervalMs;
+    }
+
     function stop() {
-      if (timer) window.clearInterval(timer);
+      if (timer) window.clearTimeout(timer);
       timer = null;
     }
 
     function restart() {
       stop();
       if (!canPlay || !inView || document.hidden || slides.length < 2) return;
-      timer = window.setInterval(function () { show(current + 1); }, intervalMs);
+      var slide = slides[current];
+      var elapsed = (slide.currentTime || 0) * 1000;
+      timer = window.setTimeout(function () { show(current + 1); restart(); }, Math.max(1500, slideMs(slide) - elapsed));
     }
+
+    // zodra de lengte van de huidige video bekend is: timer en voortgangsbalk bijstellen
+    slides.forEach(function (slide) {
+      slide.addEventListener('loadedmetadata', function () {
+        if (slide !== slides[current]) return;
+        stage.style.setProperty('--stage-ms', slideMs(slide) + 'ms');
+        var dot = dots[current];
+        dot.classList.remove('is-active'); void dot.offsetWidth; dot.classList.add('is-active');
+        restart();
+      });
+    });
 
     function resume() {
       show(current);
@@ -3270,6 +3292,26 @@
     }, { passive: true });
   });
 
+  // ----- Footer: zelfde oplichtend raster (footer wordt later ingeladen, dus koppelen bij eerste hover) -----
+  document.addEventListener('pointerover', function (e) {
+    var foot = e.target instanceof Element ? e.target.closest('.footer') : null;
+    if (!foot || foot.querySelector(':scope > .hero-spot')) return;
+    var spot = document.createElement('div');
+    spot.className = 'hero-spot';
+    spot.setAttribute('aria-hidden', 'true');
+    foot.insertBefore(spot, foot.firstChild);
+    var frame = null;
+    foot.addEventListener('pointermove', function (ev) {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = null;
+        var r = foot.getBoundingClientRect();
+        spot.style.setProperty('--mx', (ev.clientX - r.left).toFixed(0) + 'px');
+        spot.style.setProperty('--my', (ev.clientY - r.top).toFixed(0) + 'px');
+      });
+    }, { passive: true });
+  }, { passive: true });
+
   // ----- Kaarten: lichtvlek volgt de cursor -----
   var CARDS = '.service-card, .expertise-panel, .info-card, .contact-card, .error-link, .comparison-card, .challenge-item, .related-card, .testimonial, ' +
     '.insight-card, .other-svc, .audience-card, .svc-panel, .about-stat, .project-card, .blog-card, .feature-card, .deliver';
@@ -3280,17 +3322,6 @@
     card.style.setProperty('--mx', (e.clientX - r.left).toFixed(0) + 'px');
     card.style.setProperty('--my', (e.clientY - r.top).toFixed(0) + 'px');
   }, { passive: true });
-
-  // ----- Primaire knoppen trekken subtiel naar de cursor toe -----
-  all('.hero-btns .btn, .cta-section .btn-primary, .nav-cta, .page-hero-actions .btn-primary').forEach(function (btn) {
-    btn.addEventListener('pointermove', function (e) {
-      var r = btn.getBoundingClientRect();
-      var x = (e.clientX - r.left - r.width / 2) * 0.18;
-      var y = (e.clientY - r.top - r.height / 2) * 0.28;
-      btn.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
-    });
-    btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
-  });
 
   // ----- 3D-viewport: crosshair met coördinaten, zoals in CAD -----
   (function initStageProbe() {
