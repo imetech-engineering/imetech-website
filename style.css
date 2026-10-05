@@ -10329,3 +10329,32 @@ a.project-card:hover .project-body h3::after,
   transform: none !important;
   will-change: auto;
 }
+
+/* Headerlogo groter, zodat 'ENGINEERING' leesbaar is */
+.logo img {
+  height: 50px;
+}
+
+@media (max-width: 960px) {
+  .logo img {
+    height: 40px;
+  }
+}
+
+/* Mobiel: geen extra scrollvlak in body en geen zijwaarts schuiven/uitzoomen.
+   overflow-x: clip knipt af zonder een scrollcontainer te maken (hidden op body doet dat wel). */
+html,
+body {
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
+body {
+  overscroll-behavior-x: none;
+}
