@@ -10757,3 +10757,38 @@ a.hero-intro .hero-intro-rating {
   opacity: 1;
   color: rgba(214, 228, 243, 0.85) !important;
 }
+
+/* Wijzende portretten: uitsnede zo dat het gebaar in beeld blijft */
+.about-photo-img picture,
+.about-photo-img img {
+  display: block;
+  width: 100%;
+}
+
+.about-photo-img img {
+  aspect-ratio: 4 / 5 !important;
+  object-fit: cover;
+  object-position: center top !important;
+}
+
+@media (max-width: 860px) {
+  .about-photo-img img {
+    aspect-ratio: 1 / 1 !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .case-hero--about .case-hero-media img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+/* Telefoon: naamlabel boven in de foto, zodat het niet over de wijzende handen valt */
+@media (max-width: 860px) {
+  .about-photo figcaption {
+    top: 1rem;
+    bottom: auto;
+  }
+}
