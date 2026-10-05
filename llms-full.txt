@@ -105,7 +105,7 @@ English blog: https://imetech.nl/en/blog/
 
 ## FAQ
 
-- **Do you work remotely?** Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.
+- **Do you work remotely?** Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands and Belgium. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.
 - **What do I need for a quote?** A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed — a sketch or idea is enough to get started. After the first call you receive a clear quote.
 - **How quickly do you respond to contact requests?** Usually within 24 hours on business days via email or the contact form. For urgent questions you can call directly at +31 6 12 38 54 39.
 - **Which disciplines does IMeTech cover?** Software (embedded & PLC), electronics & PCB design, mechanical design and CAD, data science / machine learning and complete product development — one point of contact for the full picture, from idea to prototype.

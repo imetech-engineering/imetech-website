@@ -10358,3 +10358,402 @@ body {
 body {
   overscroll-behavior-x: none;
 }
+
+/* Case-hero's (project/dienst/over mij): inhoud schuift niet weg bij scrollen,
+   anders verdwijnen de feiten-/inhoudsbalk achter de sectie eronder */
+.page-hero.case-hero .wrap {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   HERO: persoonlijk introblok (foto + naam + rating) i.p.v. losse cijferrij
+   ========================================================================== */
+.hero-intro {
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  flex-wrap: wrap;
+  max-width: 34rem;
+  margin-top: clamp(1.75rem, 3.5vh, 2.5rem);
+  padding-top: clamp(1.25rem, 2.5vh, 1.75rem);
+  border-top: 1px solid var(--line-dark);
+}
+
+.hero-intro-photo {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 18%;
+  box-shadow: 0 0 0 2px var(--ink), 0 0 0 3px rgba(91, 188, 236, 0.7);
+}
+
+.hero-intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  min-width: 0;
+}
+
+.hero-intro-text strong {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.0625rem;
+}
+
+.hero-intro-text span {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--on-dark-muted);
+}
+
+.hero-intro-rating {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  margin-left: auto;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--line-dark);
+  color: var(--on-dark-muted);
+  font-size: .85rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.hero-intro-rating:hover {
+  color: #fff;
+}
+
+.hero-intro-stars {
+  color: #f6b93b;
+  letter-spacing: .12em;
+  font-size: .95rem;
+}
+
+@media (max-width: 960px) {
+  .hero-intro {
+    gap: .75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .hero-intro-photo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hero-intro-text strong {
+    font-size: .975rem;
+  }
+
+  .hero-intro-text span {
+    font-size: .62rem;
+  }
+
+  .hero-intro-rating {
+    padding-left: .85rem;
+    font-size: .75rem;
+  }
+
+  .hero-intro-stars {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-intro-rating {
+    display: none;
+  }
+}
+
+/* ---------- Introkaart: groter portret, klikbaar naar Over mij ---------- */
+a.hero-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 36rem;
+  margin-top: clamp(1.75rem, 3.5vh, 2.75rem);
+  padding: 1rem 1.25rem 1rem 1rem;
+  border: 1px solid var(--line-dark);
+  border-top: 1px solid var(--line-dark);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.035);
+  text-decoration: none;
+  transition: border-color .25s ease, background .25s ease, transform .35s var(--ease);
+}
+
+a.hero-intro:hover {
+  border-color: rgba(91, 188, 236, 0.55);
+  background: rgba(34, 157, 216, 0.08);
+}
+
+a.hero-intro .hero-intro-photo {
+  width: 96px;
+  height: 96px;
+  object-position: center 15%;
+  box-shadow: 0 0 0 3px var(--ink), 0 0 0 4px rgba(91, 188, 236, 0.75);
+}
+
+.hero-intro-text strong {
+  font-size: 1.2rem;
+}
+
+.hero-intro-more {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .35rem;
+  font-family: var(--font-sans) !important;
+  font-size: .9rem !important;
+  font-weight: 600;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--cyan-300) !important;
+}
+
+.hero-intro-more svg {
+  width: 15px;
+  height: 15px;
+  transition: transform .3s var(--ease);
+}
+
+a.hero-intro:hover .hero-intro-more svg {
+  transform: translateX(3px);
+}
+
+a.hero-intro .hero-intro-rating {
+  align-self: stretch;
+  justify-content: center;
+}
+
+/* ---------- Desktop: hero vult het scherm zonder lege vlakken ---------- */
+@media (min-width: 961px) {
+  /* logo-rij valt nog in het eerste scherm */
+  .hero {
+    height: calc(100svh - 90px);
+    min-height: 620px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, min(5.2vw, 7.4vh), 5.8rem);
+  }
+
+  .hero-sub {
+    font-size: clamp(1.05rem, min(1.4vw, 2vh), 1.35rem);
+    max-width: 34rem;
+  }
+
+  .stage {
+    max-width: min(820px, 92vh);
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero .wrap.hero-content {
+    max-width: 1380px;
+  }
+}
+
+@media (max-width: 960px) {
+  a.hero-intro {
+    gap: .9rem;
+    padding: .75rem .9rem .75rem .75rem;
+    margin-top: 1.25rem;
+  }
+
+  a.hero-intro .hero-intro-photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-intro-text strong {
+    font-size: 1rem;
+  }
+
+  .hero-intro-more {
+    font-size: .8rem !important;
+    margin-top: .15rem;
+  }
+}
+
+@media (min-width: 961px) {
+  .hero-content {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  }
+
+  .stage {
+    width: min(100%, 900px, calc((100svh - var(--header-h) - 260px) * 4 / 3));
+  }
+}
+
+a.hero-intro {
+  flex-wrap: nowrap;
+}
+
+a.hero-intro .hero-intro-rating {
+  flex-shrink: 0;
+}
+
+@media (min-width: 961px) {
+  .hero h1 {
+    font-size: clamp(2.8rem, min(4.5vw, 7vh), 5.2rem);
+  }
+}
+
+/* Hoge schermen: hero niet oneindig hoog laten worden; daaronder komt meer inhoud in beeld */
+@media (min-width: 961px) {
+  .hero {
+    height: min(calc(100svh - 90px), 940px);
+  }
+}
+
+/* ==========================================================================
+   HEADER: diensten-menu met omschrijving · mobiel menu met direct contact
+   ========================================================================== */
+.nav-dropdown-menu {
+  min-width: 320px;
+}
+
+.nav-dropdown-menu a {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+
+.nav-dd-title {
+  font-weight: 600;
+  color: inherit;
+}
+
+.nav-dd-desc {
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.nav-dropdown-menu a.nav-dd-all {
+  flex-direction: row;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .35rem;
+  border-top: 1px solid var(--line);
+  padding-top: .8rem;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.nav-dropdown-menu a.nav-dd-all svg {
+  width: 15px;
+  height: 15px;
+}
+
+.nav-dropdown-menu a.nav-dd-all::after {
+  display: none;
+}
+
+.mobile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-dark, rgba(255, 255, 255, 0.12));
+}
+
+.mobile-nav .mobile-contact a {
+  font-size: .95rem !important;
+  font-weight: 500;
+  opacity: .85;
+  padding: .35rem 0;
+}
+
+/* ==========================================================================
+   FOOTER: intro, sociale pictogrammen, rating en werkgebied
+   ========================================================================== */
+.footer-meta {
+  margin-top: .75rem;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--cyan-300);
+}
+
+.footer-social {
+  display: flex;
+  gap: .6rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+  color: var(--on-dark-muted);
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.footer-social a:hover {
+  color: #fff;
+  border-color: var(--cyan);
+  background: rgba(34, 157, 216, 0.15);
+}
+
+.footer-social svg {
+  width: 17px;
+  height: 17px;
+}
+
+.footer-stars {
+  color: #f6b93b;
+  letter-spacing: .08em;
+}
+
+.footer-area {
+  margin-top: .35rem;
+  font-size: .85rem;
+  color: var(--on-dark-muted);
+  opacity: .75;
+}
+
+.nav-dropdown-menu a {
+  position: relative;
+  align-items: flex-start;
+  padding-right: 2.2rem;
+  white-space: normal;
+}
+
+.nav-dropdown-menu a::after {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.nav-dd-title {
+  color: #fff;
+}
+
+.nav-dd-desc {
+  color: rgba(214, 228, 243, 0.55);
+}
+
+.nav-dropdown-menu a.nav-dd-all {
+  border-top-color: var(--line-dark);
+  color: var(--cyan-300);
+}
+
+.mobile-nav .mobile-contact a {
+  opacity: 1;
+  color: rgba(214, 228, 243, 0.85) !important;
+}
