@@ -12,12 +12,24 @@
   }
 
   // ----- Eigen scroll-lus: één requestAnimationFrame per frame voor alle effecten -----
+  // Handlers meten alleen en zetten hun waarden via set(); daarna wordt alles in één keer geschreven.
+  // Zo dwingt een schrijfactie geen nieuwe layout af voor de volgende meting (belangrijk op telefoons).
   var handlers = [];
+  var writes = [];
   var ticking = false;
+  function set(el, name, value) { writes.push(el, name, value); }
   function run() {
     ticking = false;
     var vh = window.innerHeight;
     handlers.forEach(function (fn) { fn(vh); });
+    for (var i = 0; i < writes.length; i += 3) {
+      var el = writes[i], name = writes[i + 1], value = writes[i + 2];
+      var cache = el._fx || (el._fx = {});
+      if (cache[name] === value) continue;
+      cache[name] = value;
+      if (name === 'text') el.textContent = value; else el.style.setProperty(name, value);
+    }
+    writes.length = 0;
   }
   function request() {
     if (!ticking) { ticking = true; requestAnimationFrame(run); }
@@ -32,15 +44,13 @@
     scale.className = 'fx-scale';
     scale.setAttribute('aria-hidden', 'true');
     frame.appendChild(scale);
-    var last = '';
     handlers.push(function () {
       var h = hero.offsetHeight || 1;
       if (window.scrollY > h * 1.2) return;
       var p = clamp(window.scrollY / h, 0, 1);
-      hero.style.setProperty('--fx-h', p.toFixed(4));
+      set(hero, '--fx-h', p.toFixed(4));
       // tekenschaal zoals in het titelblok van een werktekening
-      var txt = 'Schaal 1:' + (1 + p * 1.5).toFixed(2);
-      if (txt !== last) { scale.textContent = txt; last = txt; }
+      set(scale, 'text', 'Schaal 1:' + (1 + p * 1.5).toFixed(2));
     });
   }
 
@@ -74,7 +84,7 @@
         if (r.bottom < -vh * 0.2 || r.top > vh * 1.2) return;
         // start als de tekst onderin komt, klaar als hij halverwege het scherm staat
         var p = clamp((vh * 0.9 - r.top) / (vh * 0.4 + r.height), 0, 1);
-        el.style.setProperty('--fx-p', p.toFixed(4));
+        set(el, '--fx-p', p.toFixed(4));
       });
     });
   }
@@ -99,7 +109,7 @@
       handlers.push(function (vh) {
         var r = section.getBoundingClientRect();
         if (r.bottom < 0 || r.top > vh) return;
-        dim.style.setProperty('--fx-d', clamp((vh * 0.95 - r.top) / (vh * 0.4), 0, 1).toFixed(4));
+        set(dim, '--fx-d', clamp((vh * 0.95 - r.top) / (vh * 0.4), 0, 1).toFixed(4));
       });
     });
   }
@@ -110,7 +120,7 @@
       handlers.push(function (vh) {
         var r = el.getBoundingClientRect();
         if (r.bottom < 0 || r.top > vh) return;
-        el.style.setProperty('--fx-c', clamp((vh - r.top) / (vh * 0.55), 0, 1).toFixed(4));
+        set(el, '--fx-c', clamp((vh - r.top) / (vh * 0.55), 0, 1).toFixed(4));
       });
     });
   }
@@ -149,7 +159,7 @@
       steps.forEach(function (step, i) {
         var depth = 0;
         for (var j = i + 1; j < steps.length; j++) depth += cover[j];
-        step.style.setProperty('--fx-s', Math.min(depth, 3).toFixed(4));
+        set(step, '--fx-s', Math.min(depth, 3).toFixed(4));
       });
     });
   }
