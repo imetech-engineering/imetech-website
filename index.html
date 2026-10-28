@@ -42,6 +42,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="/videos/rollator-poster.webp" fetchpriority="high">
   <link rel="stylesheet" href="/style.css?v=20261005r">
+  <!-- Preview scroll-effecten: alleen actief na ?preview=scroll (onthouden), uitzetten met ?preview=off -->
+  <script>(function(){try{var k='imetechPreview',m=/[?&]preview=([a-z]+)/.exec(location.search);if(m){if(m[1]==='off')localStorage.removeItem(k);else localStorage.setItem(k,m[1]);}if(localStorage.getItem(k)!=='scroll'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var d=document,l=d.createElement('link'),s=d.createElement('script');d.documentElement.classList.add('fx');l.rel='stylesheet';l.href='/fx/scroll-fx.css?v=1';s.src='/fx/scroll-fx.js?v=1';d.head.appendChild(l);d.head.appendChild(s);}catch(e){}})();</script>
 
   <script type="application/ld+json">
   {

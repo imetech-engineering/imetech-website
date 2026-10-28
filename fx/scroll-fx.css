@@ -1,0 +1,313 @@
+/* ===== PREVIEW: scroll-effecten voor de homepage =====
+   Alleen geladen met de vlag ?preview=scroll; alles hangt onder html.fx.
+   Waarden komen uit /fx/scroll-fx.js: --fx-h (hero), --fx-p (lezen), --fx-d (maatlijn),
+   --fx-c (uitsnede), --fx-s (tekenbladen); allemaal 0 → 1 (--fx-s tot 3). */
+
+/* ---------- Hero: uitzoomen met diepte ---------- */
+.fx .hero {
+  perspective: 1400px;
+}
+
+/* inhoud blijft achter (beweegt mee omlaag), dus de pagina schuift er als een blad overheen */
+.fx .hero-copy {
+  transform: translate3d(0, calc(var(--fx-h, 0) * 32svh), 0);
+  opacity: calc(1 - var(--fx-h, 0) * 1.6);
+}
+
+.fx .hero .stage {
+  transform-origin: 50% 0;
+  transform:
+    translate3d(0, calc(var(--fx-h, 0) * 46svh), 0)
+    rotateX(calc(var(--fx-h, 0) * 16deg))
+    scale(calc(1 - var(--fx-h, 0) * .22));
+  opacity: calc(1 - var(--fx-h, 0) * .9);
+}
+
+/* blauwdrukraster zoomt in de tegenovergestelde richting: geeft diepte */
+.fx .hero::before {
+  transform-origin: 72% 42%;
+  transform: scale(calc(1 + var(--fx-h, 0) * .35));
+}
+
+/* hoekmarkeringen van de viewport wijken uit, alsof de camera terugtrekt */
+.fx .stage-tick {
+  transition: none;
+}
+
+.fx .stage-tick--tl { transform: translate3d(calc(var(--fx-h, 0) * -36px), calc(var(--fx-h, 0) * -36px), 0); }
+.fx .stage-tick--tr { transform: translate3d(calc(var(--fx-h, 0) * 36px), calc(var(--fx-h, 0) * -36px), 0); }
+.fx .stage-tick--bl { transform: translate3d(calc(var(--fx-h, 0) * -36px), calc(var(--fx-h, 0) * 36px), 0); }
+.fx .stage-tick--br { transform: translate3d(calc(var(--fx-h, 0) * 36px), calc(var(--fx-h, 0) * 36px), 0); }
+
+.fx-scale {
+  position: absolute;
+  top: .7rem;
+  left: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cyan-300);
+  opacity: clamp(0, calc(var(--fx-h, 0) * 8), .85);
+  pointer-events: none;
+}
+
+/* sectie onder de hero ligt er zichtbaar bovenop */
+.fx .clients {
+  z-index: 3;
+  box-shadow: 0 -24px 48px -12px rgba(0, 0, 0, .45);
+}
+
+/* ---------- Lezen: woorden lichten op ---------- */
+.fx-read .fx-w {
+  opacity: clamp(.18, calc((var(--fx-p, 0) * 1.1 - var(--t, 0)) / .1), 1);
+}
+
+/* ---------- Maatlijn bovenaan elke sectie ---------- */
+.fx .fx-dim-host {
+  position: relative;
+}
+
+.fx .fx-dim {
+  position: absolute;
+  z-index: 3;
+  top: clamp(1.25rem, 3vw, 2.25rem);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 14px;
+  color: var(--cyan);
+  pointer-events: none;
+}
+
+.fx-dim-ext {
+  width: 1px;
+  height: 14px;
+  background: currentColor;
+  opacity: calc(var(--fx-d, 0) * 3 * .55);
+  transform: scaleY(clamp(0, calc(var(--fx-d, 0) * 3), 1));
+}
+
+/* lijn groeit vanuit het midden naar beide maatpijlen */
+.fx-dim-line {
+  position: relative;
+  flex: 1;
+  height: 1px;
+}
+
+.fx-dim-line::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: .45;
+  transform: scaleX(clamp(0, calc((var(--fx-d, 0) - .15) / .7), 1));
+}
+
+.fx-dim-line i {
+  position: absolute;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-top: 3.5px solid transparent;
+  border-bottom: 3.5px solid transparent;
+  opacity: clamp(0, calc((var(--fx-d, 0) - .8) * 5), .8);
+}
+
+.fx-dim-line i:first-child { left: 0; border-right: 9px solid currentColor; }
+.fx-dim-line i:last-child { right: 0; border-left: 9px solid currentColor; }
+
+.fx-dim-tag {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + .35rem);
+  transform: translate3d(-50%, calc((1 - clamp(0, calc((var(--fx-d, 0) - .6) * 2.5), 1)) * 6px), 0);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: clamp(0, calc((var(--fx-d, 0) - .6) * 2.5), .85);
+}
+
+/* ---------- Uitsnedes: beeld en CTA openen mee met de scroll ---------- */
+.fx .about-photo .about-photo-img,
+.fx .case-media .case-media-img {
+  clip-path: inset(
+    calc((1 - var(--fx-c, 0)) * 12%) calc((1 - var(--fx-c, 0)) * 12%)
+    calc((1 - var(--fx-c, 0)) * 12%) calc((1 - var(--fx-c, 0)) * 12%)
+    round var(--r-lg));
+  transition: none;
+}
+
+.fx .cta-section .wrap {
+  clip-path: inset(0 calc((1 - var(--fx-c, 0)) * 9%) round var(--r-lg));
+}
+
+.fx .cta-section .wrap > * {
+  transform: translate3d(0, calc((1 - var(--fx-c, 0)) * 24px), 0);
+}
+
+/* ---------- Werkwijze: stapel tekenbladen ---------- */
+/* clip i.p.v. hidden: knipt af zonder scrollcontainer, anders werkt sticky niet */
+.fx .section-steps {
+  overflow: visible;
+}
+
+@supports (overflow: clip) {
+  .fx .section-steps {
+    overflow: clip;
+  }
+}
+
+.fx .steps.fx-sheets {
+  padding-bottom: 12vh;
+}
+
+.fx .fx-sheets::before,
+.fx .fx-sheets::after {
+  display: none;
+}
+
+.fx .fx-sheets .step {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem + var(--i, 0) * 1rem);
+  min-height: 14rem;
+  margin-bottom: 24vh;
+  padding: 1.75rem 1.75rem 3.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(rgba(34, 157, 216, .06) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(34, 157, 216, .06) 1px, transparent 1px) 0 0 / 24px 24px,
+    var(--surface);
+  box-shadow: var(--shadow-md);
+  transform-origin: 50% 0;
+  transform: scale(calc(1 - var(--fx-s, 0) * .045));
+  will-change: transform;
+}
+
+.fx .fx-sheets .step:last-child {
+  margin-bottom: 0;
+}
+
+/* blad dat naar achteren gaat, wordt iets doffer */
+.fx .fx-sheets .step::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--paper-2);
+  opacity: calc(var(--fx-s, 0) * .35);
+  pointer-events: none;
+}
+
+/* titelblok rechtsonder, zoals op een werktekening */
+.fx-sheet-block {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-radius: var(--r-sm) 0 var(--r-lg) 0;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.fx-sheet-block > * {
+  padding: .45rem .75rem;
+}
+
+.fx-sheet-block b {
+  border-left: 1px solid var(--line);
+  font-weight: 500;
+  color: var(--brand);
+}
+
+@media (max-width: 860px) {
+  .fx .fx-sheets .step {
+    top: calc(var(--header-h) + 1rem + var(--i, 0) * .65rem);
+    min-height: 0;
+    margin-bottom: 18vh;
+    padding: 1.4rem 1.25rem 3rem;
+    gap: 1rem;
+  }
+}
+
+/* ---------- Previewlabel ---------- */
+.fx-badge {
+  position: fixed;
+  z-index: 60;
+  left: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .45rem .5rem .45rem .75rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  background: rgba(5, 17, 31, .92);
+  color: var(--on-dark-muted);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .04em;
+  box-shadow: var(--shadow-md);
+}
+
+.fx-badge i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(34, 157, 216, .25);
+}
+
+.fx-badge a {
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  text-decoration: none;
+}
+
+.fx-badge a:hover {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+/* intro links blijft staan naast de stapel (cel moet daarvoor de volle hoogte hebben) */
+.fx .steps-intro {
+  align-self: stretch;
+}
+
+@media (max-width: 860px) {
+  /* hero staat op mobiel gestapeld: minder verschuiving, anders zakt het model in de logostrook */
+  .fx .hero-copy {
+    transform: translate3d(0, calc(var(--fx-h, 0) * 14svh), 0);
+  }
+
+  .fx .hero .stage {
+    transform:
+      translate3d(0, calc(var(--fx-h, 0) * 18svh), 0)
+      rotateX(calc(var(--fx-h, 0) * 12deg))
+      scale(calc(1 - var(--fx-h, 0) * .15));
+  }
+
+  .fx-badge span {
+    display: none;
+  }
+
+  .fx-badge::after {
+    content: 'Preview';
+    order: 1;
+  }
+
+  .fx-badge a {
+    order: 2;
+  }
+}
