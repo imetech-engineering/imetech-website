@@ -10821,11 +10821,6 @@ a.hero-intro .hero-intro-rating {
   will-change: transform;
 }
 
-.clients-marquee:hover .clients-track,
-.clients-marquee:focus-within .clients-track {
-  animation-play-state: paused;
-}
-
 .clients-marquee .clients-list {
   flex: none;
   display: flex;
