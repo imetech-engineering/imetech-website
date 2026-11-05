@@ -3191,6 +3191,47 @@
     [600, 1500, 3000].forEach(function (ms) { setTimeout(requestScroll, ms); });
   });
 
+  // ----- Opdrachtgevers: eindeloos doorlopende logo-strip -----
+  // De lijst wordt in een track gezet en gekloond tot de strip altijd vol is;
+  // de animatie schuift precies één lijstbreedte op, zodat de lus naadloos is.
+  // Staat vóór de 'reduce'- en 'finePointer'-returns: loopt dus ook bij 'reduce motion'
+  // en op aanraakschermen (rustige, decoratieve beweging; keuze Ivo).
+  (function () {
+    all('.clients-list').forEach(function (list) {
+      var marquee = document.createElement('div');
+      marquee.className = 'clients-marquee';
+      var track = document.createElement('div');
+      track.className = 'clients-track';
+      list.parentNode.insertBefore(marquee, list);
+      marquee.appendChild(track);
+      track.appendChild(list);
+
+      function addClone() {
+        var clone = list.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        all('img', clone).forEach(function (img) { img.alt = ''; });
+        track.appendChild(clone);
+      }
+
+      function fit() {
+        var loop = list.offsetWidth;
+        if (!loop) return;
+        // genoeg kopieën om de zichtbare breedte plus één lus te vullen
+        var needed = Math.ceil(marquee.offsetWidth / loop) + 1;
+        while (track.children.length < needed) addClone();
+        track.style.setProperty('--clients-loop', loop + 'px');
+        track.style.setProperty('--clients-dur', Math.round(loop / 45) + 's');
+      }
+
+      fit();
+      all('img', list).forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', fit, { once: true });
+      });
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(marquee);
+      else window.addEventListener('resize', fit);
+    });
+  })();
+
   if (reduce) return;
 
   // ----- Koppen: woorden schuiven één voor één omhoog zodra de kop in beeld komt -----
