@@ -179,7 +179,7 @@
 
   /* ---------- Lenis: soepel scrollen, alleen met muis/trackpad ---------- */
   if (finePointer && window.Lenis) {
-    var lenis = new window.Lenis({ duration: 1.15, smoothWheel: true, anchors: { offset: -80 } });
+    var lenis = new window.Lenis({ duration: 1.15, smoothWheel: true, anchors: { offset: -80 }, prevent: function (n) { return n.closest && n.closest('.floating-cta'); } });
     lenis.on('scroll', function (e) { ST.update(); onScrollHeader(e.scroll); });
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);

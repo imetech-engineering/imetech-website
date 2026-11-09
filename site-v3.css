@@ -396,3 +396,19 @@ main > section:last-child { position: relative; z-index: 1; border-bottom-left-r
 /* hero loopt door in de opdrachtgevers-strook: één vlak, de strook rondt samen af */
 .page-hero.case-hero:has(+ .clients) { border-radius: 0; }
 .page-hero.case-hero + .clients { border-radius: 0 0 var(--rad) var(--rad); }
+
+/* lichte FAQ loopt door tot in het blauwe contactblok: de afgeronde hoek toont blauw */
+.faq { position: relative; z-index: 2; }
+.faq + .cta.dark { margin-top: calc(var(--rad-xl) * -1); padding-top: calc(clamp(7rem, 14vw, 11rem) + var(--rad-xl)); }
+/* ingesprongen paneel vlak voor het contactblok: los ervan, zodat de hoeken op de pagina liggen */
+.section-alt:not(.faq-section):has(+ .cta-section) { margin-bottom: clamp(1.5rem, 4vw, 3rem); }
+
+/* contact-popup: alles op de donkere ondergrond */
+.floating-panel .floating-action-btn { background: rgba(255, 255, 255, .05); color: var(--x-text); }
+.floating-panel .floating-action-btn:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+.floating-panel .floating-action-btn span { color: inherit; }
+.floating-panel__divider::before { position: static; inset: auto; }
+.floating-panel__divider span { background: none; color: var(--x-muted); }
+
+/* lage schermen: de velden scrollen binnen de popup in plaats van achter de verzendknop te schuiven */
+.floating-panel__fields { min-height: 0; overflow-y: auto; overscroll-behavior: contain; margin-inline: -4px; padding: 4px; scrollbar-width: thin; scrollbar-color: rgba(150, 195, 235, .3) transparent; }

@@ -54,6 +54,7 @@
     var ftr = document.querySelector('.ftr');
     var cta = document.querySelector('.floating-cta');
     if (!ftr || !cta || !('IntersectionObserver' in window)) return false;
+    cta.setAttribute('data-lenis-prevent', ''); // scrollen in de popup blijft in de popup
     // ook verbergen boven het contactblok: daar valt de knop weg
     var seen = new Set();
     var io = new IntersectionObserver(function (entries) {
