@@ -54,7 +54,7 @@
     var ftr = document.querySelector('.ftr');
     var cta = document.querySelector('.floating-cta');
     if (!ftr || !cta || !('IntersectionObserver' in window)) return false;
-    // ook verbergen boven het cyaan contactblok: daar valt de knop weg
+    // ook verbergen boven het contactblok: daar valt de knop weg
     var seen = new Set();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });

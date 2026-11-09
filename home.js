@@ -261,6 +261,30 @@
         scrollTrigger: { trigger: next, start: 'top bottom', end: 'top ' + (96 + (i + 1) * 16) + 'px', scrub: true } });
     });
   });
+  /* ---------- werkwijze op telefoons: zelfde stapeling; een kaart hoger dan het scherm blijft pas staan als de onderkant in beeld is ---------- */
+  mm.add('(max-width: 900px)', function () {
+    var cards = $$('.scard');
+    function stick(card, i) {
+      return Math.min(76 + i * 10, document.documentElement.clientHeight - card.offsetHeight - 12);
+    }
+    function measure() {
+      cards.forEach(function (card, i) { card.style.setProperty('--stick', stick(card, i) + 'px'); });
+    }
+    cards.forEach(function (card) { card.classList.add('is-stacked'); });
+    measure();
+    ScrollTrigger.addEventListener('refreshInit', measure);
+    cards.forEach(function (card, i) {
+      var next = cards[i + 1];
+      if (!next) return;
+      gsap.to(card, { scale: 0.94, '--dim': 0.28, ease: 'none',
+        scrollTrigger: { trigger: next, start: 'top bottom', end: function () { return 'top ' + stick(next, i + 1) + 'px'; }, scrub: true, invalidateOnRefresh: true } });
+    });
+    return function () {
+      ScrollTrigger.removeEventListener('refreshInit', measure);
+      cards.forEach(function (card) { card.classList.remove('is-stacked'); card.style.removeProperty('--stick'); });
+    };
+  });
+
   gsap.utils.toArray('.scard').forEach(function (card) {
     gsap.from(card.querySelector('.scard-num'), { yPercent: 40, opacity: 0, duration: 1.2, ease: EASE, scrollTrigger: { trigger: card, start: 'top 80%', once: true } });
   });

@@ -367,17 +367,23 @@ main > section:last-child { position: relative; z-index: 1; border-bottom-left-r
 .page-hero.page-hero { padding-bottom: clamp(3.5rem, 6vw, 5.5rem); }
 .page-hero + section .breadcrumbs-wrap { padding-top: clamp(1.25rem, 2.5vw, 2rem); }
 
-/* contactblok: cyaan uit het logo, zodat het loskomt van de donkere footer */
-.cta.dark, .cta-section, .section:not(.section-alt):not(.section-testimonials) + .cta-section { background: #229dd8; color: #061021; }
-.cta > .field, .cta-section > .field { filter: brightness(0); opacity: .5; }
-.cta.dark h1, .cta.dark h2, .cta.dark h3, .cta.dark h2 em, .cta-section h2, .cta-section h2 em { color: #061021; }
-.cta.dark .kicker, .cta-section .label { color: #061021; }
-.cta.dark .cta-details p, .cta-section p { color: rgba(6, 16, 33, .86); }
-.cta.dark .cta-details a { color: #061021; }
-.cta.dark .cta-ball, .cta-section .btn-primary { background: #061021; color: #fff; }
+/* contactblok: diep merkblauw, los van de lichte FAQ erboven en de donkere footer eronder; cyaan is alleen voor de knop */
+.cta.dark, .cta-section, .section:not(.section-alt):not(.section-testimonials) + .cta-section {
+  background: radial-gradient(90% 130% at 100% 0, #17558f 0, #0d3566 58%, #0a2a52 100%); color: var(--on-dark);
+}
+.cta.dark .kicker, .cta-section .label { color: var(--cyan-hi); }
+.cta.dark .cta-details p, .cta-section p { color: rgba(236, 243, 251, .86); }
+.cta.dark .cta-ball, .cta-section .btn-primary { background: var(--cyan); color: #061021; }
 .cta.dark .cta-ball:hover, .cta-section .btn-primary:hover { background: #fff; color: #061021; }
-.cta-section .btn-outline, .cta-section .btn-secondary { background: none; color: #061021; border-color: rgba(6, 16, 33, .45); }
-.cta-section .btn-outline:hover, .cta-section .btn-secondary:hover { background: #061021; color: #fff; border-color: #061021; }
+.cta-section .btn-outline, .cta-section .btn-secondary { background: none; color: #fff; border-color: rgba(255, 255, 255, .45); }
+.cta-section .btn-outline:hover, .cta-section .btn-secondary:hover { background: #fff; color: #061021; border-color: #fff; }
+
+/* telefoon: geen losse bol maar een brede, duidelijke knop */
+@media (max-width: 900px) {
+  .cta.dark .cta-ball { width: 100%; height: auto; border-radius: 999px; padding: 1.25rem 1.5rem; display: flex; justify-content: center; align-items: center; gap: .7em; font-size: 1.2rem; font-weight: 700; box-shadow: 0 14px 34px -12px rgba(34, 157, 216, .75); }
+  .cta.dark .cta-ball br { display: none; }
+  .cta.dark .cta-ball::after { content: "\2192" / ""; font-size: 1.25em; line-height: 1; }
+}
 
 /* projectkop: naast de foto kleiner, zodat lange woorden binnen de eigen kolom blijven */
 .case-hero h1 { font-size: clamp(2.6rem, 3.9vw, 3.5rem); max-width: none; hyphens: manual; }
@@ -386,3 +392,7 @@ main > section:last-child { position: relative; z-index: 1; border-bottom-left-r
 /* projectfoto: altijd de hele foto, het kader volgt de verhouding van de foto */
 .case-hero:not(.case-hero--about) .case-hero-media { justify-self: center; max-width: 100%; width: fit-content; }
 .case-hero:not(.case-hero--about) .case-hero-media img { width: auto; height: auto; max-width: 100%; max-height: min(72vh, 560px); aspect-ratio: auto; object-fit: contain; }
+
+/* hero loopt door in de opdrachtgevers-strook: één vlak, de strook rondt samen af */
+.page-hero.case-hero:has(+ .clients) { border-radius: 0; }
+.page-hero.case-hero + .clients { border-radius: 0 0 var(--rad) var(--rad); }
