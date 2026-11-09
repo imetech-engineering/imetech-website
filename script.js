@@ -1457,9 +1457,9 @@
 
   if (needsLoad) {
     Promise.all([
-      loadComponent('header-container', '/components/header' + suffix + '.html', 2500),
-      loadComponent('footer-container', '/components/footer' + suffix + '.html', 2500),
-      loadComponent('floating-cta-container', '/components/floating-cta' + suffix + '.html', 2500)
+      loadComponent('header-container', '/components/header' + suffix + '.html?v=20261107', 2500),
+      loadComponent('footer-container', '/components/footer' + suffix + '.html?v=20261107', 2500),
+      loadComponent('floating-cta-container', '/components/floating-cta' + suffix + '.html?v=20261107', 2500)
     ]).then(function () {
       bindCookieSettingsLinks();
       initV2();

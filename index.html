@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="language" content="nl">
   <meta name="geo.region" content="NL-GE">
@@ -13,18 +11,19 @@
   <meta name="ICBM" content="51.8996, 6.5670">
   <meta property="og:title" content="Engineering Diensten Aalten | Productontwikkeling & Technisch Ontwerp Achterhoek">
   <meta property="og:description" content="IMeTech Engineering uit Aalten: complete productontwikkeling van idee tot prototype. Mechanisch ontwerp, PCB ontwerp, embedded systemen en machine learning. Engineering diensten in de Achterhoek.">
-  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
+  <meta property="og:image" content="https://imetech.nl/images/og-home.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:url" content="https://imetech.nl/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IMeTech Engineering">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Engineering Diensten Aalten | Productontwikkeling &amp; Technisch Ontwerp Achterhoek">
+  <meta property="og:image:alt" content="IMeTech Engineering: van idee naar werkend product. Elektronica, firmware, mechanica en software uit Aalten.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Engineering Diensten Aalten | Productontwikkeling & Technisch Ontwerp Achterhoek">
   <meta name="twitter:description" content="IMeTech Engineering uit Aalten: complete productontwikkeling van idee tot prototype. Mechanisch ontwerp, PCB ontwerp, embedded systemen en machine learning. Engineering diensten in de Achterhoek.">
-  <meta name="twitter:image" content="https://imetech.nl/images/og-default.webp">
+  <meta name="twitter:image" content="https://imetech.nl/images/og-home.jpg">
   <meta name="twitter:creator" content="@imetech_engineering">
   <title>Engineering Diensten Aalten | Productontwikkeling & Technisch Ontwerp Achterhoek</title>
   <meta name="description"
@@ -37,11 +36,6 @@
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/videos/rollator-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="/style.css?v=20261105d">
 
   <script type="application/ld+json">
   {
@@ -307,516 +301,385 @@
       }
     ]
   }
-  </script></head>
+  </script>
+  <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css?v=1">
+  <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
+  <link rel="stylesheet" href="/home.css?v=9">
+  <link rel="stylesheet" href="/site-v3.css?v=6">
+  <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
+</head>
 
 <body>
-  <!-- v2 SHARED HEADER (loaded via JS) -->
-  <div id="header-container"></div>
-  <noscript>
-  <nav aria-label="Hoofdnavigatie (noscript)">
-    <a href="/">Home</a> |
-    <a href="/diensten/">Diensten</a> |
-    <a href="/projecten/">Projecten</a> |
-    <a href="/blog/">Blog</a> |
-    <a href="/over-mij/">Over mij</a> |
+  <a class="skip" href="#main">Naar inhoud</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="hdr" id="hdr">
+    <a class="hdr-logo" href="/" aria-label="IMeTech Engineering, naar home">
+      <img src="/images/logo-wit-420.webp" alt="IMeTech Engineering" width="420" height="106" />
+    </a>
+    <nav class="hdr-nav" aria-label="Hoofdnavigatie">
+      <a href="/diensten/">Diensten</a>
+      <a href="/projecten/">Projecten</a>
+      <a href="/blog/">Kennis</a>
+      <a href="/over-mij/">Over mij</a>
+    </nav>
+    <div class="hdr-lang" aria-label="Taal"><a href="/" class="is-on" aria-current="true" lang="nl">NL</a><a href="/en/" lang="en" hreflang="en">EN</a></div>
+    <a class="pill pill--light hdr-cta" data-magnetic href="/contact/">Plan een gesprek</a>
+    <button class="hdr-burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+  </header>
+  <nav class="mnav" id="mnav" aria-label="Mobiele navigatie">
+    <a href="/diensten/">Diensten</a>
+    <a href="/projecten/">Projecten</a>
+    <a href="/blog/">Kennis</a>
+    <a href="/over-mij/">Over mij</a>
     <a href="/contact/">Contact</a>
+    <div class="mnav-lang"><a href="/" class="is-on" lang="nl">NL</a><a href="/en/" lang="en" hreflang="en">EN</a></div>
   </nav>
-</noscript>
 
-  <main>
-    <!-- ===== HERO (schermvullend) ===== -->
-    <section class="hero">
-      <div class="wrap hero-content">
-        <div class="hero-copy">
-          <h1>Van idee naar <em>werkend product.</em></h1>
-          <p class="hero-sub">Elektronica, firmware, mechanica en software. Eén engineer, van eerste schets tot kleinserie.</p>
-          <div class="hero-btns">
-            <a href="/contact/" class="btn btn-primary">
-              Bespreek je project
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#werk" class="btn btn-outline">Bekijk werk</a>
-          </div>
-          <a class="hero-intro" href="/over-mij/"><img class="hero-intro-photo" src="/images/ivo-avatar.webp" alt="" width="96" height="96" decoding="async" /><span class="hero-intro-text"><strong>Ivo Mengerink</strong><span class="hero-intro-role">Engineer &amp; oprichter &middot; MSc &middot; CSWP</span><span class="hero-intro-more">Maak kennis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span></span><span class="hero-intro-rating"><span class="hero-intro-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>5.0 op Google</span></span></a>
-        </div>
+  <main id="main">
 
-        <div class="hero-visual">
-          <!-- 3D-viewport: script.js wisselt de projecten, laadt de video's en regelt swipen -->
-          <div class="stage" id="hero-stage" data-fig="Fig." data-link-label="Bekijk project">
-            <div class="stage-frame">
-              <div class="stage-media">
-                <video class="stage-slide is-active" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  poster="/videos/rollator-poster.webp" data-src="/videos/rollator.mp4" data-src-sm="/videos/rollator-card.mp4"
-                  data-title="Besturing rollator" data-meta="ESP32-C3 &middot; PCB &middot; Embedded" data-href="/projecten/besturing-rollator/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/twozero-poster.webp" data-src="/videos/twozero.mp4" data-src-sm="/videos/twozero-card.mp4"
-                  data-title="Schets tot render" data-meta="SolidWorks &middot; 3D CAD &middot; Rendering" data-href="/projecten/schets-tot-render/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/plantsappers-poster.webp" data-src="/videos/plantsappers.mp4" data-src-sm="/videos/plantsappers-card.mp4"
-                  data-title="Plantsappers" data-meta="CAD &middot; Mechanica &middot; Productietekeningen" data-href="/projecten/plantsappers-3d-productietekeningen/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/kubus-poster.webp" data-src="/videos/kubus.mp4" data-src-sm="/videos/kubus-card.mp4"
-                  data-title="Zelfbalancerende kubus" data-meta="Robotica &middot; Regeltechniek &middot; Embedded" data-href="/projecten/zelfbalancerende-kubus/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/soldeerstation-poster.webp" data-src="/videos/soldeerstation.mp4" data-src-sm="/videos/soldeerstation-card.mp4"
-                  data-title="Soldeerstation" data-meta="Solderen &middot; Embedded &middot; UI" data-href="/projecten/multifunctioneel-soldeerstation/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/labvoeding-poster.webp" data-src="/videos/labvoeding.mp4" data-src-sm="/videos/labvoeding-card.mp4"
-                  data-title="Dubbele labvoeding" data-meta="Voeding &middot; Ontwerp &middot; Prototyping" data-href="/projecten/dubbele-labvoeding/"></video>
-              </div>
-              <span class="stage-tick stage-tick--tl" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--tr" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--bl" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--br" aria-hidden="true"></span>
-              <span class="stage-tag stage-tag--right" aria-hidden="true"></span>
-              <span class="stage-swipe" aria-hidden="true">&larr; swipe &rarr;</span>
-            </div>
-            <div class="stage-caption">
-              <span class="stage-fig">Fig. 01</span>
-              <span class="stage-info">
-                <span class="stage-title">Besturing rollator</span>
-                <span class="stage-meta">ESP32-C3 &middot; PCB &middot; Embedded</span>
-              </span>
-              <a class="stage-link" href="/projecten/besturing-rollator/" aria-label="Bekijk project: Besturing rollator">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M7 17L17 7M8 7h9v9" />
-                </svg>
-              </a>
-            </div>
-            <div class="stage-dots"></div>
-          </div>
+    <!-- ===== HERO: projectfoto's zweven rond de kop en bewegen met de cursor mee ===== -->
+    <section class="hero dark" id="hero">
+      <canvas class="field" aria-hidden="true"></canvas>
+      <div class="hero-tiles" aria-label="Uitgelichte projecten">
+        <a class="htile t1" href="/projecten/vlakkelichtkoepel-besturing/" data-depth="0.9" data-label="Vlakkelichtkoepel"><span class="htile-img"><img fetchpriority="high" src="/images/hero/Vlakkelichtkoepel01.webp" alt="Vlakkelichtkoepel" loading="eager" decoding="async" /></span><span class="htile-cap"><b>Vlakkelichtkoepel</b>STM32 &middot; PCB</span></a>
+        <a class="htile t2" href="/projecten/maquette-led-installatie/" data-depth="0.5" data-label="Maquette LED-installatie"><span class="htile-img"><img src="/images/hero/MaquetteLedHero.webp" alt="Maquette LED-installatie" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Maquette LED-installatie</b>Embedded &middot; LED</span></a>
+        <a class="htile t3" href="/projecten/besturing-rollator/" data-depth="1.2" data-label="Besturing rollator"><span class="htile-img"><img src="/images/hero/rollatorBesturing01.webp" alt="Serie besturingsprints voor een rollator" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Besturing rollator</b>ESP32-C3 &middot; PCB</span></a>
+        <a class="htile t4" href="/projecten/adresprint-scd30-pcb/" data-depth="0.7" data-label="Adresprint SCD30"><span class="htile-img"><img src="/images/hero/SCD30Hero.webp" alt="Serie adresprints voor SCD30 CO2-sensoren" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Adresprint SCD30</b>PCB &middot; Modbus</span></a>
+        <a class="htile t5" href="/projecten/besturingskasten/" data-depth="1.1" data-label="Besturingskasten"><span class="htile-img"><img src="/images/hero/Besturingskast01.webp" alt="Besturingskasten" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Besturingskasten</b>PLC &middot; Sensoren</span></a>
+        <a class="htile t6" href="/projecten/plantsappers-3d-productietekeningen/" data-depth="0.6" data-label="Plantsappers"><span class="htile-img"><img src="/images/hero/plantsappersHero.webp" alt="Plantsappers in 3D CAD voor productietekeningen" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Plantsappers</b>SolidWorks &middot; Productietekeningen</span></a>
+      </div>
+      <div class="hero-inner">
+        <p class="eyebrow"><span class="dot"></span>Engineering &amp; productontwikkeling &middot; Aalten<span class="hide-sm">, Achterhoek</span></p>
+        <h1 class="hero-title" data-split>Van idee naar <em>werkend product.</em></h1>
+        <p class="hero-sub fade-up">Elektronica, firmware, mechanica en software. E&eacute;n engineer, van eerste schets tot kleinserie.</p>
+        <div class="hero-btns fade-up">
+          <a class="pill pill--cyan" data-magnetic href="/contact/">Bespreek je project <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="pill pill--ghost" data-magnetic href="#werk">Bekijk werk</a>
         </div>
       </div>
-
+      <div class="hero-proof fade-up" aria-label="Kerngegevens">
+        <a href="/projecten/"><b>22+</b> projecten<i aria-hidden="true">&rarr;</i></a>
+        <a href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer" aria-label="5.0 van 5 sterren op Google, bekijk de reviews"><span class="proof-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5.0</b> op Google<i aria-hidden="true">&#8599;</i></a>
+        <a href="/over-mij/"><b>CSWP</b> SolidWorks<i aria-hidden="true">&rarr;</i></a>
+        <a href="/over-mij/"><b>MSc</b> Engineering Systems<i aria-hidden="true">&rarr;</i></a>
+      </div>
+      <span class="scroll-cue" aria-hidden="true"><i></i></span>
     </section>
 
     <!-- ===== OPDRACHTGEVERS ===== -->
-    <section class="clients" aria-label="Werkte onder meer voor">
-      <div class="wrap clients-inner">
-        <span class="clients-label">Werkte onder meer voor</span>
-        <ul class="clients-list">
-            <li data-client="estede"><img class="client-logo client-logo--estede" src="/images/clients/estede.webp" alt="ESTEDE Scientific" width="343" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="fieldguard"><img class="client-logo client-logo--fieldguard" src="/images/clients/fieldguard.webp" alt="Fieldguard" width="423" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="vlakkelichtkoepel"><img class="client-logo client-logo--vlakkelichtkoepel" src="/images/clients/vlakkelichtkoepel.webp" alt="Vlakkelichtkoepel" width="214" height="100" loading="lazy" decoding="async" /></li>
-            <li data-client="umotion"><img class="client-logo client-logo--umotion" src="/images/clients/umotion.webp" alt="uMotion" width="70" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="twozero"><img class="client-logo client-logo--twozero" src="/images/clients/twozero.webp" alt="TWOZERO" width="480" height="62" loading="lazy" decoding="async" /></li>
-            <li data-client="r2r"><img class="client-logo client-logo--r2r" src="/images/clients/r2r.webp" alt="R2R Engineering" width="121" height="47" loading="lazy" decoding="async" /></li>
-            <li data-client="ronald"><img class="client-logo client-logo--ronald" src="/images/clients/ronald.webp" alt="Ronald Engineering" width="338" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="archisign"><img class="client-logo client-logo--archisign" src="/images/clients/archisign.webp" alt="Archisign" width="128" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="carryflor"><img class="client-logo client-logo--carryflor" src="/images/clients/carryflor.webp" alt="CarryFlor" width="313" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="saleswinner"><img class="client-logo client-logo--saleswinner" src="/images/clients/saleswinner.webp" alt="Saleswinner" width="480" height="70" loading="lazy" decoding="async" /></li>
+    <section class="clients dark" aria-label="Werkte onder meer voor">
+      <p class="mono clients-label">Werkte onder meer voor</p>
+      <div class="marquee">
+        <ul class="marquee-track">
+          <li><img class="cl cl--estede" src="/images/clients/estede.webp" alt="ESTEDE Scientific" loading="lazy" /></li>
+          <li><img class="cl cl--fieldguard" src="/images/clients/fieldguard.webp" alt="Fieldguard" loading="lazy" /></li>
+          <li><img class="cl cl--vlakkelichtkoepel" src="/images/clients/vlakkelichtkoepel.webp" alt="Vlakkelichtkoepel" loading="lazy" /></li>
+          <li><img class="cl cl--umotion" src="/images/clients/umotion.webp" alt="uMotion" loading="lazy" /></li>
+          <li><img class="cl cl--twozero" src="/images/clients/twozero.webp" alt="TWOZERO" loading="lazy" /></li>
+          <li><img class="cl cl--r2r" src="/images/clients/r2r.webp" alt="R2R Engineering" loading="lazy" /></li>
+          <li><img class="cl cl--ronald" src="/images/clients/ronald.webp" alt="Ronald Engineering" loading="lazy" /></li>
+          <li><img class="cl cl--archisign" src="/images/clients/archisign.webp" alt="Archisign" loading="lazy" /></li>
+          <li><img class="cl cl--carryflor" src="/images/clients/carryflor.webp" alt="CarryFlor" loading="lazy" /></li>
+          <li><img class="cl cl--saleswinner" src="/images/clients/saleswinner.webp" alt="Saleswinner" loading="lazy" /></li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== OVER MIJ ===== -->
-    <section class="section section-alt">
-      <div class="wrap about-grid">
-        <figure class="about-photo reveal-left">
-          <div class="about-photo-img">
-            <picture>
-              <source media="(max-width: 860px)" srcset="/images/ivo-wijst-omlaag.webp" />
-              <img src="/images/ivo-wijst-rechts.webp" alt="Ivo Mengerink, engineer en oprichter van IMeTech Engineering" width="1050" height="1400" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-          <figcaption>Ivo Mengerink <span>Engineer &amp; oprichter</span></figcaption>
-        </figure>
-        <div class="about-body reveal-right">
-          <span class="label">Over mij</span>
-          <h2>De engineer achter IMeTech</h2>
-          <p>Engineer en oprichter van IMeTech Engineering, gevestigd in Aalten. BSc Mechatronica aan Saxion, praktijkervaring bij R2R Engineering en afgestudeerd als MSc Engineering Systems aan de HAN. Ik help bedrijven in de Achterhoek technische uitdagingen om te zetten in werkende oplossingen.</p>
-          <dl class="spec-list">
-            <div>
-              <dt>Opleiding</dt>
-              <dd>MSc Engineering Systems <small>HAN &middot; BSc Mechatronica Saxion</small></dd>
-            </div>
-            <div>
-              <dt>Certificering</dt>
-              <dd>CSWP <small>Certified SolidWorks Professional</small></dd>
-            </div>
-            <div>
-              <dt>Standplaats</dt>
-              <dd>Aalten, Achterhoek <small>Op locatie in de regio, op afstand door heel Nederland en België</small></dd>
-            </div>
-          </dl>
-          <a href="/over-mij/" class="btn btn-outline">Meer over mij
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== REVIEWS ===== -->
-    <section class="section section-testimonials" id="klantbeoordelingen">
+    <!-- ===== STATEMENT ===== -->
+    <section class="statement light">
       <div class="wrap">
-        <div class="section-header section-header--split reveal">
-          <div>
-            <span class="label">Referenties</span>
-            <h2>Opdrachtgevers aan het woord</h2>
-          </div>
-          <div class="rating-summary" aria-label="Klantbeoordeling 5,0 van 5">
-            <strong>5.0</strong>
-            <span><b aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b>Klantbeoordeling</span>
-          </div>
-        </div>
-        <div class="testimonials-carousel" id="google-reviews-grid" aria-live="polite">
-          <div class="testimonials-viewport" id="google-reviews-viewport">
-            <div class="testimonials-track" id="google-reviews-track">
-              <div class="testimonial reveal stagger-1">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Top discipline en heldere communicatie - absoluut een aanrader.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">N</div>
-                    <div><div class="name">Nico Provoost</div><div class="date">Recent</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Bron: Google Reviews</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-2">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Ivo heeft mij zeer goed geholpen met het ontwikkelen van een custom PCB. Daarbij een duidelijke handleiding gemaakt hoe het werkt. Ivo staat naderhand altijd klaar om te helpen met vragen. Kortom zeker een aanrader!&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">M</div>
-                    <div><div class="name">Max van der A</div><div class="date">Recent</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Bron: Google Reviews</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-3">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Ik heb de samenwerking met Ivo als zeer fijn ervaren. Ivo heeft in zeer korte tijd een custom PCB ontwikkeld en meegedacht hoe dit geoptimaliseerd kan worden. Kortom adviseer ik IMeTech aan iedereen aan!&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">R</div>
-                    <div><div class="name">Rutger de Vries</div><div class="date">Recent</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="imetech-icon" aria-hidden="true"></span><span>Bron: Klantreview</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-4">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Ik heb de samenwerking met Ivo als ontzettend prettig ervaren. Hij nam de tijd om mijn vragen duidelijk te beantwoorden en dacht actief mee tijdens het hele proces. Zijn technische kennis gaf mij veel vertrouwen en het eindresultaat was precies wat ik voor ogen had. Alles werd professioneel uitgevoerd en ik zou hem zeker opnieuw inschakelen.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">N</div>
-                    <div><div class="name">Nando Kolk</div><div class="date">Recent</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Bron: Google Reviews</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonials-cta reveal">
-          <a class="btn btn-outline" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer">
-            Bekijk alle reviews op Google &#8599;
-          </a>
+        <p class="mono kicker">01 &mdash; Aanpak</p>
+        <h2 class="big" data-split>E&eacute;n systeem, &eacute;&eacute;n engineer. Geen overdrachten tussen specialisten, geen ruis tussen print, behuizing en code.</h2>
+        <div class="statement-foot">
+          <p class="fade-up">Omdat elektronica, firmware en mechanica bij mij samenkomen, past alles in &eacute;&eacute;n keer op elkaar. Dat scheelt iteraties, tijd en kosten.</p>
+          <a class="link-arrow fade-up" href="/over-mij/">Wie ben ik <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ===== DISCIPLINES: beeldraster ===== -->
-    <section class="section section-disc" id="disciplines">
+    <!-- ===== CASE UITGELICHT ===== -->
+    <section class="case dark" id="case">
+      <div class="wrap case-grid">
+        <a class="case-media" href="/projecten/vlakkelichtkoepel-besturing/">
+          <span class="notch mono">Case uitgelicht &middot; juni 2026</span>
+          <img src="/images/case/Vlakkelichtkoepel02.webp" alt="Serie geassembleerde besturingsprints voor vlakke lichtkoepels na productie" loading="lazy" />
+          <span class="case-tags mono">STM32 &middot; PCB &middot; Embedded &middot; 433 MHz</span>
+        </a>
+        <div class="case-body">
+          <p class="mono kicker">02 &mdash; Case uitgelicht</p>
+          <h2 class="case-title" data-split>Vlakkelichtkoepel besturing</h2>
+          <p class="case-lead fade-up">Energiezuinige besturingsprint die vlakke lichtkoepels opent en sluit, met automatische regen- en accubeveiliging.</p>
+          <ol class="case-steps">
+            <li><span class="mono">Uitdaging</span><p>Het bestaande besturingssysteem verbruikte te veel energie voor toepassingen op zonne-energie.</p></li>
+            <li><span class="mono">Aanpak</span><p>E&eacute;n uniform ontwerp rond een STM32 voor netgevoede &eacute;n accu-aangedreven installaties, met regensensor, accubewaking en stroommeting per motorkanaal.</p></li>
+            <li><span class="mono">Resultaat</span><p>Een compacte, energiezuinige besturing die betrouwbaar werkt in de praktijk en eenvoudig te installeren en te onderhouden is.</p></li>
+          </ol>
+          <a class="pill pill--cyan" data-magnetic href="/projecten/vlakkelichtkoepel-besturing/">Bekijk de volledige case <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DISCIPLINES: lijst met meelopend beeld ===== -->
+    <section class="disc light" id="diensten">
       <div class="wrap">
-        <div class="section-header section-header--split reveal">
+        <div class="sec-head">
+          <p class="mono kicker">03 &mdash; Diensten</p>
+          <h2 data-split>Vijf disciplines, &eacute;&eacute;n aanspreekpunt.</h2>
+        </div>
+        <ul class="disc-list">
+          <li><a href="/diensten/productontwikkeling/" data-img="/images/disc/rollatorBesturing02.webp">
+            <span class="mono n">01</span><span class="t">Productontwikkeling</span><span class="d">Concept, R&amp;D en prototype</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/rollatorBesturing02.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/diensten/elektronica-pcb-ontwerp/" data-img="/images/disc/VlakkelichtkoepelHero.webp">
+            <span class="mono n">02</span><span class="t">Elektronica &amp; PCB</span><span class="d">Schema, layout, IoT</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/VlakkelichtkoepelHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/diensten/softwareontwikkeling/" data-img="/images/disc/pythonPLCHero.webp">
+            <span class="mono n">03</span><span class="t">Software &amp; firmware</span><span class="d">C++, Python, PLC</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/pythonPLCHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/diensten/mechanica-cad-tekeningen/" data-img="/images/disc/plantsappersHero.webp">
+            <span class="mono n">04</span><span class="t">Mechanica &amp; CAD</span><span class="d">SolidWorks, 3D-print, CNC</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/plantsappersHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/diensten/data-science-machine-learning/" data-img="/images/disc/autoannotate-photo-solution.webp">
+            <span class="mono n">05</span><span class="t">Data &amp; machine learning</span><span class="d">Analyse, vision, AI</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/autoannotate-photo-solution.webp" alt="" loading="lazy" /></a></li>
+        </ul>
+      </div>
+      <div class="disc-float" aria-hidden="true"><img alt="" /><img alt="" /></div>
+    </section>
+
+    <!-- ===== WERK ===== -->
+    <section class="work dark" id="werk">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
           <div>
-            <span class="label">Wat ik doe</span>
-            <h2>Eén systeem, vijf disciplines.</h2>
+            <p class="mono kicker">04 &mdash; Geselecteerd werk</p>
+            <h2 data-split>Gebouwd, getest, in gebruik.</h2>
           </div>
-          <p>Ontworpen als één geheel, zonder overdrachten tussen specialisten.</p>
+          <a class="link-arrow fade-up" href="/projecten/">Alle 22+ projecten <span aria-hidden="true">&rarr;</span></a>
         </div>
-        <div class="bento">
-          <a href="/diensten/productontwikkeling/" class="bento-card reveal stagger-1">
-            <img src="/images/SketchToRender04.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">Concept &middot; Prototype &middot; R&amp;D</span>
-              <h3>Productontwikkeling</h3>
-              <span class="bento-text">Het complete traject: conceptontwikkeling, R&amp;D en prototype-engineering bij één aanspreekpunt.</span>
-            </span>
+        <div class="work-grid">
+          <a class="wcard" href="/projecten/adresprint-scd30-pcb/">
+            <div class="wimg"><span class="notch notch--num">01</span><img src="/images/SCD30Hero.webp" alt="Serie adresprints voor SCD30 CO2-sensoren" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">PCB &middot; Modbus RTU &middot; Sensoren</span><h3>Adresprint SCD30</h3><p>Maatwerk adresbord voor SCD30 CO2-sensoren met Modbus-adressering via DIP-switch.</p></div>
           </a>
-          <a href="/diensten/elektronica-pcb-ontwerp/" class="bento-card reveal stagger-2">
-            <img src="/images/VlakkelichtkoepelHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">Schema &middot; Layout &middot; IoT</span>
-              <h3>Elektronica &amp; PCB</h3>
-              <span class="bento-text">Van schema en layout tot geteste, productierijpe printplaat voor embedded systemen en IoT.</span>
-            </span>
+          <a class="wcard" href="/projecten/besturing-rollator/">
+            <div class="wimg"><span class="notch notch--num">02</span><img src="/images/rollatorBesturing02.webp" alt="Twee besturingsprints voor de rollator van uMotion" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">ESP32-C3 &middot; Embedded</span><h3>Besturing rollator</h3><p>Besturingseenheid met lasergeleiding voor mensen met parkinson.</p></div>
           </a>
-          <a href="/diensten/softwareontwikkeling/" class="bento-card reveal stagger-3">
-            <img src="/images/pythonPLCHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">C++ &middot; Python &middot; PLC</span>
-              <h3>Software</h3>
-              <span class="bento-text">Embedded firmware, PLC-besturingen en applicatiesoftware voor industriële automatisering.</span>
-            </span>
+          <a class="wcard" href="/projecten/besturingskasten/">
+            <div class="wimg"><span class="notch notch--num">03</span><img src="/images/Besturingskast01.webp" alt="Besturingskast voor luchtkwaliteitsmeting" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">PLC &middot; Sensoren &middot; Paneelbouw</span><h3>Besturingskasten luchtkwaliteit</h3><p>Vijf complete besturingspanelen voor ammoniak- en CO2-monitoring.</p></div>
           </a>
-          <a href="/diensten/mechanica-cad-tekeningen/" class="bento-card reveal stagger-4">
-            <img src="/images/plantsappersHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">SolidWorks &middot; 3D-print &middot; CNC</span>
-              <h3>Mechanica</h3>
-              <span class="bento-text">3D CAD, productietekeningen en rapid prototyping in SolidWorks, CSWP-gecertificeerd.</span>
-            </span>
+          <a class="wcard" href="/projecten/maquette-led-installatie/">
+            <div class="wimg"><span class="notch notch--num">04</span><img src="/images/MaquetteLed01.webp" alt="Architectuurmaquette met LED-verlichting" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">Embedded &middot; LED &middot; Webportal</span><h3>Maquette LED-installatie</h3><p>Verlichting en energiestromen die een architectuurmaquette tot leven brengen.</p></div>
           </a>
-          <a href="/diensten/data-science-machine-learning/" class="bento-card reveal stagger-5">
-            <img src="/images/autoannotate-photo-solution.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">ML &middot; Analytics &middot; AI</span>
-              <h3>Data Science</h3>
-              <span class="bento-text">Machine learning en data-analyse voor industriële toepassingen en predictive maintenance.</span>
-            </span>
+        </div>
+      </div>
+      <span class="view-pill" aria-hidden="true">Bekijk</span>
+    </section>
+
+    <!-- ===== VISUALISATIE: 3D-animaties ===== -->
+    <section class="s2r light" id="visualisatie">
+      <div class="wrap s2r-grid">
+        <div class="s2r-copy">
+          <p class="mono kicker">05 &mdash; Ook visualisatie</p>
+          <h2 data-split>3D-renders en animaties die je product laten zien.</h2>
+          <p class="fade-up">Voor een pitch, offerte, webshop of productiepartner: een fotorealistisch 3D-model dat je product toont voordat het gebouwd is.</p>
+          <a class="link-arrow" href="/diensten/mechanica-cad-tekeningen/">Mechanica &amp; CAD <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="vids">
+          <a class="vcard" href="/projecten/plantsappers-3d-productietekeningen/">
+            <span class="vcard-media"><span class="notch mono">Plantsappers</span>
+              <video muted loop playsinline preload="none" poster="/videos/plantsappers-poster.webp" data-src="/videos/plantsappers.mp4" data-src-sm="/videos/plantsappers-card.mp4" aria-hidden="true"></video></span>
+            <span class="vcard-cap">SolidWorks &middot; Productietekeningen</span>
+          </a>
+          <a class="vcard" href="/projecten/schets-tot-render/">
+            <span class="vcard-media"><span class="notch mono">TWOZERO</span>
+              <video muted loop playsinline preload="none" poster="/videos/twozero-poster.webp" data-src="/videos/twozero.mp4" data-src-sm="/videos/twozero-card.mp4" aria-hidden="true"></video></span>
+            <span class="vcard-cap">Schets tot render &middot; 3D CAD</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== WERK: horizontale showcase ===== -->
-    <section class="section-work" id="werk">
-      <div class="work-pin">
-        <div class="wrap work-head">
-          <div class="reveal">
-            <span class="label">Portfolio</span>
-            <h2>Geselecteerd werk</h2>
+    <!-- ===== WERKWIJZE: genummerde kaarten die over elkaar schuiven ===== -->
+    <section class="steps dark" id="werkwijze">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="mono kicker">06 &mdash; Werkwijze</p>
+            <h2 data-split>Zo werken we samen</h2>
           </div>
-          <div class="work-side reveal">
-            <p>Een selectie uit ruim twintig projecten.</p>
-            <a href="/projecten/" class="text-link text-link--dark">Bekijk het volledige portfolio
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
-          </div>
+          <p class="fade-up steps-lead">Vooraf duidelijkheid over scope, planning en kosten. Vier stappen, &eacute;&eacute;n aanspreekpunt.</p>
         </div>
-        <div class="work-viewport">
-          <div class="work-track">
-            <a href="/projecten/besturing-rollator/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Besturing rollator" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">01</span>
-                <div>
-                  <h3>Besturing Rollator</h3>
-                  <p>Op maat gemaakte besturingseenheid met lasergeleiding voor parkinsonpatiënten.</p>
-                  <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/schets-tot-render/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Schets tot render" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">02</span>
-                <div>
-                  <h3>Schets tot Render</h3>
-                  <p>Complete productontwikkeling van ruwe schets tot fotorealistische 3D-render.</p>
-                  <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Rendering</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/zelfbalancerende-kubus/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Zelfbalancerende kubus" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">03</span>
-                <div>
-                  <h3>Zelfbalancerende Kubus</h3>
-                  <p>Dynamische kubus die balanceert op rand of hoek met vliegwielen.</p>
-                  <div class="project-tags"><span>Robotica</span><span>Regeltechniek</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/photobooth-beheerdashboard/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Beheerdashboard" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">04</span>
-                <div>
-                  <h3>Photobooth Beheerdashboard</h3>
-                  <p>Centraal dashboard en lokale agent voor monitoring en remote control van photobooths.</p>
-                  <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/carryvision-plantcamerasysteem/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plantcamerasysteem" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">05</span>
-                <div>
-                  <h3>CarryVision</h3>
-                  <p>Timelapse en monitoring voor kwekerijen met ESP32-CAM en Raspberry Pi.</p>
-                  <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/multifunctioneel-soldeerstation/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldeerstation" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">06</span>
-                <div>
-                  <h3>Soldeerstation</h3>
-                  <p>Soldeerstation met bout en hetelucht, nauwkeurige temperatuurregeling.</p>
-                  <div class="project-tags"><span>Solderen</span><span>Embedded</span><span>UI</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/projecten/" class="work-card work-card--all">
-              <span class="label">22+ projecten</span>
-              <strong>Bekijk het volledige portfolio</strong>
-              <span class="disc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="wrap work-foot">
-          <div class="work-progress" aria-hidden="true"><span></span></div>
-          <span class="swipe-hint" aria-hidden="true">Swipe</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CASE ===== -->
-    <section class="section section-case">
-      <div class="wrap case">
-        <figure class="case-media reveal-left">
-          <div class="case-media-img">
-            <img src="/images/VlakkelichtkoepelHero.webp" alt="Serie geassembleerde besturingsprints voor vlakke lichtkoepels na productie" width="1600" height="1200" loading="lazy" decoding="async" />
-          </div>
-          <figcaption>STM32 &middot; PCB &middot; Embedded &middot; 433 MHz</figcaption>
-          <!-- illustratie van het gedrag van de besturing, geen echte broncode -->
-          <div class="code-card" aria-hidden="true">
-            <div class="code-card-bar"><i></i><i></i><i></i><span>lichtkoepel.c &mdash; vereenvoudigd</span></div>
-            <pre><span class="ln" style="--l:0"><span class="c">// sluit zelf bij regen of lage accu</span></span><span class="ln" style="--l:1"><span class="k">if</span> (<span class="f">rain_detected</span>() || <span class="f">battery_low</span>()) {</span><span class="ln" style="--l:2">  <span class="f">motors_close</span>();</span><span class="ln" style="--l:3">}</span><span class="ln" style="--l:4"><span class="f">enter_deep_sleep</span>(); <span class="c">// zuinig in rust</span><span class="cursor"></span></span></pre>
-          </div>
-        </figure>
-        <div class="case-body reveal-right">
-          <span class="label">Case uitgelicht &middot; juni 2026</span>
-          <h2>Vlakkelichtkoepel besturing</h2>
-          <p class="case-lead">Energiezuinige besturingsprint die vlakke lichtkoepels opent en sluit, met automatische regen- en accubeveiliging.</p>
-          <dl class="case-steps">
-            <div>
-              <dt>Uitdaging</dt>
-              <dd>Het bestaande besturingssysteem verbruikte te veel energie voor toepassingen op zonne-energie.</dd>
-            </div>
-            <div>
-              <dt>Aanpak</dt>
-              <dd>Eén uniform ontwerp rond een STM32 voor netgevoede én accu-aangedreven installaties, met regensensor, accubewaking en stroommeting per motorkanaal.</dd>
-            </div>
-            <div>
-              <dt>Resultaat</dt>
-              <dd>Een compacte, energiezuinige besturing die betrouwbaar werkt in de praktijk en eenvoudig te installeren en te onderhouden is.</dd>
-            </div>
-          </dl>
-          <a href="/projecten/vlakkelichtkoepel-besturing/" class="btn btn-primary">Bekijk de volledige case
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WERKWIJZE: tijdlijn die meeloopt ===== -->
-    <section class="section section-steps">
-      <div class="wrap steps-layout">
-        <div class="steps-intro">
-          <div class="steps-sticky reveal">
-            <span class="label">Werkwijze</span>
-            <h2>Zo werken we samen</h2>
-            <p>Vooraf duidelijkheid over scope, planning en kosten.</p>
-            <a href="/contact/" class="btn btn-primary">Plan een kennismaking
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
-          </div>
-        </div>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
-            <div>
+        <ol class="stack">
+          <li class="scard c1" style="--i:0">
+            <span class="scard-num" aria-hidden="true">1</span>
+            <div class="scard-body">
+              <span class="mono">Stap 01</span>
               <h3>Verkenning</h3>
-              <p>We bespreken je uitdaging, doelen en randvoorwaarden in een kennismakingsgesprek.</p>
-              <span class="process-out">Gratis en vrijblijvend</span>
+              <p>We bespreken je uitdaging, doelen en randvoorwaarden in een kennismakingsgesprek. Een schets of idee is genoeg om te starten.</p>
+              <em>Gratis en vrijblijvend</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">Wat je krijgt</span><ul><li>Een half uur, gratis en vrijblijvend</li><li>Online of op locatie op afspraak</li><li>Je uitdaging, doelen en randvoorwaarden helder</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <div>
+          <li class="scard c2" style="--i:1">
+            <span class="scard-num" aria-hidden="true">2</span>
+            <div class="scard-body">
+              <span class="mono">Stap 02</span>
               <h3>Concept</h3>
-              <p>Ik werk een concrete aanpak uit met duidelijke planning, kosten en mijlpalen.</p>
-              <span class="process-out">Offerte met scope en planning</span>
+              <p>Ik werk een concrete aanpak uit: schema, architectuur en een duidelijke planning met kosten en mijlpalen.</p>
+              <em>Offerte per fase of op regie</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">Wat je krijgt</span><ul><li>Concrete aanpak en architectuur</li><li>Planning, kosten en mijlpalen vooraf</li><li>Offerte per fase of op regiebasis</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">03</span>
-            <div>
+          <li class="scard c3" style="--i:2">
+            <span class="scard-num" aria-hidden="true">3</span>
+            <div class="scard-body">
+              <span class="mono">Stap 03</span>
               <h3>Realisatie</h3>
-              <p>Ontwerpen, bouwen, programmeren en testen. Je blijft bij elke stap op de hoogte.</p>
-              <span class="process-out">Regelmatige updates</span>
+              <p>Ontwerpen, bouwen, programmeren en testen. Je blijft bij elke stap op de hoogte en ziet tussentijds resultaat.</p>
+              <em>Regelmatige updates</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">Wat je krijgt</span><ul><li>Ontwerpen, bouwen, programmeren en testen</li><li>Regelmatige updates</li><li>Tussentijds resultaat om op te reageren</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <div>
+          <li class="scard c4" style="--i:3">
+            <span class="scard-num" aria-hidden="true">4</span>
+            <div class="scard-body">
+              <span class="mono">Stap 04</span>
               <h3>Oplevering</h3>
-              <p>Volledige documentatie, overdracht en ondersteuning wanneer je het nodig hebt.</p>
-              <span class="process-out">Documentatie en overdracht</span>
+              <p>Volledige documentatie, overdracht en ondersteuning daarna. Alles is overdraagbaar, ook naar je eigen team of producent.</p>
+              <em>Documentatie en overdracht</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">Wat je krijgt</span><ul><li>Volledige documentatie</li><li>Overdracht aan je eigen team of producent</li><li>Ondersteuning wanneer je het nodig hebt</li></ul></div>
           </li>
         </ol>
       </div>
     </section>
 
+    <!-- ===== OVER + REVIEWS ===== -->
+    <section class="about light">
+      <div class="wrap about-grid">
+        <figure class="about-photo"><span class="notch mono">Aalten &middot; Achterhoek</span>
+          <img src="/images/ivo-wijst-rechts.webp" alt="Ivo Mengerink, engineer en oprichter van IMeTech Engineering" width="1050" height="1400" loading="lazy" />
+        </figure>
+        <div class="about-copy">
+          <p class="mono kicker">07 &mdash; De engineer</p>
+          <h2 data-split>Ivo Mengerink</h2>
+          <p class="fade-up">BSc Mechatronica (Saxion), praktijkervaring bij R2R Engineering en MSc Engineering Systems (HAN). Certified SolidWorks Professional. Vanuit Aalten werk ik voor maakbedrijven, startups en ondernemers in heel Nederland en Belgi&euml;.</p>
+          <div class="quotes fade-up" aria-live="polite">
+            <figure class="quote is-on"><blockquote>&ldquo;Top discipline en heldere communicatie, absoluut een aanrader.&rdquo;</blockquote><figcaption>Nico Provoost &middot; Google</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;Ivo heeft in zeer korte tijd een custom PCB ontwikkeld en meegedacht hoe dit geoptimaliseerd kan worden.&rdquo;</blockquote><figcaption>Rutger de Vries &middot; Klantreview</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;Zijn technische kennis gaf mij veel vertrouwen en het eindresultaat was precies wat ik voor ogen had.&rdquo;</blockquote><figcaption>Nando Kolk &middot; Google</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;Zeer goed geholpen met een custom PCB, inclusief duidelijke handleiding. Staat naderhand altijd klaar.&rdquo;</blockquote><figcaption>Max van der A &middot; Google</figcaption></figure>
+            <a class="stars" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 klantbeoordeling &middot; alle reviews op Google <i aria-hidden="true">&#8599;</i></a>
+          </div>
+          <a class="link-arrow" href="/over-mij/">Meer over mij <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ ===== -->
-    <section class="section faq-section" id="faq">
-      <div class="wrap">
-        <div class="section-header reveal">
-          <span class="label">FAQ</span>
-          <h2>Vragen vooraf</h2>
+    <section class="faq light" id="faq">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="mono kicker">08 &mdash; Vragen vooraf</p>
+          <h2 data-split>Goed om te weten.</h2>
         </div>
-        <div class="faq-list reveal">
-          <details class="faq-item">
-            <summary>Welke disciplines dekt IMeTech?</summary>
-            <p>Software (embedded &amp; PLC), elektronica &amp; PCB-ontwerp, mechanisch ontwerp en CAD, data science / machine learning en complete productontwikkeling &mdash; één aanspreekpunt voor het totaalplaatje, van idee tot prototype.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Werkt u ook op afstand?</summary>
-            <p>Ja. Veel projecten verlopen deels of volledig remote via videobel, e-mail en gedeelde documentatie. Ik werk voor opdrachtgevers door heel Nederland en België. Op locatie bezoek is mogelijk op afspraak wanneer dat nodig is. IMeTech Engineering is gevestigd in Aalten, Achterhoek.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is het eerste gesprek gratis?</summary>
-            <p>Ja, het kennismakingsgesprek is altijd gratis en vrijblijvend: een half uurtje, online of op locatie op afspraak. We bespreken je technische uitdaging, mogelijke aanpak en planning. Pas daarna ontvang je eventueel een offerte &mdash; zonder verplichtingen.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Wat heb ik nodig voor een offerte?</summary>
-            <p>Een korte beschrijving van je doel, eventuele tekeningen of specificaties, en gewenste planning. Geen perfect dossier nodig &mdash; een schets of idee is genoeg om te starten. Na het eerste gesprek ontvang je een offerte per fase, of we spreken samenwerking op regiebasis (uurtarief) af — net wat bij het project past.</p>
-          </details>
+        <div class="faq-list">
+          <details><summary>Welke disciplines dekt IMeTech?</summary><p>Software (embedded &amp; PLC), elektronica &amp; PCB-ontwerp, mechanisch ontwerp en CAD, data science / machine learning en complete productontwikkeling &mdash; één aanspreekpunt voor het totaalplaatje, van idee tot prototype.</p></details>
+          <details><summary>Werkt u ook op afstand?</summary><p>Ja. Veel projecten verlopen deels of volledig remote via videobel, e-mail en gedeelde documentatie. Ik werk voor opdrachtgevers door heel Nederland en België. Op locatie bezoek is mogelijk op afspraak wanneer dat nodig is. IMeTech Engineering is gevestigd in Aalten, Achterhoek.</p></details>
+          <details><summary>Is het eerste gesprek gratis?</summary><p>Ja, het kennismakingsgesprek is altijd gratis en vrijblijvend: een half uurtje, online of op locatie op afspraak. We bespreken je technische uitdaging, mogelijke aanpak en planning. Pas daarna ontvang je eventueel een offerte &mdash; zonder verplichtingen.</p></details>
+          <details><summary>Wat heb ik nodig voor een offerte?</summary><p>Een korte beschrijving van je doel, eventuele tekeningen of specificaties, en gewenste planning. Geen perfect dossier nodig &mdash; een schets of idee is genoeg om te starten. Na het eerste gesprek ontvang je een offerte per fase, of we spreken samenwerking op regiebasis (uurtarief) af &mdash; net wat bij het project past.</p></details>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="cta-section">
-      <div class="wrap reveal">
-        <h2>Een idee of een technisch probleem? Laten we het bespreken.</h2>
-        <p>Laten we je technische uitdaging bespreken. Vrijblijvend kennismakingsgesprek, geen verplichtingen.</p>
-        <a href="/contact/" class="btn btn-primary">Plan een kennismaking
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
+    <!-- ===== CTA: groot 'Neem contact op' ===== -->
+    <section class="cta dark" id="contact">
+      <canvas class="field" aria-hidden="true"></canvas>
+      <div class="wrap cta-grid">
+        <div class="cta-head">
+          <p class="mono kicker">Volgende stap</p>
+          <h2 class="huge" data-split>Neem contact op</h2>
+        </div>
+        <div class="cta-details fade-up">
+          <p>Een idee of een technisch probleem? Een half uur, gratis en vrijblijvend.</p>
+          <a href="mailto:info@imetech.nl">info@imetech.nl</a>
+          <a href="tel:+31612385439">+31 6 1238 5439</a>
+          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1, 7122 JD Aalten</a>
+        </div>
+        <a class="cta-ball" data-magnetic data-strength="0.45" href="/contact/"><span>Plan een<br>gesprek</span></a>
       </div>
     </section>
-  
-
-  
-
   </main>
 
-  <!-- SHARED FOOTER (loaded via JS) -->
-  <div id="footer-container"></div>
+  <footer class="ftr" role="contentinfo">
+    <div class="ftr-wrap">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a href="/" aria-label="IMeTech Engineering, naar home"><img src="/images/logo-wit-420.webp" alt="IMeTech Engineering" width="420" height="106" class="ftr-logo" loading="lazy" /></a>
+          <p class="ftr-tag">E&eacute;n engineer voor elektronica, firmware, mechanica en software. Van eerste schets tot kleinserie.</p>
+          <p class="ftr-status"><span class="live" aria-hidden="true"></span>Gratis kennismaking &middot; reactie binnen 24 uur op werkdagen</p>
+        </div>
+        <a class="ftr-cta" data-magnetic href="/contact/">Plan een gesprek <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="ftr-cols">
+        <nav aria-label="Diensten">
+          <p class="ftr-h">Diensten</p>
+            <a href="/diensten/softwareontwikkeling/">Softwareontwikkeling</a>
+            <a href="/diensten/elektronica-pcb-ontwerp/">Elektronica &amp; PCB</a>
+            <a href="/diensten/mechanica-cad-tekeningen/">Mechanica &amp; CAD</a>
+            <a href="/diensten/data-science-machine-learning/">Data Science &amp; ML</a>
+            <a href="/diensten/productontwikkeling/">Productontwikkeling</a>
+        </nav>
+        <nav aria-label="Navigatie">
+          <p class="ftr-h">Navigatie</p>
+            <a href="/projecten/">Projecten</a>
+            <a href="/blog/">Kennis</a>
+            <a href="/over-mij/">Over mij</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+        <address class="ftr-contact">
+          <p class="ftr-h">Contact</p>
+          <a href="mailto:info@imetech.nl">info@imetech.nl</a>
+          <a href="tel:+31612385439">+31 6 1238 5439</a>
+          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1<br>7122 JD Aalten</a>
+          <a class="ftr-rating" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 op Google</a>
+          <span class="ftr-area">Achterhoek, Nederland &amp; Belgi&euml;</span>
+        </address>
+        <div class="ftr-side">
+          <p class="ftr-h">Volg</p>
+          <div class="ftr-social">
+            <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.55h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg></a>
+            <a href="https://www.instagram.com/imetech_engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-magnetic><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+          <p class="ftr-h ftr-member">Lid van</p>
+          <a class="ftr-coop-link" href="https://www.coopkracht-productontwerp.nl/" target="_blank" rel="noopener noreferrer" aria-label="Coopkracht Productontwerp"><img class="ftr-coop" src="/images/coopkracht-logo-wit.webp" alt="Coopkracht Productontwerp" loading="lazy" /></a>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <p>&copy; 2026 Ivo Mengerink - IMeTech Engineering &middot; KvK 97538612 &middot; BTW NL005275849B96</p>
+        <nav aria-label="Juridisch"><a href="/privacyverklaring/">Privacy</a><a href="/algemenevoorwaarden/">Voorwaarden</a><a href="/disclaimer/">Disclaimer</a><a href="#" data-cookie-settings-link>Cookies</a></nav>
+      </div>
+    </div>
+    <div class="ftr-mark" aria-hidden="true"><span>IMeTech</span></div>
+  </footer>
 
-  <!-- SHARED FLOATING CTA (loaded via JS) -->
   <div id="floating-cta-container"></div>
-
-  <script src="/script.js?v=20261105d" defer></script>
+  <script src="/core.js?v=2" defer></script>
+  <script>
+  /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
+  (function () {
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=5'];
+    function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+    // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
+    setTimeout(function () { if (!window.gsap) document.documentElement.classList.add('rm'); }, 8000);
+  })();
+  </script>
 </body>
-
 </html>

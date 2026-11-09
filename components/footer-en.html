@@ -1,89 +1,52 @@
-<!-- Shared Footer Component — loaded via JS into #footer-container -->
-<footer class="footer" role="contentinfo">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="/images/Logo blauw.webp" alt="IMeTech Engineering" class="footer-logo" width="153" height="46" loading="lazy" />
-        <p>One engineer for electronics, firmware, mechanics and software. From first sketch to small series.</p>
-        <p class="footer-meta">Free intro call &middot; reply within 24 hours on business days</p>
-        <div class="footer-social"><a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a href="https://www.instagram.com/imetech_engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg></a></div>
-        <div class="footer-partner">
-          <div class="footer-partner-label">Member of</div>
-          <a href="https://www.coopkracht-productontwerp.nl/" target="_blank" rel="noopener noreferrer"
-            aria-label="Coopkracht Productontwerp">
-            <img src="/images/coopkracht-logo-wit.webp" alt="Coopkracht Productontwerp logo" loading="lazy" />
-          </a>
+<!-- Gedeelde footer (nieuwe stijl, zie site-v3.css) — geladen via JS in #footer-container -->
+<footer class="ftr" role="contentinfo">
+  <div class="ftr-wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a href="/en/" aria-label="IMeTech Engineering, to home"><img src="/images/logo-wit-420.webp" alt="IMeTech Engineering" width="420" height="106" class="ftr-logo" loading="lazy" /></a>
+        <p class="ftr-tag">One engineer for electronics, firmware, mechanics and software. From first sketch to small series.</p>
+        <p class="ftr-status"><span class="live" aria-hidden="true"></span>Free intro call &middot; reply within 24 hours on business days</p>
+      </div>
+      <a class="ftr-cta" data-magnetic href="/en/contact/">Book a call <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="ftr-cols">
+      <nav aria-label="Services">
+        <p class="ftr-h">Services</p>
+          <a href="/en/services/software-development/">Software Development</a>
+          <a href="/en/services/electronics-pcb-design/">Electronics &amp; PCB</a>
+          <a href="/en/services/mechanical-cad-drawings/">Mechanical &amp; CAD</a>
+          <a href="/en/services/data-science-machine-learning/">Data Science &amp; ML</a>
+          <a href="/en/services/product-development/">Product Development</a>
+      </nav>
+      <nav aria-label="Navigation">
+        <p class="ftr-h">Navigation</p>
+          <a href="/en/projects/">Projects</a>
+          <a href="/en/blog/">Insights</a>
+          <a href="/en/about/">About</a>
+          <a href="/en/contact/">Contact</a>
+      </nav>
+      <address class="ftr-contact">
+        <p class="ftr-h">Contact</p>
+        <a href="mailto:info@imetech.nl">info@imetech.nl</a>
+        <a href="tel:+31612385439">+31 6 1238 5439</a>
+        <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1<br>7122 JD Aalten, NL</a>
+        <a class="ftr-rating" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google</a>
+        <span class="ftr-area">Achterhoek, the Netherlands &amp; Belgium</span>
+      </address>
+      <div class="ftr-side">
+        <p class="ftr-h">Follow</p>
+        <div class="ftr-social">
+          <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.55h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg></a>
+          <a href="https://www.instagram.com/imetech_engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-magnetic><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
         </div>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/en/services/software-development/">Software Development</a></li>
-          <li><a href="/en/services/electronics-pcb-design/">Electronics &amp; PCB</a></li>
-          <li><a href="/en/services/mechanical-cad-drawings/">Mechanical &amp; CAD</a></li>
-          <li><a href="/en/services/data-science-machine-learning/">Data Science &amp; ML</a></li>
-          <li><a href="/en/services/product-development/">Product Development</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/en/projects/">Projects</a></li>
-          <li><a href="/en/blog/">Insights</a></li>
-          <li><a href="/en/about/">About</a></li>
-          <li><a href="/en/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>
-            <a href="mailto:info@imetech.nl" class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-              info@imetech.nl
-            </a>
-          </li>
-          <li>
-            <a href="tel:+31612385439" class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
-              +31 6 1238 5439
-            </a>
-          </li>
-          <li>
-            <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Vierde Broekdijk 1<br />7122 JD Aalten, NL
-            </a>
-          </li>
-          <li>
-            <a href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <span><span class="footer-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google</span>
-          </a>
-          </li>
-        <li class="footer-area">Achterhoek, the Netherlands &amp; Belgium</li>
-        </ul>
+        <p class="ftr-h ftr-member">Member of</p>
+        <a class="ftr-coop-link" href="https://www.coopkracht-productontwerp.nl/" target="_blank" rel="noopener noreferrer" aria-label="Coopkracht Productontwerp"><img class="ftr-coop" src="/images/coopkracht-logo-wit.webp" alt="Coopkracht Productontwerp" loading="lazy" /></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Ivo Mengerink - IMeTech Engineering &middot; KvK 97538612 &middot; BTW NL005275849B96</span>
-      <div class="footer-legal">
-        <a href="/en/privacy-policy/">Privacy</a>
-        <a href="/en/termsandconditions/">Terms</a>
-        <a href="/en/disclaimer/">Disclaimer</a>
-        <a href="#" data-cookie-settings-link="true">Cookies</a>
-      </div>
+    <div class="ftr-bottom">
+      <p>&copy; 2026 Ivo Mengerink - IMeTech Engineering &middot; KvK 97538612 &middot; BTW NL005275849B96</p>
+      <nav aria-label="Legal"><a href="/en/privacy-policy/">Privacy</a><a href="/en/termsandconditions/">Terms</a><a href="/en/disclaimer/">Disclaimer</a><a href="#" data-cookie-settings-link>Cookies</a></nav>
     </div>
   </div>
+  <div class="ftr-mark" aria-hidden="true"><span>IMeTech</span></div>
 </footer>

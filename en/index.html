@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <script>if(navigator.brave){document.documentElement.classList.add('perf-lite');window.__imetechPerfLite=true;}</script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="language" content="en">
   <meta name="geo.region" content="NL-GE">
@@ -13,18 +11,19 @@
   <meta name="ICBM" content="51.8996, 6.5670">
   <meta property="og:title" content="IMeTech Engineering | Product Development & Technical Design Achterhoek">
   <meta property="og:description" content="IMeTech Engineering in Aalten: complete product development from idea to prototype. PCB design, embedded systems, mechanical design and software. Engineering in Achterhoek.">
-  <meta property="og:image" content="https://imetech.nl/images/og-default.webp">
+  <meta property="og:image" content="https://imetech.nl/images/og-home-en.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:url" content="https://imetech.nl/en/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IMeTech Engineering">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="IMeTech Engineering | Product Development &amp; Technical Design Achterhoek">
+  <meta property="og:image:alt" content="IMeTech Engineering: from idea to working product. Electronics, firmware, mechanics and software from Aalten, NL.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IMeTech Engineering | Product Development & Technical Design Achterhoek">
   <meta name="twitter:description" content="IMeTech Engineering in Aalten: complete product development from idea to prototype. PCB design, embedded systems, mechanical design and software. Engineering in Achterhoek.">
-  <meta name="twitter:image" content="https://imetech.nl/images/og-default.webp">
+  <meta name="twitter:image" content="https://imetech.nl/images/og-home-en.jpg">
   <meta name="twitter:creator" content="@imetech_engineering">
   <title>IMeTech Engineering | Product Development & Technical Design Achterhoek</title>
   <meta name="description"
@@ -37,11 +36,6 @@
   <link rel="alternate" hreflang="nl" href="https://imetech.nl/" />
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/videos/rollator-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="/style.css?v=20261105d">
 
   <script type="application/ld+json">
   {
@@ -308,516 +302,385 @@
     ]
   }
   </script>
+
+  <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css?v=1">
+  <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
+  <link rel="stylesheet" href="/home.css?v=9">
+  <link rel="stylesheet" href="/site-v3.css?v=6">
+  <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
 </head>
 
 <body>
-  <!-- v2 SHARED HEADER (loaded via JS) -->
-  <div id="header-container"></div>
-  <noscript>
-  <nav aria-label="Main navigation (noscript)">
-    <a href="/en/">Home</a> |
-    <a href="/en/services/">Services</a> |
-    <a href="/en/projects/">Projects</a> |
-    <a href="/en/blog/">Blog</a> |
-    <a href="/en/about/">About</a> |
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="hdr" id="hdr">
+    <a class="hdr-logo" href="/en/" aria-label="IMeTech Engineering, to home">
+      <img src="/images/logo-wit-420.webp" alt="IMeTech Engineering" width="420" height="106" />
+    </a>
+    <nav class="hdr-nav" aria-label="Main navigation">
+      <a href="/en/services/">Services</a>
+      <a href="/en/projects/">Projects</a>
+      <a href="/en/blog/">Insights</a>
+      <a href="/en/about/">About</a>
+    </nav>
+    <div class="hdr-lang" aria-label="Language"><a href="/" lang="nl" hreflang="nl">NL</a><a href="/en/" class="is-on" aria-current="true" lang="en">EN</a></div>
+    <a class="pill pill--light hdr-cta" data-magnetic href="/en/contact/">Book a call</a>
+    <button class="hdr-burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+  </header>
+  <nav class="mnav" id="mnav" aria-label="Mobile navigation">
+    <a href="/en/services/">Services</a>
+    <a href="/en/projects/">Projects</a>
+    <a href="/en/blog/">Insights</a>
+    <a href="/en/about/">About</a>
     <a href="/en/contact/">Contact</a>
+    <div class="mnav-lang"><a href="/" lang="nl" hreflang="nl">NL</a><a href="/en/" class="is-on" lang="en">EN</a></div>
   </nav>
-</noscript>
 
-  <main>
-    <!-- ===== HERO (schermvullend) ===== -->
-    <section class="hero">
-      <div class="wrap hero-content">
-        <div class="hero-copy">
-          <h1>From idea to <em>working product.</em></h1>
-          <p class="hero-sub">Electronics, firmware, mechanics and software. One engineer, from first sketch to small series.</p>
-          <div class="hero-btns">
-            <a href="/en/contact/" class="btn btn-primary">
-              Discuss your project
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#werk" class="btn btn-outline">View work</a>
-          </div>
-          <a class="hero-intro" href="/en/about/"><img class="hero-intro-photo" src="/images/ivo-avatar.webp" alt="" width="96" height="96" decoding="async" /><span class="hero-intro-text"><strong>Ivo Mengerink</strong><span class="hero-intro-role">Engineer &amp; founder &middot; MSc &middot; CSWP</span><span class="hero-intro-more">Meet the engineer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span></span><span class="hero-intro-rating"><span class="hero-intro-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>5.0 on Google</span></span></a>
-        </div>
+  <main id="main">
 
-        <div class="hero-visual">
-          <!-- 3D-viewport: script.js wisselt de projecten, laadt de video's en regelt swipen -->
-          <div class="stage" id="hero-stage" data-fig="Fig." data-link-label="View project">
-            <div class="stage-frame">
-              <div class="stage-media">
-                <video class="stage-slide is-active" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  poster="/videos/rollator-poster.webp" data-src="/videos/rollator.mp4" data-src-sm="/videos/rollator-card.mp4"
-                  data-title="Rollator control" data-meta="ESP32-C3 &middot; PCB &middot; Embedded" data-href="/en/projects/rollator-control/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/twozero-poster.webp" data-src="/videos/twozero.mp4" data-src-sm="/videos/twozero-card.mp4"
-                  data-title="Sketch to render" data-meta="SolidWorks &middot; 3D CAD &middot; Rendering" data-href="/en/projects/sketch-to-render/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/plantsappers-poster.webp" data-src="/videos/plantsappers.mp4" data-src-sm="/videos/plantsappers-card.mp4"
-                  data-title="Plant juice press" data-meta="CAD &middot; Mechanics &middot; Production drawings" data-href="/en/projects/plant-juice-press-3d-production-drawings/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/kubus-poster.webp" data-src="/videos/kubus.mp4" data-src-sm="/videos/kubus-card.mp4"
-                  data-title="Self-balancing cube" data-meta="Robotics &middot; Control &middot; Embedded" data-href="/en/projects/self-balancing-cube/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/soldeerstation-poster.webp" data-src="/videos/soldeerstation.mp4" data-src-sm="/videos/soldeerstation-card.mp4"
-                  data-title="Soldering station" data-meta="Soldering &middot; Embedded &middot; UI" data-href="/en/projects/multifunctional-soldering-station/"></video>
-                <video class="stage-slide" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-                  data-poster="/videos/labvoeding-poster.webp" data-src="/videos/labvoeding.mp4" data-src-sm="/videos/labvoeding-card.mp4"
-                  data-title="Dual lab power supply" data-meta="Power supply &middot; Design &middot; Prototyping" data-href="/en/projects/dual-lab-power-supply/"></video>
-              </div>
-              <span class="stage-tick stage-tick--tl" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--tr" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--bl" aria-hidden="true"></span>
-              <span class="stage-tick stage-tick--br" aria-hidden="true"></span>
-              <span class="stage-tag stage-tag--right" aria-hidden="true"></span>
-              <span class="stage-swipe" aria-hidden="true">&larr; swipe &rarr;</span>
-            </div>
-            <div class="stage-caption">
-              <span class="stage-fig">Fig. 01</span>
-              <span class="stage-info">
-                <span class="stage-title">Rollator control</span>
-                <span class="stage-meta">ESP32-C3 &middot; PCB &middot; Embedded</span>
-              </span>
-              <a class="stage-link" href="/en/projects/rollator-control/" aria-label="View project: Rollator control">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M7 17L17 7M8 7h9v9" />
-                </svg>
-              </a>
-            </div>
-            <div class="stage-dots"></div>
-          </div>
+    <!-- ===== HERO: projectfoto's zweven rond de kop en bewegen met de cursor mee ===== -->
+    <section class="hero dark" id="hero">
+      <canvas class="field" aria-hidden="true"></canvas>
+      <div class="hero-tiles" aria-label="Featured projects">
+        <a class="htile t1" href="/en/projects/flat-skylight-control/" data-depth="0.9" data-label="Flat skylight control"><span class="htile-img"><img fetchpriority="high" src="/images/hero/Vlakkelichtkoepel01.webp" alt="Control boards for flat skylights" loading="eager" decoding="async" /></span><span class="htile-cap"><b>Flat skylight control</b>STM32 &middot; PCB</span></a>
+        <a class="htile t2" href="/en/projects/model-led-installation/" data-depth="0.5" data-label="Model LED installation"><span class="htile-img"><img src="/images/hero/MaquetteLedHero.webp" alt="Architectural model with LED installation" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Model LED installation</b>Embedded &middot; LED</span></a>
+        <a class="htile t3" href="/en/projects/rollator-control/" data-depth="1.2" data-label="Rollator control"><span class="htile-img"><img src="/images/hero/rollatorBesturing01.webp" alt="Batch of control boards for a rollator" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Rollator control</b>ESP32-C3 &middot; PCB</span></a>
+        <a class="htile t4" href="/en/projects/scd30-address-board/" data-depth="0.7" data-label="SCD30 address board"><span class="htile-img"><img src="/images/hero/SCD30Hero.webp" alt="Batch of address boards for SCD30 CO2 sensors" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>SCD30 address board</b>PCB &middot; Modbus</span></a>
+        <a class="htile t5" href="/en/projects/control-panels/" data-depth="1.1" data-label="Control panels"><span class="htile-img"><img src="/images/hero/Besturingskast01.webp" alt="Control panel for air quality monitoring" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Control panels</b>PLC &middot; Sensors</span></a>
+        <a class="htile t6" href="/en/projects/plant-juice-press-3d-production-drawings/" data-depth="0.6" data-label="Plant juice press"><span class="htile-img"><img src="/images/hero/plantsappersHero.webp" alt="Plant juice press in 3D CAD for production drawings" loading="lazy" decoding="async" /></span><span class="htile-cap"><b>Plant juice press</b>SolidWorks &middot; Production drawings</span></a>
+      </div>
+      <div class="hero-inner">
+        <p class="eyebrow"><span class="dot"></span>Engineering &amp; product development &middot; Aalten<span class="hide-sm">, the Netherlands</span></p>
+        <h1 class="hero-title" data-split>From idea to <em>working product.</em></h1>
+        <p class="hero-sub fade-up">Electronics, firmware, mechanics and software. One engineer, from first sketch to small series.</p>
+        <div class="hero-btns fade-up">
+          <a class="pill pill--cyan" data-magnetic href="/en/contact/">Discuss your project <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="pill pill--ghost" data-magnetic href="#werk">View work</a>
         </div>
       </div>
-
+      <div class="hero-proof fade-up" aria-label="Key facts">
+        <a href="/en/projects/"><b>22+</b> projects<i aria-hidden="true">&rarr;</i></a>
+        <a href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer" aria-label="5.0 out of 5 stars on Google, read the reviews"><span class="proof-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5.0</b> on Google<i aria-hidden="true">&#8599;</i></a>
+        <a href="/en/about/"><b>CSWP</b> SolidWorks<i aria-hidden="true">&rarr;</i></a>
+        <a href="/en/about/"><b>MSc</b> Engineering Systems<i aria-hidden="true">&rarr;</i></a>
+      </div>
+      <span class="scroll-cue" aria-hidden="true"><i></i></span>
     </section>
 
     <!-- ===== OPDRACHTGEVERS ===== -->
-    <section class="clients" aria-label="Clients include">
-      <div class="wrap clients-inner">
-        <span class="clients-label">Clients include</span>
-        <ul class="clients-list">
-            <li data-client="estede"><img class="client-logo client-logo--estede" src="/images/clients/estede.webp" alt="ESTEDE Scientific" width="343" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="fieldguard"><img class="client-logo client-logo--fieldguard" src="/images/clients/fieldguard.webp" alt="Fieldguard" width="423" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="vlakkelichtkoepel"><img class="client-logo client-logo--vlakkelichtkoepel" src="/images/clients/vlakkelichtkoepel.webp" alt="Vlakkelichtkoepel" width="214" height="100" loading="lazy" decoding="async" /></li>
-            <li data-client="umotion"><img class="client-logo client-logo--umotion" src="/images/clients/umotion.webp" alt="uMotion" width="70" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="twozero"><img class="client-logo client-logo--twozero" src="/images/clients/twozero.webp" alt="TWOZERO" width="480" height="62" loading="lazy" decoding="async" /></li>
-            <li data-client="r2r"><img class="client-logo client-logo--r2r" src="/images/clients/r2r.webp" alt="R2R Engineering" width="121" height="47" loading="lazy" decoding="async" /></li>
-            <li data-client="ronald"><img class="client-logo client-logo--ronald" src="/images/clients/ronald.webp" alt="Ronald Engineering" width="338" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="archisign"><img class="client-logo client-logo--archisign" src="/images/clients/archisign.webp" alt="Archisign" width="128" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="carryflor"><img class="client-logo client-logo--carryflor" src="/images/clients/carryflor.webp" alt="CarryFlor" width="313" height="120" loading="lazy" decoding="async" /></li>
-            <li data-client="saleswinner"><img class="client-logo client-logo--saleswinner" src="/images/clients/saleswinner.webp" alt="Saleswinner" width="480" height="70" loading="lazy" decoding="async" /></li>
+    <section class="clients dark" aria-label="Clients include">
+      <p class="mono clients-label">Clients include</p>
+      <div class="marquee">
+        <ul class="marquee-track">
+          <li><img class="cl cl--estede" src="/images/clients/estede.webp" alt="ESTEDE Scientific" loading="lazy" /></li>
+          <li><img class="cl cl--fieldguard" src="/images/clients/fieldguard.webp" alt="Fieldguard" loading="lazy" /></li>
+          <li><img class="cl cl--vlakkelichtkoepel" src="/images/clients/vlakkelichtkoepel.webp" alt="Vlakkelichtkoepel" loading="lazy" /></li>
+          <li><img class="cl cl--umotion" src="/images/clients/umotion.webp" alt="uMotion" loading="lazy" /></li>
+          <li><img class="cl cl--twozero" src="/images/clients/twozero.webp" alt="TWOZERO" loading="lazy" /></li>
+          <li><img class="cl cl--r2r" src="/images/clients/r2r.webp" alt="R2R Engineering" loading="lazy" /></li>
+          <li><img class="cl cl--ronald" src="/images/clients/ronald.webp" alt="Ronald Engineering" loading="lazy" /></li>
+          <li><img class="cl cl--archisign" src="/images/clients/archisign.webp" alt="Archisign" loading="lazy" /></li>
+          <li><img class="cl cl--carryflor" src="/images/clients/carryflor.webp" alt="CarryFlor" loading="lazy" /></li>
+          <li><img class="cl cl--saleswinner" src="/images/clients/saleswinner.webp" alt="Saleswinner" loading="lazy" /></li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== OVER MIJ ===== -->
-    <section class="section section-alt">
-      <div class="wrap about-grid">
-        <figure class="about-photo reveal-left">
-          <div class="about-photo-img">
-            <picture>
-              <source media="(max-width: 860px)" srcset="/images/ivo-wijst-omlaag.webp" />
-              <img src="/images/ivo-wijst-rechts.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering" width="1050" height="1400" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-          <figcaption>Ivo Mengerink <span>Engineer &amp; founder</span></figcaption>
-        </figure>
-        <div class="about-body reveal-right">
-          <span class="label">About</span>
-          <h2>The engineer behind IMeTech</h2>
-          <p>Engineer and founder of IMeTech Engineering, based in Aalten. BSc Mechatronics from Saxion University, hands-on experience at R2R Engineering, and MSc in Engineering Systems from HAN. I help businesses in the Achterhoek turn technical challenges into working solutions.</p>
-          <dl class="spec-list">
-            <div>
-              <dt>Education</dt>
-              <dd>MSc Engineering Systems <small>HAN &middot; BSc Mechatronics Saxion</small></dd>
-            </div>
-            <div>
-              <dt>Certification</dt>
-              <dd>CSWP <small>Certified SolidWorks Professional</small></dd>
-            </div>
-            <div>
-              <dt>Based in</dt>
-              <dd>Aalten, Achterhoek <small>On site in the region, remote across the Netherlands and Belgium</small></dd>
-            </div>
-          </dl>
-          <a href="/en/about/" class="btn btn-outline">More about me
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== REVIEWS ===== -->
-    <section class="section section-testimonials" id="reviews">
+    <!-- ===== STATEMENT ===== -->
+    <section class="statement light">
       <div class="wrap">
-        <div class="section-header section-header--split reveal">
-          <div>
-            <span class="label">Testimonials</span>
-            <h2>In the words of clients</h2>
-          </div>
-          <div class="rating-summary" aria-label="Client rating 5.0 out of 5">
-            <strong>5.0</strong>
-            <span><b aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b>Client rating</span>
-          </div>
-        </div>
-        <div class="testimonials-carousel" id="google-reviews-grid" aria-live="polite">
-          <div class="testimonials-viewport" id="google-reviews-viewport">
-            <div class="testimonials-track" id="google-reviews-track">
-              <div class="testimonial reveal stagger-1">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Great discipline and clear communication - absolutely recommended.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">N</div>
-                    <div><div class="name">Nico Provoost</div><div class="date">Recently</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-2">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;Ivo helped me very well with developing a custom PCB, provided clear documentation, and remained available for follow-up questions.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">M</div>
-                    <div><div class="name">Max van der A</div><div class="date">Recently</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-3">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;I had a great collaboration with Ivo. He developed a custom PCB in a short timeframe and proactively suggested practical optimizations.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">R</div>
-                    <div><div class="name">Rutger de Vries</div><div class="date">Recently</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="imetech-icon" aria-hidden="true"></span><span>Source: Client review</span></div>
-                </div>
-              </div>
-              <div class="testimonial reveal stagger-4">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>&ldquo;I had a very positive collaboration with Ivo. He took time to answer my questions clearly, thought along throughout the process, and delivered exactly what I had in mind.&rdquo;</blockquote>
-                <div class="testimonial-footer">
-                  <div class="testimonial-author">
-                    <div class="initials">N</div>
-                    <div><div class="name">Nando Kolk</div><div class="date">Recently</div></div>
-                  </div>
-                  <div class="testimonial-source"><span class="google-g" aria-hidden="true"></span><span>Source: Google Reviews</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonials-cta reveal">
-          <a class="btn btn-outline" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer">
-            View all reviews on Google &#8599;
-          </a>
+        <p class="mono kicker">01 &mdash; Approach</p>
+        <h2 class="big" data-split>One system, one engineer. No hand-offs between specialists, no noise between board, enclosure and code.</h2>
+        <div class="statement-foot">
+          <p class="fade-up">Because electronics, firmware and mechanics come together with me, everything fits the first time. That saves iterations, time and cost.</p>
+          <a class="link-arrow fade-up" href="/en/about/">Who I am <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ===== DISCIPLINES: beeldraster ===== -->
-    <section class="section section-disc" id="disciplines">
+    <!-- ===== CASE UITGELICHT ===== -->
+    <section class="case dark" id="case">
+      <div class="wrap case-grid">
+        <a class="case-media" href="/en/projects/flat-skylight-control/">
+          <span class="notch mono">Featured case &middot; June 2026</span>
+          <img src="/images/case/Vlakkelichtkoepel02.webp" alt="Batch of assembled control boards for flat skylights after production" loading="lazy" />
+          <span class="case-tags mono">STM32 &middot; PCB &middot; Embedded &middot; 433 MHz</span>
+        </a>
+        <div class="case-body">
+          <p class="mono kicker">02 &mdash; Featured case</p>
+          <h2 class="case-title" data-split>Flat skylight control</h2>
+          <p class="case-lead fade-up">Energy-efficient control board that opens and closes flat skylights, with automatic rain and battery protection.</p>
+          <ol class="case-steps">
+            <li><span class="mono">Challenge</span><p>The existing control system used too much energy for solar-powered applications.</p></li>
+            <li><span class="mono">Approach</span><p>One unified design around an STM32 for both mains-powered and battery-powered installations, with rain sensor, battery monitoring and current sensing per motor channel.</p></li>
+            <li><span class="mono">Result</span><p>A compact, energy-efficient controller that works reliably in the field and is easy to install and maintain.</p></li>
+          </ol>
+          <a class="pill pill--cyan" data-magnetic href="/en/projects/flat-skylight-control/">View the full case <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DISCIPLINES: lijst met meelopend beeld ===== -->
+    <section class="disc light" id="diensten">
       <div class="wrap">
-        <div class="section-header section-header--split reveal">
+        <div class="sec-head">
+          <p class="mono kicker">03 &mdash; Services</p>
+          <h2 data-split>Five disciplines, one point of contact.</h2>
+        </div>
+        <ul class="disc-list">
+          <li><a href="/en/services/product-development/" data-img="/images/disc/rollatorBesturing02.webp">
+            <span class="mono n">01</span><span class="t">Product development</span><span class="d">Concept, R&amp;D and prototype</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/rollatorBesturing02.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/en/services/electronics-pcb-design/" data-img="/images/disc/VlakkelichtkoepelHero.webp">
+            <span class="mono n">02</span><span class="t">Electronics &amp; PCB</span><span class="d">Schematic, layout, IoT</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/VlakkelichtkoepelHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/en/services/software-development/" data-img="/images/disc/pythonPLCHero.webp">
+            <span class="mono n">03</span><span class="t">Software &amp; firmware</span><span class="d">C++, Python, PLC</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/pythonPLCHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/en/services/mechanical-cad-drawings/" data-img="/images/disc/plantsappersHero.webp">
+            <span class="mono n">04</span><span class="t">Mechanics &amp; CAD</span><span class="d">SolidWorks, 3D-print, CNC</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/plantsappersHero.webp" alt="" loading="lazy" /></a></li>
+          <li><a href="/en/services/data-science-machine-learning/" data-img="/images/disc/autoannotate-photo-solution.webp">
+            <span class="mono n">05</span><span class="t">Data &amp; machine learning</span><span class="d">Analysis, vision, AI</span><span class="a" aria-hidden="true">&rarr;</span>
+            <img class="thumb" src="/images/disc/autoannotate-photo-solution.webp" alt="" loading="lazy" /></a></li>
+        </ul>
+      </div>
+      <div class="disc-float" aria-hidden="true"><img alt="" /><img alt="" /></div>
+    </section>
+
+    <!-- ===== WERK ===== -->
+    <section class="work dark" id="werk">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
           <div>
-            <span class="label">What I do</span>
-            <h2>One system, five disciplines.</h2>
+            <p class="mono kicker">04 &mdash; Selected work</p>
+            <h2 data-split>Built, tested, in use.</h2>
           </div>
-          <p>Designed as one whole, without handoffs between specialists.</p>
+          <a class="link-arrow fade-up" href="/en/projects/">All 22+ projects <span aria-hidden="true">&rarr;</span></a>
         </div>
-        <div class="bento">
-          <a href="/en/services/product-development/" class="bento-card reveal stagger-1">
-            <img src="/images/SketchToRender04.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">Concept &middot; Prototype &middot; R&amp;D</span>
-              <h3>Product development</h3>
-              <span class="bento-text">The complete route: concept development, R&amp;D and prototype engineering with a single point of contact.</span>
-            </span>
+        <div class="work-grid">
+          <a class="wcard" href="/en/projects/scd30-address-board/">
+            <div class="wimg"><span class="notch notch--num">01</span><img src="/images/SCD30Hero.webp" alt="Batch of address boards for SCD30 CO2 sensors" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">PCB &middot; Modbus RTU &middot; Sensors</span><h3>SCD30 address board</h3><p>Custom address board for SCD30 CO2 sensors with Modbus addressing via DIP switch.</p></div>
           </a>
-          <a href="/en/services/electronics-pcb-design/" class="bento-card reveal stagger-2">
-            <img src="/images/VlakkelichtkoepelHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">Schematic &middot; Layout &middot; IoT</span>
-              <h3>Electronics &amp; PCB</h3>
-              <span class="bento-text">From schematic and layout to tested, production-ready boards for embedded systems and IoT.</span>
-            </span>
+          <a class="wcard" href="/en/projects/rollator-control/">
+            <div class="wimg"><span class="notch notch--num">02</span><img src="/images/rollatorBesturing02.webp" alt="Two control boards for the uMotion rollator" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">ESP32-C3 &middot; Embedded</span><h3>Rollator control</h3><p>Control unit with laser guidance for people with Parkinson&rsquo;s.</p></div>
           </a>
-          <a href="/en/services/software-development/" class="bento-card reveal stagger-3">
-            <img src="/images/pythonPLCHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">C++ &middot; Python &middot; PLC</span>
-              <h3>Software</h3>
-              <span class="bento-text">Embedded firmware, PLC control and application software for industrial automation.</span>
-            </span>
+          <a class="wcard" href="/en/projects/control-panels/">
+            <div class="wimg"><span class="notch notch--num">03</span><img src="/images/Besturingskast01.webp" alt="Control panel for air quality monitoring" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">PLC &middot; Sensors &middot; Panel building</span><h3>Air quality control panels</h3><p>Five complete control panels for ammonia and CO2 monitoring.</p></div>
           </a>
-          <a href="/en/services/mechanical-cad-drawings/" class="bento-card reveal stagger-4">
-            <img src="/images/plantsappersHero.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">SolidWorks &middot; 3D print &middot; CNC</span>
-              <h3>Mechanics</h3>
-              <span class="bento-text">3D CAD, production drawings and rapid prototyping in SolidWorks, CSWP certified.</span>
-            </span>
+          <a class="wcard" href="/en/projects/model-led-installation/">
+            <div class="wimg"><span class="notch notch--num">04</span><img src="/images/MaquetteLed01.webp" alt="Architectural model with LED lighting" loading="lazy" /></div>
+            <div class="wmeta"><span class="mono">Embedded &middot; LED &middot; Webportal</span><h3>Model LED installation</h3><p>Lighting and energy flows that bring an architectural model to life.</p></div>
           </a>
-          <a href="/en/services/data-science-machine-learning/" class="bento-card reveal stagger-5">
-            <img src="/images/autoannotate-photo-solution.webp" alt="" loading="lazy" decoding="async" />
-            <span class="bento-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-            <span class="bento-body">
-              <span class="disc-tags">ML &middot; Analytics &middot; AI</span>
-              <h3>Data Science</h3>
-              <span class="bento-text">Machine learning and data analysis for industrial applications and predictive maintenance.</span>
-            </span>
+        </div>
+      </div>
+      <span class="view-pill" aria-hidden="true">View</span>
+    </section>
+
+    <!-- ===== VISUALISATIE: 3D-animaties ===== -->
+    <section class="s2r light" id="visualisatie">
+      <div class="wrap s2r-grid">
+        <div class="s2r-copy">
+          <p class="mono kicker">05 &mdash; Visualisation</p>
+          <h2 data-split>3D renders and animations that show your product.</h2>
+          <p class="fade-up">For a pitch, quote, web shop or manufacturing partner: a photorealistic 3D model that shows your product before it is built.</p>
+          <a class="link-arrow" href="/en/services/mechanical-cad-drawings/">Mechanics &amp; CAD <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="vids">
+          <a class="vcard" href="/en/projects/plant-juice-press-3d-production-drawings/">
+            <span class="vcard-media"><span class="notch mono">Plant juice press</span>
+              <video muted loop playsinline preload="none" poster="/videos/plantsappers-poster.webp" data-src="/videos/plantsappers.mp4" data-src-sm="/videos/plantsappers-card.mp4" aria-hidden="true"></video></span>
+            <span class="vcard-cap">SolidWorks &middot; Production drawings</span>
+          </a>
+          <a class="vcard" href="/en/projects/sketch-to-render/">
+            <span class="vcard-media"><span class="notch mono">TWOZERO</span>
+              <video muted loop playsinline preload="none" poster="/videos/twozero-poster.webp" data-src="/videos/twozero.mp4" data-src-sm="/videos/twozero-card.mp4" aria-hidden="true"></video></span>
+            <span class="vcard-cap">Sketch to render &middot; 3D CAD</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== WERK: horizontale showcase ===== -->
-    <section class="section-work" id="werk">
-      <div class="work-pin">
-        <div class="wrap work-head">
-          <div class="reveal">
-            <span class="label">Portfolio</span>
-            <h2>Selected work</h2>
+    <!-- ===== WERKWIJZE: genummerde kaarten die over elkaar schuiven ===== -->
+    <section class="steps dark" id="werkwijze">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="mono kicker">06 &mdash; How we work</p>
+            <h2 data-split>How we work together</h2>
           </div>
-          <div class="work-side reveal">
-            <p>A selection from over twenty projects.</p>
-            <a href="/en/projects/" class="text-link text-link--dark">View the full portfolio
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
-          </div>
+          <p class="fade-up steps-lead">Clarity on scope, planning and cost up front. Four steps, one point of contact.</p>
         </div>
-        <div class="work-viewport">
-          <div class="work-track">
-            <a href="/en/projects/rollator-control/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/rollatorBesturing01.webp" alt="Rollator Control" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">01</span>
-                <div>
-                  <h3>Rollator Control</h3>
-                  <p>Custom control unit with laser guide for Parkinson's patients.</p>
-                  <div class="project-tags"><span>ESP32-C3</span><span>PCB</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/sketch-to-render/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SketchToRender04.webp" alt="Sketch to Render" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">02</span>
-                <div>
-                  <h3>Sketch to Render</h3>
-                  <p>Complete product development from rough sketch to photorealistic 3D render.</p>
-                  <div class="project-tags"><span>SolidWorks</span><span>3D CAD</span><span>Rendering</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/self-balancing-cube/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SelfBalancingCube01.webp" alt="Self-Balancing Cube" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">03</span>
-                <div>
-                  <h3>Self-Balancing Cube</h3>
-                  <p>Dynamic cube balancing on edge or corner using flywheels.</p>
-                  <div class="project-tags"><span>Robotics</span><span>Control</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/photobooth-management-dashboard/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/photoboothHero.webp" alt="Photobooth Management Dashboard" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">04</span>
-                <div>
-                  <h3>Photobooth Management Dashboard</h3>
-                  <p>Central dashboard and local agent for monitoring and remote control of photobooths.</p>
-                  <div class="project-tags"><span>Node.js</span><span>PostgreSQL</span><span>Monitoring</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/carryvision-plant-camera-system/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/CarryVision01.webp" alt="CarryVision plant camera system" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">05</span>
-                <div>
-                  <h3>CarryVision</h3>
-                  <p>Timelapse and monitoring for nurseries with ESP32-CAM and Raspberry Pi.</p>
-                  <div class="project-tags"><span>ESP32</span><span>Raspberry Pi</span><span>IoT</span><span>Embedded</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/multifunctional-soldering-station/" class="project-card work-card reveal">
-              <div class="project-img"><img src="/images/SolderingIronPCB.webp" alt="Soldering Station" loading="lazy" decoding="async" /></div>
-              <div class="work-meta">
-                <span class="work-num">06</span>
-                <div>
-                  <h3>Soldering Station</h3>
-                  <p>Soldering station with iron and hot air, precise temperature control.</p>
-                  <div class="project-tags"><span>Soldering</span><span>Embedded</span><span>UI</span></div>
-                </div>
-              </div>
-            </a>
-            <a href="/en/projects/" class="work-card work-card--all">
-              <span class="label">22+ projects</span>
-              <strong>View the full portfolio</strong>
-              <span class="disc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span>
-            </a>
-          </div>
-        </div>
-        <div class="wrap work-foot">
-          <div class="work-progress" aria-hidden="true"><span></span></div>
-          <span class="swipe-hint" aria-hidden="true">Swipe</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CASE ===== -->
-    <section class="section section-case">
-      <div class="wrap case">
-        <figure class="case-media reveal-left">
-          <div class="case-media-img">
-            <img src="/images/VlakkelichtkoepelHero.webp" alt="Series of assembled control boards for flat skylights after production" width="1600" height="1200" loading="lazy" decoding="async" />
-          </div>
-          <figcaption>STM32 &middot; PCB &middot; Embedded &middot; 433 MHz</figcaption>
-          <!-- illustratie van het gedrag van de besturing, geen echte broncode -->
-          <div class="code-card" aria-hidden="true">
-            <div class="code-card-bar"><i></i><i></i><i></i><span>skylight.c &mdash; simplified</span></div>
-            <pre><span class="ln" style="--l:0"><span class="c">// closes itself on rain or low battery</span></span><span class="ln" style="--l:1"><span class="k">if</span> (<span class="f">rain_detected</span>() || <span class="f">battery_low</span>()) {</span><span class="ln" style="--l:2">  <span class="f">motors_close</span>();</span><span class="ln" style="--l:3">}</span><span class="ln" style="--l:4"><span class="f">enter_deep_sleep</span>(); <span class="c">// low power when idle</span><span class="cursor"></span></span></pre>
-          </div>
-        </figure>
-        <div class="case-body reveal-right">
-          <span class="label">Featured case &middot; June 2026</span>
-          <h2>Flat skylight control</h2>
-          <p class="case-lead">Energy-efficient control board that opens and closes flat skylights, with automatic rain and battery protection.</p>
-          <dl class="case-steps">
-            <div>
-              <dt>Challenge</dt>
-              <dd>The existing controller consumed too much power for solar applications.</dd>
-            </div>
-            <div>
-              <dt>Approach</dt>
-              <dd>One uniform design built around an STM32 for both mains-powered and battery-driven installations, with a rain sensor, battery monitoring and per-channel current sensing.</dd>
-            </div>
-            <div>
-              <dt>Result</dt>
-              <dd>A compact, energy-efficient controller that works reliably in the field and is straightforward to install and maintain.</dd>
-            </div>
-          </dl>
-          <a href="/en/projects/flat-skylight-control/" class="btn btn-primary">Read the full case
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WERKWIJZE: tijdlijn die meeloopt ===== -->
-    <section class="section section-steps">
-      <div class="wrap steps-layout">
-        <div class="steps-intro">
-          <div class="steps-sticky reveal">
-            <span class="label">How I work</span>
-            <h2>How we work together</h2>
-            <p>Scope, timeline and costs clear up front.</p>
-            <a href="/en/contact/" class="btn btn-primary">Book a discovery call
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
-          </div>
-        </div>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
-            <div>
+        <ol class="stack">
+          <li class="scard c1" style="--i:0">
+            <span class="scard-num" aria-hidden="true">1</span>
+            <div class="scard-body">
+              <span class="mono">Step 01</span>
               <h3>Exploration</h3>
-              <p>We discuss your challenge, goals, and constraints in a discovery call.</p>
-              <span class="process-out">Free, no obligations</span>
+              <p>We discuss your challenge, goals and constraints in an intro call. A sketch or an idea is enough to start.</p>
+              <em>Free, no obligation</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">What you get</span><ul><li>Half an hour, free and without obligation</li><li>Online or on site by appointment</li><li>Your challenge, goals and constraints made clear</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <div>
+          <li class="scard c2" style="--i:1">
+            <span class="scard-num" aria-hidden="true">2</span>
+            <div class="scard-body">
+              <span class="mono">Step 02</span>
               <h3>Concept</h3>
-              <p>I develop a concrete approach with clear timeline, costs, and milestones.</p>
-              <span class="process-out">Quote with scope and timeline</span>
+              <p>I work out a concrete approach: schematic, architecture and a clear plan with costs and milestones.</p>
+              <em>Quote per phase or time &amp; materials</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">What you get</span><ul><li>Concrete approach and architecture</li><li>Planning, costs and milestones up front</li><li>Quote per phase or on a time &amp; materials basis</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">03</span>
-            <div>
-              <h3>Realization</h3>
-              <p>Design, build, program, and test. You stay informed at every step.</p>
-              <span class="process-out">Regular updates</span>
+          <li class="scard c3" style="--i:2">
+            <span class="scard-num" aria-hidden="true">3</span>
+            <div class="scard-body">
+              <span class="mono">Step 03</span>
+              <h3>Realisation</h3>
+              <p>Designing, building, programming and testing. You stay informed at every step and see interim results.</p>
+              <em>Regular updates</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">What you get</span><ul><li>Design, build, programming and testing</li><li>Regular updates</li><li>Interim results to respond to</li></ul></div>
           </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <div>
+          <li class="scard c4" style="--i:3">
+            <span class="scard-num" aria-hidden="true">4</span>
+            <div class="scard-body">
+              <span class="mono">Step 04</span>
               <h3>Delivery</h3>
-              <p>Full documentation, handover, and ongoing support when you need it.</p>
-              <span class="process-out">Documentation and handover</span>
+              <p>Complete documentation, handover and support afterwards. Everything is transferable, including to your own team or manufacturer.</p>
+              <em>Documentation and handover</em>
             </div>
+            <div class="scard-panel"><span class="notch mono">What you get</span><ul><li>Complete documentation</li><li>Handover to your own team or manufacturer</li><li>Support whenever you need it</li></ul></div>
           </li>
         </ol>
       </div>
     </section>
 
+    <!-- ===== OVER + REVIEWS ===== -->
+    <section class="about light">
+      <div class="wrap about-grid">
+        <figure class="about-photo"><span class="notch mono">Aalten &middot; the Netherlands</span>
+          <img src="/images/ivo-wijst-rechts.webp" alt="Ivo Mengerink, engineer and founder of IMeTech Engineering" width="1050" height="1400" loading="lazy" />
+        </figure>
+        <div class="about-copy">
+          <p class="mono kicker">07 &mdash; The engineer</p>
+          <h2 data-split>Ivo Mengerink</h2>
+          <p class="fade-up">BSc Mechatronics (Saxion), industry experience at R2R Engineering and MSc Engineering Systems (HAN). Certified SolidWorks Professional. From Aalten I work for manufacturers, startups and entrepreneurs across the Netherlands and Belgium.</p>
+          <div class="quotes fade-up" aria-live="polite">
+            <figure class="quote is-on"><blockquote>&ldquo;Great discipline and clear communication, highly recommended.&rdquo;</blockquote><figcaption>Nico Provoost &middot; Google</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;Ivo developed a custom PCB in a very short time and helped think through how it could be optimised.&rdquo;</blockquote><figcaption>Rutger de Vries &middot; Client review</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;His technical knowledge gave me a lot of confidence and the end result was exactly what I had in mind.&rdquo;</blockquote><figcaption>Nando Kolk &middot; Google</figcaption></figure>
+            <figure class="quote"><blockquote>&ldquo;Excellent help with a custom PCB, including a clear manual. Always available afterwards.&rdquo;</blockquote><figcaption>Max van der A &middot; Google</figcaption></figure>
+            <a class="stars" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 client rating &middot; all reviews on Google <i aria-hidden="true">&#8599;</i></a>
+          </div>
+          <a class="link-arrow" href="/en/about/">More about me <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ ===== -->
-    <section class="section faq-section" id="faq">
-      <div class="wrap">
-        <div class="section-header reveal">
-          <span class="label">FAQ</span>
-          <h2>Before you ask</h2>
+    <section class="faq light" id="faq">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="mono kicker">08 &mdash; Questions</p>
+          <h2 data-split>Good to know.</h2>
         </div>
-        <div class="faq-list reveal">
-          <details class="faq-item">
-            <summary>Which disciplines does IMeTech cover?</summary>
-            <p>Software (embedded &amp; PLC), electronics &amp; PCB design, mechanical design and CAD, data science / machine learning and complete product development — one point of contact for the full picture, from idea to prototype.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Do you work remotely?</summary>
-            <p>Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands and Belgium. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is the first consultation free?</summary>
-            <p>Yes, the discovery call is always free and non-binding: about half an hour, online or on site by appointment. We discuss your technical challenge, possible approach and timeline. Only after that you may receive a quote — with no obligations.</p>
-          </details>
-          <details class="faq-item">
-            <summary>What do I need for a quote?</summary>
-            <p>A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed — a sketch or idea is enough to get started. After the first call you receive a quote per phase, or we agree on time-and-materials (hourly rate), whichever suits the project.</p>
-          </details>
+        <div class="faq-list">
+          <details><summary>Which disciplines does IMeTech cover?</summary><p>Software (embedded &amp; PLC), electronics &amp; PCB design, mechanical design and CAD, data science / machine learning and complete product development &mdash; one point of contact for the full picture, from idea to prototype.</p></details>
+          <details><summary>Do you work remotely?</summary><p>Yes. Many projects run partly or fully remote via video calls, email and shared documentation. I work with clients across the Netherlands and Belgium. On-site visits are possible by appointment when needed. IMeTech Engineering is based in Aalten, Achterhoek.</p></details>
+          <details><summary>Is the first consultation free?</summary><p>Yes, the discovery call is always free and non-binding: about half an hour, online or on site by appointment. We discuss your technical challenge, possible approach and timeline. Only after that you may receive a quote &mdash; with no obligations.</p></details>
+          <details><summary>What do I need for a quote?</summary><p>A short description of your goal, any drawings or specifications, and desired timeline. No perfect dossier needed &mdash; a sketch or idea is enough to get started. After the first call you receive a quote per phase, or we agree on time-and-materials (hourly rate), whichever suits the project.</p></details>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="cta-section">
-      <div class="wrap reveal">
-        <h2>An idea or a technical problem? Let&rsquo;s talk it through.</h2>
-        <p>Let's discuss your technical challenge. Free discovery call, no obligations.</p>
-        <a href="/en/contact/" class="btn btn-primary">Book a discovery call
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
+    <!-- ===== CTA: groot 'Neem contact op' ===== -->
+    <section class="cta dark" id="contact">
+      <canvas class="field" aria-hidden="true"></canvas>
+      <div class="wrap cta-grid">
+        <div class="cta-head">
+          <p class="mono kicker">Next step</p>
+          <h2 class="huge" data-split>Get in touch</h2>
+        </div>
+        <div class="cta-details fade-up">
+          <p>An idea or a technical problem? Half an hour, free and without obligation.</p>
+          <a href="mailto:info@imetech.nl">info@imetech.nl</a>
+          <a href="tel:+31612385439">+31 6 1238 5439</a>
+          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1, 7122 JD Aalten, NL</a>
+        </div>
+        <a class="cta-ball" data-magnetic data-strength="0.45" href="/en/contact/"><span>Book a<br>call</span></a>
       </div>
     </section>
-  
-
-  
-
   </main>
 
-  <!-- SHARED FOOTER (loaded via JS) -->
-  <div id="footer-container"></div>
+  <footer class="ftr" role="contentinfo">
+    <div class="ftr-wrap">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a href="/en/" aria-label="IMeTech Engineering, to home"><img src="/images/logo-wit-420.webp" alt="IMeTech Engineering" width="420" height="106" class="ftr-logo" loading="lazy" /></a>
+          <p class="ftr-tag">One engineer for electronics, firmware, mechanics and software. From first sketch to small series.</p>
+          <p class="ftr-status"><span class="live" aria-hidden="true"></span>Free intro call &middot; reply within 24 hours on business days</p>
+        </div>
+        <a class="ftr-cta" data-magnetic href="/en/contact/">Book a call <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="ftr-cols">
+        <nav aria-label="Services">
+          <p class="ftr-h">Services</p>
+            <a href="/en/services/software-development/">Software Development</a>
+            <a href="/en/services/electronics-pcb-design/">Electronics &amp; PCB</a>
+            <a href="/en/services/mechanical-cad-drawings/">Mechanical &amp; CAD</a>
+            <a href="/en/services/data-science-machine-learning/">Data Science &amp; ML</a>
+            <a href="/en/services/product-development/">Product Development</a>
+        </nav>
+        <nav aria-label="Navigation">
+          <p class="ftr-h">Navigation</p>
+            <a href="/en/projects/">Projects</a>
+            <a href="/en/blog/">Insights</a>
+            <a href="/en/about/">About</a>
+            <a href="/en/contact/">Contact</a>
+        </nav>
+        <address class="ftr-contact">
+          <p class="ftr-h">Contact</p>
+          <a href="mailto:info@imetech.nl">info@imetech.nl</a>
+          <a href="tel:+31612385439">+31 6 1238 5439</a>
+          <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1<br>7122 JD Aalten, NL</a>
+          <a class="ftr-rating" href="https://g.page/r/CV9KoNq0t1d-EBM" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google</a>
+          <span class="ftr-area">Achterhoek, the Netherlands &amp; Belgium</span>
+        </address>
+        <div class="ftr-side">
+          <p class="ftr-h">Follow</p>
+          <div class="ftr-social">
+            <a href="https://www.linkedin.com/in/ivo-mengerink-30789b200/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-magnetic><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.55h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg></a>
+            <a href="https://www.instagram.com/imetech_engineering/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-magnetic><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+          <p class="ftr-h ftr-member">Member of</p>
+          <a class="ftr-coop-link" href="https://www.coopkracht-productontwerp.nl/" target="_blank" rel="noopener noreferrer" aria-label="Coopkracht Productontwerp"><img class="ftr-coop" src="/images/coopkracht-logo-wit.webp" alt="Coopkracht Productontwerp" loading="lazy" /></a>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <p>&copy; 2026 Ivo Mengerink - IMeTech Engineering &middot; KvK 97538612 &middot; BTW NL005275849B96</p>
+        <nav aria-label="Legal"><a href="/en/privacy-policy/">Privacy</a><a href="/en/termsandconditions/">Terms</a><a href="/en/disclaimer/">Disclaimer</a><a href="#" data-cookie-settings-link>Cookies</a></nav>
+      </div>
+    </div>
+    <div class="ftr-mark" aria-hidden="true"><span>IMeTech</span></div>
+  </footer>
 
-  <!-- SHARED FLOATING CTA (loaded via JS) -->
   <div id="floating-cta-container"></div>
-
-  <script src="/script.js?v=20261105d" defer></script>
+  <script src="/core.js?v=2" defer></script>
+  <script>
+  /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
+  (function () {
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=5'];
+    function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+    // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
+    setTimeout(function () { if (!window.gsap) document.documentElement.classList.add('rm'); }, 8000);
+  })();
+  </script>
 </body>
-
 </html>
