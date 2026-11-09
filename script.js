@@ -1457,9 +1457,9 @@
 
   if (needsLoad) {
     Promise.all([
-      loadComponent('header-container', '/components/header' + suffix + '.html?v=20261107', 2500),
-      loadComponent('footer-container', '/components/footer' + suffix + '.html?v=20261107', 2500),
-      loadComponent('floating-cta-container', '/components/floating-cta' + suffix + '.html?v=20261107', 2500)
+      loadComponent('header-container', '/components/header' + suffix + '.html?v=20261110', 2500),
+      loadComponent('footer-container', '/components/footer' + suffix + '.html?v=20261110', 2500),
+      loadComponent('floating-cta-container', '/components/floating-cta' + suffix + '.html?v=20261110', 2500)
     ]).then(function () {
       bindCookieSettingsLinks();
       initV2();
@@ -2680,16 +2680,10 @@
       summary.addEventListener('click', function (e) {
         e.preventDefault();
         var isOpen = item.classList.contains('faq-open');
-        var faqList = item.closest('.faq-list');
 
         if (isOpen) {
           closeFaqItem(item);
         } else {
-          if (faqList) {
-            faqList.querySelectorAll('.faq-item.faq-open').forEach(function (openItem) {
-              if (openItem !== item) closeFaqItem(openItem);
-            });
-          }
           item.open = true;
           requestAnimationFrame(function () {
             item.classList.add('faq-open');
@@ -3234,49 +3228,6 @@
 
   if (reduce) return;
 
-  // ----- Koppen: woorden schuiven één voor één omhoog zodra de kop in beeld komt -----
-  (function initSplitHeadings() {
-    if (!('IntersectionObserver' in window)) return;
-    var headings = all('.section-header h2, .work-head h2, .steps-sticky h2, .case-body h2, .about-body h2, .cta-section h2, .service-detail h2, .service-detail h3, .deliver-head h3');
-    if (!headings.length) return;
-
-    function split(el) {
-      var index = 0;
-      (function walk(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-          if (child.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            child.nodeValue.split(/(\s+)/).forEach(function (part) {
-              if (!part) return;
-              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
-              var word = document.createElement('span');
-              word.className = 'w';
-              var inner = document.createElement('span');
-              inner.textContent = part;
-              inner.style.setProperty('--i', index++);
-              word.appendChild(inner);
-              frag.appendChild(word);
-            });
-            node.replaceChild(frag, child);
-          } else if (child.nodeType === 1 && child.tagName !== 'BR') {
-            walk(child);
-          }
-        });
-      })(el);
-      el.classList.add('split');
-    }
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.2 });
-
-    headings.forEach(function (h) { split(h); io.observe(h); });
-  })();
-
   // ----- Parallax (--sp), hero (--hs) en meelopende lijnen (--line) -----
   (function initScrollValues() {
     var hero = document.querySelector('.hero, .page-hero');
@@ -3318,44 +3269,6 @@
 
   if (!finePointer) return;
 
-  // ----- Hero: raster licht op rond de cursor -----
-  all('.hero, .page-hero').forEach(function (hero) {
-    var spot = document.createElement('div');
-    spot.className = 'hero-spot';
-    spot.setAttribute('aria-hidden', 'true');
-    hero.insertBefore(spot, hero.firstChild);
-    var frame = null;
-    hero.addEventListener('pointermove', function (e) {
-      if (frame) return;
-      frame = requestAnimationFrame(function () {
-        frame = null;
-        var r = hero.getBoundingClientRect();
-        spot.style.setProperty('--mx', (e.clientX - r.left).toFixed(0) + 'px');
-        spot.style.setProperty('--my', (e.clientY - r.top).toFixed(0) + 'px');
-      });
-    }, { passive: true });
-  });
-
-  // ----- Footer: zelfde oplichtend raster (footer wordt later ingeladen, dus koppelen bij eerste hover) -----
-  document.addEventListener('pointerover', function (e) {
-    var foot = e.target instanceof Element ? e.target.closest('.footer') : null;
-    if (!foot || foot.querySelector(':scope > .hero-spot')) return;
-    var spot = document.createElement('div');
-    spot.className = 'hero-spot';
-    spot.setAttribute('aria-hidden', 'true');
-    foot.insertBefore(spot, foot.firstChild);
-    var frame = null;
-    foot.addEventListener('pointermove', function (ev) {
-      if (frame) return;
-      frame = requestAnimationFrame(function () {
-        frame = null;
-        var r = foot.getBoundingClientRect();
-        spot.style.setProperty('--mx', (ev.clientX - r.left).toFixed(0) + 'px');
-        spot.style.setProperty('--my', (ev.clientY - r.top).toFixed(0) + 'px');
-      });
-    }, { passive: true });
-  }, { passive: true });
-
   // ----- Kaarten: lichtvlek volgt de cursor -----
   var CARDS = '.service-card, .expertise-panel, .info-card, .contact-card, .error-link, .comparison-card, .challenge-item, .related-card, .testimonial, ' +
     '.insight-card, .other-svc, .audience-card, .svc-panel, .about-stat, .project-card, .blog-card, .feature-card, .deliver';
@@ -3394,51 +3307,6 @@
       readout.textContent = label;
     });
   })();
-
-  // ----- Beeld in kader (project/dienst/over mij): kantelt licht mee, met meetkruis -----
-  all('.case-hero-media').forEach(function (fig) {
-    var img = fig.querySelector('img');
-    if (!img) return;
-    var probe = !fig.closest('.case-hero--about');
-    var readout = null;
-    if (probe) {
-      ['x', 'y'].forEach(function (axis) {
-        var line = document.createElement('span');
-        line.className = 'case-cross case-cross--' + axis;
-        line.setAttribute('aria-hidden', 'true');
-        fig.appendChild(line);
-      });
-      readout = document.createElement('span');
-      readout.className = 'case-readout';
-      readout.setAttribute('aria-hidden', 'true');
-      fig.appendChild(readout);
-    }
-    var frame = null;
-    fig.addEventListener('pointermove', function (e) {
-      if (frame) return;
-      frame = requestAnimationFrame(function () {
-        frame = null;
-        var r = img.getBoundingClientRect();
-        var x = clamp((e.clientX - r.left) / r.width, 0, 1);
-        var y = clamp((e.clientY - r.top) / r.height, 0, 1);
-        if (!reduce) {
-          fig.style.setProperty('--rx', ((0.5 - y) * 5).toFixed(2) + 'deg');
-          fig.style.setProperty('--ry', ((x - 0.5) * 6).toFixed(2) + 'deg');
-        }
-        if (probe) {
-          fig.style.setProperty('--cx', x.toFixed(4));
-          fig.style.setProperty('--cy', y.toFixed(4));
-          readout.textContent = 'X ' + x.toFixed(2) + '  Y ' + (1 - y).toFixed(2);
-        }
-        fig.classList.add('is-probing');
-      });
-    }, { passive: true });
-    fig.addEventListener('pointerleave', function () {
-      fig.classList.remove('is-probing');
-      fig.style.setProperty('--rx', '0deg');
-      fig.style.setProperty('--ry', '0deg');
-    });
-  });
 
   // ----- Opdrachtgevers: namen lichten op naarmate de cursor nadert -----
   all('.clients').forEach(function (strip) {

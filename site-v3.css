@@ -151,9 +151,6 @@
 .ftr-bottom { display: flex; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding: 1.5rem 0; border-top: 1px solid var(--f-line); font-size: .8rem; }
 .ftr-bottom nav { display: flex; gap: 1.5rem; }
 .ftr-bottom a:hover { color: #fff; }
-.ftr-mark { line-height: .78; margin-top: .5rem; text-align: center; user-select: none; pointer-events: none; }
-.ftr-mark span { display: inline-block; font-weight: 700; font-stretch: 125%; letter-spacing: -.06em; font-size: 19vw; color: transparent;
-  background: linear-gradient(180deg, rgba(108, 200, 242, .22), rgba(108, 200, 242, 0) 85%); -webkit-background-clip: text; background-clip: text; }
 @media (max-width: 900px) {
   .ftr-cols { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
   .ftr-top { align-items: flex-start; }
@@ -184,3 +181,200 @@
 
 /* projectbeelden iets ronder, zoals op de homepage */
 .project-card .project-img { border-radius: 18px; }
+
+/* =========================================================
+   Header en menu: op elke pagina dezelfde
+   ========================================================= */
+.hdr, .mnav { --ink: #061021; --cyan: #229dd8; --on-dark: rgba(236, 243, 251, .94); --on-dark-2: rgba(190, 210, 232, .62); --line-dark: rgba(150, 195, 235, .14); --ease: cubic-bezier(.22, 1, .36, 1); --gutter: clamp(1rem, 4vw, 2.5rem); --sans: 'Archivo', system-ui, sans-serif; --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace; font-family: var(--sans); }
+.hdr {
+  position: fixed; inset: 14px var(--gutter) auto; z-index: 50; height: 60px;
+  display: flex; align-items: center; gap: 2rem; padding: 0 .5rem 0 1.25rem;
+  border-radius: 999px; border: 1px solid transparent;
+  transition: background-color .5s var(--ease), border-color .5s var(--ease), transform .6s var(--ease);
+}
+.hdr.is-solid { background: rgba(6, 16, 33, .72); border-color: var(--line-dark); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); }
+.hdr.is-hidden { transform: translateY(-120%); }
+.hdr-logo img { height: 34px; width: auto; }
+.hdr-nav { display: flex; gap: 1.75rem; margin-left: auto; align-items: center; font-size: .92rem; color: var(--on-dark-2); }
+.hdr-nav a { transition: color .3s; }
+.hdr-nav a:hover { color: #fff; }
+.hdr-burger { display: none; }
+.mnav { display: none; }
+.hdr-lang { display: flex; gap: .15rem; font: 500 .72rem var(--mono); letter-spacing: .06em; }
+.hdr-lang a { padding: .35rem .5rem; border-radius: 99px; color: var(--on-dark-2); transition: color .3s, background-color .3s; }
+.hdr-lang a:hover { color: #fff; }
+.hdr-lang a.is-on { color: #fff; background: rgba(255,255,255,.08); }
+.mnav-lang { display: flex; gap: 1rem; margin-top: 1.5rem; font: 500 .9rem var(--mono); }
+.mnav-lang a { font-size: .9rem !important; color: var(--on-dark-2) !important; }
+.mnav-lang a.is-on { color: #fff !important; }
+@media (max-width: 900px) { .hdr-lang { display: none; } }
+.hdr .pill { display: inline-flex; align-items: center; padding: .9em 1.5em; border-radius: 999px; font-weight: 600; font-size: .95rem; line-height: 1; background: rgba(255,255,255,.08); color: var(--on-dark); border: 1px solid var(--line-dark); backdrop-filter: blur(10px); transition: background-color .4s var(--ease), color .4s var(--ease); }
+.hdr .pill:hover { background: #fff; color: var(--ink); }
+.hdr-nav a.is-on { color: #fff; }
+@media (max-width: 900px) {
+  .hdr { gap: 1rem; padding: 0 .5rem 0 1rem; height: 54px; inset: 10px 10px auto; }
+  .hdr-logo img { height: 29px; }
+  .hdr-nav, .hdr-cta { display: none; }
+  .hdr-burger { display: grid; place-content: center; gap: 6px; margin-left: auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-dark); background: rgba(255,255,255,.06); cursor: pointer; }
+  .hdr-burger span { width: 16px; height: 1.5px; background: #fff; transition: transform .4s var(--ease); }
+  .hdr-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .hdr-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+  .mnav { display: flex; flex-direction: column; justify-content: center; gap: .5rem; position: fixed; inset: 0; z-index: 45; background: var(--ink); padding: 0 1.5rem; clip-path: inset(0 0 100% 0); transition: clip-path .6s var(--ease); }
+  .mnav.is-open { clip-path: inset(0); }
+  .mnav a { font-size: 2.4rem; font-weight: 600; font-stretch: 112%; color: var(--on-dark); letter-spacing: -.02em; }
+}
+body.menu-open .floating-cta { opacity: 0; pointer-events: none; }
+
+
+/* =========================================================
+   Subpagina's: zelfde beeld en beweging als de homepage
+   ========================================================= */
+:root {
+  --ink: #061021; --ink-2: #0a1a31; --paper: #f2f4f7; --paper-2: #e7ebf0; --surface: #f2f4f7;
+  --on-dark: rgba(236, 243, 251, .94); --on-dark-muted: rgba(190, 210, 232, .72); --line-dark: rgba(150, 195, 235, .14);
+  --line: rgba(7, 26, 47, .12); --r-md: 14px; --r-lg: 18px;
+  --shadow-sm: none; --shadow-md: none; --shadow-lg: none;
+  --cyan-hi: #6cc8f2; --x-ease: cubic-bezier(.22, 1, .36, 1);
+}
+html { background: var(--ink); }
+body { background: var(--paper); overflow-x: clip; }
+.section, .faq-section { background: var(--paper); }
+.section-alt, .faq-section.section-alt { background: var(--paper-2); }
+.section-alt::before, .section::before, .section::after { content: none !important; }
+
+/* hero: donker met het puntenraster, zonder diavoorstelling */
+.page-hero-slides, .page-hero-overlay, .hero-spot, .case-tick, .case-cross, .case-readout { display: none !important; }
+.page-hero { background: var(--ink) !important; position: relative; isolation: isolate; overflow: hidden; padding-top: clamp(8.5rem, 16vh, 11rem); padding-bottom: clamp(4rem, 8vw, 6rem); }
+.page-hero::before, .page-hero::after, .page-hero--plain::after, .page-hero.case-hero::after { content: none !important; }
+.page-hero .wrap { position: relative; z-index: 1; }
+.field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.page-hero h1 { color: var(--on-dark); }
+.page-hero h1 em, .case-hero h1 em { color: var(--cyan-hi); }
+.page-hero p { color: var(--on-dark-muted); }
+.label { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #0b6aa6; }
+.label::before { content: none !important; }
+.page-hero .label, .cta-section .label { color: var(--cyan-hi); }
+.breadcrumbs-wrap { background: var(--paper); }
+.case-hero-media, .case-hero-media img, .feature-card, .feature-media, .blog-card, .project-card .project-img { border-radius: 18px; }
+.case-hero-media { overflow: hidden; box-shadow: 0 0 0 1px rgba(150, 195, 235, .12); }
+
+/* hero-intro: gelijk aan de homepage */
+.page-hero .reveal, .page-hero .reveal-blur, .page-hero .reveal-left, .page-hero .reveal-right, .page-hero .reveal-scale { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+@keyframes sv-in { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes sv-in-clip { from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(18px); } to { opacity: 1; clip-path: inset(-20% -20% -20% -20%); transform: none; } }
+.page-hero .label { animation: sv-in 1s var(--x-ease) .05s both; }
+.page-hero h1 { animation: sv-in-clip 1.3s var(--x-ease) .12s both; }
+.page-hero h1 + p, .page-hero .wrap > p { animation: sv-in 1.1s var(--x-ease) .45s both; }
+.page-hero-actions { animation: sv-in 1.1s var(--x-ease) .55s both; }
+.case-hero-media { animation: sv-in 1.3s var(--x-ease) .3s both; }
+.case-facts { animation: sv-in 1.1s var(--x-ease) .7s both; }
+
+/* verschijnen bij scrollen: overal dezelfde zachte beweging */
+.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate { opacity: 0; transform: translateY(24px); filter: none; transition: opacity 1.1s var(--x-ease), transform 1.1s var(--x-ease); }
+.reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible, .reveal-blur.visible, .reveal-rotate.visible { opacity: 1; transform: none; filter: none; }
+
+/* projectbeelden openen als uitsnede en zoomen zacht uit */
+.project-card.reveal .project-img, .feature-card.reveal .feature-media, .blog-card.reveal .blog-img { clip-path: inset(14% 6% 14% 6% round 18px); transition: clip-path 1.5s cubic-bezier(.87, 0, .13, 1); overflow: hidden; }
+.project-card.reveal.visible .project-img, .feature-card.reveal.visible .feature-media, .blog-card.reveal.visible .blog-img { clip-path: inset(0 round 18px); }
+.project-card .project-img img, .feature-card .feature-media img, .blog-card .blog-img img { transition: transform .8s var(--x-ease); }
+.project-card:hover .project-img img, .feature-card:hover .feature-media img, .blog-card:hover .blog-img img { transform: scale(1.04); }
+.project-card:hover .project-img::before { opacity: 0 !important; }
+.project-card:hover, .blog-card:hover, .feature-card:hover { transform: none; box-shadow: none; }
+
+/* 'Bekijk'-bol die de cursor volgt */
+.sv-pill { position: fixed; left: -46px; top: -46px; z-index: 40; width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; background: #229dd8; color: #061021; font-weight: 600; font-size: .9rem; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .project-card, .feature-card, .blog-card { cursor: none; } }
+
+/* slotblok: donker over de volle breedte, zoals op de homepage */
+.cta-section, .section:not(.section-alt):not(.section-testimonials) + .cta-section { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); padding: clamp(6rem, 12vw, 10rem) clamp(1rem, 4vw, 2.5rem) clamp(4rem, 8vw, 6rem); }
+.cta-section .wrap { position: relative; z-index: 1; max-width: 1320px; padding: 0; background: none; border-radius: 0; overflow: visible; }
+.cta-section .wrap::before, .cta-section .wrap::after { content: none !important; }
+.cta-section h2 { color: var(--on-dark); }
+.cta-section p { color: var(--on-dark-muted); }
+
+/* veelgestelde vragen: lijnen en plus zoals op de homepage */
+.faq-item { background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-item summary { padding-inline: 0; background: none; font-weight: 600; color: var(--heading); }
+
+.line-mask { padding: .16em .08em .08em; margin: -.16em -.08em -.08em; }
+@media (prefers-reduced-motion: reduce) {
+  .page-hero *, .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate { animation: none !important; opacity: 1 !important; transform: none !important; transition: none !important; clip-path: none !important; }
+  .project-card.reveal .project-img, .feature-card.reveal .feature-media, .blog-card.reveal .blog-img { clip-path: none !important; }
+  .sv-pill { display: none; }
+}
+@media (max-width: 900px) { .page-hero { padding-top: 7rem; } .sv-pill { display: none; } }
+
+/* oude taalkeuze-opmaak uitschakelen in de nieuwe header */
+.hdr-lang::before, .hdr-lang::after, .hdr-lang a::before, .hdr-lang a::after, .mnav-lang::before, .mnav-lang::after, .mnav-lang a::before, .mnav-lang a::after { content: none !important; display: none !important; }
+.hdr-lang.lang { margin: 0; padding: 0; border: 0; background: none; }
+@media (max-width: 900px) { .hdr .hdr-cta { display: none; } }
+
+/* veelgestelde vragen: exact als op de homepage */
+.faq-section, .faq-section.section-alt { background: var(--paper); padding: clamp(5rem, 10vw, 8rem) 0; border-top: 1px solid var(--line); }
+.faq-section > .wrap { grid-template-columns: .8fr 1.2fr; gap: 3rem; }
+.faq-section .section-header h2 { font-size: clamp(2.6rem, 5.5vw, 5rem); }
+.faq-list { border-top: 0; }
+.faq-item { padding: 0; }
+.faq-item summary { gap: 1rem; align-items: flex-start; padding: 1.4rem 0; font-size: 1.1rem; transition: none; }
+.faq-item summary:hover { color: var(--heading); }
+.faq-item summary::after { font-family: var(--font-sans); font-weight: 400; font-size: 1.5rem; line-height: 1; color: currentColor; transition: transform .4s var(--x-ease); }
+.faq-answer-wrap { transition: grid-template-rows .42s var(--x-ease); }
+.faq-item.faq-open .faq-answer-wrap { transition-duration: .56s; }
+.faq-answer-inner { opacity: 0; transform: translateY(-6px); transition: opacity .3s var(--x-ease), transform .3s var(--x-ease); }
+.faq-item.faq-open .faq-answer-inner { opacity: 1; transform: none; transition: opacity .5s var(--x-ease) .08s, transform .5s var(--x-ease) .08s; }
+.faq-item p, .faq-item.faq-open p { padding: 0 0 1.5rem; max-width: 40rem; transition: none; }
+@media (max-width: 900px) { .faq-section > .wrap { grid-template-columns: 1fr; } }
+
+/* geen losse lichtvlekken en rasters meer op kaarten: dat doet de homepage ook niet */
+.service-card:hover, .expertise-panel:hover, .info-card:hover, .contact-card:hover, .error-link:hover, .comparison-card:hover, .challenge-item:hover, .related-card:hover,
+.testimonial:hover, .svc-panel:hover, .about-stat:hover, .project-card:hover, .blog-card:hover, .deliver:hover { background-image: none; }
+.feature-body::after, .audience-card--dark::after { content: none !important; }
+.direct-card::before { background: radial-gradient(420px circle at 100% 0%, rgba(34, 157, 216, .22), transparent 70%); }
+
+/* =========================================================
+   Sectievormen: per sectie een andere vorm, geen overlap.
+   De hoeken tonen de achtergrond van de pagina.
+   ========================================================= */
+:root { --rad: clamp(28px, 4vw, 56px); --rad-xl: clamp(64px, 12vw, 180px); }
+body:has(.hero-tiles) { background: var(--ink); }
+
+/* homepage */
+.statement { margin-inline: clamp(.6rem, 2vw, 1.5rem); border-radius: var(--rad); }
+.disc { border-radius: 0 var(--rad-xl) 0 var(--rad-xl); }
+.s2r { border-radius: 50% 50% 50% 50% / clamp(36px, 6vw, 96px); padding-block: clamp(8rem, 14vw, 12rem); }
+.about { border-top-left-radius: var(--rad-xl); }
+.faq { border-bottom-right-radius: var(--rad-xl); }
+
+/* subpagina's: ruime, gelijke witruimte */
+.section { padding-block: clamp(5rem, 9vw, 8rem); }
+.section-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.page-hero { border-radius: 0 0 var(--rad) var(--rad); }
+.page-hero.case-hero { border-radius: 0 0 var(--rad-xl) 0; }
+.page-hero--plain { border-radius: 0 0 0 var(--rad-xl); }
+.page-hero > .field { border-radius: inherit; }
+.section-alt:not(.faq-section) { margin-inline: clamp(.6rem, 2vw, 1.5rem); border-radius: var(--rad); }
+.section-map { border-radius: var(--rad-xl) 0 var(--rad-xl) 0; }
+.cta-section { border-top-left-radius: var(--rad-xl); }
+.cta-section > .field { border-radius: inherit; }
+
+/* laatste sectie rondt af, de footer ligt erachter en krijgt daar eigen ruimte voor */
+main > section:last-child { position: relative; z-index: 1; border-bottom-left-radius: var(--rad); border-bottom-right-radius: var(--rad); }
+.ftr { background: #061021; margin-top: calc(var(--rad) * -1); border-top: var(--rad) solid #061021; }
+
+/* witruimte die eerder ontbrak */
+.disc { padding-top: clamp(5rem, 10vw, 8rem); }
+.page-hero.page-hero { padding-bottom: clamp(3.5rem, 6vw, 5.5rem); }
+.page-hero + section .breadcrumbs-wrap { padding-top: clamp(1.25rem, 2.5vw, 2rem); }
+
+/* contactblok: cyaan uit het logo, zodat het loskomt van de donkere footer */
+.cta.dark, .cta-section, .section:not(.section-alt):not(.section-testimonials) + .cta-section { background: #229dd8; color: #061021; }
+.cta > .field, .cta-section > .field { filter: brightness(0); opacity: .5; }
+.cta.dark h1, .cta.dark h2, .cta.dark h3, .cta.dark h2 em, .cta-section h2, .cta-section h2 em { color: #061021; }
+.cta.dark .kicker, .cta-section .label { color: #061021; }
+.cta.dark .cta-details p, .cta-section p { color: rgba(6, 16, 33, .86); }
+.cta.dark .cta-details a { color: #061021; }
+.cta.dark .cta-ball, .cta-section .btn-primary { background: #061021; color: #fff; }
+.cta.dark .cta-ball:hover, .cta-section .btn-primary:hover { background: #fff; color: #061021; }
+.cta-section .btn-outline, .cta-section .btn-secondary { background: none; color: #061021; border-color: rgba(6, 16, 33, .45); }
+.cta-section .btn-outline:hover, .cta-section .btn-secondary:hover { background: #061021; color: #fff; border-color: #061021; }

@@ -248,8 +248,7 @@
     .fromTo('.about-photo', { clipPath: 'inset(100% 0 0 0 round 22px)' }, { clipPath: 'inset(0% 0 0 0 round 22px)', duration: 1.5, ease: 'expo.inOut' })
     .fromTo('.about-photo img', { scale: 1.25 }, { scale: 1, duration: 2, ease: 'expo.out' }, 0);
 
-  /* ---------- footer: groot woordmerk schuift omhoog ---------- */
-  gsap.from('.ftr-mark span', { yPercent: 45, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.ftr', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+  /* ---------- footer ---------- */
   gsap.from('.ftr-cols > *', { opacity: 0, y: 24, duration: 1, ease: EASE, stagger: 0.08, scrollTrigger: { trigger: '.ftr-cols', start: 'top 90%', once: true } });
 
   /* ---------- werkwijze: vorige kaart zakt iets weg als de volgende eroverheen schuift (desktop) ---------- */

@@ -306,8 +306,8 @@
   <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css?v=1">
   <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
-  <link rel="stylesheet" href="/home.css?v=9">
-  <link rel="stylesheet" href="/site-v3.css?v=6">
+  <link rel="stylesheet" href="/home.css?v=10">
+  <link rel="stylesheet" href="/site-v3.css?v=15">
   <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
 </head>
 
@@ -667,7 +667,6 @@
         <nav aria-label="Legal"><a href="/en/privacy-policy/">Privacy</a><a href="/en/termsandconditions/">Terms</a><a href="/en/disclaimer/">Disclaimer</a><a href="#" data-cookie-settings-link>Cookies</a></nav>
       </div>
     </div>
-    <div class="ftr-mark" aria-hidden="true"><span>IMeTech</span></div>
   </footer>
 
   <div id="floating-cta-container"></div>
@@ -675,7 +674,7 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=5'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=6'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
