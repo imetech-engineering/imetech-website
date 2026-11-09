@@ -378,3 +378,11 @@ main > section:last-child { position: relative; z-index: 1; border-bottom-left-r
 .cta.dark .cta-ball:hover, .cta-section .btn-primary:hover { background: #fff; color: #061021; }
 .cta-section .btn-outline, .cta-section .btn-secondary { background: none; color: #061021; border-color: rgba(6, 16, 33, .45); }
 .cta-section .btn-outline:hover, .cta-section .btn-secondary:hover { background: #061021; color: #fff; border-color: #061021; }
+
+/* projectkop: naast de foto kleiner, zodat lange woorden binnen de eigen kolom blijven */
+.case-hero h1 { font-size: clamp(2.6rem, 3.9vw, 3.5rem); max-width: none; hyphens: manual; }
+@media (max-width: 960px) { .case-hero h1 { font-size: clamp(2.4rem, 9vw, 4.6rem); } }
+
+/* projectfoto: altijd de hele foto, het kader volgt de verhouding van de foto */
+.case-hero:not(.case-hero--about) .case-hero-media { justify-self: center; max-width: 100%; width: fit-content; }
+.case-hero:not(.case-hero--about) .case-hero-media img { width: auto; height: auto; max-width: 100%; max-height: min(72vh, 560px); aspect-ratio: auto; object-fit: contain; }
