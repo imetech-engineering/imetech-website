@@ -460,3 +460,20 @@ body.menu-open .floating-cta { opacity: 0; pointer-events: none; }
   .hero + .clients .clients-label { flex: none; max-width: 9rem; margin: 0; text-align: left; line-height: 1.5; }
   .hero + .clients .marquee { flex: 1; min-width: 0; }
 }
+/* ===== scrollmomenten ===== */
+/* statement: woorden lichten op terwijl je leest */
+.big[data-words] .w { display: inline; }
+
+/* case: printspoor langs uitdaging, aanpak, resultaat */
+.case-steps.has-trace { position: relative; }
+.case-steps.has-trace li { position: relative; padding-left: 2rem; }
+.case-steps.has-trace::before { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 1px; background: var(--line-dark); }
+.case-trace { position: absolute; left: 4px; top: 0; bottom: 0; width: 3px; border-radius: 3px; background: linear-gradient(var(--cyan-hi), var(--cyan)); box-shadow: 0 0 12px rgba(34, 157, 216, .6); transform-origin: top; transform: scaleY(0); pointer-events: none; }
+.case-steps.has-trace li::before { content: ""; position: absolute; left: 0; top: 1.3rem; width: 11px; height: 11px; box-sizing: border-box; border-radius: 50%; border: 2px solid var(--line-dark); background: var(--ink); z-index: 1;
+  transition: border-color .4s, background-color .4s, box-shadow .5s, transform .5s var(--ease); }
+.case-steps.has-trace li.is-on::before { border-color: var(--cyan-hi); background: var(--cyan); box-shadow: 0 0 0 4px rgba(34, 157, 216, .18), 0 0 14px rgba(34, 157, 216, .7); transform: scale(1.15); }
+.case-steps.has-trace li p { opacity: .45; transition: opacity .6s; }
+.case-steps.has-trace li.is-on p { opacity: 1; }
+
+/* visualisatie: schermen kantelen naar je toe */
+.vids { perspective: 1400px; }

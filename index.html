@@ -305,8 +305,8 @@
   <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css?v=1">
   <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
-  <link rel="stylesheet" href="/home.css?v=15">
-  <link rel="stylesheet" href="/site-v3.css?v=26">
+  <link rel="stylesheet" href="/home.css?v=19">
+  <link rel="stylesheet" href="/site-v3.css?v=30">
   <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
 </head>
 
@@ -392,12 +392,24 @@
     <section class="statement light">
       <div class="wrap">
         <p class="mono kicker">01 &mdash; Aanpak</p>
-        <h2 class="big" data-split>E&eacute;n systeem, &eacute;&eacute;n engineer. Geen overdrachten tussen specialisten, geen ruis tussen print, behuizing en code.</h2>
+        <h2 class="big" data-words>E&eacute;n systeem, &eacute;&eacute;n engineer. Geen overdrachten tussen specialisten, geen ruis tussen print, behuizing en code.</h2>
         <div class="statement-foot">
           <p class="fade-up">Omdat elektronica, firmware en mechanica bij mij samenkomen, past alles in &eacute;&eacute;n keer op elkaar. Dat scheelt iteraties, tijd en kosten.</p>
           <a class="link-arrow fade-up" href="/over-mij/">Wie ben ik <span aria-hidden="true">&rarr;</span></a>
         </div>
+      <!-- 3D exploded view: behuizing, print en firmware gaan laag voor laag open (xplode.js) -->
+      <div class="xp" data-xp>
+        <div class="xp-stage">
+          <div class="xp-legend">
+            <p class="mono xp-kicker">Ventairo VAI-ONE &middot; luchtkwaliteitsmeter</p>
+            <a class="xp-row" href="/diensten/mechanica-cad-tekeningen/"><span class="mono">01</span><strong>Behuizing</strong><small>Mechanica &amp; CAD <span aria-hidden="true">&rarr;</span></small></a><a class="xp-row" href="/diensten/elektronica-pcb-ontwerp/"><span class="mono">02</span><strong>Print &amp; LED-ring</strong><small>Elektronica &amp; PCB-ontwerp <span aria-hidden="true">&rarr;</span></small></a><a class="xp-row" href="/diensten/softwareontwikkeling/"><span class="mono">03</span><strong>Firmware</strong><small>ESP32-S3, sensoren &amp; LEDs <span aria-hidden="true">&rarr;</span></small></a>
+            <p class="xp-note">Eigen productontwikkeling, getoond met de echte CAD- en printdata.</p>
+            <p class="mono xp-hint" aria-hidden="true">Scroll om te openen <i></i></p>
+          </div>
+          <div class="xp-canvas" aria-hidden="true"><canvas></canvas></div>
+        </div>
       </div>
+    </div>
     </section>
 
     <!-- ===== CASE UITGELICHT ===== -->
@@ -674,7 +686,7 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=10'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=40'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen

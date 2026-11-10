@@ -213,6 +213,20 @@
     els.forEach(function (b) { io.observe(b); });
   })();
 
+  /* ---------- 3D exploded view: alleen met WebGL, Three.js pas laden als de sectie dichtbij is ---------- */
+  (function () {
+    var xp = document.querySelector('[data-xp]'), ok = false;
+    if (!xp || !('IntersectionObserver' in window)) return;
+    try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) {}
+    if (!ok) return;
+    root.classList.add('has-xp');
+    var io = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return; io.disconnect();
+      import('/xplode.js?v=28').then(function (m) { return m.init(xp); }).catch(function () { root.classList.remove('has-xp'); });
+    }, { rootMargin: '120% 0px' });
+    io.observe(xp);
+  })();
+
   /* ---------- zonder GSAP of met reduced motion: hier stoppen ---------- */
   if (reduce || !window.gsap || !window.ScrollTrigger) {
     root.classList.add('rm');
@@ -247,6 +261,31 @@
         });
       }
     });
+  });
+
+  /* ---------- statement: woorden lichten een voor een op terwijl je scrolt ---------- */
+  $$('[data-words]').forEach(function (el) {
+    var words = el.textContent.trim().split(/\s+/);
+    el.setAttribute('aria-label', words.join(' '));
+    el.innerHTML = words.map(function (w) { return '<span class="w" aria-hidden="true">' + w.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>'; }).join(' ');
+    gsap.fromTo($$('.w', el), { opacity: 0.14 }, { opacity: 1, ease: 'none', stagger: 0.1,
+      scrollTrigger: { trigger: el, start: 'top 82%', end: 'bottom 42%', scrub: 0.6 } });
+  });
+
+  /* ---------- case: printspoor loopt langs de stappen, elk punt licht op als het spoor er is ---------- */
+  $$('.case-steps').forEach(function (list) {
+    var trace = document.createElement('span'); trace.className = 'case-trace'; trace.setAttribute('aria-hidden', 'true');
+    list.classList.add('has-trace'); list.appendChild(trace);
+    gsap.to(trace, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: list, start: 'top 62%', end: 'bottom 62%', scrub: 0.4 } });
+    $$('li', list).forEach(function (li) {
+      ST.create({ trigger: li, start: 'top+=22 62%', onEnter: function () { li.classList.add('is-on'); }, onLeaveBack: function () { li.classList.remove('is-on'); } });
+    });
+  });
+
+  /* ---------- visualisatie: schermen kantelen van schuin naar recht ---------- */
+  $$('.vids .vcard-media').forEach(function (m, i) {
+    gsap.fromTo(m, { rotationX: 22, rotationY: i ? -6 : 6, y: 70, scale: 0.92, transformOrigin: '50% 100%' },
+      { rotationX: 0, rotationY: 0, y: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: m, start: 'top bottom', end: 'top 45%', scrub: 0.8 } });
   });
 
   /* ---------- zachte fade-ups ---------- */

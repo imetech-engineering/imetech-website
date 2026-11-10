@@ -242,3 +242,19 @@
     els.forEach(function (b) { io.observe(b); });
   })();
 })();
+
+/* ---------- Ventairo 3D op dienstpagina's: alleen met WebGL, pas laden als het model dichtbij is ---------- */
+(function () {
+  var els = document.querySelectorAll('[data-xp]'), ok = false;
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) {}
+  if (!ok) return;
+  document.documentElement.classList.add('has-xp');
+  els.forEach(function (el) {
+    var io = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return; io.disconnect();
+      import('/xplode.js?v=28').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
+    }, { rootMargin: '120% 0px' });
+    io.observe(el);
+  });
+})();

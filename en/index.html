@@ -306,8 +306,8 @@
   <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css?v=1">
   <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
-  <link rel="stylesheet" href="/home.css?v=15">
-  <link rel="stylesheet" href="/site-v3.css?v=26">
+  <link rel="stylesheet" href="/home.css?v=19">
+  <link rel="stylesheet" href="/site-v3.css?v=30">
   <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
 </head>
 
@@ -393,12 +393,24 @@
     <section class="statement light">
       <div class="wrap">
         <p class="mono kicker">01 &mdash; Approach</p>
-        <h2 class="big" data-split>One system, one engineer. No hand-offs between specialists, no noise between board, enclosure and code.</h2>
+        <h2 class="big" data-words>One system, one engineer. No hand-offs between specialists, no noise between board, enclosure and code.</h2>
         <div class="statement-foot">
           <p class="fade-up">Because electronics, firmware and mechanics come together with me, everything fits the first time. That saves iterations, time and cost.</p>
           <a class="link-arrow fade-up" href="/en/about/">Who I am <span aria-hidden="true">&rarr;</span></a>
         </div>
+      <!-- 3D exploded view: behuizing, print en firmware gaan laag voor laag open (xplode.js) -->
+      <div class="xp" data-xp>
+        <div class="xp-stage">
+          <div class="xp-legend">
+            <p class="mono xp-kicker">Ventairo VAI-ONE &middot; air quality monitor</p>
+            <a class="xp-row" href="/en/services/mechanical-cad-drawings/"><span class="mono">01</span><strong>Enclosure</strong><small>Mechanical &amp; CAD <span aria-hidden="true">&rarr;</span></small></a><a class="xp-row" href="/en/services/electronics-pcb-design/"><span class="mono">02</span><strong>PCB &amp; LED ring</strong><small>Electronics &amp; PCB design <span aria-hidden="true">&rarr;</span></small></a><a class="xp-row" href="/en/services/software-development/"><span class="mono">03</span><strong>Firmware</strong><small>ESP32-S3, sensors &amp; LEDs <span aria-hidden="true">&rarr;</span></small></a>
+            <p class="xp-note">In-house product development, shown with the real CAD and PCB data.</p>
+            <p class="mono xp-hint" aria-hidden="true">Scroll to open <i></i></p>
+          </div>
+          <div class="xp-canvas" aria-hidden="true"><canvas></canvas></div>
+        </div>
       </div>
+    </div>
     </section>
 
     <!-- ===== CASE UITGELICHT ===== -->
@@ -675,7 +687,7 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=10'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=40'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
