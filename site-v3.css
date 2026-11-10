@@ -89,7 +89,7 @@
   color: #fff; font: 400 .92rem 'Archivo', system-ui, sans-serif; transition: border-color .3s, background-color .3s; }
 .floating-cta .input::placeholder { color: rgba(190, 210, 232, .4); }
 .floating-cta .input:focus { outline: none; border-color: var(--x-cyan-hi); background: rgba(255, 255, 255, .07); }
-.floating-cta select.input option { color: #061021; }
+.floating-cta select.input option { color: var(--x-text); background: #0b1a30; }
 .floating-cta .textarea { resize: vertical; min-height: 70px; }
 .floating-cta .hidden { display: none; }
 .floating-panel__foot { margin-top: 1rem; display: grid; gap: .6rem; }
@@ -412,3 +412,76 @@ main > section:last-child { position: relative; z-index: 1; border-bottom-left-r
 
 /* lage schermen: de velden scrollen binnen de popup in plaats van achter de verzendknop te schuiven */
 .floating-panel__fields { min-height: 0; overflow-y: auto; overscroll-behavior: contain; margin-inline: -4px; padding: 4px; scrollbar-width: thin; scrollbar-color: rgba(150, 195, 235, .3) transparent; }
+
+/* keuzelijst in de contact-popup: donker, ook de geopende lijst (moderne browsers krijgen een eigen lijst) */
+.floating-cta select.input { color-scheme: dark; }
+@supports (appearance: base-select) {
+  .floating-cta select.input, .floating-cta select.input::picker(select) { appearance: base-select; }
+  .floating-cta select.input::picker-icon { display: none; }
+  .floating-cta select.input::picker(select) { margin-top: 6px; padding: .35rem; border: 1px solid var(--x-line); border-radius: 14px; background: #0b1a30; box-shadow: 0 24px 60px -18px rgba(0, 0, 0, .75);
+    opacity: 0; translate: 0 -6px; transition: opacity .25s var(--x-ease), translate .3s var(--x-ease), overlay .3s allow-discrete, display .3s allow-discrete; }
+  .floating-cta select.input:open::picker(select) { opacity: 1; translate: 0 0; }
+  @starting-style { .floating-cta select.input:open::picker(select) { opacity: 0; translate: 0 -6px; } }
+  .floating-cta select.input option { display: flex; align-items: center; gap: .6rem; padding: .6rem .75rem; border-radius: 10px; background: none; color: var(--x-text); font-size: .9rem; cursor: pointer; transition: background-color .2s; }
+  .floating-cta select.input option:hover, .floating-cta select.input option:focus-visible { background: rgba(255, 255, 255, .07); outline: none; }
+  .floating-cta select.input option:checked { background: rgba(34, 157, 216, .18); color: #fff; }
+  .floating-cta select.input option::checkmark { order: 1; margin-left: auto; color: var(--x-cyan-hi); }
+  .floating-cta select.input option:first-child { color: var(--x-muted); }
+}
+
+/* "Alle diensten" / "Alle projecten": een echte knop, rechts uitgelijnd op de onderkant van de kop */
+.section-header.section-header--row { max-width: none; align-items: flex-end; }
+.section-header--row .text-link { flex-shrink: 0; margin-bottom: .55rem; padding: .8rem 1.25rem; border: 1px solid rgba(6, 16, 33, .22); border-radius: 999px; font-size: .92rem;
+  background: linear-gradient(#061021, #061021) 50% 100% / 100% 0% no-repeat; transition: background-size .5s var(--x-ease), color .3s, border-color .3s; }
+.section-header--row .text-link:hover { background-size: 100% 100%; color: #fff; border-color: #061021; }
+.section-header--row .text-link svg { transition: transform .4s var(--x-ease); }
+.section-header--row .text-link:hover svg { transform: translateX(4px); }
+@media (max-width: 900px) { .section-header--row .text-link { margin-bottom: 0; } }
+
+/* klikbare kaarten (expertise, andere disciplines, gerelateerd): donker vlak schuift omhoog, icoon en pijl in cyaan */
+a.service-card, a.other-svc, a.related-card {
+  background-image: linear-gradient(#061021, #061021); background-repeat: no-repeat; background-position: 50% 100%; background-size: 100% 0%;
+  transition: background-size .6s var(--x-ease), border-color .35s, color .35s, transform .6s var(--x-ease), box-shadow .6s var(--x-ease);
+}
+a.service-card:hover, a.other-svc:hover, a.related-card:hover {
+  background-image: linear-gradient(#061021, #061021); background-size: 100% 100%; border-color: #061021; color: var(--on-dark);
+  transform: translateY(-4px); box-shadow: 0 22px 44px -26px rgba(6, 16, 33, .55);
+}
+a.service-card h3, a.service-card p, a.other-svc .other-svc-name, a.other-svc .other-svc-num, a.related-card h3, a.related-card p { transition: color .35s; }
+a.service-card:hover h3, a.other-svc:hover .other-svc-name, a.related-card:hover h3 { color: #fff; }
+a.service-card:hover p, a.related-card:hover p { color: rgba(236, 243, 251, .75); }
+a.other-svc:hover .other-svc-num { color: var(--cyan-hi); }
+a.service-card .service-icon { transition: background-color .4s, color .4s, transform .6s var(--x-ease); }
+a.service-card:hover .service-icon { background: var(--cyan); color: #061021; transform: rotate(-8deg) scale(1.06); }
+a.other-svc svg, a.related-card svg { transition: transform .45s var(--x-ease), color .35s; }
+a.other-svc:hover svg, a.related-card:hover svg { color: var(--cyan-hi); transform: translateX(5px); }
+@media (prefers-reduced-motion: reduce) { a.service-card:hover, a.other-svc:hover, a.related-card:hover { transform: none; } }
+
+/* "sinds 2017" */
+.about-stat b small { display: block; margin-bottom: .2em; font: 500 .7rem/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+/* ===== extra's, geïnspireerd op DaisyUI (aura, hover-3D, validator) en Casberry (deeltjes) ===== */
+/* aura: een dun lichtspoor draait rond de belangrijkste knop */
+@property --aura { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.has-aura { position: relative; isolation: isolate; }
+.has-aura::before { content: ""; position: absolute; inset: -4px; border-radius: inherit; padding: 2px; pointer-events: none; z-index: -1;
+  background: conic-gradient(from var(--aura), transparent 0 55%, rgba(124, 214, 255, .35) 70%, #7cd6ff 84%, #fff 90%, transparent 94%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: aura-spin 4.5s linear infinite; opacity: .9; transition: opacity .4s; }
+.has-aura:hover::before { opacity: 0; }
+@keyframes aura-spin { to { --aura: 360deg; } }
+@media (prefers-reduced-motion: reduce) { .has-aura::before { animation: none; opacity: 0; } }
+
+/* hover-3D: kaart kantelt licht naar de cursor, met een glans die meeloopt (alleen muis) */
+.tilt.tilt, .tilt.tilt:hover { transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .7s cubic-bezier(.22, 1, .36, 1); transform-style: preserve-3d; }
+.tilt.is-tilting { transition-duration: .25s; }
+.tilt-glare { position: relative; }
+.tilt-shine { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3; opacity: 0; transition: opacity .5s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .22), transparent 55%); mix-blend-mode: soft-light; }
+.tilt.is-tilting .tilt-shine { opacity: 1; }
+
+/* validator: na invullen kleurt het veld groen met een vinkje, of rood als er iets mist */
+.input:user-invalid { border-color: #e5636b !important; box-shadow: 0 0 0 3px rgba(229, 99, 107, .16); }
+.input:user-valid:not(select):not(textarea):not(:placeholder-shown) { border-color: #2fb37a !important; padding-right: 2.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232fb37a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .85rem center; background-size: 1rem; }
+textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !important; }

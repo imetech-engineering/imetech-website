@@ -435,3 +435,28 @@ a.stars:hover i { transform: translate(2px, -2px); }
 
 /* contactknop niet over het open mobiele menu */
 body.menu-open .floating-cta { opacity: 0; pointer-events: none; }
+
+/* telefoon: persoonlijk kaartje onder de knoppen, zodat je meteen ziet wie je spreekt */
+.hero-me { display: none; }
+@media (max-width: 900px) {
+  .hero-me { display: flex; align-items: center; gap: .9rem; margin: 1.75rem auto 0; max-width: 22rem; padding: .7rem 1.1rem .7rem .7rem; border-radius: 18px; border: 1px solid var(--line-dark); background: rgba(255,255,255,.04); text-align: left; color: var(--on-dark); }
+  .hero-me img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px rgba(91,194,240,.45); }
+  .hero-me strong { display: block; font-weight: 700; font-size: 1rem; }
+  .hero-me small { display: block; font: 500 .62rem/1.5 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--on-dark-2); }
+  .hero-me em { display: block; margin-top: .15rem; font-style: normal; font-weight: 600; font-size: .88rem; color: var(--cyan-hi); }
+  .js:not(.rm) .hero-me { animation: hero-in 1.1s var(--ease) .62s both; }
+}
+
+/* werk: bij hover groeit de foto zelf iets, de pil is kleiner zodat je de foto blijft zien */
+.wimg { transition: transform .9s var(--ease); }
+.wcard:hover .wimg { transform: scale(1.035); }
+.wcard:hover .wimg img { transform: scale(1.07); }
+.view-pill { width: 74px; height: 74px; font-size: .8rem; }
+
+/* opdrachtgevers-strook valt op desktop meteen binnen het eerste scherm */
+@media (min-width: 901px) {
+  .hero { min-height: max(640px, calc(100svh - 6.75rem)); padding-top: 6rem; padding-bottom: 5rem; }
+  .hero + .clients { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); padding: 1.5rem var(--gutter); }
+  .hero + .clients .clients-label { flex: none; max-width: 9rem; margin: 0; text-align: left; line-height: 1.5; }
+  .hero + .clients .marquee { flex: 1; min-width: 0; }
+}

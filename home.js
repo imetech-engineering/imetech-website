@@ -166,6 +166,53 @@
   else window.addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(startFields, { timeout: 800 }); });
 
   /* ---------- video's: juiste bron, alleen spelen als zichtbaar ---------- */
+  /* ---------- hover-3D: kaarten kantelen licht naar de cursor (alleen muis, niet bij reduced motion) ---------- */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.wcard').forEach(function (card) {
+      var glare = card.querySelector('.wimg') || card, raf = 0;
+      card.classList.add('tilt'); glare.classList.add('tilt-glare'); var shine = document.createElement('span'); shine.className = 'tilt-shine'; shine.setAttribute('aria-hidden', 'true'); glare.appendChild(shine);
+      card.addEventListener('pointermove', function (e) {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () {
+          var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          card.classList.add('is-tilting');
+          card.style.setProperty('--ry', ((x - 0.5) * 7).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - y) * 7).toFixed(2) + 'deg');
+          var g = glare.getBoundingClientRect();
+          glare.style.setProperty('--mx', (e.clientX - g.left) + 'px');
+          glare.style.setProperty('--my', (e.clientY - g.top) + 'px');
+        });
+      });
+      card.addEventListener('pointerleave', function () {
+        cancelAnimationFrame(raf); card.classList.remove('is-tilting');
+        card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg');
+      });
+    });
+  })();
+
+  /* ---------- getallen tellen op zodra ze in beeld komen (eindwaarde staat gewoon in de HTML) ---------- */
+  (function () {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = [].filter.call(document.querySelectorAll('.hero-proof b'), function (b) {
+      var t = b.lastChild; return t && t.nodeType === 3 && /^\d+(\.\d)?\+?$/.test(t.nodeValue.trim());
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return; io.unobserve(en.target);
+        var node = en.target.lastChild, raw = node.nodeValue.trim(), end = parseFloat(raw), dec = raw.indexOf('.') > -1 ? 1 : 0;
+        var suf = raw.replace(/^[\d.]+/, ''), from = end >= 1000 ? end - 9 : 0, t0 = performance.now(), dur = 1400;
+        en.target.style.fontVariantNumeric = 'tabular-nums';
+        (function step(now) {
+          var p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+          node.nodeValue = (from + (end - from) * e).toFixed(dec) + suf;
+          if (p < 1) requestAnimationFrame(step); else node.nodeValue = raw;
+        })(t0);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (b) { io.observe(b); });
+  })();
+
   /* ---------- zonder GSAP of met reduced motion: hier stoppen ---------- */
   if (reduce || !window.gsap || !window.ScrollTrigger) {
     root.classList.add('rm');

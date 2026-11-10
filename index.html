@@ -305,8 +305,8 @@
   <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css?v=1">
   <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
-  <link rel="stylesheet" href="/home.css?v=11">
-  <link rel="stylesheet" href="/site-v3.css?v=23">
+  <link rel="stylesheet" href="/home.css?v=15">
+  <link rel="stylesheet" href="/site-v3.css?v=26">
   <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
 </head>
 
@@ -355,9 +355,10 @@
         <h1 class="hero-title" data-split>Van idee naar <em>werkend product.</em></h1>
         <p class="hero-sub fade-up">Elektronica, firmware, mechanica en software. E&eacute;n engineer, van eerste schets tot kleinserie.</p>
         <div class="hero-btns fade-up">
-          <a class="pill pill--cyan" data-magnetic href="/contact/">Bespreek je project <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="pill pill--cyan has-aura" data-magnetic href="/contact/">Bespreek je project <span class="arr" aria-hidden="true">&rarr;</span></a>
           <a class="pill pill--ghost" data-magnetic href="#werk">Bekijk werk</a>
         </div>
+        <a class="hero-me fade-up" href="/over-mij/"><img src="/images/ivo-avatar.webp" alt="" width="96" height="96" decoding="async" /><span><strong>Ivo Mengerink</strong><small>Engineer &amp; oprichter &middot; MSc &middot; CSWP</small><em>Maak kennis <span aria-hidden="true">&rarr;</span></em></span></a>
       </div>
       <div class="hero-proof fade-up" aria-label="Kerngegevens">
         <a href="/projecten/"><b>22+</b> projecten<i aria-hidden="true">&rarr;</i></a>
@@ -612,7 +613,7 @@
           <a href="tel:+31612385439">+31 6 1238 5439</a>
           <a href="https://www.google.com/maps/place/IMeTech+Engineering/@51.9107245,6.5718552,17z" target="_blank" rel="noopener noreferrer">Vierde Broekdijk 1, 7122 JD Aalten</a>
         </div>
-        <a class="cta-ball" data-magnetic data-strength="0.45" href="/contact/"><span>Plan een <br>gesprek</span></a>
+        <a class="cta-ball has-aura" data-magnetic data-strength="0.45" href="/contact/"><span>Plan een <br>gesprek</span></a>
       </div>
     </section>
   </main>
@@ -673,7 +674,7 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=8'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=10'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
