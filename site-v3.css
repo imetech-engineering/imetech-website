@@ -522,10 +522,21 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 
 /* ===== 3D exploded view (xplode.js): alleen zichtbaar als WebGL werkt ===== */
 .xp { display: none; }
-.has-xp .xp { display: block; height: 460vh; margin-top: clamp(2rem, 5vw, 4rem); }
-.xp-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; grid-template-columns: minmax(15rem, 23rem) 1fr; align-items: center; gap: clamp(1rem, 3vw, 3rem); padding-top: 72px; box-sizing: border-box; }
-.xp-canvas { position: relative; height: 100%; min-height: 0; opacity: 0; transition: opacity 1s cubic-bezier(.22, 1, .36, 1); }
-.xp.is-ready .xp-canvas { opacity: 1; }
+.has-xp .xp { display: block; height: 540vh; margin-top: clamp(2rem, 5vw, 4rem); }
+.xp-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; grid-template-columns: minmax(15rem, 23rem) 1fr; align-items: center; gap: clamp(1rem, 3vw, 3rem); padding: 92px 0 24px; box-sizing: border-box; }
+/* het vlak staat er meteen (geen leeg gat tijdens laden); het model fade in zodra de 3D klaar is */
+.xp-canvas { position: relative; height: 100%; min-height: 0; container-type: size; }
+.xp-canvas canvas, .xp-canvas .xp-ui { opacity: 0; transition: opacity 1s cubic-bezier(.22, 1, .36, 1); }
+.is-ready .xp-canvas canvas, .is-ready .xp-canvas .xp-ui { opacity: 1; }
+/* startbeeld (logo van bovenaf, gerenderd uit dezelfde 3D) zolang het model laadt */
+.xp .xp-canvas::before { content: ""; position: absolute; left: 50%; top: 50%; z-index: 0; width: min(100cqw, 100cqh); aspect-ratio: 1; translate: -50% -50%; pointer-events: none;
+  background: url(/images/vai-one-poster.webp) center / cover no-repeat; -webkit-mask: radial-gradient(closest-side, #000 76%, transparent); mask: radial-gradient(closest-side, #000 76%, transparent);
+  transition: opacity 1s cubic-bezier(.22, 1, .36, 1); }
+@media (max-width: 619px) { .xp .xp-canvas::before { width: calc(min(100cqw, 100cqh) / 1.22); } }
+.xp.is-ready .xp-canvas::before { opacity: 0; }
+/* dienstpagina's: rustig pulserend vlak tot het model er is */
+.xp-sub:not(.is-ready) .xp-canvas { animation: xp-wait 1.6s ease-in-out infinite alternate; }
+@keyframes xp-wait { to { filter: brightness(1.18); } }
 .xp-canvas canvas { display: block; width: 100%; height: 100%; }
 .xp-kicker { color: #0b6aa6; margin-bottom: 1.1rem; }
 .xp-row { position: relative; display: grid; grid-template-columns: 2.4rem 1fr; column-gap: .25rem; padding: 1.05rem 0 1.05rem 1rem; border-top: 1px solid rgba(7, 26, 47, .12); color: #071a2f; opacity: .38; transition: opacity .5s cubic-bezier(.22, 1, .36, 1); }
@@ -544,7 +555,7 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp.is-open .xp-hint { opacity: 0; }
 @keyframes xp-cue { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
 @media (max-width: 900px) {
-  .has-xp .xp { height: 400vh; }
+  .has-xp .xp { height: 470vh; }
   .xp-stage { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; align-items: stretch; gap: .5rem; padding: 64px 0 1.25rem; }
   .xp-legend { order: 2; }
   .xp-kicker, .xp-hint { display: none; }
@@ -569,7 +580,6 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp-sub-points li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: #229dd8; box-shadow: 0 0 0 3px rgba(34, 157, 216, .16); }
 .xp-sub-hint { margin-top: 1.25rem; font: 500 .72rem/1.4 'IBM Plex Mono', monospace; letter-spacing: .06em; text-transform: uppercase; color: #56677b; }
 @media (max-width: 900px) { .has-xp .xp-sub { grid-template-columns: 1fr; } .xp-sub .xp-canvas { height: min(80vw, 480px); min-height: 360px; } }
-.xp-sub.is-ready .xp-canvas { opacity: 1; }
 
 /* diensten op telefoon: swipen tussen de disciplines (tabs volgen mee) */
 @media (max-width: 860px) {
@@ -587,3 +597,29 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp-fwlink i { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(255, 255, 255, .95) 10px 16px, transparent 16px 26px); animation: xp-data 0.9s linear infinite; }
 @keyframes xp-data { to { transform: translateX(26px); } }
 .xp-fw-mcu { color: #6cc8f2; font-size: .7rem; letter-spacing: .04em; }
+
+/* sticky 3D op subpagina's: overflow:hidden van .section breekt position:sticky */
+.section.xp-section { overflow: visible; overflow-x: clip; }
+
+/* contact-popup: de eigen keuzelijst (script.js .custom-select) in het donkere thema van de popup */
+.floating-cta .custom-select-options { background: #0b1a30; border: 1px solid var(--x-line); border-radius: 14px; padding: .35rem; max-height: 320px;
+  box-shadow: 0 24px 60px -18px rgba(0, 0, 0, .75); scrollbar-width: thin; scrollbar-color: rgba(150, 195, 235, .25) transparent; }
+.floating-cta .custom-select-option { color: var(--x-text); border-radius: 10px; }
+.floating-cta .custom-select-option:hover, .floating-cta .custom-select-option:focus { background: rgba(255, 255, 255, .07); color: #fff; }
+.floating-cta .custom-select-option.is-selected, .floating-cta .custom-select-option[aria-selected="true"] { background: rgba(34, 157, 216, .18); color: var(--x-cyan-hi); font-weight: 600; }
+.floating-cta .custom-select-option:first-child:not(.is-selected) { color: var(--x-muted); }
+.floating-cta .custom-select-trigger.is-placeholder { color: rgba(190, 210, 232, .55); }
+.floating-cta .custom-select-trigger::after { border-color: var(--x-muted); }
+.floating-cta .custom-select.open .custom-select-trigger::after { border-color: var(--x-cyan-hi); }
+
+/* teksten die alleen kloppen met een muis, of juist alleen op een touchscreen */
+@media (hover: none), (pointer: coarse) { .only-mouse { display: none !important; } }
+@media (hover: hover) and (pointer: fine) { .only-touch { display: none !important; } }
+
+/* vangnet: laadt script.js traag (telefoon, slechte verbinding), dan verschijnt de inhoud toch na 1,2 s in plaats van wit te blijven */
+html:not(.reveal-ready) :is(.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate):not(.visible) { animation: reveal-fallback .6s ease 1.2s forwards; }
+@keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+.reveal-off :is(.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate) { opacity: 1 !important; transform: none !important; }
+
+/* stipjes, aansluitlijnen en de firmwarelijn tekent xplode.js nu in WebGL (loopt gelijk met het model); HTML-versies uit */
+.xp-label i, .xp-label em, .xp-fwlink { display: none !important; }

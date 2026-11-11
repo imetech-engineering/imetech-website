@@ -36,9 +36,13 @@
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/software-development/" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/softwareontwikkeling/" />
     <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/fonts/fonts.css?v=1">
+    <!-- header, footer en contactknop direct mee ophalen i.p.v. pas na script.js (scheelt een rondje op trage verbindingen) -->
+  <link rel="preload" href="/components/header-en.html?v=20261110" as="fetch" crossorigin>
+  <link rel="preload" href="/components/footer-en.html?v=20261110" as="fetch" crossorigin>
+  <link rel="preload" href="/components/floating-cta-en.html?v=20261110" as="fetch" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css?v=1">
     <link rel="stylesheet" href="/style.css?v=20261105d">
-  <link rel="stylesheet" href="/site-v3.css?v=34">
+  <link rel="stylesheet" href="/site-v3.css?v=41">
 
   <script type="application/ld+json">
   {
@@ -93,6 +97,8 @@
     ]
   }
   </script>
+  <!-- volgende pagina alvast ophalen zodra je een link aanraakt (Chrome/Edge/Brave; andere browsers negeren dit) -->
+  <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/v1/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 
 <body>
@@ -216,7 +222,7 @@
                         <span class="label">In practice</span>
                         <h2>Firmware you can see</h2>
                         <p>The ring of the Ventairo VAI-ONE runs the same logic here as the real firmware: air quality sets the colour, transitions fade over two seconds and a breathing wave travels around the light slot.</p>
-                        <ul class="xp-sub-points"><li>Status colours and thresholds from the firmware</li><li>Soft transition (nblend) and breathing wave (cubicwave8)</li><li>Try a status, or breathe on the device with your mouse</li></ul>
+                        <ul class="xp-sub-points"><li>Status colours and thresholds from the firmware</li><li>Soft transition (nblend) and breathing wave (cubicwave8)</li><li>Try a status, or <span class="only-mouse">breathe on the device with your mouse</span><span class="only-touch">tap the device to breathe on it</span></li></ul>
                         <p class="xp-sub-hint">Live simulation of updateLEDs()</p>
                     </div>
                     <div class="xp-canvas" aria-hidden="true"><canvas></canvas></div>
@@ -316,8 +322,8 @@
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
     <script src="/vendor/lenis.min.js" defer></script>
-    <script src="/script.js?v=20261110" defer></script>
-    <script src="/site-v3.js?v=31" defer></script>
+    <script src="/script.js?v=20261112" defer></script>
+    <script src="/site-v3.js?v=46" defer></script>
 </body>
 
 </html>

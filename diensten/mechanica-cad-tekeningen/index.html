@@ -36,9 +36,13 @@
   <link rel="alternate" hreflang="en" href="https://imetech.nl/en/services/mechanical-cad-drawings/" />
   <link rel="alternate" hreflang="x-default" href="https://imetech.nl/diensten/mechanica-cad-tekeningen/" />
     <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/fonts/fonts.css?v=1">
+    <!-- header, footer en contactknop direct mee ophalen i.p.v. pas na script.js (scheelt een rondje op trage verbindingen) -->
+  <link rel="preload" href="/components/header-nl.html?v=20261110" as="fetch" crossorigin>
+  <link rel="preload" href="/components/footer-nl.html?v=20261110" as="fetch" crossorigin>
+  <link rel="preload" href="/components/floating-cta-nl.html?v=20261110" as="fetch" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css?v=1">
     <link rel="stylesheet" href="/style.css?v=20261105d">
-  <link rel="stylesheet" href="/site-v3.css?v=34">
+  <link rel="stylesheet" href="/site-v3.css?v=41">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,6 +96,8 @@
     ]
   }
   </script>
+  <!-- volgende pagina alvast ophalen zodra je een link aanraakt (Chrome/Edge/Brave; andere browsers negeren dit) -->
+  <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/v1/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 
 <body>
@@ -216,7 +222,7 @@
                         <h2>Een behuizing die licht laat spreken</h2>
                         <p>De behuizing van de Ventairo VAI-ONE, ontworpen in SolidWorks: een glanzend witte basis met ventilatie langs de sensoren, een geborsteld aluminium top met uitgesneden logo en een opaal diffuser-ring die het licht van 35 LEDs als egale band laat uitstralen.</p>
                         <ul class="xp-sub-points"><li>Afgeronde randen voor een vriendelijke vorm</li><li>Diffuser-ring ingeklemd tussen basis en top</li><li>Ventilatie onderin, langs de sensoren</li></ul>
-                        <p class="xp-sub-hint">Beweeg je muis over het model</p>
+                        <p class="xp-sub-hint only-mouse">Beweeg je muis over het model</p>
                     </div>
                     <div class="xp-canvas" aria-hidden="true"><canvas></canvas></div>
                 </div>
@@ -316,8 +322,8 @@
     <div id="footer-container"></div>
     <div id="floating-cta-container"></div>
     <script src="/vendor/lenis.min.js" defer></script>
-    <script src="/script.js?v=20261110" defer></script>
-    <script src="/site-v3.js?v=31" defer></script>
+    <script src="/script.js?v=20261112" defer></script>
+    <script src="/site-v3.js?v=46" defer></script>
 </body>
 
 </html>

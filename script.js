@@ -10,22 +10,10 @@
     }
   })();
 
-  // ===== SCROLL TOP ON LOAD (mobile viewport units can offset initial position) =====
-  (function ensureTopOnLoad() {
-    if (window.location.hash) return;
-
-    function scrollTop() {
-      window.scrollTo(0, 0);
-    }
-
-    scrollTop();
-    window.addEventListener('DOMContentLoaded', scrollTop, { once: true });
-    window.addEventListener('load', scrollTop, { once: true });
-    window.addEventListener('pageshow', function (e) {
-      if (window.location.hash || e.persisted) return;
-      scrollTop();
-    });
-  })();
+  // (Vroeger: bij laden naar boven scrollen. Weggehaald: op een trage telefoon kwam dat pas na seconden
+  //  en zette het een bezoeker die al aan het scrollen was terug naar boven. De browser regelt dit zelf goed.)
+  document.documentElement.classList.add('reveal-ready'); // CSS-vangnet voor .reveal hoeft niet meer
+  if (performance.now() > 1100) document.documentElement.classList.add('reveal-off'); // te laat: het vangnet heeft alles al getoond, dan zo laten
 
   // ===== SCROLL PERF: pause heavy effects while the user scrolls =====
   (function initScrollPerf() {

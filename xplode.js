@@ -96,9 +96,9 @@ export async function init(root) {
 
   /* ---------- renderer en licht ---------- */
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.6 : 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.35 : 2)); // telefoon: minder pixels, dan houdt hij 60 fps vol tijdens scrollen
   renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 0.92;
-  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = small ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
   var scene = new THREE.Scene();
   scene.background = studioTexture();
   var pmrem = new THREE.PMREMGenerator(renderer);
@@ -121,7 +121,7 @@ export async function init(root) {
   floorGlow.rotation.x = -Math.PI / 2; floorGlow.position.y = 0.2; scene.add(floorGlow);
 
   /* ---------- model ---------- */
-  var gltf = await new GLTFLoader().loadAsync('/models/vai-one.glb?v=6');
+  var gltf = await loadModel(new GLTFLoader());
   var texLoader = new THREE.TextureLoader();
   var aniso = renderer.capabilities.getMaxAnisotropy();
   function pcbTex(url) { var t = texLoader.load(url); t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = aniso; return t; }
@@ -139,7 +139,7 @@ export async function init(root) {
     o.geometry.computeVertexNormals();
     var m = o.material;
     if (mname === 'pcb_top' || mname === 'pcb_bottom') {
-      m.map = pcbTex(mname === 'pcb_top' ? '/models/vai-one-pcb-top.jpg?v=3' : '/models/vai-one-pcb-bot.jpg?v=3');
+      m.map = pcbTex(mname === 'pcb_top' ? TEX.top : TEX.bot);
       m.color.set(0xc8c8c8); m.roughness = 0.82; m.metalness = 0.0; m.envMapIntensity = 0.06; m.userData.board = true; // verzadigd groen, geen vale omgevingsreflectie
     }
     if (mname === 'enclosure') {
@@ -277,14 +277,52 @@ export async function init(root) {
       var pts = [a, a.clone().add(new V(0, 4 * up, 0))];
       (c.via || []).forEach(function (v) { pts.push(new V(v[0] + spread, v[1] + off(v[3]), v[2])); });
       pts.push(b.clone().add(new V(0, c.gt === 'base' ? 5 : -4, 0)), b);
-      cm.mesh.geometry.dispose();
-      cm.mesh.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'centripetal'), 40, c.r || 0.48, 6, false);
+      var key = pts.map(function (q) { return q.x.toFixed(2) + ',' + q.y.toFixed(2) + ',' + q.z.toFixed(2); }).join(';');
+      if (key === cm.key) return; cm.key = key;
+      var tg = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'centripetal'), 40, c.r || 0.48, 6, false), g = cm.mesh.geometry;
+      if (g.attributes.position && g.attributes.position.count === tg.attributes.position.count) {
+        g.attributes.position.array.set(tg.attributes.position.array); g.attributes.position.needsUpdate = true;
+        g.attributes.normal.array.set(tg.attributes.normal.array); g.attributes.normal.needsUpdate = true;
+        g.computeBoundingSphere(); tg.dispose();
+      } else { g.dispose(); cm.mesh.geometry = tg; }
     });
   }
 
+  /* ---------- overlay in WebGL: stipjes, aansluitlijnen en firmwarelijn worden in hetzelfde beeld als het model
+     getekend. Als HTML liepen ze op telefoons bij doorschieten net een beeld voor of achter en leken ze te trillen. ---------- */
+  var ovScene = new THREE.Scene(), ovCam = new THREE.OrthographicCamera(0, 1, 0, -1, -10, 10);
+  var CYAN = new THREE.Color(0x6cc8f2), glowTex = radialTexture();
+  var dotGeo = new THREE.CircleGeometry(1, 24), lineGeo = new THREE.PlaneGeometry(1, 1); lineGeo.translate(0.5, 0, 0);
+  function ovMat(add) { return new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0, depthTest: false, depthWrite: false, toneMapped: false, map: add ? glowTex : null, blending: add ? THREE.AdditiveBlending : THREE.NormalBlending }); }
+  var ovLabels = labelEls.map(function (el) {
+    if (!el) return null;
+    var g = new THREE.Group(), line = new THREE.Mesh(lineGeo, ovMat()), glow = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), ovMat(true)),
+        halo = new THREE.Mesh(dotGeo, ovMat()), dot = new THREE.Mesh(dotGeo, ovMat());
+    halo.scale.setScalar(8); dot.scale.setScalar(4);
+    line.renderOrder = 0; glow.renderOrder = 1; halo.renderOrder = 2; dot.renderOrder = 3;
+    g.add(line, glow, halo, dot); g.visible = false; ovScene.add(g);
+    return { g: g, line: line, parts: [[line, 0.65], [glow, 0.6], [halo, 0.22], [dot, 1]] };
+  });
+  var fwMat = new THREE.ShaderMaterial({
+    transparent: true, depthTest: false, depthWrite: false, toneMapped: false,
+    uniforms: { uLen: { value: 1 }, uT: { value: 0 }, uA: { value: 0 } },
+    vertexShader: 'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+    fragmentShader: 'uniform float uLen, uT, uA; varying vec2 vUv;\n' +
+      'void main() {\n' +
+      '  float x = vUv.x * uLen, dist = abs(vUv.y - 0.5) * 16.0;\n' +                       // px vanaf de hartlijn
+      '  float base = mix(0.9, 0.25, vUv.x);\n' +                                             // sterk bij de chip, zwak bij het paneel
+      '  float d = mod(x - uT * 28.9, 26.0), dash = step(10.0, d) * step(d, 16.0);\n' +       // datapakketjes die naar het paneel lopen
+      '  float core = 1.0 - smoothstep(1.0, 1.9, dist), glow = exp(-dist * dist / 14.0) * 0.55;\n' +
+      '  vec3 col = mix(vec3(0.424, 0.784, 0.949), vec3(1.0), dash * core * 0.95);\n' +
+      '  float a = max(base, dash * 0.95) * core + glow * base;\n' +
+      '  gl_FragColor = vec4(col, clamp(a, 0.0, 1.0) * uA);\n' +
+      '}'
+  });
+  var fwMesh = new THREE.Mesh(lineGeo, fwMat); fwMesh.visible = false; fwMesh.renderOrder = -1; ovScene.add(fwMesh);
+
   /* ---------- formaat ---------- */
   var W = 1, H = 1, look = new V(0, 50, 0);
-  function fit() { W = holder.clientWidth || 1; H = holder.clientHeight || 1; renderer.setSize(W, H, false); composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(W, H); camera.aspect = W / H; camera.updateProjectionMatrix(); }
+  function fit() { W = holder.clientWidth || 1; H = holder.clientHeight || 1; renderer.setSize(W, H, false); composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(W, H); camera.aspect = W / H; camera.updateProjectionMatrix(); ovCam.right = W; ovCam.bottom = -H; ovCam.updateProjectionMatrix(); }
   fit();
   if ('ResizeObserver' in window) new ResizeObserver(function () { fit(); kick(); }).observe(holder);
 
@@ -333,23 +371,26 @@ export async function init(root) {
     if (mode !== 'explode') return 0;
     if (reduce) return 1;
     if (forced >= 0) return forced;
-    var r = root.getBoundingClientRect(), span = r.height - innerHeight;
+    // vaste schermhoogte (hoogte van het sticky vlak, 100svh): de adresbalk op telefoons laat innerHeight verspringen
+    var stage = root.querySelector('.xp-stage'), vh = (stage && stage.offsetHeight) || innerHeight;
+    var r = root.getBoundingClientRect(), span = r.height - vh;
     return span > 0 ? clamp(-r.top / span, 0, 1) : 1;
   }
-  var proj = new V(), aq = new THREE.Color(), lin = new THREE.Color();
+  var proj = new V(), aq = new THREE.Color(), lin = new THREE.Color(), cam = { init: false, dist: 0, ly: 0, sx: 0, elev: 0 };
   var onlyPcbMode = mode === 'pcb';
   function apply(now, dt) {
     var onlyPcb = onlyPcbMode;
-    var e0 = 1, e1, e2, flip, e3, fwd = 0, fwOpen = 0;
+    var e0 = 1, e1, e2, flip, e3, fwd = 0, fwOpen = 0, fwSeen = 0;
     if (mode === 'explode') {
-      e0 = ease(seg(p, 0, 0.1));                  // van bovenaf (logo) naar 3D
-      var r = seg(p, 0.8, 0.95);                  // weer in elkaar, in omgekeerde volgorde
-      e1 = ease(seg(p, 0.1, 0.24)) * (1 - ease(seg(r, 0.72, 1)));
-      e2 = ease(seg(p, 0.23, 0.35)) * (1 - ease(seg(r, 0.5, 0.82)));
-      fwd = ease(seg(p, 0.33, 0.41)) * (1 - ease(seg(r, 0.24, 0.52)));
-      flip = ease(seg(p, 0.39, 0.48)) * (1 - ease(seg(r, 0, 0.28)));
-      fwOpen = ease(seg(p, 0.55, 0.61)) * (1 - ease(seg(p, 0.77, 0.81))); // firmware terwijl alles open ligt
-      e3 = ease(seg(p, 0.93, 0.98));              // dicht product licht op
+      e0 = ease(seg(p, 0, 0.08));                 // van bovenaf (logo) naar 3D
+      var r = seg(p, 0.79, 0.97);                 // direct na de firmware weer in elkaar, in omgekeerde volgorde
+      e1 = ease(seg(p, 0.08, 0.2)) * (1 - ease(seg(r, 0.78, 1)));
+      e2 = ease(seg(p, 0.19, 0.3)) * (1 - ease(seg(r, 0.56, 0.84)));
+      fwd = ease(seg(p, 0.28, 0.36)) * (1 - ease(seg(r, 0.32, 0.6)));
+      flip = ease(seg(p, 0.34, 0.44)) * (1 - ease(seg(r, 0, 0.36)));
+      fwSeen = ease(seg(p, 0.56, 0.6));          // vanaf de firmware geen print-labels meer
+      fwOpen = fwSeen * (1 - ease(seg(p, 0.77, 0.81))); // firmware terwijl alles open ligt
+      e3 = ease(seg(p, 0.95, 0.99));              // dicht product licht op
     }
     else if (mode === 'pcb') { e1 = 1; e2 = 1; flip = 1; e3 = 0; fwd = 0; }
     else if (mode === 'shell') { e1 = 0.55 + 0.05 * Math.sin(now / 2400); e2 = 0; flip = 0; e3 = 0; }
@@ -403,33 +444,38 @@ export async function init(root) {
     var auto = mode === 'explode' || reduce ? 0 : now / 9000;
     var yaw = camYaw;
     var elev = (onlyPcb ? 0.62 : mode === 'device' ? 0.5 : lerp(1.45, lerp(0.36, 0.5, e2) + 0.16 * e3, e0)) + pointer.y * 0.18 * e0;
-    var spanH = onlyPcb ? 86 : mode === 'device' ? 150 : mode === 'shell' ? 168 : lerp(150, lerp(112, 225, Math.max(e1 * 0.6, e2)) + 34 * e3, e0);
+    var stackTop = 98 + Math.max(groups.top.position.y, groups.pcb.position.y + 40 * flip), stackBot = -3;
+    var spanH = onlyPcb ? 86 : mode === 'device' ? 150 : mode === 'shell' ? 168 : lerp(150, (stackTop - stackBot) * 1.06 + 8, e0);
     var t = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    var dist = Math.max(spanH * 0.52 / t, (onlyPcb ? 112 : 128) * 0.62 / (t * camera.aspect)) + fwd * 90 + fwOpen * (W < 620 ? 70 : 20);
+    var dist = Math.max(spanH * 0.55 / t, (onlyPcb ? 112 : 128) * 0.62 / (t * camera.aspect)) + fwd * 70 + fwOpen * (W < 620 ? 60 : 16);
     if (W < 620) dist *= lerp(1.22, 1, e0); // smal scherm: in het beginbeeld ruim marge rond de Top
-    var ly = onlyPcb ? 84 : mode === 'device' ? 50 : mode === 'shell' ? 78 : lerp(98, lerp(49, 104, Math.max(e1 * 0.5, e2)), e0);
+    var ly = onlyPcb ? 84 : mode === 'device' ? 50 : mode === 'shell' ? 78 : lerp(98, (stackTop + stackBot) / 2, e0);
     // met het firmware-paneel ernaast schuift het product iets opzij (breed) of omhoog (smal)
     var fwSpace = (mode === 'explode' ? fwOpen : mode === 'device' ? 1 : 0), narrow = W < 620;
     var sideX = narrow ? 0 : 34 * fwSpace, sideY = narrow ? (mode === 'device' ? -12 : -46) * fwSpace : 0;
-    look.set(Math.cos(camYaw) * sideX, ly + sideY, -Math.sin(camYaw) * sideX);
+    // camera volgt gedempt: zoomen gaat altijd vloeiend, ook als je snel scrolt
+    var k = cam.init ? 1 - Math.exp(-dt / 420) : 1; cam.init = true;
+    cam.dist += (dist - cam.dist) * k; cam.ly += (ly + sideY - cam.ly) * k; cam.sx += (sideX - cam.sx) * k; cam.elev += (elev - cam.elev) * k;
+    dist = cam.dist; elev = cam.elev;
+    look.set(Math.cos(camYaw) * cam.sx, cam.ly, -Math.sin(camYaw) * cam.sx);
     holder.classList.toggle('is-narrow', narrow);
     camera.position.set(look.x + Math.sin(yaw) * Math.cos(elev) * dist, look.y + Math.sin(elev) * dist, look.z + Math.cos(yaw) * Math.cos(elev) * dist);
     camera.lookAt(look);
     key.target.position.copy(look); key.target.updateMatrixWorld();
 
     // labels projecteren
-    var stageVis = onlyPcb ? [0, 0, 1, 0] : mode === 'device' ? [0, 0, 0, 1] : mode === 'shell' ? [0, 1, 0, 0] : [0, clamp(e1 * 2 - 0.6, 0, 1) * (1 - e2), clamp(flip * 2 - 1, 0, 1) * (1 - e3) * (1 - fwOpen), e3];
+    var stageVis = onlyPcb ? [0, 0, 1, 0] : mode === 'device' ? [0, 0, 0, 1] : mode === 'shell' ? [0, 1, 0, 0] : [0, clamp(e1 * 2 - 0.6, 0, 1) * (1 - e2) * (1 - fwSeen), clamp(flip * 2 - 1, 0, 1) * (1 - e3) * (1 - fwSeen), 0];
     product.updateMatrixWorld(true);
     var live = [];
     LABELS.forEach(function (l, i) {
       var el = labelEls[i]; if (!el) return;
       var a = stageVis[l.stage] || 0;
-      if (a < 0.02) { el.style.opacity = 0; return; }
+      if (a < 0.02) { el.style.opacity = 0; el._ty = null; if (ovLabels[i]) ovLabels[i].g.visible = false; return; }
       proj.set(l.at[0], l.at[1], l.at[2]);
       if (l.g === 'pcb') { proj.y -= PCB_PIVOT; proj.applyMatrix4(pcbFlip.matrixWorld); }
       else proj.applyMatrix4(groups[l.g].matrixWorld);
       proj.project(camera);
-      live.push({ el: el, a: a, x: (proj.x * 0.5 + 0.5) * W, y: (-proj.y * 0.5 + 0.5) * H });
+      live.push({ el: el, ov: ovLabels[i], a: a, x: (proj.x * 0.5 + 0.5) * W, y: (-proj.y * 0.5 + 0.5) * H });
     });
     if (live.length) {
       var cx = live.reduce(function (s, q) { return s + q.x; }, 0) / live.length;
@@ -440,6 +486,8 @@ export async function init(root) {
         col.forEach(function (q) { q.ty = Math.max(q.y, last + gap); last = q.ty; });
         var over = last - (H - 20); if (over > 0) col.forEach(function (q) { q.ty -= over; });
         col.forEach(function (q) {
+          // de kolomplek beweegt gedempt mee, zodat labels niet verspringen als de volgorde of het scherm verandert
+          var k2 = q.el._ty == null ? 1 : 1 - Math.exp(-dt / 140); q.el._ty = q.el._ty == null ? q.ty : q.el._ty + (q.ty - q.el._ty) * k2; q.ty = q.el._ty;
           var bw = (q.bw = q.bw || q.el.lastChild.offsetWidth || 140) + 18;
           var tx = side > 0 ? Math.min(cx + reach, W - bw) : Math.max(cx - reach, bw), dx = tx - q.x, dy = q.ty - q.y;
           q.el.style.opacity = q.a.toFixed(3);
@@ -447,6 +495,11 @@ export async function init(root) {
           q.el.style.setProperty('--dx', dx.toFixed(1) + 'px'); q.el.style.setProperty('--dy', dy.toFixed(1) + 'px');
           q.el.style.setProperty('--len', Math.hypot(dx, dy).toFixed(1) + 'px'); q.el.style.setProperty('--ang', Math.atan2(dy, dx).toFixed(3) + 'rad');
           q.el.classList.toggle('is-left', side < 0);
+          if (q.ov) {
+            q.ov.g.visible = true; q.ov.g.position.set(q.x, -q.y, 0);
+            q.ov.line.scale.set(Math.max(0.001, Math.hypot(dx, dy)), 1, 1); q.ov.line.rotation.z = -Math.atan2(dy, dx);
+            q.ov.parts.forEach(function (pt) { pt[0].material.opacity = pt[1] * q.a; });
+          }
         });
       });
     }
@@ -459,10 +512,10 @@ export async function init(root) {
       var nar = holder.classList.contains('is-narrow');
       var px2 = nar ? fw.offsetLeft + fw.offsetWidth * 0.5 : fw.offsetLeft, py2 = nar ? fw.offsetTop : fw.offsetTop + 26;
       var ddx = px2 - mx, ddy = py2 - my;
-      fwLink.style.opacity = fwOpen.toFixed(3);
-      fwLink.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px) rotate(' + Math.atan2(ddy, ddx).toFixed(3) + 'rad)';
-      fwLink.style.width = Math.hypot(ddx, ddy).toFixed(1) + 'px';
-    } else fwLink.style.opacity = 0;
+      var flen = Math.hypot(ddx, ddy);
+      fwMesh.visible = true; fwMesh.position.set(mx, -my, 0); fwMesh.rotation.z = -Math.atan2(ddy, ddx); fwMesh.scale.set(Math.max(0.001, flen), 16, 1);
+      fwMat.uniforms.uLen.value = flen; fwMat.uniforms.uT.value = now / 1000; fwMat.uniforms.uA.value = fwOpen;
+    } else fwMesh.visible = false;
     fwHead.textContent = fwOpen > 0.5 ? 'ESP32-S3 · ' : '';
     fw.style.opacity = fwA.toFixed(3); fw.style.pointerEvents = fwA > 0.5 ? 'auto' : 'none';
     if (fwA > 0.02 && now - lastUI > 250) {
@@ -480,16 +533,19 @@ export async function init(root) {
     }
 
     // legenda + hover
-    var states = [e1 > 0.5, e2 > 0.5, e3 > 0.5], k = states.join();
+    var states = [e1 > 0.5, e2 > 0.5, fwSeen > 0.5], k = states.join();
     if (k !== lastKey) { lastKey = k; rows.forEach(function (r, i) { r.classList.toggle('is-on', states[i]); }); root.classList.toggle('is-open', p > 0.03); }
     for (var h = 0; h < 3; h++) glowHi[h] += ((hover === h ? 1 : 0) - glowHi[h]) * 0.15;
     hiMats[0].forEach(function (m) { m.emissiveIntensity = glowHi[0] * 0.1; });
     hiMats[1].forEach(function (m) { m.emissiveIntensity = glowHi[1] * 0.16; });
   }
+  var minFrame = small ? 15.5 : 0; // telefoons met 90/120 Hz: vaste 60 fps, gelijkmatiger dan steeds een beeld missen
   function frame(now) {
+    if (now - lastTime < minFrame) { requestAnimationFrame(frame); return; }
     var dt = Math.min(64, now - lastTime); lastTime = now;
     var tp = target(); p += (tp - p) * (reduce ? 1 : 1 - Math.pow(0.9, dt / 16.7));
     apply(now, dt); composer.render();
+    renderer.autoClear = false; renderer.render(ovScene, ovCam); renderer.autoClear = true;
     if (visible) requestAnimationFrame(frame); else running = false; // de LEDs lopen altijd door zolang het in beeld is
   }
   function kick() { if (!running && visible) { running = true; lastTime = performance.now(); requestAnimationFrame(frame); } }
@@ -497,6 +553,22 @@ export async function init(root) {
   if (forced >= 0) window.__vai = { diffRing: diffRing, logoDiff: logoDiff, fw: fwState, groups: groups, leds: ledCenters, scene: scene, renderer: renderer };
   root.classList.add('is-ready');
   kick();
+}
+
+/* ---------- laden: model als gzip (1,3 MB i.p.v. 2,9 MB), uitgepakt in de browser ---------- */
+var SMALL = typeof innerWidth === 'number' && innerWidth < 900;
+var TEX = SMALL ? { top: '/models/vai-one-pcb-top-1k.webp?v=1', bot: '/models/vai-one-pcb-bot-1k.webp?v=1' }
+                : { top: '/models/vai-one-pcb-top.webp?v=1', bot: '/models/vai-one-pcb-bot.webp?v=1' };
+var GLB_GZ = '/models/vai-one.glb.gz?v=1', GLB = '/models/vai-one.glb?v=6';
+async function loadModel(loader) {
+  if (typeof DecompressionStream === 'function') {
+    try {
+      var gz = await (window.__vaiGz || fetch(GLB_GZ).then(function (r) { if (!r.ok) throw r.status; return r.arrayBuffer(); })); // vooraf opgehaald door de pagina
+      var buf = await new Response(new Blob([gz]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+      return await loader.parseAsync(buf, '');
+    } catch (e) { /* valt terug op het gewone bestand */ }
+  }
+  return loader.loadAsync(GLB);
 }
 
 /* ---------- hulpjes ---------- */

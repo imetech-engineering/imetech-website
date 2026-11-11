@@ -447,15 +447,19 @@ body.menu-open .floating-cta { opacity: 0; pointer-events: none; }
   .js:not(.rm) .hero-me { animation: hero-in 1.1s var(--ease) .62s both; }
 }
 
-/* werk: bij hover groeit de foto zelf iets, de pil is kleiner zodat je de foto blijft zien */
-.wimg { transition: transform .9s var(--ease); }
-.wcard:hover .wimg { transform: scale(1.035); }
-.wcard:hover .wimg img { transform: scale(1.07); }
+/* hero: de projectfoto onder de muis groeit (losse scale; !important omdat GSAP inline scale:none zet bij x/y) */
+@media (hover: hover) and (min-width: 901px) {
+  .htile-img { transition: scale .6s var(--ease), box-shadow .6s var(--ease), transform .7s var(--ease), opacity .5s var(--ease), filter .5s var(--ease); }
+  .htile:hover { z-index: 3; }
+  .htile:hover .htile-img { scale: 1.14 !important; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .7); }
+  .htile:hover .htile-img img { transform: scale(1.03); }
+  .htile:hover .htile-cap { transform: translateY(14px); }
+}
 .view-pill { width: 74px; height: 74px; font-size: .8rem; }
 
 /* opdrachtgevers-strook valt op desktop meteen binnen het eerste scherm */
 @media (min-width: 901px) {
-  .hero { min-height: max(640px, calc(100svh - 6.75rem)); padding-top: 6rem; padding-bottom: 5rem; }
+  .hero { min-height: max(640px, calc(100svh - var(--clients-h, 6.75rem))); padding-top: 6rem; padding-bottom: 5rem; }
   .hero + .clients { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); padding: 1.5rem var(--gutter); }
   .hero + .clients .clients-label { flex: none; max-width: 9rem; margin: 0; text-align: left; line-height: 1.5; }
   .hero + .clients .marquee { flex: 1; min-width: 0; }
@@ -477,3 +481,7 @@ body.menu-open .floating-cta { opacity: 0; pointer-events: none; }
 
 /* visualisatie: schermen kantelen naar je toe */
 .vids { perspective: 1400px; }
+
+/* zachte overgang tussen pagina's, gelijk aan de subpagina's (anders breekt de browser hem af met een foutmelding) */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; }

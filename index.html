@@ -305,9 +305,11 @@
   <link rel="preload" href="/fonts/Archivo-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css?v=1">
   <link rel="preload" as="image" href="/images/hero/Vlakkelichtkoepel01.webp">
-  <link rel="stylesheet" href="/home.css?v=19">
-  <link rel="stylesheet" href="/site-v3.css?v=34">
-  <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
+  <link rel="stylesheet" href="/home.css?v=23">
+  <link rel="stylesheet" href="/site-v3.css?v=41">
+  <script>document.documentElement.classList.add('js');if(window.WebGLRenderingContext&&'IntersectionObserver'in window)document.documentElement.classList.add('has-xp');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('rm');</script>
+  <!-- volgende pagina alvast ophalen zodra je een link aanraakt (Chrome/Edge/Brave; andere browsers negeren dit) -->
+  <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/v1/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 
 <body>
@@ -686,9 +688,9 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=54'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=69'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
-    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+    go(); // direct na het HTML, niet wachten tot alle foto's binnen zijn (anders verspringt de pagina op trage verbindingen)
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen
     setTimeout(function () { if (!window.gsap) document.documentElement.classList.add('rm'); }, 8000);
   })();

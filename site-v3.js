@@ -83,13 +83,25 @@
   }
 
   when('#hdr', function (hdr) {
-    var lastY = 0;
-    function onScroll() {
-      var y = window.scrollY;
+    var lastY = window.scrollY, travel = 0, hidden = false, peek = false;
+    // rustig gedrag: pas verbergen na 80px omlaag, terug na 24px omhoog; bovenin met de muis of met focus altijd zichtbaar
+    function setHidden(v) { hidden = v; hdr.classList.toggle('is-hidden', v && !peek && !document.body.classList.contains('menu-open')); }
+    function onScrollHeader(y) {
       hdr.classList.toggle('is-solid', y > 40);
-      hdr.classList.toggle('is-hidden', y > lastY && y > innerHeight * .9 && !document.body.classList.contains('menu-open'));
-      lastY = y;
+      var d = y - lastY; lastY = y;
+      if (!d) return;
+      if ((d > 0) !== (travel > 0)) travel = 0;
+      travel += d;
+      if (y < window.innerHeight * 0.9) setHidden(false);
+      else if (travel > 80) setHidden(true);
+      else if (travel < -24) setHidden(false);
     }
+    function setPeek(v) { if (v !== peek) { peek = v; setHidden(hidden); } }
+    document.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') setPeek(e.clientY < 96 || hdr.contains(e.target)); }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', function () { setPeek(false); });
+    hdr.addEventListener('focusin', function () { setPeek(true); });
+    hdr.addEventListener('focusout', function () { setPeek(false); });
+    function onScroll() { onScrollHeader(window.scrollY); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
     var burger = hdr.querySelector('.hdr-burger'), mnav = document.getElementById('mnav');
     burger.addEventListener('click', function () {
@@ -176,6 +188,19 @@
   function motion() {
     if (reduce || !window.gsap || !window.ScrollTrigger) return;
     var gsap = window.gsap, ST = window.ScrollTrigger; gsap.registerPlugin(ST);
+    // ScrollTrigger.refresh() zet de pagina kort op 0 om te meten. Midden in een veeg op een telefoon schiet je dan naar boven.
+    // Daarom niet automatisch bij 'load'/'resize', maar zelf verversen zodra er even niet gescrold of aangeraakt wordt.
+    ST.config({ autoRefreshEvents: 'visibilitychange,DOMContentLoaded' });
+    (function () {
+      var timer = 0, want = false, touching = false, lastW = innerWidth;
+      function later() { want = true; clearTimeout(timer); timer = setTimeout(function () { if (touching) return later(); want = false; ST.refresh(); }, 450); }
+      addEventListener('touchstart', function () { touching = true; }, { passive: true });
+      addEventListener('touchend', function () { touching = false; if (want) later(); }, { passive: true });
+      addEventListener('scroll', function () { if (want) later(); }, { passive: true });
+      if (document.readyState !== 'complete') addEventListener('load', later, { once: true });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(later);
+      addEventListener('resize', function () { if (innerWidth !== lastW) { lastW = innerWidth; later(); } }); // alleen breedte: de adresbalk telt niet
+    })();
     if (window.SplitText) {
       gsap.registerPlugin(window.SplitText);
       document.querySelectorAll('.section-header h2, .cta-section h2').forEach(function (el) {
@@ -245,18 +270,38 @@
 
 /* ---------- Ventairo 3D op dienstpagina's: alleen met WebGL, pas laden als het model dichtbij is ---------- */
 (function () {
+  // vooraf ophalen zodra de pagina rustig is: model, texturen en modules liggen dan klaar als je bij de 3D aankomt
+  function vaiPrefetch() {
+    if (window.__vaiPf) return; window.__vaiPf = 1;
+    var small = innerWidth < 900, d = document.head;
+    ['/xplode.js?v=50', '/vendor/three.module.min.js', '/vendor/RoomEnvironment.js', '/vendor/GLTFLoader.js', '/vendor/BufferGeometryUtils.js',
+     '/vendor/pp/EffectComposer.js', '/vendor/pp/RenderPass.js', '/vendor/pp/UnrealBloomPass.js', '/vendor/pp/OutputPass.js', '/vendor/pp/Pass.js',
+     '/vendor/pp/CopyShader.js', '/vendor/pp/ShaderPass.js', '/vendor/pp/MaskPass.js', '/vendor/pp/LuminosityHighPassShader.js', '/vendor/pp/OutputShader.js'
+    ].forEach(function (u) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = u; d.appendChild(l); });
+    // het model wordt hier al binnengehaald en door xplode.js hergebruikt; texturen volledig inlezen zodat ze in de cache staan
+    if (window.DecompressionStream) window.__vaiGz = fetch('/models/vai-one.glb.gz?v=1').then(function (r) { if (!r.ok) throw r.status; return r.arrayBuffer(); });
+    ['/models/vai-one-pcb-top' + (small ? '-1k' : '') + '.webp?v=1', '/models/vai-one-pcb-bot' + (small ? '-1k' : '') + '.webp?v=1']
+      .forEach(function (u) { fetch(u).then(function (r) { return r.blob(); }).catch(function () {}); });
+  }
+  function whenIdle(fn) {
+    var go = function () { (window.requestIdleCallback || setTimeout)(fn, { timeout: 1500 }); };
+    if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
+  }
   var els = document.querySelectorAll('[data-xp]'), ok = false;
   if (!els.length || !('IntersectionObserver' in window)) return;
   try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) {}
   if (!ok) return;
   document.documentElement.classList.add('has-xp');
+  whenIdle(function () { addEventListener('scroll', function onS() { if (scrollY > 150) { removeEventListener('scroll', onS); vaiPrefetch(); } }, { passive: true }); }); // pas als je echt gaat scrollen: wie direct wegklikt, downloadt het model niet
   els.forEach(function (el) {
     var io = new IntersectionObserver(function (en) {
-      if (!en[0].isIntersecting) return; io.disconnect();
-      import('/xplode.js?v=42').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
-    }, { rootMargin: '250% 0px' });
-    io.observe(el);
+      if (!en[0].isIntersecting) return; io.disconnect(); vaiPrefetch();
+      import('/xplode.js?v=50').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
+    }, { rootMargin: '100% 0px' }); // één scherm vooruit; het model zelf komt al binnen vanaf de eerste scroll
+    afterScroll(el, function () { io.observe(el); });
   });
+  // pas gaan kijken (en laden) als de bezoeker echt scrolt of de sectie al in beeld staat
+  function afterScroll(el, fn) { if (el.getBoundingClientRect().top < innerHeight) return fn(); addEventListener('scroll', function s() { if (scrollY > 150) { removeEventListener('scroll', s); fn(); } }, { passive: true }); }
 })();
 
 /* ---------- diensten op telefoon: swipen tussen de disciplines; tabs en puntjes volgen de swipe ---------- */
@@ -295,4 +340,25 @@
     var start = panels.findIndex(function (p) { return p.classList.contains('is-active'); });
     mark(start < 0 ? 0 : start);
   });
+})();
+
+/* ---------- volgende pagina alvast ophalen bij aanraken/aanwijzen van een link.
+   Chrome doet dit al via speculationrules; Brave, Safari en Firefox niet, vandaar deze eigen variant. ---------- */
+(function () {
+  if (window.__warmLinks) return; window.__warmLinks = 1;
+  if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+  var c = navigator.connection; if (c && (c.saveData || /2g/.test(c.effectiveType || ''))) return;
+  var done = {}, timer = 0;
+  function warm(a) {
+    if (!a || !a.href || a.target === '_blank' || a.hasAttribute('download')) return;
+    var u = new URL(a.href, location.href);
+    if (u.origin !== location.origin || u.pathname === location.pathname || /\.(pdf|zip|jpe?g|png|webp|mp4)$/i.test(u.pathname)) return;
+    var k = u.pathname + u.search; if (done[k]) return; done[k] = 1;
+    fetch(k, { credentials: 'same-origin', priority: 'low' }).then(function (r) { return r.text(); }).catch(function () { delete done[k]; });
+  }
+  addEventListener('touchstart', function (e) { warm(e.target.closest && e.target.closest('a[href]')); }, { passive: true, capture: true });
+  addEventListener('mouseover', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]'); clearTimeout(timer);
+    if (a) timer = setTimeout(function () { warm(a); }, 70);
+  }, { passive: true });
 })();
