@@ -37,11 +37,11 @@ function cubicwave8(x) { x = x & 255; var t = (x & 0x80 ? 255 - x : x) * 2 / 255
 
 /* ---------- ankerpunten (mm, assenstelsel van de samenstelling) ---------- */
 var CABLES = {
-  ring: { from: [[24.44, 57.8, -35.08], [26.35, 57.8, -33.47], [28.27, 57.8, -31.87], [30.18, 57.8, -30.26]], gf: 'pcb',
+  ring: { from: [[24.44, 52.9, -35.08], [26.35, 52.9, -33.47], [28.27, 52.9, -31.87], [30.18, 52.9, -30.26]], gf: 'pcb',
           to: [[24.68, 65.0, -35.33], [26.43, 65.0, -33.58], [28.18, 65.0, -31.83], [29.93, 65.0, -30.08]], gt: 'ring', colors: [0xd23b3b, 0x2b9a4b, 0xf2f2f2, 0x1d1f23] },
-  logo: { from: [[42.31, 57.8, -5.09], [41.87, 57.8, -7.55], [41.44, 57.8, -10.02]], gf: 'pcb',
-          to: [[-2.5, 91.8, 9.0], [0.0, 91.8, 9.0], [2.5, 91.8, 9.0]], gt: 'top', via: [[30, 63, -4, 'ring'], [12, 86, 6, 'top']], colors: [0xd23b3b, 0xf2f2f2, 0x1d1f23] },
-  usb:  { from: [[-4.96, 30.4, -9.4], [-2.96, 30.4, -9.4], [-0.96, 30.4, -9.4], [1.04, 30.4, -9.4], [3.04, 30.4, -9.4], [5.04, 30.4, -9.4]], gf: 'pcb',
+  logo: { from: [[42.31, 52.9, -5.09], [41.87, 52.9, -7.55], [41.44, 52.9, -10.02]], gf: 'pcb',
+          to: [[-2.5, 90.8, 9.0], [0.0, 90.8, 9.0], [2.5, 90.8, 9.0]], gt: 'top', via: [[30, 63, -4, 'ring'], [12, 86, 6, 'top']], colors: [0xd23b3b, 0xf2f2f2, 0x1d1f23] },
+  usb:  { from: [[-4.96, 30.7, -9.4], [-2.96, 30.7, -9.4], [-0.96, 30.7, -9.4], [1.04, 30.7, -9.4], [3.04, 30.7, -9.4], [5.04, 30.7, -9.4]], gf: 'pcb',
           to: [[-5.0, 23.07, -35.9], [-3.0, 23.07, -35.9], [-1.0, 23.07, -35.9], [1.0, 23.07, -35.9], [3.0, 23.07, -35.9], [5.0, 23.07, -35.9]], gt: 'base',
           via: [[0, 26, -22, 'pcb']], colors: [0x1d1f23, 0x2b9a4b, 0xf2f2f2, 0xe8c33a, 0x2f6fd0, 0xd23b3b] },
   ant:  { from: [[-6.0, 36.6, -30.0]], gf: 'pcb', to: [[10.0, 54.5, -48.1]], gt: 'base', via: [[0.0, 41.0, -43.5, 'pcb']], colors: [0x2a2c30], r: 0.56 }
@@ -86,6 +86,8 @@ export async function init(root) {
     Object.keys(STATUS).map(function (k) { return '<button type="button" data-k="' + k + '"><i style="background:rgb(' + STATUS[k].rgb.join(',') + ')"></i>' + STATUS[k][EN ? 'en' : 'nl'] + '</button>'; }).join('') +
     '</div><p class="xp-tip">' + (fine ? T('Tip: kom met de muis dicht bij het apparaat en je adem laat de CO₂ stijgen.', 'Tip: move your mouse close to the device and your breath raises the CO₂.') : T('Tip: tik op het apparaat om erop te ademen.', 'Tip: tap the device to breathe on it.')) + '</p>';
   ui.appendChild(fw);
+  var fwLink = document.createElement('div'); fwLink.className = 'xp-fwlink'; fwLink.innerHTML = '<i></i>'; ui.insertBefore(fwLink, fw);
+  var fwHead = document.createElement('span'); fwHead.className = 'xp-fw-mcu mono'; fw.querySelector('.xp-fw-head').insertBefore(fwHead, fw.querySelector('[data-st]'));
   var fwSt = fw.querySelector('[data-st]'), fwCo2 = fw.querySelector('[data-co2]'), fwCode = fw.querySelector('.xp-code');
   var override = null, overrideUntil = 0;
   fw.querySelectorAll('button').forEach(function (b) {
@@ -95,14 +97,14 @@ export async function init(root) {
   /* ---------- renderer en licht ---------- */
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.6 : 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.95;
+  renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 0.92;
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   var scene = new THREE.Scene();
   scene.background = studioTexture();
   var pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
   scene.environmentIntensity = 0.6;
-  var key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(90, 260, 140); key.castShadow = true;
+  var key = new THREE.DirectionalLight(0xffffff, 1.45); key.position.set(90, 260, 140); key.castShadow = true;
   key.shadow.mapSize.set(small ? 1024 : 2048, small ? 1024 : 2048); key.shadow.bias = -0.0004; key.shadow.normalBias = 0.6; key.shadow.radius = 6;
   var sc = key.shadow.camera; sc.left = -140; sc.right = 140; sc.top = 140; sc.bottom = -140; sc.near = 10; sc.far = 600;
   scene.add(key, key.target);
@@ -111,7 +113,7 @@ export async function init(root) {
   var camera = new THREE.PerspectiveCamera(28, 1, 1, 4000);
   var composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  var bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.6, 0.35, 3.2);
+  var bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.42, 0.28, 3.2);
   composer.addPass(bloom); composer.addPass(new OutputPass());
   var floor = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), new THREE.ShadowMaterial({ opacity: 0.5 }));
   floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
@@ -119,7 +121,7 @@ export async function init(root) {
   floorGlow.rotation.x = -Math.PI / 2; floorGlow.position.y = 0.2; scene.add(floorGlow);
 
   /* ---------- model ---------- */
-  var gltf = await new GLTFLoader().loadAsync('/models/vai-one.glb?v=4');
+  var gltf = await new GLTFLoader().loadAsync('/models/vai-one.glb?v=6');
   var texLoader = new THREE.TextureLoader();
   var aniso = renderer.capabilities.getMaxAnisotropy();
   function pcbTex(url) { var t = texLoader.load(url); t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = aniso; return t; }
@@ -137,15 +139,15 @@ export async function init(root) {
     o.geometry.computeVertexNormals();
     var m = o.material;
     if (mname === 'pcb_top' || mname === 'pcb_bottom') {
-      m.map = pcbTex(mname === 'pcb_top' ? '/models/vai-one-pcb-top.jpg' : '/models/vai-one-pcb-bot.jpg');
-      m.color.set(0xffffff); m.roughness = 0.42; m.metalness = 0.15;
+      m.map = pcbTex(mname === 'pcb_top' ? '/models/vai-one-pcb-top.jpg?v=3' : '/models/vai-one-pcb-bot.jpg?v=3');
+      m.color.set(0xc8c8c8); m.roughness = 0.82; m.metalness = 0.0; m.envMapIntensity = 0.06; m.userData.board = true; // verzadigd groen, geen vale omgevingsreflectie
     }
     if (mname === 'enclosure') {
       m = new THREE.MeshPhysicalMaterial({ color: 0xe6e7e4, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.05, emissive: new THREE.Color(0x229dd8), emissiveIntensity: 0 });
       hiMats[0].push(m);
     } else if (mname === 'enclosure_top') {
       cylUV(o.geometry);
-      m = new THREE.MeshPhysicalMaterial({ color: 0xc4c9d0, metalness: 1, roughness: 0.4, roughnessMap: brushed, anisotropy: 0.7, clearcoat: 0.15, clearcoatRoughness: 0.25, emissive: new THREE.Color(0x229dd8), emissiveIntensity: 0 });
+      m = new THREE.MeshPhysicalMaterial({ color: 0xa9aeb5, metalness: 0.9, roughness: 0.62, roughnessMap: brushed, anisotropy: 0.35, emissive: new THREE.Color(0x229dd8), emissiveIntensity: 0 });
       hiMats[0].push(m);
     } else if (mname === 'diffuser_ring') {
       cylUV(o.geometry, true);
@@ -155,8 +157,8 @@ export async function init(root) {
       m = new THREE.MeshStandardMaterial({ color: 0x30363d, roughness: 0.9, emissive: new THREE.Color(0x37c6ff), emissiveIntensity: 0 }); logoDiff = m;
     } else if (mname === 'led_lens') { ledLensGeo = o.geometry; ledLensMatrix = o.matrixWorld.clone(); o.visible = false; }
     else if (mname === 'led_lens_logo') { m = m.clone(); m.emissive = new THREE.Color(0x37c6ff); logoMats.push(m); }
-    else if (g === 'pcb' || g === 'ring') { m = m.clone(); if (mname === 'rf_shield' || mname === 'tin' || mname === 'usb_shell') { m.roughness = Math.max(m.roughness, 0.5); } m.emissive = new THREE.Color(0x229dd8); m.emissiveIntensity = 0; hiMats[1].push(m); }
-    o.material = m; o.castShadow = true; o.receiveShadow = true;
+    else if (g === 'pcb' || g === 'ring') { m = m.clone(); if (!m.userData.board) { m.roughness = Math.max(m.roughness, 0.68); m.metalness = Math.min(m.metalness, 0.35); m.envMapIntensity = 0.6; } /* geen glinstering op kleine onderdelen */ m.emissive = new THREE.Color(0x229dd8); m.emissiveIntensity = 0; hiMats[1].push(m); }
+    o.material = m; o.castShadow = true; o.receiveShadow = g !== 'pcb' && g !== 'ring'; // geen schaduwflikkering op de bewegende print
     var wm = o.matrixWorld.clone();
     o.removeFromParent();
     if (g === 'pcb') { wm.premultiply(new THREE.Matrix4().makeTranslation(0, -PCB_PIVOT, 0)); pcbFlip.add(o); } else groups[g].add(o);
@@ -198,6 +200,61 @@ export async function init(root) {
   slotGlow.geometry.translate(0, 71.5, 0); slotGlow.rotation.y = Math.PI / 2; groups.diff.parent.add(slotGlow);
   var logoGlow = new THREE.Mesh(new THREE.PlaneGeometry(46, 46), new THREE.MeshBasicMaterial({ map: radialTexture(), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
   logoGlow.rotation.x = -Math.PI / 2; logoGlow.position.y = 98.4; groups.top.add(logoGlow);
+
+  /* ---------- luchtstroom: binnen door de sleuven onderin, langs de sensoren, eruit door het logo ---------- */
+  var NA = small ? 90 : 160, air = new Float32Array(NA * 3), airSeed = [];
+  for (var ai = 0; ai < NA; ai++) airSeed.push({ t: Math.random(), a: Math.random() * Math.PI * 2, y: 10 + Math.random() * 20, s: 0.6 + Math.random() * 0.8 });
+  var airGeo = new THREE.BufferGeometry(); airGeo.setAttribute('position', new THREE.BufferAttribute(air, 3));
+  var airA = new Float32Array(NA); airGeo.setAttribute('alpha', new THREE.BufferAttribute(airA, 1));
+  var airMat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: { uOp: { value: 0 }, uSize: { value: (small ? 26 : 34) * renderer.getPixelRatio() } },
+    vertexShader: 'attribute float alpha; varying float vA; uniform float uSize; void main(){ vA = alpha; vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_PointSize = uSize * 60.0 / -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'varying float vA; uniform float uOp; void main(){ float d = length(gl_PointCoord - 0.5); float f = smoothstep(0.5, 0.0, d); gl_FragColor = vec4(0.72, 0.9, 1.0, f * vA * uOp); }' });
+  var airPts = new THREE.Points(airGeo, airMat); airPts.frustumCulled = false; scene.add(airPts);
+  function airflow(now, dt, op) {
+    airMat.uniforms.uOp.value = op; airPts.visible = op > 0.01; if (!airPts.visible) return;
+    for (var i = 0; i < NA; i++) {
+      var q = airSeed[i]; q.t = (q.t + dt * 0.00011 * q.s) % 1;
+      var t = q.t, x, y, z, al = 0;
+      if (t < 0.42) { // naar binnen, naar een ventilatiesleuf
+        var k = t / 0.42, rr = lerp(74, 50, k); x = Math.cos(q.a) * rr; z = Math.sin(q.a) * rr; y = q.y + Math.sin(k * 3 + q.a) * 0.8;
+        al = Math.sin(k * Math.PI) * 0.9;
+      } else if (t < 0.7) { x = 0; y = -999; z = 0; } // binnen: niet te zien
+      else { // omhoog uit het logo, waaiert iets uit
+        var k2 = (t - 0.7) / 0.3, rr2 = lerp(4, 22, k2) * (0.4 + 0.6 * ((q.a * 7) % 1)); x = Math.cos(q.a * 3) * rr2; z = Math.sin(q.a * 3) * rr2; y = 99 + k2 * 55;
+        al = Math.sin(k2 * Math.PI) * 0.8;
+      }
+      air[i * 3] = x; air[i * 3 + 1] = y; air[i * 3 + 2] = z; airA[i] = al;
+    }
+    airGeo.attributes.position.needsUpdate = true; airGeo.attributes.alpha.needsUpdate = true;
+  }
+
+  /* ---------- datapulsen: sensoren -> ESP32 -> LED-ring (alleen in de open firmware-stap) ---------- */
+  var NP = 24, pPos = new Float32Array(NP * 3), pAl = new Float32Array(NP), pCol = new Float32Array(NP * 3);
+  var pGeo = new THREE.BufferGeometry(); pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3)); pGeo.setAttribute('alpha', new THREE.BufferAttribute(pAl, 1)); pGeo.setAttribute('color', new THREE.BufferAttribute(pCol, 3));
+  var pMat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, uniforms: { uSize: { value: 60 * renderer.getPixelRatio() } },
+    vertexShader: 'attribute float alpha; attribute vec3 color; varying float vA; varying vec3 vC; uniform float uSize; void main(){ vA = alpha; vC = color; vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_PointSize = uSize * 60.0 / -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'varying float vA; varying vec3 vC; void main(){ float d = length(gl_PointCoord - 0.5); float f = smoothstep(0.5, 0.0, d); gl_FragColor = vec4(vC * (1.0 + 2.0 * smoothstep(0.25, 0.0, d)), f * vA); }' });
+  var pPts = new THREE.Points(pGeo, pMat); pPts.frustumCulled = false; pPts.renderOrder = 5; scene.add(pPts);
+  var pv = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()], P_SENS = [[-17.0, 39.2, 35.9], [17.0, 39.4, 35.7]], P_MCU = [0, 36.9, -22];
+  function onPcb(a, out) { return out.set(a[0], a[1] - PCB_PIVOT - 1.5, a[2]).applyMatrix4(pcbFlip.matrixWorld); }
+  function pulses(now, dt, op) {
+    pPts.visible = op > 0.01; if (!pPts.visible) return;
+    var mcu = onPcb(P_MCU, pv[0]);
+    var ringPt = pv[1].set(-30, 68.4, -33).applyMatrix4(groups.ring.matrixWorld);
+    for (var i = 0; i < NP; i++) {
+      var t = ((now / 1600) + i / NP * 3) % 1, a, b, c, col;
+      if (i % 3 === 2) { // ESP32 -> ring (statuskleur)
+        a = mcu; b = ringPt; c = pv[2].copy(a).lerp(b, 0.5); c.y += 30; col = aq;
+      } else {            // sensor -> ESP32
+        a = onPcb(P_SENS[i % 3], pv[3]); b = mcu; c = pv[2].copy(a).lerp(b, 0.5); c.y += 6; col = tmpC.set(0x8fe3ff);
+      }
+      var u = 1 - t, x = u * u * a.x + 2 * u * t * c.x + t * t * b.x, y = u * u * a.y + 2 * u * t * c.y + t * t * b.y, z = u * u * a.z + 2 * u * t * c.z + t * t * b.z;
+      pPos[i * 3] = x; pPos[i * 3 + 1] = y; pPos[i * 3 + 2] = z; pAl[i] = op * Math.sin(t * Math.PI);
+      pCol[i * 3] = col.r; pCol[i * 3 + 1] = col.g; pCol[i * 3 + 2] = col.b;
+    }
+    pGeo.attributes.position.needsUpdate = true; pGeo.attributes.alpha.needsUpdate = true; pGeo.attributes.color.needsUpdate = true;
+  }
 
   /* ---------- kabels ---------- */
   var cableMeshes = [];
@@ -283,12 +340,16 @@ export async function init(root) {
   var onlyPcbMode = mode === 'pcb';
   function apply(now, dt) {
     var onlyPcb = onlyPcbMode;
-    var e0 = 1, e1, e2, flip, e3, fwd = 0;
+    var e0 = 1, e1, e2, flip, e3, fwd = 0, fwOpen = 0;
     if (mode === 'explode') {
-      e0 = ease(seg(p, 0, 0.13));                 // van bovenaf (logo) naar 3D
-      e3 = ease(seg(p, 0.72, 0.9));               // firmware: het product sluit weer en licht op
-      e1 = ease(seg(p, 0.12, 0.34)) * (1 - e3); e2 = ease(seg(p, 0.33, 0.5)) * (1 - e3);
-      fwd = ease(seg(p, 0.46, 0.57)) * (1 - e3); flip = ease(seg(p, 0.54, 0.68)) * (1 - e3);
+      e0 = ease(seg(p, 0, 0.1));                  // van bovenaf (logo) naar 3D
+      var r = seg(p, 0.8, 0.95);                  // weer in elkaar, in omgekeerde volgorde
+      e1 = ease(seg(p, 0.1, 0.24)) * (1 - ease(seg(r, 0.72, 1)));
+      e2 = ease(seg(p, 0.23, 0.35)) * (1 - ease(seg(r, 0.5, 0.82)));
+      fwd = ease(seg(p, 0.33, 0.41)) * (1 - ease(seg(r, 0.24, 0.52)));
+      flip = ease(seg(p, 0.39, 0.48)) * (1 - ease(seg(r, 0, 0.28)));
+      fwOpen = ease(seg(p, 0.55, 0.61)) * (1 - ease(seg(p, 0.77, 0.81))); // firmware terwijl alles open ligt
+      e3 = ease(seg(p, 0.93, 0.98));              // dicht product licht op
     }
     else if (mode === 'pcb') { e1 = 1; e2 = 1; flip = 1; e3 = 0; fwd = 0; }
     else if (mode === 'shell') { e1 = 0.55 + 0.05 * Math.sin(now / 2400); e2 = 0; flip = 0; e3 = 0; }
@@ -300,8 +361,11 @@ export async function init(root) {
     groups.pcb.position.y = 44 * e2 + float * 0.4;
     // print omdraaien en naar de kijker kantelen, zodat de componentenzijde in beeld komt
     var camYaw = -0.55 + (mode === 'explode' ? p * 1.0 : (reduce ? 0 : now / 9000)) + pointer.x * 0.7;
-    var axis = new V(Math.cos(camYaw), 0, -Math.sin(camYaw));
-    pcbFlip.quaternion.setFromAxisAngle(axis, -(Math.PI - (onlyPcbMode ? 0.55 : 0.95)) * flip);
+    // omdraaien om de kijkrichting (dan staat de opdruk rechtop), daarna naar de kijker kantelen
+    var axis = new V(Math.cos(camYaw), 0, -Math.sin(camYaw)), toCam = new V(Math.sin(camYaw), 0, Math.cos(camYaw));
+    var qFlip = new THREE.Quaternion().setFromAxisAngle(toCam, Math.PI * flip);
+    var qTilt = new THREE.Quaternion().setFromAxisAngle(axis, (onlyPcbMode ? 0.55 : 0.95) * flip);
+    pcbFlip.quaternion.copy(qTilt.multiply(qFlip));
     var fwdMm = 108 * fwd; // eerst vrij van de stapel naar voren, dan pas omdraaien
     groups.pcb.position.y += 34 * fwd;
     groups.pcb.position.x = Math.sin(camYaw) * fwdMm; groups.pcb.position.z = Math.cos(camYaw) * fwdMm;
@@ -309,6 +373,7 @@ export async function init(root) {
     floorGlow.visible = !onlyPcb;
     updateCables(onlyPcb ? 0 : clamp(1 - fwd * 3, 0, 1));
 
+    airflow(now, dt, onlyPcb ? 0 : 0.55 * (1 - Math.max(e1, e2)) * (mode === 'shell' ? 0 : 1));
     // firmware -> LEDs, diffuser-ring, logo
     firmware(now, dt);
     var d = fwState.disp; aq.setRGB(d[0] / 255, d[1] / 255, d[2] / 255, THREE.SRGBColorSpace);
@@ -340,11 +405,12 @@ export async function init(root) {
     var elev = (onlyPcb ? 0.62 : mode === 'device' ? 0.5 : lerp(1.45, lerp(0.36, 0.5, e2) + 0.16 * e3, e0)) + pointer.y * 0.18 * e0;
     var spanH = onlyPcb ? 86 : mode === 'device' ? 150 : mode === 'shell' ? 168 : lerp(150, lerp(112, 225, Math.max(e1 * 0.6, e2)) + 34 * e3, e0);
     var t = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    var dist = Math.max(spanH * 0.52 / t, (onlyPcb ? 112 : 128) * 0.62 / (t * camera.aspect)) + fwd * 90;
+    var dist = Math.max(spanH * 0.52 / t, (onlyPcb ? 112 : 128) * 0.62 / (t * camera.aspect)) + fwd * 90 + fwOpen * (W < 620 ? 70 : 20);
+    if (W < 620) dist *= lerp(1.22, 1, e0); // smal scherm: in het beginbeeld ruim marge rond de Top
     var ly = onlyPcb ? 84 : mode === 'device' ? 50 : mode === 'shell' ? 78 : lerp(98, lerp(49, 104, Math.max(e1 * 0.5, e2)), e0);
     // met het firmware-paneel ernaast schuift het product iets opzij (breed) of omhoog (smal)
-    var fwSpace = (mode === 'explode' ? e3 : mode === 'device' ? 1 : 0), narrow = W < 620;
-    var sideX = narrow ? 0 : 30 * fwSpace, sideY = narrow ? -12 * fwSpace : 0;
+    var fwSpace = (mode === 'explode' ? fwOpen : mode === 'device' ? 1 : 0), narrow = W < 620;
+    var sideX = narrow ? 0 : 34 * fwSpace, sideY = narrow ? (mode === 'device' ? -12 : -46) * fwSpace : 0;
     look.set(Math.cos(camYaw) * sideX, ly + sideY, -Math.sin(camYaw) * sideX);
     holder.classList.toggle('is-narrow', narrow);
     camera.position.set(look.x + Math.sin(yaw) * Math.cos(elev) * dist, look.y + Math.sin(elev) * dist, look.z + Math.cos(yaw) * Math.cos(elev) * dist);
@@ -352,7 +418,7 @@ export async function init(root) {
     key.target.position.copy(look); key.target.updateMatrixWorld();
 
     // labels projecteren
-    var stageVis = onlyPcb ? [0, 0, 1, 0] : mode === 'device' ? [0, 0, 0, 1] : mode === 'shell' ? [0, 1, 0, 0] : [0, clamp(e1 * 2 - 0.6, 0, 1) * (1 - e2), clamp(flip * 2 - 1, 0, 1) * (1 - e3), e3];
+    var stageVis = onlyPcb ? [0, 0, 1, 0] : mode === 'device' ? [0, 0, 0, 1] : mode === 'shell' ? [0, 1, 0, 0] : [0, clamp(e1 * 2 - 0.6, 0, 1) * (1 - e2), clamp(flip * 2 - 1, 0, 1) * (1 - e3) * (1 - fwOpen), e3];
     product.updateMatrixWorld(true);
     var live = [];
     LABELS.forEach(function (l, i) {
@@ -384,7 +450,20 @@ export async function init(root) {
         });
       });
     }
-    var fwA = mode === 'explode' ? e3 : mode === 'device' ? 1 : 0;
+    var fwA = mode === 'explode' ? fwOpen : mode === 'device' ? 1 : 0; // firmware alleen als het product open ligt
+    // firmware verbonden met de microcontroller: lijn van paneel naar de ESP32-S3 en datapulsen
+    pulses(now, dt, fwOpen);
+    if (fwOpen > 0.02) {
+      proj.set(0, 36.9 - PCB_PIVOT, -22).applyMatrix4(pcbFlip.matrixWorld).project(camera);
+      var mx = (proj.x * 0.5 + 0.5) * W, my = (-proj.y * 0.5 + 0.5) * H;
+      var nar = holder.classList.contains('is-narrow');
+      var px2 = nar ? fw.offsetLeft + fw.offsetWidth * 0.5 : fw.offsetLeft, py2 = nar ? fw.offsetTop : fw.offsetTop + 26;
+      var ddx = px2 - mx, ddy = py2 - my;
+      fwLink.style.opacity = fwOpen.toFixed(3);
+      fwLink.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px) rotate(' + Math.atan2(ddy, ddx).toFixed(3) + 'rad)';
+      fwLink.style.width = Math.hypot(ddx, ddy).toFixed(1) + 'px';
+    } else fwLink.style.opacity = 0;
+    fwHead.textContent = fwOpen > 0.5 ? 'ESP32-S3 · ' : '';
     fw.style.opacity = fwA.toFixed(3); fw.style.pointerEvents = fwA > 0.5 ? 'auto' : 'none';
     if (fwA > 0.02 && now - lastUI > 250) {
       lastUI = now; var stn = STATUS[fwState.status];
@@ -441,9 +520,9 @@ function cylUV(geo, ring) {
 }
 function brushedTexture() {
   var c = document.createElement('canvas'); c.width = 1024; c.height = 512;
-  var g = c.getContext('2d'); g.fillStyle = 'rgb(110,110,110)'; g.fillRect(0, 0, 1024, 512);
+  var g = c.getContext('2d'); g.fillStyle = 'rgb(215,215,215)'; g.fillRect(0, 0, 1024, 512);
   for (var i = 0; i < 5200; i++) {
-    var y = Math.random() * 512, v = 40 + Math.random() * 170, a = 0.2 + Math.random() * 0.5;
+    var y = Math.random() * 512, v = 180 + Math.random() * 70, a = 0.25 + Math.random() * 0.5;
     g.fillStyle = 'rgba(' + [v, v, v].map(function (q) { return q.toFixed(0); }).join(',') + ',' + a.toFixed(2) + ')'; g.fillRect(0, y, 1024, 0.5 + Math.random() * 0.9);
   }
   var t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(1, 3); t.anisotropy = 8;

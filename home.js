@@ -222,8 +222,8 @@
     root.classList.add('has-xp');
     var io = new IntersectionObserver(function (en) {
       if (!en[0].isIntersecting) return; io.disconnect();
-      import('/xplode.js?v=28').then(function (m) { return m.init(xp); }).catch(function () { root.classList.remove('has-xp'); });
-    }, { rootMargin: '120% 0px' });
+      import('/xplode.js?v=42').then(function (m) { return m.init(xp); }).catch(function () { root.classList.remove('has-xp'); });
+    }, { rootMargin: '250% 0px' });
     io.observe(xp);
   })();
 

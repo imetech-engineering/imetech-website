@@ -513,7 +513,8 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp-chips button:hover, .xp-chips button.is-on { background: rgba(255, 255, 255, .12); border-color: rgba(236, 243, 251, .6); }
 .xp-tip { margin: .7rem 0 0; font-size: .7rem; color: rgba(190, 210, 232, .7); line-height: 1.4; }
 .xp-canvas.is-narrow .xp-fw { top: auto; bottom: 10px; right: 10px; width: calc(100% - 20px); padding: .7rem .8rem .75rem; }
-.xp-canvas.is-narrow .xp-code, .xp-canvas.is-narrow .xp-tip { display: none; }
+.xp-canvas.is-narrow .xp-tip { display: none; }
+.xp-canvas.is-narrow .xp-code { margin: .5rem 0 .55rem; padding: .45rem .55rem; font-size: .5rem; line-height: 1.5; }
 @media (max-width: 900px) {
   .xp-canvas { border-radius: 22px; }
   .xp-label b { font-size: .7rem; } .xp-label small { display: none; }
@@ -521,7 +522,7 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 
 /* ===== 3D exploded view (xplode.js): alleen zichtbaar als WebGL werkt ===== */
 .xp { display: none; }
-.has-xp .xp { display: block; height: 320vh; margin-top: clamp(2rem, 5vw, 4rem); }
+.has-xp .xp { display: block; height: 460vh; margin-top: clamp(2rem, 5vw, 4rem); }
 .xp-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; grid-template-columns: minmax(15rem, 23rem) 1fr; align-items: center; gap: clamp(1rem, 3vw, 3rem); padding-top: 72px; box-sizing: border-box; }
 .xp-canvas { position: relative; height: 100%; min-height: 0; opacity: 0; transition: opacity 1s cubic-bezier(.22, 1, .36, 1); }
 .xp.is-ready .xp-canvas { opacity: 1; }
@@ -543,7 +544,7 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp.is-open .xp-hint { opacity: 0; }
 @keyframes xp-cue { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
 @media (max-width: 900px) {
-  .has-xp .xp { height: 260vh; }
+  .has-xp .xp { height: 400vh; }
   .xp-stage { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; align-items: stretch; gap: .5rem; padding: 64px 0 1.25rem; }
   .xp-legend { order: 2; }
   .xp-kicker, .xp-hint { display: none; }
@@ -569,3 +570,20 @@ textarea.input:user-valid:not(:placeholder-shown) { border-color: #2fb37a !impor
 .xp-sub-hint { margin-top: 1.25rem; font: 500 .72rem/1.4 'IBM Plex Mono', monospace; letter-spacing: .06em; text-transform: uppercase; color: #56677b; }
 @media (max-width: 900px) { .has-xp .xp-sub { grid-template-columns: 1fr; } .xp-sub .xp-canvas { height: min(80vw, 480px); min-height: 360px; } }
 .xp-sub.is-ready .xp-canvas { opacity: 1; }
+
+/* diensten op telefoon: swipen tussen de disciplines (tabs volgen mee) */
+@media (max-width: 860px) {
+  .svc-panels.is-tabs { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: calc(var(--gutter, 1rem) * -1); padding: 4px var(--gutter, 1rem) 12px; scroll-padding-inline: var(--gutter, 1rem); align-items: flex-start; -webkit-overflow-scrolling: touch; }
+  .svc-panels.is-tabs::-webkit-scrollbar { display: none; }
+  .svc-panels.is-tabs .svc-panel, .svc-panels.is-tabs .svc-panel:not(.is-active) { display: grid; flex: 0 0 calc(100% - 26px); scroll-snap-align: start; scroll-snap-stop: always; animation: none; }
+  .svc-swipe { display: flex; justify-content: center; gap: 6px; margin-top: .4rem; }
+  .svc-swipe i { width: 6px; height: 6px; border-radius: 99px; background: rgba(7, 26, 47, .18); transition: width .35s cubic-bezier(.22, 1, .36, 1), background-color .35s; }
+  .svc-swipe i.is-on { width: 22px; background: #229dd8; }
+}
+@media (min-width: 861px) { .svc-swipe { display: none; } }
+.xp-fwlink { position: absolute; left: 0; top: 0; height: 3px; box-shadow: 0 0 10px rgba(108, 200, 242, .7); transform-origin: 0 50%; opacity: 0; pointer-events: none; overflow: hidden;
+  background: linear-gradient(90deg, rgba(108, 200, 242, .9), rgba(108, 200, 242, .25)); border-radius: 2px; }
+.xp-fwlink i { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(255, 255, 255, .95) 10px 16px, transparent 16px 26px); animation: xp-data 0.9s linear infinite; }
+@keyframes xp-data { to { transform: translateX(26px); } }
+.xp-fw-mcu { color: #6cc8f2; font-size: .7rem; letter-spacing: .04em; }

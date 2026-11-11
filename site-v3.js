@@ -253,8 +253,46 @@
   els.forEach(function (el) {
     var io = new IntersectionObserver(function (en) {
       if (!en[0].isIntersecting) return; io.disconnect();
-      import('/xplode.js?v=28').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
-    }, { rootMargin: '120% 0px' });
+      import('/xplode.js?v=42').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
+    }, { rootMargin: '250% 0px' });
     io.observe(el);
+  });
+})();
+
+/* ---------- diensten op telefoon: swipen tussen de disciplines; tabs en puntjes volgen de swipe ---------- */
+(function () {
+  var mq = window.matchMedia('(max-width: 860px)');
+  document.querySelectorAll('.section-svc').forEach(function (section) {
+    var wrap = section.querySelector('.svc-panels'), tabs = [].slice.call(section.querySelectorAll('.svc-tab'));
+    if (!wrap || !tabs.length) return;
+    var panels = [].slice.call(wrap.querySelectorAll('.svc-panel'));
+    wrap.setAttribute('data-lenis-prevent', '');
+    var dots = document.createElement('div'); dots.className = 'svc-swipe'; dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = panels.map(function () { return '<i></i>'; }).join(''); wrap.after(dots);
+    var dotEls = [].slice.call(dots.children), current = -1, raf = 0;
+    function mark(i) {
+      if (i === current) return; current = i;
+      tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
+      panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
+      dotEls.forEach(function (d, k) { d.classList.toggle('is-on', k === i); });
+      var t = tabs[i]; if (t && t.parentNode.scrollTo) t.parentNode.scrollTo({ left: t.offsetLeft - 16, behavior: 'smooth' });
+    }
+    function nearest() {
+      var x = wrap.scrollLeft, best = 0, bd = 1e9;
+      panels.forEach(function (p, k) { var d = Math.abs(p.offsetLeft - wrap.offsetLeft - x - parseFloat(getComputedStyle(wrap).paddingLeft || 0) + 0); if (d < bd) { bd = d; best = k; } });
+      return best;
+    }
+    wrap.addEventListener('scroll', function () {
+      if (!mq.matches) return;
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(function () { mark(nearest()); });
+    }, { passive: true });
+    tabs.forEach(function (t, k) {
+      t.addEventListener('click', function () {
+        if (!mq.matches) return;
+        var p = panels[k]; wrap.scrollTo({ left: p.offsetLeft - wrap.offsetLeft - parseFloat(getComputedStyle(wrap).paddingLeft || 0), behavior: 'smooth' });
+      });
+    });
+    var start = panels.findIndex(function (p) { return p.classList.contains('is-active'); });
+    mark(start < 0 ? 0 : start);
   });
 })();
