@@ -274,7 +274,7 @@
   function vaiPrefetch() {
     if (window.__vaiPf) return; window.__vaiPf = 1;
     var small = innerWidth < 900, d = document.head;
-    ['/xplode.js?v=50', '/vendor/three.module.min.js', '/vendor/RoomEnvironment.js', '/vendor/GLTFLoader.js', '/vendor/BufferGeometryUtils.js',
+    ['/xplode.js?v=52', '/vendor/three.module.min.js', '/vendor/RoomEnvironment.js', '/vendor/GLTFLoader.js', '/vendor/BufferGeometryUtils.js',
      '/vendor/pp/EffectComposer.js', '/vendor/pp/RenderPass.js', '/vendor/pp/UnrealBloomPass.js', '/vendor/pp/OutputPass.js', '/vendor/pp/Pass.js',
      '/vendor/pp/CopyShader.js', '/vendor/pp/ShaderPass.js', '/vendor/pp/MaskPass.js', '/vendor/pp/LuminosityHighPassShader.js', '/vendor/pp/OutputShader.js'
     ].forEach(function (u) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = u; d.appendChild(l); });
@@ -296,7 +296,7 @@
   els.forEach(function (el) {
     var io = new IntersectionObserver(function (en) {
       if (!en[0].isIntersecting) return; io.disconnect(); vaiPrefetch();
-      import('/xplode.js?v=50').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
+      import('/xplode.js?v=52').then(function (m) { return m.init(el); }).catch(function () { el.closest('section') && el.closest('section').remove(); });
     }, { rootMargin: '100% 0px' }); // één scherm vooruit; het model zelf komt al binnen vanaf de eerste scroll
     afterScroll(el, function () { io.observe(el); });
   });

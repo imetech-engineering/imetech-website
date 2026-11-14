@@ -61,6 +61,8 @@ var LABELS = [
 ];
 
 export async function init(root) {
+  // even teruggeven aan de browser tussen zware stappen (scrollen loopt dan door)
+  function breathe() { return new Promise(function (r) { if (window.scheduler && scheduler.yield) scheduler.yield().then(r); else setTimeout(r, 0); }); }
   var mode = root.dataset.mode || 'explode';
   var holder = root.querySelector('.xp-canvas'), canvas = holder.querySelector('canvas');
   var rows = Array.prototype.slice.call(root.querySelectorAll('.xp-row'));
@@ -101,6 +103,7 @@ export async function init(root) {
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = small ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
   var scene = new THREE.Scene();
   scene.background = studioTexture();
+  await breathe();
   var pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
   scene.environmentIntensity = 0.6;
@@ -120,11 +123,13 @@ export async function init(root) {
   var floorGlow = new THREE.Mesh(new THREE.PlaneGeometry(320, 320), new THREE.MeshBasicMaterial({ map: radialTexture(), transparent: true, depthWrite: false, opacity: 0, blending: THREE.AdditiveBlending, toneMapped: false }));
   floorGlow.rotation.x = -Math.PI / 2; floorGlow.position.y = 0.2; scene.add(floorGlow);
 
+  await breathe();
   /* ---------- model ---------- */
   var gltf = await loadModel(new GLTFLoader());
   var texLoader = new THREE.TextureLoader();
   var aniso = renderer.capabilities.getMaxAnisotropy();
-  function pcbTex(url) { var t = texLoader.load(url); t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = aniso; return t; }
+  var pcbImgs = await Promise.all([texLoader.loadAsync(TEX.top), texLoader.loadAsync(TEX.bot)]).catch(function () { return [texLoader.load(TEX.top), texLoader.load(TEX.bot)]; });
+  function pcbTex(url) { var t = url === TEX.top ? pcbImgs[0] : pcbImgs[1]; t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = aniso; t.needsUpdate = true; return t; }
   var brushed = brushedTexture();
   var product = new THREE.Group(); scene.add(product);
   var groups = { base: new THREE.Group(), pcb: new THREE.Group(), ring: new THREE.Group(), diff: new THREE.Group(), top: new THREE.Group() };
@@ -134,7 +139,8 @@ export async function init(root) {
   var meshes = [];
   gltf.scene.updateMatrixWorld(true);
   gltf.scene.traverse(function (o) { if (o.isMesh) meshes.push(o); });
-  meshes.forEach(function (o) {
+  for (var mi = 0; mi < meshes.length; mi++) { // in porties, met pauzes ertussen
+    var o = meshes[mi];
     var parts = (o.name || '').split('|'), g = groups[parts[0]] ? parts[0] : 'base', mname = parts[1] || '';
     o.geometry.computeVertexNormals();
     var m = o.material;
@@ -163,8 +169,10 @@ export async function init(root) {
     o.removeFromParent();
     if (g === 'pcb') { wm.premultiply(new THREE.Matrix4().makeTranslation(0, -PCB_PIVOT, 0)); pcbFlip.add(o); } else groups[g].add(o);
     wm.decompose(o.position, o.quaternion, o.scale);
-  });
+    if (mi % 4 === 3) await breathe();
+  }
 
+  await breathe();
   /* ---------- ring-LEDs ---------- */
   var ledCenters = [];
   if (ledLensGeo) {
@@ -201,6 +209,7 @@ export async function init(root) {
   var logoGlow = new THREE.Mesh(new THREE.PlaneGeometry(46, 46), new THREE.MeshBasicMaterial({ map: radialTexture(), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
   logoGlow.rotation.x = -Math.PI / 2; logoGlow.position.y = 98.4; groups.top.add(logoGlow);
 
+  await breathe();
   /* ---------- luchtstroom: binnen door de sleuven onderin, langs de sensoren, eruit door het logo ---------- */
   var NA = small ? 90 : 160, air = new Float32Array(NA * 3), airSeed = [];
   for (var ai = 0; ai < NA; ai++) airSeed.push({ t: Math.random(), a: Math.random() * Math.PI * 2, y: 10 + Math.random() * 20, s: 0.6 + Math.random() * 0.8 });
@@ -548,9 +557,39 @@ export async function init(root) {
     renderer.autoClear = false; renderer.render(ovScene, ovCam); renderer.autoClear = true;
     if (visible) requestAnimationFrame(frame); else running = false; // de LEDs lopen altijd door zolang het in beeld is
   }
-  function kick() { if (!running && visible) { running = true; lastTime = performance.now(); requestAnimationFrame(frame); } }
+  var warmed = false; // pas tekenen als het opwarmen klaar is
+  function kick() { if (!running && visible && warmed) { running = true; lastTime = performance.now(); requestAnimationFrame(frame); } }
   new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) kick(); }, { rootMargin: '10% 0px' }).observe(root);
   if (forced >= 0) window.__vai = { diffRing: diffRing, logoDiff: logoDiff, fw: fwState, groups: groups, leds: ledCenters, scene: scene, renderer: renderer };
+  /* Opwarmen in kleine stukjes, telkens als de browser even niets te doen heeft. Het eerste beeld kostte
+     anders in één keer ~0,6 s (desktop) tot 2 s (telefoon) en dan hapert het scrollen. */
+  function idle() { return new Promise(function (r) { (window.requestIdleCallback || setTimeout)(function () { r(); }, { timeout: 500 }); }); }
+  try {
+    apply(performance.now(), 16);
+    // shaders parallel compileren (blokkeert niet). Het model wordt via de nabloei-buffer getekend en heeft dan
+    // een andere shadervariant nodig dan direct naar het scherm: dus compileren mét die buffer actief.
+    renderer.setRenderTarget(composer.readBuffer); await renderer.compileAsync(scene, camera); renderer.setRenderTarget(null);
+    await renderer.compileAsync(ovScene, ovCam);
+    var texs = [];
+    scene.traverse(function (o) { [].concat(o.material || []).forEach(function (m) { ['map', 'roughnessMap', 'emissiveMap', 'alphaMap'].forEach(function (k) { if (m[k] && texs.indexOf(m[k]) < 0) texs.push(m[k]); }); }); });
+    if (scene.background && scene.background.isTexture) texs.push(scene.background);
+    for (var ti = 0; ti < texs.length; ti++) { await breathe(); renderer.initTexture(texs[ti]); }
+    // geometrie per onderdeel naar de videokaart, daarna één keer alles (schaduw)
+    var gkeys = Object.keys(groups), gvis = gkeys.map(function (k) { return groups[k].visible; });
+    renderer.setRenderTarget(composer.readBuffer);
+    for (var gi = 0; gi < gkeys.length; gi++) {
+      gkeys.forEach(function (k, j) { groups[k].visible = j === gi; });
+      await idle();
+      renderer.render(scene, camera);
+    }
+    gkeys.forEach(function (k, j) { groups[k].visible = gvis[j]; });
+    await idle();
+    renderer.render(scene, camera);
+    renderer.setRenderTarget(null);
+    await idle();
+    composer.render();                // nabloei-shaders
+  } catch (e) { renderer.setRenderTarget(null); /* lukt opwarmen niet, dan gebeurt het gewoon bij het eerste beeld */ }
+  warmed = true;
   root.classList.add('is-ready');
   kick();
 }

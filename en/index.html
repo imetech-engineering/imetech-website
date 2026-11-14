@@ -689,7 +689,7 @@
   <script>
   /* animaties pas laden als de pagina in beeld staat: eerste weergave wacht er niet op */
   (function () {
-    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=69'];
+    var files = ['/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/vendor/SplitText.min.js', '/vendor/lenis.min.js', '/home.js?v=71'];
     function go() { files.forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); }); }
     go(); // direct na het HTML, niet wachten tot alle foto's binnen zijn (anders verspringt de pagina op trage verbindingen)
     // vangnet: laadt het niet, dan alles gewoon zichtbaar tonen

@@ -238,7 +238,7 @@
     function vaiPrefetch() {
       if (window.__vaiPf) return; window.__vaiPf = 1;
       var small = innerWidth < 900, d = document.head;
-      ['/xplode.js?v=50', '/vendor/three.module.min.js', '/vendor/RoomEnvironment.js', '/vendor/GLTFLoader.js', '/vendor/BufferGeometryUtils.js',
+      ['/xplode.js?v=52', '/vendor/three.module.min.js', '/vendor/RoomEnvironment.js', '/vendor/GLTFLoader.js', '/vendor/BufferGeometryUtils.js',
        '/vendor/pp/EffectComposer.js', '/vendor/pp/RenderPass.js', '/vendor/pp/UnrealBloomPass.js', '/vendor/pp/OutputPass.js', '/vendor/pp/Pass.js',
        '/vendor/pp/CopyShader.js', '/vendor/pp/ShaderPass.js', '/vendor/pp/MaskPass.js', '/vendor/pp/LuminosityHighPassShader.js', '/vendor/pp/OutputShader.js'
       ].forEach(function (u) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = u; d.appendChild(l); });
@@ -259,7 +259,7 @@
     whenIdle(function () { addEventListener('scroll', function onS() { if (scrollY > 150) { removeEventListener('scroll', onS); vaiPrefetch(); } }, { passive: true }); }); // pas als je echt gaat scrollen: wie direct wegklikt, downloadt het model niet
     var io = new IntersectionObserver(function (en) {
       if (!en[0].isIntersecting) return; io.disconnect(); vaiPrefetch();
-      import('/xplode.js?v=50').then(function (m) { return m.init(xp); }).catch(function () { root.classList.remove('has-xp'); });
+      import('/xplode.js?v=52').then(function (m) { return m.init(xp); }).catch(function () { root.classList.remove('has-xp'); });
     }, { rootMargin: '100% 0px' }); // één scherm vooruit; het model zelf komt al binnen vanaf de eerste scroll
     // pas gaan kijken (en laden) als de bezoeker echt scrolt of de sectie al in beeld staat
     function afterScroll(el, fn) { if (el.getBoundingClientRect().top < innerHeight) return fn(); addEventListener('scroll', function s() { if (scrollY > 150) { removeEventListener('scroll', s); fn(); } }, { passive: true }); }
